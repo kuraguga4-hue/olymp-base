@@ -8,7 +8,10 @@
   const SITE = new URL("../", script.src); // корень сайта: файл лежит в docs/js/
   const API = "https://codeforces.com/api/";
   const API_GAP_MS = 2000; // лимит Codeforces API — не чаще раза в 2 секунды
-  const TIMEOUT_MS = 20000;
+  const TIMEOUT_MS = 20000; // ждём ответа сервера
+  const BODY_TIMEOUT_MS = 60000; // user.status у активных участников — мегабайты
+  const SITE_TIMEOUT_MS = 10000; // topics.json и страницы подборок
+  const TAB = Math.random().toString(36).slice(2); // метка вкладки: две вкладки не займут один слот
   const HANDLE_KEY = "olymp-base:cf-handle";
   const LAST_CALL_KEY = "olymp-base:cf-last-call";
   const HANDLE = /^[A-Za-z0-9_.-]{1,24}$/;
@@ -47,8 +50,9 @@
     { min: 0, order: 0, cls: "none", text: "не начато" },
   ];
   const ERRORS = {
-    network: ["Нет связи с Codeforces", "Проверь интернет и попробуй ещё раз."],
-    timeout: ["Codeforces долго не отвечает", "Попробуй ещё раз через минуту."],
+    offline: ["Нет связи с Codeforces", "Проверь интернет и попробуй ещё раз."],
+    network: ["Не получилось достучаться до Codeforces", "Проверь интернет. Если он в порядке — Codeforces сейчас недоступен, попробуй позже."],
+    timeout: ["Codeforces долго не отвечает", "Попробуй ещё раз чуть позже."],
     limit: ["Слишком много запросов", "Codeforces просит подождать. Попробуй ещё раз через пару секунд."],
     unavailable: ["Codeforces сейчас недоступен", "Попробуй ещё раз позже."],
   };
@@ -71,29 +75,62 @@
     return result;
   }
 
-  // Метка последнего запроса лежит и в localStorage — так лимит держится и после перезагрузки страницы.
+  function storedCall() {
+    return Number(String(load(LAST_CALL_KEY) || "").split(":")[0]) || 0;
+  }
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  // Метка последнего запроса лежит в localStorage — так лимит держится и после перезагрузки, и между вкладками.
+  // Метку ставим прямо перед отправкой и проверяем, что её не перебила другая вкладка.
   async function waitForSlot() {
-    const last = Math.max(lastCall, Number(load(LAST_CALL_KEY)) || 0);
-    const wait = Math.min(API_GAP_MS, last + API_GAP_MS - Date.now());
-    if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
-    lastCall = Date.now();
-    save(LAST_CALL_KEY, String(lastCall));
+    for (;;) {
+      const now = Date.now();
+      const last = Math.max(lastCall, Math.min(storedCall(), now)); // метке «из будущего» не верим
+      if (now < last + API_GAP_MS) {
+        await sleep(last + API_GAP_MS - now);
+        continue;
+      }
+      const mark = `${now}:${TAB}`;
+      save(LAST_CALL_KEY, mark);
+      await sleep(50); // две вкладки могли занять один момент — отправляет та, что записала последней
+      const current = load(LAST_CALL_KEY);
+      if (current === null || current === mark) {
+        lastCall = Date.now();
+        save(LAST_CALL_KEY, `${lastCall}:${TAB}`);
+        return;
+      }
+    }
+  }
+
+  // Интервал отсчитываем и от ответа: тогда и до Codeforces запросы доходят не чаще раза в 2 секунды.
+  function markDone() {
+    const now = Date.now();
+    lastCall = Math.max(lastCall, now);
+    if (storedCall() < now) save(LAST_CALL_KEY, `${now}:${TAB}`);
   }
 
   async function request(method, params) {
     const url = new URL(method, API);
     for (const [name, value] of Object.entries(params)) url.searchParams.set(name, value);
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+    let timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
     let data;
     try {
       const response = await fetch(url, { signal: controller.signal, credentials: "omit" });
+      clearTimeout(timer);
+      timer = setTimeout(() => controller.abort(), BODY_TIMEOUT_MS);
       data = await response.json();
     } catch (error) {
       if (error.name === "AbortError") throw new CfError("timeout");
-      throw new CfError(error instanceof SyntaxError ? "unavailable" : "network");
+      if (error instanceof SyntaxError) throw new CfError("unavailable");
+      // при сбое Codeforces ответ без CORS-заголовков браузер тоже показывает как сетевую ошибку
+      throw new CfError(navigator.onLine === false ? "offline" : "network");
     } finally {
       clearTimeout(timer);
+      markDone();
     }
     if (data && data.status === "OK") return data.result;
     const comment = data && typeof data.comment === "string" ? data.comment : "";
@@ -104,37 +141,56 @@
 
   // ---------- Данные сайта: темы и подборки ----------
 
+  async function fetchSite(url, as) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), SITE_TIMEOUT_MS);
+    try {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw new Error(String(response.status));
+      return await response[as]();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   let topicsPromise = null;
 
   function loadTopics() {
-    topicsPromise ||= fetch(new URL("assets/topics.json", SITE))
-      .then((response) => (response.ok ? response.json() : Promise.reject()))
-      .then((list) => list.filter((t) => t && /^[a-z0-9-]+$/.test(t.slug) && isText(t.title) && Array.isArray(t.cf_tags)))
-      .catch(() => {
-        topicsPromise = null; // в следующий раз попробуем снова
-        return null;
-      });
+    if (!topicsPromise) {
+      topicsPromise = fetchSite(new URL("assets/topics.json", SITE), "json")
+        .then((list) => list.filter((t) => t && /^[a-z0-9-]+$/.test(t.slug) && isText(t.title) && Array.isArray(t.cf_tags)))
+        .catch(() => {
+          topicsPromise = null; // в следующий раз попробуем снова
+          return null;
+        });
+    }
     return topicsPromise;
   }
 
   const selections = new Map();
 
-  // Задачи подборки — первая внешняя ссылка в каждой строке таблиц docs/practice/<slug>.md.
+  // Задачи подборки — внешняя ссылка из колонки «Задача» в каждой строке таблиц docs/practice/<slug>.md
+  // (если такой колонки нет — первая внешняя ссылка строки).
   function loadSelection(slug) {
     if (!selections.has(slug)) {
       const url = new URL(`practice/${slug}/`, SITE);
-      const promise = fetch(url)
-        .then((response) => (response.ok ? response.text() : Promise.reject()))
+      const promise = fetchSite(url, "text")
         .then((html) => {
           const page = new DOMParser().parseFromString(html, "text/html");
           const content = page.querySelector("article") || page.body;
           const problems = [];
-          for (const row of content.querySelectorAll("table tbody tr")) {
-            for (const link of row.querySelectorAll("a[href]")) {
+          for (const table of content.querySelectorAll("table")) {
+            const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim().toLowerCase());
+            const column = heads.findIndex((head) => head.startsWith("задача"));
+            for (const row of table.querySelectorAll("tbody tr")) {
+              const cell = column >= 0 ? row.cells[column] : row;
+              const link = cell && [...cell.querySelectorAll("a[href]")].find((a) => {
+                const href = safeUrl(a.getAttribute("href"), url);
+                return href && href.origin !== SITE.origin;
+              });
+              if (!link) continue;
               const href = safeUrl(link.getAttribute("href"), url);
-              if (!href || href.origin === SITE.origin) continue;
               problems.push({ url: href.href, name: link.textContent.trim() || href.href, key: cfKey(href) });
-              break;
             }
           }
           return { problems };
@@ -208,7 +264,10 @@
     // У темы нет тега на Codeforces — считаем решённые задачи Codeforces из её подборки.
     const selection = await loadSelection(topic.slug);
     const keys = new Set(selection.problems.map((p) => p.key).filter(Boolean));
-    if (!keys.size) return { n: null, status: null, selection };
+    if (!keys.size) {
+      const reason = selection.failed ? "failed" : selection.problems.length ? "no-cf" : "empty";
+      return { n: null, status: null, selection, reason };
+    }
     const n = [...keys].filter((key) => solved.has(key)).length;
     return { n, total: keys.size, status: n === keys.size ? STATUSES[0] : statusOf(n), selection };
   }
@@ -300,7 +359,7 @@
     }
     ui.busy = true;
     ui.button.disabled = true;
-    ui.root.setAttribute("aria-busy", "true");
+    ui.result.setAttribute("aria-busy", "true"); // не на всём блоке: иначе экранный диктор не прочтёт сообщения
     ui.result.replaceChildren();
     const topicsReady = loadTopics();
     try {
@@ -309,8 +368,9 @@
       const user = Array.isArray(users) ? users[0] : null;
       if (!user || !isText(user.handle)) throw new CfError("unavailable");
       save(HANDLE_KEY, user.handle);
-      ui.input.value = user.handle;
+      if (ui.input.value.trim().toLowerCase() === handle.toLowerCase()) ui.input.value = user.handle; // не затираем новый ввод
       ui.result.append(renderProfile(user));
+      if (!ui.root.isConnected) return; // страницу уже сменили — второй запрос не нужен
 
       note(ui, "Загружаем решённые задачи…");
       const submissions = await cfApi("user.status", { handle: user.handle });
@@ -332,7 +392,7 @@
     } finally {
       ui.busy = false;
       ui.button.disabled = false;
-      ui.root.removeAttribute("aria-busy");
+      ui.result.removeAttribute("aria-busy");
     }
   }
 
@@ -482,16 +542,20 @@
     );
   }
 
+  function topicNote(titles, one, many) {
+    return titles.length > 0 && el("p", { class: "ob-note" }, titles.length === 1 ? `${titles[0]} ${one}` : `${titles.join(", ")} ${many}`);
+  }
+
   function renderTopicTable(rows) {
     const bySelection = [];
-    const uncounted = [];
-    const body = rows.map(({ topic, n, total, status }) => {
+    const uncounted = { empty: [], "no-cf": [], failed: [] };
+    const body = rows.map(({ topic, n, total, status, reason }) => {
       let solvedCell = String(n);
       let statusCell = status && statusBadge(status);
       if (!status) {
         solvedCell = "—";
         statusCell = el("span", { class: "ob-lvl ob-status--skip" }, "не считается");
-        uncounted.push(`«${topic.title}»`);
+        uncounted[reason].push(`«${topic.title}»`);
       } else if (total != null) {
         solvedCell = `${n} из ${total} в подборке`;
         bySelection.push(`«${topic.title}»`);
@@ -533,22 +597,22 @@
         el("thead", {}, el("tr", {}, ["Тема", "Решено", "Статус", "Материалы"].map((h) => el("th", {}, h)))),
         el("tbody", {}, body),
       ),
-      bySelection.length > 0 &&
-        el(
-          "p",
-          { class: "ob-note" },
-          bySelection.length === 1
-            ? `${bySelection[0]} считается по подборке: у темы нет тега на Codeforces.`
-            : `${bySelection.join(", ")} считаются по подборкам: у этих тем нет тега на Codeforces.`,
-        ),
-      uncounted.length > 0 &&
-        el(
-          "p",
-          { class: "ob-note" },
-          uncounted.length === 1
-            ? `${uncounted[0]} пока не считается: у темы нет тега на Codeforces, а подборка ещё в работе — прогресс появится, когда в ней будут задачи с Codeforces.`
-            : `${uncounted.join(", ")} пока не считаются: у этих тем нет тега на Codeforces, а подборки ещё в работе — прогресс появится, когда в них будут задачи с Codeforces.`,
-        ),
+      topicNote(
+        bySelection,
+        "считается по задачам своей подборки с Codeforces: у темы нет тега на Codeforces. Решены все такие задачи — «уверенно».",
+        "считаются по задачам своих подборок с Codeforces: у этих тем нет тега на Codeforces. Решены все такие задачи — «уверенно».",
+      ),
+      topicNote(
+        uncounted.empty,
+        "пока не считается: у темы нет тега на Codeforces, а подборка ещё в работе.",
+        "пока не считаются: у этих тем нет тега на Codeforces, а подборки ещё в работе.",
+      ),
+      topicNote(
+        uncounted["no-cf"],
+        "не считается: у темы нет тега на Codeforces, а в подборке нет задач с Codeforces.",
+        "не считаются: у этих тем нет тега на Codeforces, а в подборках нет задач с Codeforces.",
+      ),
+      topicNote(uncounted.failed, "— подборку не удалось загрузить, обнови страницу.", "— подборки не удалось загрузить, обнови страницу."),
     );
   }
 
@@ -578,8 +642,9 @@
     const tags = [...countBy(problems, tagsOf)]
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .map(([tag, count]) => [tag, count, null]);
+    const last = (rating) => (rating == null ? Infinity : rating); // «без рейтинга» — в конце
     const ratings = [...countBy(problems, (p) => [Number.isInteger(p.rating) ? p.rating : null])]
-      .sort((a, b) => (a[0] ?? Infinity) - (b[0] ?? Infinity))
+      .sort((a, b) => last(a[0]) - last(b[0]))
       .map(([rating, count]) => (rating == null ? ["без рейтинга", count, null] : [rating, count, rankClass(ratingColor(rating))]));
     const rated = problems.map((p) => p.rating).filter(Number.isInteger);
     const hardest = rated.length ? Math.max(...rated) : null;

@@ -13,5 +13,6 @@ hide:
 {: .ob-lead }
 
 <div id="cf-progress">
+<p class="ob-note">Загружаем форму… Если она не появилась, обнови страницу или браузер.</p>
 <noscript>Для этой страницы нужен JavaScript: данные Codeforces загружаются прямо в браузере.</noscript>
 </div>
