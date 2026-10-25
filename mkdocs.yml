@@ -77,24 +77,27 @@ exclude_docs: |
 nav:
   - Теория:
       - theory/index.md
-      - "Сложные идеи простым языком":
+      - "Сортировка и поиск":
+          - "Сортировки": theory/sorting.md
+          - "Бинарный поиск и поиск по ответу": theory/binary-search.md
+          - "Два указателя": theory/two-pointers.md
+      - "Жадность и динамика":
+          - "Жадные алгоритмы": theory/greedy.md
+          - "Динамическое программирование": theory/dp-intro.md
+      - "Запросы на отрезках":
+          - "Префиксные суммы": theory/prefix-sums.md
           - "Корневая декомпозиция": theory/sqrt-decomposition.md
           - "Дерево отрезков": theory/segment-tree.md
           - "Декартово дерево": theory/treap.md
-          - "FFT и свёртки": theory/fft.md
-      - "Основные приёмы":
-          - "Сортировки": theory/sorting.md
-          - "Бинарный поиск и поиск по ответу": theory/binary-search.md
-          - "Префиксные суммы": theory/prefix-sums.md
-          - "Два указателя": theory/two-pointers.md
-          - "Жадные алгоритмы и как их доказывать": theory/greedy.md
-          - "Динамическое программирование: начало": theory/dp-intro.md
-      - "Графы, строки и числа":
+      - "Графы":
           - "Обход в глубину (DFS)": theory/dfs.md
           - "Кратчайшие пути": theory/shortest-paths.md
           - "Система непересекающихся множеств (DSU)": theory/dsu.md
+      - "Математика":
+          - "Теория чисел": theory/number-theory.md
+          - "FFT и свёртки": theory/fft.md
+      - "Строки":
           - "Строки и хеширование": theory/strings.md
-          - "Теория чисел: НОД, решето, быстрое возведение в степень": theory/number-theory.md
   - Практика:
       - practice/index.md
       - Архив олимпиад:
