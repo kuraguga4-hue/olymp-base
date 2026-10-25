@@ -57,7 +57,7 @@
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 5000);
     try {
-      const response = await fetch(new URL("assets/generator.json", site), { signal: controller.signal });
+      const response = await fetch(new URL("assets/generator.json", site), { signal: controller.signal, cache: "no-store" });
       if (!response.ok) throw new Error("Не удалось подключить наставника. Попробуй позже.");
       const data = await response.json();
       const raw = data.mentor_endpoint || new URL("mentor", new URL(data.endpoint, site)).href;

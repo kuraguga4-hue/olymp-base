@@ -19,7 +19,7 @@
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 5000);
     try {
-      const response = await fetch(new URL("assets/generator.json", site), { signal: controller.signal });
+      const response = await fetch(new URL("assets/generator.json", site), { signal: controller.signal, cache: "no-store" });
       if (!response.ok) throw new Error("config");
       const config = await response.json();
       const local = ["localhost", "127.0.0.1"].includes(location.hostname);
