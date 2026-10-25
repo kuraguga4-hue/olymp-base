@@ -6,8 +6,10 @@
 - Сайт: MkDocs Material, весь контент — Markdown в `docs/`.
 - Статистика: `docs/me.md` + `docs/js/progress.js` — браузер ходит в Codeforces API напрямую (user.info, user.status). Без бэкенда, без паролей.
 - Запуск: `python -m mkdocs serve`. Проверка: `python scripts/check.py`.
+- Зависимости — `requirements.txt`. Если системный Python не даёт ставить пакеты (externally-managed-environment), работай через `.venv` в корне репозитория (на Windows — `.venv\Scripts\python`).
 
 ## Где что лежит
+- Файлы всех 8 тем в `docs/theory/` и `docs/practice/` уже созданы заготовками и прописаны в навигации `mkdocs.yml`. Пишешь статью или подборку — заменяй содержимое файла целиком; `mkdocs.yml` не трогай.
 - `docs/theory/<slug>.md` — статьи, строго по `docs/STYLE.md`.
 - `docs/practice/<slug>.md` — подборки задач: ссылки, сложность, подсказка без спойлера.
 - `docs/assets/topics.json` — список тем: slug, название, уровень, теги Codeforces, hook (задача для раздела «Зачем»), reviewed_by.

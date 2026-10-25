@@ -2,3 +2,4 @@ site/
 data/cf_problems.json
 __pycache__/
 .env
+.venv/
