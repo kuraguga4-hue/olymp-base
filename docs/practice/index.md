@@ -12,6 +12,16 @@ hide:
 Те же 35 тем — теперь задачи. В каждой подборке задачи идут по возрастанию сложности: Codeforces, AtCoder, informatics и авторские, к каждой — подсказка без спойлера.
 {: .ob-lead }
 
+<div class="ob-gen" id="task-generator">
+  <div class="ob-gen__head">
+    <span class="ob-gen__icon">&gt;_</span>
+    <span class="ob-gen__title">Генератор задач на тему</span>
+    <span class="ob-chip">6 тем</span>
+  </div>
+  <p class="ob-gen__text">Выбери тему и получи тренировочную задачу с новым сюжетом, примерами и тестами. ИИ придумывает сюжет по одной из шести проверенных схем; ответы в примерах и тестах рассчитываются программой.</p>
+  <div class="ob-gen__content"><p class="ob-note">Загружаем форму…</p><noscript>Для генератора нужен JavaScript.</noscript></div>
+</div>
+
 ## Div. 3 · новичок
 
 9 тем — для старта
@@ -145,14 +155,4 @@ hide:
    <span class="ob-lvl ob-lvl--adv">продвинутый</span>
    <span class="ob-links">[теория](../theory/convolutions.md)</span>
 
-</div>
-
-<div class="ob-gen" id="task-generator">
-  <div class="ob-gen__head">
-    <span class="ob-gen__icon">&gt;_</span>
-    <span class="ob-gen__title">Генератор задач на тему</span>
-    <span class="ob-chip">6 тем</span>
-  </div>
-  <p class="ob-gen__text">Выбери тему и получи тренировочную задачу с новым сюжетом, примерами и тестами. ИИ придумывает сюжет по одной из шести проверенных схем; ответы в примерах и тестах рассчитываются программой.</p>
-  <div class="ob-gen__content"><p class="ob-note">Загружаем форму…</p><noscript>Для генератора нужен JavaScript.</noscript></div>
 </div>
