@@ -62,6 +62,7 @@ extra_javascript:
   - js/progress.js
   - js/generator.js
   - js/mentor.js
+  - js/all-problems.js
 
 extra_css:
   - stylesheets/extra.css
@@ -100,6 +101,7 @@ nav:
           - "Строки и хеширование": theory/strings.md
   - Практика:
       - practice/index.md
+      - "Все задачи": practice/all.md
       - Архив олимпиад:
           - practice/olympiads/index.md
           - "ВсОШ · заключительный этап": practice/olympiads/vsosh-final/index.md
