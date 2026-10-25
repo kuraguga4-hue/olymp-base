@@ -22,6 +22,16 @@ hide:
   <div class="ob-gen__content"><p class="ob-note">Загружаем форму…</p><noscript>Для генератора нужен JavaScript.</noscript></div>
 </div>
 
+## Архив олимпиад
+
+<div class="ob-card" markdown>
+
+ВсОШ, Открытая олимпиада, Высшая проба, Innopolis Open и Vorg CUP: выбирай сезон, открывай условия и задачи. Разборы команды доступны прямо на сайте; статус проверки указан у каждого.
+
+[Открыть архив олимпиад](olympiads/index.md){ .ob-btn .ob-btn--primary }
+
+</div>
+
 ## Div. 3 · новичок
 
 9 тем — для старта

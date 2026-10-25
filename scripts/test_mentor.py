@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 import requests
 
 from generator_core import GeneratorError, Settings
-from mentor_core import DOCS, SYSTEM_PROMPT, article_excerpt, build_messages, mentor, resolve_page, retrieve_library, validate_payload
+from mentor_core import DOCS, SYSTEM_PROMPT, article_excerpt, build_messages, library_sources, mentor, problem_ids, resolve_page, retrieve_library, validate_payload
 from serve_generator import make_server
 
 
@@ -225,6 +225,56 @@ class MentorTests(unittest.TestCase):
             self.assertEqual(library["articles"][0]["url"], "theory/fresh-topic/")
             self.assertNotIn("PRIVATE MATERIAL", json.dumps(library))
             self.assertLessEqual(sum(len(x["excerpt"]) for x in library["articles"]), 6000)
+
+    def test_numeric_gym_ids_keep_separator(self):
+        for query in ("Помоги с 106582/1", "106582-1", "https://codeforces.com/gym/106582/problem/1"):
+            payload = example_payload()
+            payload["message"] = query
+            library = retrieve_library(payload)
+            self.assertEqual(library["requested_ids"], ["106582/1"])
+            self.assertEqual(library["problem_cards"][0]["id"], "106582-1")
+            self.assertEqual(library["missing_ids"], [])
+        self.assertEqual(problem_ids("1065821"), set())
+        payload["message"] = "1065821"
+        self.assertEqual(retrieve_library(payload)["problem_cards"], [])
+
+    def test_published_archive_routes_and_editorial_context(self):
+        with tempfile.TemporaryDirectory() as folder:
+            docs = Path(folder)
+            (docs / "assets").mkdir()
+            (docs / "assets/topics.json").write_text("[]", encoding="utf-8")
+            season = docs / "practice/olympiads/vsosh-final/2025-2026"
+            season.mkdir(parents=True)
+            (docs / "practice/olympiads/index.md").write_text("# Архив", encoding="utf-8")
+            (season / "index.md").write_text("# Сезон", encoding="utf-8")
+            (docs / "CONTEXT.md").write_text("PRIVATE CONTEXT", encoding="utf-8")
+            payload = example_payload()
+            payload["message"] = "Разбери 106582/1"
+            with patch("mentor_core.DOCS", docs):
+                before = retrieve_library(payload)
+                self.assertEqual(before["editorials"], [])
+                self.assertEqual(before["problem_cards"][0]["editorial_url"], "")
+                editorial = season / "106582-1.md"
+                editorial.write_text("# Разбор\n\nЭто разбор без полного условия.\n\n" + "Опорный шаг. "*1000, encoding="utf-8")
+                self.assertEqual(resolve_page("/practice/olympiads/"), docs / "practice/olympiads/index.md")
+                self.assertEqual(resolve_page("/practice/olympiads/vsosh-final/2025-2026/"), season / "index.md")
+                self.assertEqual(resolve_page("/olymp-base/practice/olympiads/vsosh-final/2025-2026/106582-1/"), editorial)
+                self.assertEqual(resolve_page("/practice/olympiads/vsosh-final/2025-2026/106582-1.md"), editorial)
+                for forbidden in ("/practice/olympiads/missing/", "/practice/olympiads/../../CONTEXT.md",
+                                  "/practice/olympiads/%2e%2e/CONTEXT.md"):
+                    with self.assertRaises(GeneratorError):
+                        resolve_page(forbidden)
+                library = retrieve_library(payload)
+                entry = library["editorials"][0]
+                self.assertEqual(entry["kind"], "EDITORIAL")
+                self.assertFalse(entry["full_statement_available"])
+                self.assertLessEqual(len(entry["excerpt"]), 6000)
+                self.assertEqual(entry["url"], "practice/olympiads/vsosh-final/2025-2026/106582-1/")
+                self.assertIn(entry["url"], [source["url"] for source in library_sources(library)])
+                self.assertNotIn("PRIVATE CONTEXT", json.dumps(library))
+                payload["context"]["path"] = "/practice/olympiads/vsosh-final/2025-2026/106582-1/"
+                messages = build_messages(payload)
+                self.assertEqual(json.loads(messages[1]["content"])["reference_context"]["page"]["kind"], "EDITORIAL")
 
 
 class HttpMentorTests(unittest.TestCase):

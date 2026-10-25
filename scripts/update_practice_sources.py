@@ -34,6 +34,9 @@ def problem_source(url):
     )
     if cf:
         return "cf:" + (cf[1] or cf[3]), (cf[2] or cf[4]).upper()
+    gym = re.fullmatch(r"https://codeforces\.com/gym/(\d+)/problem/([A-Za-z0-9]+)/?", url)
+    if gym:
+        return "gym:" + gym[1], gym[2].upper()
     atcoder = re.fullmatch(r"https://atcoder\.jp/contests/([a-z0-9_-]+)/tasks/\1_([a-z0-9]+)", url)
     if atcoder:
         return "atcoder:" + atcoder[1], atcoder[2].upper()
@@ -48,6 +51,7 @@ def table_links(text):
 
 def refresh(pages):
     keys = {problem_source(m[1])[0] for text in pages.values() for m in table_links(text)}
+    cached = json.loads(CACHE.read_text(encoding="utf-8"))["contests"] if CACHE.exists() else {}
     response = requests.get(CF_API, timeout=30)
     response.raise_for_status()
     payload = response.json()
@@ -59,6 +63,13 @@ def refresh(pages):
         if key.startswith("cf:"):
             contest = contests[key]  # без догадок, если в официальном списке нет такого ID
             sources[key] = {"name": contest["name"], "url": f"https://codeforces.com/contest/{contest['id']}"}
+        elif key.startswith("gym:"):
+            # Gym не входит в contest.list?gym=false. Название и тур подтверждены архивом команды.
+            contest = cached.get(key, {})
+            archive = contest.get("verified_from")
+            if not archive or contest.get("url") not in (ROOT / archive).read_text(encoding="utf-8"):
+                raise ValueError(f"Для {key} нет подтверждённого источника в архиве")
+            sources[key] = contest
         else:
             slug = key.split(":", 1)[1]
             url = f"https://atcoder.jp/contests/{slug}"
@@ -93,8 +104,8 @@ def annotate(text, sources):
             f" · задача {index}</span>"
         )
         line = line[:match.end()] + caption + line[match.end():]
-        # AtCoder не публикует рейтинг задач по шкале CF. Числа в CSV — приближённый пересчёт.
-        if key.startswith("atcoder:"):
+        # AtCoder — приближённый пересчёт, Gym — явно помеченная оценка ИИ из CSV.
+        if key.startswith("atcoder:") or contest.get("rating_kind") == "ai_estimate":
             cells = line.split("|")
             cells[3] = " ≈ " + cells[3].strip().lstrip("≈").strip() + " "
             line = "|".join(cells)

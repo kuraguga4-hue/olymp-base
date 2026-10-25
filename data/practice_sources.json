@@ -560,6 +560,18 @@
     "cf:993": {
       "name": "Codeforces Round 488 by NEAR (Div. 1)",
       "url": "https://codeforces.com/contest/993"
+    },
+    "gym:106582": {
+      "name": "ВсОШ по информатике 2025–2026 · заключительный этап · тур 1",
+      "url": "https://codeforces.com/gym/106582",
+      "verified_from": "data/olympiads/vsosh-final/2025-2026/README.md",
+      "rating_kind": "ai_estimate"
+    },
+    "gym:106583": {
+      "name": "ВсОШ по информатике 2025–2026 · заключительный этап · тур 2",
+      "url": "https://codeforces.com/gym/106583",
+      "verified_from": "data/olympiads/vsosh-final/2025-2026/README.md",
+      "rating_kind": "ai_estimate"
     }
   },
   "atcoder_difficulty": {

@@ -16,7 +16,7 @@
   const LEARNED_KEY = "olymp-base:learned:"; // отдельные отметки для каждого хендла
   const LAST_CALL_KEY = "olymp-base:cf-last-call";
   const HANDLE = /^[A-Za-z0-9_.-]{1,24}$/;
-  const CF_PROBLEM_PATH = /^\/(?:problemset\/problem\/(\d+)\/([A-Za-z]\d?)|contest\/(\d+)\/problem\/([A-Za-z]\d?))\/?$/;
+  const CF_PROBLEM_PATH = /^\/(?:problemset\/problem\/(\d+)\/([A-Za-z0-9]+)|(?:contest|gym)\/(\d+)\/problem\/([A-Za-z0-9]+))\/?$/;
 
   // звание Codeforces → по-русски и модификатор цвета .ob-rank--*
   const RANKS = new Map([
@@ -165,7 +165,7 @@
           if (!data || !Array.isArray(data.problems) || !data.topics) throw new Error("catalog");
           return {
             topics: data.topics,
-            problems: data.problems.filter((p) => Number.isInteger(p.contestId) && /^[A-Za-z]\d?$/.test(p.index)
+            problems: data.problems.filter((p) => Number.isInteger(p.contestId) && /^[A-Za-z0-9]+$/.test(p.index)
               && isText(p.name) && Number.isInteger(p.rating) && Array.isArray(p.tags)),
           };
         })
@@ -213,7 +213,7 @@
               const ratingText = ratingColumn >= 0 && row.cells[ratingColumn] ? row.cells[ratingColumn].textContent : "";
               const ratingMatch = ratingText.match(/\d{3,4}/);
               problems.push({ url: href.href, name: link.textContent.trim() || href.href, key: cfKey(href),
-                rating: ratingMatch ? Number(ratingMatch[0]) : null });
+                rating: ratingMatch ? Number(ratingMatch[0]) : null, estimated: ratingText.includes("≈") });
             }
           }
           return { problems };
@@ -279,7 +279,8 @@
   async function progressOf(topic, solved, catalog, target) {
     let matching;
     if (topic.cf_tags.length) {
-      matching = [...solved.values()].filter((p) => topic.cf_tags.every((tag) => tagsOf(p).includes(tag)));
+      const keys = new Set(catalog && catalog.topics[topic.slug] ? catalog.topics[topic.slug].keys : []);
+      matching = [...solved.values()].filter((p) => topic.cf_tags.every((tag) => tagsOf(p).includes(tag)) || keys.has(problemKey(p)));
       return { n: matching.length, near: matching.filter((p) => p.rating >= target - 200).length };
     }
     // У темы нет тега на Codeforces — считаем решённые задачи Codeforces из её подборки.
@@ -546,9 +547,11 @@
       if (catalog) {
         const keys = new Set(meta && Array.isArray(meta.keys) ? meta.keys : []);
         const curated = !topic.cf_tags.length || CURATED_TOPICS.has(topic.slug);
-        candidates = catalog.problems.filter((p) => curated ? keys.has(problemKey(p))
+        candidates = catalog.problems.filter((p) => curated || p.gym ? keys.has(problemKey(p))
           : topic.cf_tags.every((tag) => tagsOf(p).includes(tag)))
-          .map((p) => ({ ...p, key: problemKey(p), url: `https://codeforces.com/problemset/problem/${p.contestId}/${p.index}` }));
+          .map((p) => ({ ...p, key: problemKey(p), url: p.gym
+            ? `https://codeforces.com/gym/${p.contestId}/problem/${p.index}`
+            : `https://codeforces.com/problemset/problem/${p.contestId}/${p.index}` }));
       } else {
         // Каталог не загрузился: доступны задачи из существующих подборок.
         candidates = (progress.selection || await loadSelection(topic.slug)).problems;
@@ -609,9 +612,10 @@
       { class: "ob-card ob-next" },
       el("p", { class: "ob-kicker" }, learned ? "Закрепить знакомую тему" : "Следующий шаг"),
       el("p", {}, el("strong", {}, topic.title), " ", levelBadge(topic)),
-      el("p", { class: "ob-note" }, `${total == null ? "По тегам CF" : "Из подборки"}: ${n || 0} решений, ${near} сложностью от ${training.low}.`),
+      el("p", { class: "ob-note" }, `${total == null ? "По тегам и подборке" : "Из подборки"}: ${n || 0} решений, ${near} сложностью от ${training.low}.`),
       el("p", {}, el("a", { href: problem.url, class: "ob-recommended-problem" }, problem.name), " ",
-        el("span", { class: "ob-chip" }, `CF ${problem.rating}`)),
+        el("span", { class: "ob-chip" }, problem.estimated ? `≈ ${problem.rating}` : `CF ${problem.rating}`)),
+      problem.estimated ? el("p", { class: "ob-note" }, "≈ — оценка ИИ по шкале Codeforces.") : null,
       el("p", {}, el("a", { class: "ob-btn ob-btn--primary", href: problem.url }, "Решать задачу →")),
       el("p", { class: "ob-note" }, ready ? el("a", { href: pageUrl("theory", topic.slug) }, "Читать статью")
         : "Статья готовится", " · ", el("a", { href: pageUrl("practice", topic.slug) }, "Вся подборка")),
@@ -645,7 +649,7 @@
         ),
         el("td", {}, n == null ? "Нет данных" : `${n}${total != null ? ` из ${total}` : ""}`,
           el("br"), el("span", { class: "ob-note" }, n == null ? "Нет CF-тега или задач для подсчёта"
-            : `${near} от ${training.low}${total != null ? " · по подборке" : " · по тегам"}`)),
+            : `${near} от ${training.low}${total != null ? " · по подборке" : " · по тегам и подборке"}`)),
         el("td", {}, el("label", { class: "ob-topic-label" }, checkbox, "Изучена")),
         el(
           "td",
@@ -664,7 +668,7 @@
       el(
         "p",
         { class: "ob-note" },
-        "Отметь темы, теорию которых уже прошёл. Это твоя отметка: она не добавляет решённых задач. Практика считается по всей истории Codeforces, а для тем без CF-тега — по подборке. Общие теги дают только приблизительное соответствие: например, задача с тегом trees не обязательно требует LCA.",
+        "Отметь темы, теорию которых уже прошёл. Это твоя отметка: она не добавляет решённых задач. Практика считается по всей полученной истории Codeforces: по тегам и задачам подборки, включая Gym. Для тем без CF-тега считаем только подборку. Решения Gym засчитываются, если Codeforces вернул их в истории; оценки ИИ не заменяют официальный рейтинг решений. Общие теги дают приблизительное соответствие: например, задача с тегом trees не обязательно требует LCA.",
       ),
       savedMessage,
       el("div", { class: "ob-topics-scroll", tabindex: "0", role: "region", "aria-label": "Прогресс по темам" }, el(

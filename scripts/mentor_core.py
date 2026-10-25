@@ -27,6 +27,8 @@ SYSTEM_PROMPT = """Ты — наставник по олимпиадному п�
 В reference_context.library находятся найденные материалы всей базы сайта, а не только текущей страницы.
 Различай три источника: явное полное условие пользователя; ARTICLE_EXCERPT — фрагмент учебной статьи;
 CARD_ONLY — карточка задачи с названием, темами и подсказками, БЕЗ полного условия.
+EDITORIAL — опубликованный местный разбор задачи. Это опорный материал для проверки логики,
+а не обязательно полное условие: не придумывай отсутствующие ограничения и формат ввода.
 По карточке можно объяснять тему и имеющуюся подсказку, но нельзя восстанавливать ограничения или
 утверждать, что условие известно полностью. Если для ответа нужны точные условия — попроси их вставить.
 В режиме hint поле hints содержит первую подсказку, а reference_solution — опорный разбор из базы.
@@ -95,6 +97,11 @@ def resolve_page(path):
         relative = Path("index.md")
     elif len(parts) == 1 and parts[0] in {"me", "me.md", "me.html"}:
         relative = Path("me.md")
+    elif parts[:2] == ["practice", "olympiads"]:
+        candidate = archive_routes().get("/".join(parts))
+        if candidate is None:
+            bad_request("Материал архива сейчас недоступен.")
+        relative = candidate.relative_to(DOCS.resolve())
     elif parts[0] in {"theory", "practice"} and len(parts) <= 2:
         slug = "index" if len(parts) == 1 else re.sub(r"\.(?:md|html)$", "", parts[1])
         topics = json.loads((DOCS / "assets/topics.json").read_text(encoding="utf-8"))
@@ -108,6 +115,35 @@ def resolve_page(path):
     if not target.is_relative_to(DOCS.resolve()) or not target.is_file():
         bad_request("Материал этой страницы сейчас недоступен.")
     return target
+
+
+def archive_routes():
+    """Whitelist только существующих опубликованных Markdown, обновляется после сборки архива."""
+    root = (DOCS / "practice/olympiads").resolve()
+    routes = {}
+    if not root.is_relative_to(DOCS.resolve()) or not root.is_dir():
+        return routes
+    for filename in root.rglob("*.md"):
+        target = filename.resolve()
+        if not target.is_relative_to(root) or not target.is_file():
+            continue
+        relative = filename.relative_to(DOCS).as_posix()
+        if not re.fullmatch(r"practice/olympiads(?:/[a-z0-9][a-z0-9-]*)*/[a-z0-9][a-z0-9-]*\.md", relative):
+            continue
+        base = relative[:-3]
+        routes[relative] = routes[base] = routes[base + ".html"] = target
+        if filename.name == "index.md":
+            routes[base.removesuffix("/index")] = target
+    return routes
+
+
+def published_editorial(reference, routes):
+    if not isinstance(reference, str) or not reference.startswith("data/olympiads/"):
+        return None
+    relative = reference.removeprefix("data/olympiads/")
+    if any(part in {"", ".", ".."} for part in relative.split("/")) or "\\" in relative:
+        return None
+    return routes.get("practice/olympiads/" + relative)
 
 
 def article_excerpt(text, message, selection="", limit=12000):
@@ -133,7 +169,23 @@ def problem_ids(text):
     ids = {re.sub(r"[^A-Z0-9]", "", item.upper()) for item in found}
     for contest, index in re.findall(r"codeforces\.com/contest/(\d+)/problem/([A-Z]\d?)\b", text, re.I):
         ids.add(contest + index.upper())
+    # Числовой индекс Gym всегда отделён от номера соревнования: 106582/1 != 1065821.
+    for contest, index in re.findall(r"\b(\d{6,7})\s*[-/]\s*(\d{1,3})\b", text):
+        ids.add(f"{contest}/{index}")
+    for contest, index in re.findall(r"codeforces\.com/gym/(\d+)/problem/([A-Z]\d?|\d{1,3})\b", text, re.I):
+        ids.add(f"{contest}/{index.upper()}")
     return ids
+
+
+def problem_identity(row):
+    gym = re.search(r"codeforces\.com/gym/(\d+)/problem/([A-Z]\d?|\d{1,3})\b", row.get("Ссылка", ""), re.I)
+    if gym:
+        return f"{gym[1]}/{gym[2].upper()}"
+    label = row.get("Задача", "").strip()
+    numeric = re.fullmatch(r"(\d{6,7})[-/](\d{1,3})", label)
+    if numeric:
+        return f"{numeric[1]}/{numeric[2]}"
+    return re.sub(r"[^A-Z0-9]", "", label.upper())
 
 
 def search_words(text):
@@ -168,7 +220,7 @@ def retrieve_library(payload):
     ranked = []
     all_ids = set()
     for index, row in enumerate(rows):
-        identity = re.sub(r"[^A-Z0-9]", "", row.get("Задача", "").upper())
+        identity = problem_identity(row)
         all_ids.add(identity)
         title = row.get("Название", "").strip()
         url = row.get("Ссылка", "").strip()
@@ -186,6 +238,8 @@ def retrieve_library(payload):
             ranked.append((score, index, row, exact))
     ranked.sort(key=lambda match: (-match[0], match[1]))
     cards = []
+    editorial_candidates = []
+    routes = archive_routes()
     for _, _, row, exact in ranked[:4]:
         hints = [row.get(f"Подсказка {i}", "").strip() for i in range(1, 8)]
         hints = [hint for hint in hints if hint]
@@ -204,6 +258,15 @@ def retrieve_library(payload):
             "hints": hints[:1] if payload["mode"] == "hint" else limited,
             "reference_solution": limited, "match": "exact" if exact else "relevance",
             "editorial_url": row.get("Разбор", ""), "full_statement_available": False})
+        reference = row.get("Разбор", "")
+        if reference.startswith("data/"):
+            # Непубликуемые пути data/... не выдаём посетителю как ссылки на разбор.
+            cards[-1]["editorial_url"] = ""
+            published = published_editorial(reference, routes)
+            if published:
+                cards[-1]["editorial_url"] = published.relative_to(DOCS.resolve()).with_suffix("").as_posix() + "/"
+                if not any(item[1] == published for item in editorial_candidates):
+                    editorial_candidates.append((cards[-1], published))
     exact_cards = [card for card in cards if card["match"] == "exact"]
     focused = bool(exact_cards) and not topic_named
     theory_words = search_words(" ".join(card["main_topic"] + " " + card["other_topics"] for card in (exact_cards or cards)))
@@ -228,8 +291,15 @@ def retrieve_library(payload):
         excerpt, truncated = article_excerpt(text, query, payload["context"]["selection"], limit=3000)
         selected_articles.append({"kind": "ARTICLE_EXCERPT", "slug": topic["slug"], "title": topic["title"],
             "url": f"theory/{topic['slug']}/", "excerpt": excerpt, "truncated": truncated})
+    editorials = []
+    chosen_editorials = editorial_candidates[:2]
+    for card, filename in chosen_editorials:
+        excerpt, truncated = article_excerpt(filename.read_text(encoding="utf-8"), query,
+            payload["context"]["selection"], limit=6000 // len(chosen_editorials))
+        editorials.append({"kind": "EDITORIAL", "id": card["id"], "title": "Разбор: " + card["title"],
+            "url": card["editorial_url"], "excerpt": excerpt, "truncated": truncated, "full_statement_available": False})
     return {"searched_problem_count": len(rows), "requested_ids": sorted(ids), "missing_ids": sorted(ids-all_ids),
-            "problem_cards": cards, "articles": selected_articles}
+            "problem_cards": cards, "articles": selected_articles, "editorials": editorials}
 
 
 def build_messages(payload):
@@ -241,7 +311,8 @@ def build_messages(payload):
     request = {
         "request": {"mode": payload["mode"], "message": payload["message"]},
         "reference_context": {
-            "page": {"path": path.relative_to(DOCS).as_posix(), "title": context["title"], "excerpt": excerpt, "truncated": truncated},
+            "page": {"path": path.relative_to(DOCS).as_posix(), "title": context["title"], "excerpt": excerpt, "truncated": truncated,
+                     "kind": "EDITORIAL" if path.is_relative_to((DOCS / "practice/olympiads").resolve()) and path.name != "index.md" else "PAGE"},
             "selection": context["selection"], "task": context["task"], "history": payload["history"],
             "library": retrieve_library(payload),
         },
@@ -252,8 +323,8 @@ def build_messages(payload):
 
 def library_sources(library):
     return [{"title": item["title"], "url": item["url"], "kind": item["kind"]}
-            for item in library["problem_cards"] + library["articles"]
-            if item["url"].startswith(("https://", "http://", "theory/"))]
+            for item in library["problem_cards"] + library["articles"] + library.get("editorials", [])
+            if item["url"].startswith(("https://", "http://", "theory/", "practice/olympiads/"))]
 
 
 def canonical_first_hint(payload, library):

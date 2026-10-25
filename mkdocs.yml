@@ -114,6 +114,14 @@ nav:
       - "Свёртки": theory/convolutions.md
   - Практика:
       - practice/index.md
+      - Архив олимпиад:
+          - practice/olympiads/index.md
+          - "ВсОШ · заключительный этап": practice/olympiads/vsosh-final/index.md
+          - "ВсОШ · региональный этап": practice/olympiads/vsosh-region/index.md
+          - "Открытая олимпиада": practice/olympiads/open-olympiad/index.md
+          - "Высшая проба": practice/olympiads/vysshaya-proba/index.md
+          - "Innopolis Open": practice/olympiads/innopolis-open/index.md
+          - "Vorg CUP": practice/olympiads/vorgcup/index.md
       - "Бинарный поиск и поиск по ответу": practice/binary-search.md
       - "Префиксные суммы": practice/prefix-sums.md
       - "Жадные алгоритмы": practice/greedy.md

@@ -121,7 +121,7 @@
             const url = new URL(source.url, site);
             if (!["https:", "http:"].includes(url.protocol)) continue;
             links.push(el("li", {}, el("a", { href: url.href, target: "_blank", rel: "noopener noreferrer" },
-              `${source.kind === "ARTICLE_EXCERPT" ? "Статья" : "Карточка"}: ${source.title.slice(0, 200)}`)));
+              `${source.kind === "ARTICLE_EXCERPT" ? "Статья" : source.kind === "EDITORIAL" ? "Разбор" : "Карточка"}: ${source.title.slice(0, 200)}`)));
           } catch { /* неверная ссылка не мешает прочитать ответ */ }
         }
         if (links.length) answer.append(el("p", { class: "ob-note" }, "Материалы из базы"), el("ul", {}, links));
