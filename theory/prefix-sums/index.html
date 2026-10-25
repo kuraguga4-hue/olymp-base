@@ -1,0 +1,4542 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Открытая база теории и практики для подготовки к олимпиадам по программированию">
+      
+      
+      
+      
+        <link rel="prev" href="../binary-search/">
+      
+      
+        <link rel="next" href="../greedy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Префиксные суммы - Олимпиадная база</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Олимпиадная база" class="md-header__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Олимпиадная база
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Префиксные суммы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Теория
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practice/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Практика
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../me/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Статистика
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Олимпиадная база" class="md-nav__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Олимпиадная база
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Префиксные суммы и как их построить
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сумма на отрезке за O(1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что ещё можно считать на префиксах — и чего нельзя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код: общие правила
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запросы на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запросы на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Сумма на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Сумма на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пары префиксов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пары префиксов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Отрезки с суммой k
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Отрезки с суммой k">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Двумерная таблица
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Двумерная таблица">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Сумма в прямоугольнике
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Сумма в прямоугольнике">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разностный массив
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разностный массив">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 4. Прибавление на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 4. Прибавление на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../practice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Практика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../practice/olympiads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архив олимпиад
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Архив олимпиад
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vsosh-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · заключительный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vsosh-region/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · региональный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/open-olympiad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Открытая олимпиада
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vysshaya-proba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Высшая проба
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/innopolis-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Innopolis Open
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vorgcup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorg CUP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/prefix-sums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Статистика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Префиксные суммы и как их построить
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сумма на отрезке за O(1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что ещё можно считать на префиксах — и чего нельзя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код: общие правила
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запросы на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запросы на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Сумма на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Сумма на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пары префиксов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пары префиксов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Отрезки с суммой k
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Отрезки с суммой k">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Двумерная таблица
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Двумерная таблица">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Сумма в прямоугольнике
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Сумма в прямоугольнике">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разностный массив
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разностный массив">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 4. Прибавление на отрезке
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 4. Прибавление на отрезке">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">Префиксные суммы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>Уровень:</strong> новичок · <strong>Время чтения:</strong> 20 минут · <strong>Теги:</strong> на Codeforces отдельного тега нет · <strong>Проверил:</strong> Саша</p>
+<div class="admonition info">
+<p class="admonition-title">Что нужно знать заранее</p>
+<ul>
+<li><strong>C++:</strong> массивы и <code>vector</code>, циклы, <code>long long</code>. У каждого кода есть вкладка с Python.</li>
+<li><strong>Асимптотика:</strong> что значит «работает за <span class="arithmatex">\(O(n)\)</span>». Ориентир: за секунду компьютер успевает порядка <span class="arithmatex">\(10^8\)</span>–<span class="arithmatex">\(10^9\)</span> простых действий, а <span class="arithmatex">\(10^{10}\)</span> — уже нет.</li>
+</ul>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Что в статье</p>
+<ol>
+<li><strong>Введение</strong> — что такое префиксные суммы и почему сумма на отрезке — это разность двух префиксов.</li>
+<li><strong>Задача 1. Сумма на отрезке</strong> — формула в деле.</li>
+<li><strong>Задача 2. Отрезки с суммой k</strong> — раз сумма отрезка — разность двух префиксов, задачу про отрезки можно превратить в задачу про пары префиксов.</li>
+<li><strong>Задача 3. Сумма в прямоугольнике</strong> — та же идея в двумерной таблице.</li>
+<li><strong>Задача 4. Прибавление на отрезке</strong> — обратная операция: разностный массив.</li>
+</ol>
+<p>Каждая задача разобрана по схеме <strong>условие → идея → решение</strong>.</p>
+</div>
+<h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Дан массив из <span class="arithmatex">\(10^5\)</span> чисел и <span class="arithmatex">\(10^5\)</span> вопросов вида «чему равна сумма чисел с <span class="arithmatex">\(l\)</span>-го по <span class="arithmatex">\(r\)</span>-е?». Если на каждый вопрос складывать числа заново, в худшем случае получится <span class="arithmatex">\(10^5 \cdot 10^5 = 10^{10}\)</span> сложений — за секунду не успеть. С префиксными суммами хватит <span class="arithmatex">\(10^5\)</span> сложений на подготовку и <strong>одного вычитания</strong> на каждый вопрос.</p>
+<h2 id="_3">Идея<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Возьмём массив из восьми чисел и пронумеруем их с единицы:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(i\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(a[i]\)</span></td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>5</td>
+<td>9</td>
+<td>2</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>Нужна сумма с 3-го по 6-й элемент: <span class="arithmatex">\(4 + 1 + 5 + 9 = 19\)</span>. В лоб это 4 сложения — и для каждого нового вопроса снова столько же.</p>
+<p>Посчитаем заранее <strong>префиксные суммы</strong>: <span class="arithmatex">\(p[i]\)</span> — сумма первых <span class="arithmatex">\(i\)</span> чисел массива. Префикс — это начало массива: первые 1, 2, 3, … элементов.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(i\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(a[i]\)</span></td>
+<td></td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>5</td>
+<td>9</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p[i]\)</span></td>
+<td>0</td>
+<td>3</td>
+<td>4</td>
+<td>8</td>
+<td>9</td>
+<td>14</td>
+<td>23</td>
+<td>25</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+<p>Каждое следующее <span class="arithmatex">\(p\)</span> — это предыдущее плюс одно число: <span class="arithmatex">\(p[3] = p[2] + a[3] = 4 + 4 = 8\)</span>.</p>
+<p>Теперь сумма с 3-го по 6-й. В <span class="arithmatex">\(p[6]\)</span> лежат первые шесть чисел, в <span class="arithmatex">\(p[2]\)</span> — первые два. Вычтем — останутся ровно числа с 3-го по 6-й:</p>
+<div class="arithmatex">\[
+p[6] - p[2] = 23 - 4 = 19.
+\]</div>
+<figure>
+  <img alt="Сумма на отрезке [3, 6] = p[6] − p[2] = 23 − 4 = 19" src="../img/prefix-sums/segment-light.svg#only-light" width="640" />
+  <img alt="Сумма на отрезке [3, 6] = p[6] − p[2] = 23 − 4 = 19" src="../img/prefix-sums/segment-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>p[6] покрывает элементы с 1-го по 6-й, p[2] — с 1-го по 2-й. Разность покрывает ровно отрезок с 3-го по 6-й.</figcaption>
+</figure>
+<p>Обрати внимание: вычитаем <span class="arithmatex">\(p[2]\)</span>, а не <span class="arithmatex">\(p[3]\)</span>. Третий элемент входит в отрезок, его вычитать нельзя. Поэтому сумма на отрезке <span class="arithmatex">\([l, r]\)</span> — это <span class="arithmatex">\(p[r] - p[l-1]\)</span>.</p>
+<h2 id="_4">Алгоритм<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Общие правила, на которых держатся все четыре задачи ниже.</p>
+<h3 id="_5">Префиксные суммы и как их построить<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>Определение.</strong> <span class="arithmatex">\(p[0] = 0\)</span> и <span class="arithmatex">\(p[i] = a[1] + a[2] + \ldots + a[i]\)</span> при <span class="arithmatex">\(i \ge 1\)</span>.</p>
+<p><strong>Зачем <span class="arithmatex">\(p[0] = 0\)</span>.</strong> Если отрезок начинается с первого элемента (<span class="arithmatex">\(l = 1\)</span>), формула обращается к <span class="arithmatex">\(p[0]\)</span>. Сумма нуля чисел равна 0 — и формула работает без особого случая: <span class="arithmatex">\(p[r] - p[0] = p[r]\)</span>.</p>
+<p><strong>Построение за <span class="arithmatex">\(O(n)\)</span>.</strong> Не нужно для каждого <span class="arithmatex">\(i\)</span> складывать все числа заново — это <span class="arithmatex">\(O(n^2)\)</span>. Каждый префикс — предыдущий плюс одно число:</p>
+<div class="arithmatex">\[
+p[i] = p[i-1] + a[i].
+\]</div>
+<h3 id="o1">Сумма на отрезке за O(1)<a class="headerlink" href="#o1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+a[l] + a[l+1] + \ldots + a[r] = p[r] - p[l-1].
+\]</div>
+<p><strong>Почему это верно.</strong> Разобьём первые <span class="arithmatex">\(r\)</span> чисел на две части — первые <span class="arithmatex">\(l-1\)</span> чисел и отрезок с <span class="arithmatex">\(l\)</span> по <span class="arithmatex">\(r\)</span>:</p>
+<div class="arithmatex">\[
+p[r] = \underbrace{a[1] + \ldots + a[l-1]}_{p[l-1]} + \underbrace{a[l] + \ldots + a[r]}_{\text{сумма на отрезке}}.
+\]</div>
+<p>Переносим <span class="arithmatex">\(p[l-1]\)</span> в другую часть — получаем формулу.</p>
+<h3 id="_6">Что ещё можно считать на префиксах — и чего нельзя<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Префиксы работают для любой операции, которую можно «отменить» так же, как сложение отменяется вычитанием.</p>
+<ul>
+<li><strong>Количество подходящих элементов на отрезке.</strong> Заведи массив <span class="arithmatex">\(b[i] = 1\)</span>, если <span class="arithmatex">\(a[i]\)</span> подходит (например, чётное), и <span class="arithmatex">\(b[i] = 0\)</span> иначе. Сумма <span class="arithmatex">\(b\)</span> на отрезке — это и есть количество.</li>
+<li><strong>Xor на отрезке:</strong> <span class="arithmatex">\(p[r] \oplus p[l-1]\)</span>, где <span class="arithmatex">\(p\)</span> — префиксные xor. Работает, потому что <span class="arithmatex">\(x \oplus x = 0\)</span>.</li>
+</ul>
+<p><strong>Минимум так не посчитать.</strong> Пусть <span class="arithmatex">\(a = [1, 5, 3]\)</span>. Минимумы префиксов — 1, 1, 1: числа 5 и 3 на них никак не влияют. Значит, по ним нельзя узнать, что минимум на отрезке <span class="arithmatex">\([2, 3]\)</span> равен 3. Для минимума нужны другие структуры — см. «Куда дальше».</p>
+<p><strong>Массив не должен меняться.</strong> Если поменялся один элемент, поменяются все префиксы после него — пересчёт за <span class="arithmatex">\(O(n)\)</span>. Для массивов, которые меняются, есть дерево Фенвика.</p>
+<h3 id="_7">Код: общие правила<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Нумерация с единицы.</strong> Массив <code>p</code> размера <span class="arithmatex">\(n + 1\)</span>, <code>p[0] = 0</code>. Тогда формула <code>p[r] - p[l-1]</code> работает и при <span class="arithmatex">\(l = 1\)</span>.</li>
+<li><strong><code>long long</code>.</strong> Сумма <span class="arithmatex">\(10^5\)</span> чисел, каждое до <span class="arithmatex">\(10^9\)</span> по модулю, — это до <span class="arithmatex">\(10^{14}\)</span>. В <code>int</code> (до <span class="arithmatex">\(2{,}1 \cdot 10^9\)</span>) не влезает.</li>
+<li><strong>Быстрый ввод и вывод.</strong> Когда чисел и запросов <span class="arithmatex">\(10^5\)</span> и больше, в C++ пиши в начале <code>ios::sync_with_stdio(false); cin.tie(nullptr);</code> и выводи <code>"\n"</code>, а не <code>endl</code>: <code>endl</code> сбрасывает буфер вывода на каждой строке. В Python читай весь ввод сразу через <code>sys.stdin.buffer.read()</code> и печатай ответы одной строкой через <code>"\n".join(...)</code>.</li>
+</ul>
+<h3 id="_8">Сложность<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Построение <span class="arithmatex">\(p\)</span> — <span class="arithmatex">\(O(n)\)</span>, каждый запрос — <span class="arithmatex">\(O(1)\)</span>. Всего <span class="arithmatex">\(O(n + q)\)</span> вместо <span class="arithmatex">\(O(n \cdot q)\)</span> в лоб: при <span class="arithmatex">\(n = q = 10^5\)</span> это <span class="arithmatex">\(2 \cdot 10^5\)</span> действий вместо <span class="arithmatex">\(10^{10}\)</span>. Память — <span class="arithmatex">\(O(n)\)</span>.</p>
+<h2 id="_9">Запросы на отрезке<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Массив не меняется, а вопросов про отрезки много: префиксы считаем один раз, на каждый вопрос отвечаем одним вычитанием.</p>
+<h3 id="1">Задача 1. Сумма на отрезке<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="_10">Условие<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>Дан массив из <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a[1], a[2], \ldots, a[n]\)</span> и <span class="arithmatex">\(q\)</span> запросов. Каждый запрос — два числа <span class="arithmatex">\(l\)</span> и <span class="arithmatex">\(r\)</span> (<span class="arithmatex">\(1 \le l \le r \le n\)</span>); ответ на него — сумма <span class="arithmatex">\(a[l] + a[l+1] + \ldots + a[r]\)</span>. Ответьте на все запросы.</p>
+<ul>
+<li><strong>Вход:</strong> в первой строке — числа <span class="arithmatex">\(n\)</span> и <span class="arithmatex">\(q\)</span> (<span class="arithmatex">\(1 \le n, q \le 10^5\)</span>). Во второй — <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a[i]\)</span> (<span class="arithmatex">\(|a[i]| \le 10^9\)</span>). Далее <span class="arithmatex">\(q\)</span> строк, в каждой — числа <span class="arithmatex">\(l\)</span> и <span class="arithmatex">\(r\)</span>.</li>
+<li><strong>Выход:</strong> <span class="arithmatex">\(q\)</span> строк — ответы на запросы в том порядке, в котором запросы даны.</li>
+</ul>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>8 3
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>3 1 4 1 5 9 2 6
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3 6
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>1 8
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>5 5
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>19
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>31
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>5
+</code></pre></div>
+</div>
+<h4 id="_11">Идея<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>В лоб каждый запрос — до <span class="arithmatex">\(n\)</span> сложений, всего до <span class="arithmatex">\(10^{10}\)</span>. Посчитаем префиксные суммы один раз, а на каждый запрос ответим одним вычитанием <span class="arithmatex">\(p[r] - p[l-1]\)</span>.</p>
+<h4 id="_12">Решение<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что храним</strong></td>
+<td><code>p[i]</code> — сумма первых <span class="arithmatex">\(i\)</span> чисел, <code>p[0] = 0</code></td>
+</tr>
+<tr>
+<td><strong>Подготовка</strong></td>
+<td><code>p[i] = p[i-1] + a[i]</code> для <span class="arithmatex">\(i = 1, \ldots, n\)</span></td>
+</tr>
+<tr>
+<td><strong>Ответ на запрос</strong></td>
+<td><code>p[r] - p[l-1]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Доказательство</strong> — формула из подраздела «Сумма на отрезке за O(1)».</p>
+<p><strong>Тип данных.</strong> Суммы — до <span class="arithmatex">\(10^5 \cdot 10^9 = 10^{14}\)</span> по модулю, нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Время <span class="arithmatex">\(O(n + q)\)</span>, память <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++</label><label for="__tabbed_1_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// p[i] — сумма первых i чисел, p[0] = 0</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">l</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">it</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>  <span class="c1"># читаем весь ввод сразу</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># p[i] — сумма первых i чисел, p[0] = 0</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">out</span><span class="p">)))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>19</code>, <code>31</code> и <code>5</code>.</p>
+<h2 id="_13">Пары префиксов<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Сумма отрезка — это разность двух префиксов. Значит, вопрос про отрезки можно превратить в вопрос про пары префиксов.</p>
+<h3 id="2-k">Задача 2. Отрезки с суммой k<a class="headerlink" href="#2-k" title="Permanent link">&para;</a></h3>
+<h4 id="_14">Условие<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>Дан массив из <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a[1], a[2], \ldots, a[n]\)</span> (числа могут быть отрицательными) и целое число <span class="arithmatex">\(k\)</span>. Найдите количество пар <span class="arithmatex">\((l, r)\)</span> с <span class="arithmatex">\(1 \le l \le r \le n\)</span>, для которых <span class="arithmatex">\(a[l] + a[l+1] + \ldots + a[r] = k\)</span>.</p>
+<ul>
+<li><strong>Вход:</strong> в первой строке — числа <span class="arithmatex">\(n\)</span> и <span class="arithmatex">\(k\)</span> (<span class="arithmatex">\(1 \le n \le 2 \cdot 10^5\)</span>, <span class="arithmatex">\(|k| \le 10^{15}\)</span>). Во второй — <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a[i]\)</span> (<span class="arithmatex">\(|a[i]| \le 10^9\)</span>).</li>
+<li><strong>Выход:</strong> одно число — количество таких пар.</li>
+</ul>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>6 3
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1 2 1 -1 2 1
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>5
+</code></pre></div>
+</div>
+<p>Пояснение: подходят отрезки <span class="arithmatex">\([1, 2]\)</span>, <span class="arithmatex">\([2, 3]\)</span>, <span class="arithmatex">\([1, 4]\)</span>, <span class="arithmatex">\([3, 6]\)</span> и <span class="arithmatex">\([5, 6]\)</span>.</p>
+<h4 id="_15">Идея<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>Перебор всех пар <span class="arithmatex">\((l, r)\)</span> — это <span class="arithmatex">\(\frac{n(n+1)}{2} \approx 2 \cdot 10^{10}\)</span> при <span class="arithmatex">\(n = 2 \cdot 10^5\)</span>, слишком долго.</p>
+<p>Сумма на отрезке <span class="arithmatex">\([l, r]\)</span> равна <span class="arithmatex">\(p[r] - p[l-1]\)</span>. Значит, условие «сумма равна <span class="arithmatex">\(k\)</span>» можно переписать так:</p>
+<div class="arithmatex">\[
+p[l-1] = p[r] - k.
+\]</div>
+<p>Задача про отрезки превратилась в задачу про <strong>пары префиксов</strong>: для каждого <span class="arithmatex">\(r\)</span> нужно знать, сколько среди <span class="arithmatex">\(p[0], p[1], \ldots, p[r-1]\)</span> чисел, равных <span class="arithmatex">\(p[r] - k\)</span>. Пойдём по массиву слева направо и будем хранить в словаре, сколько раз уже встретилась каждая префиксная сумма.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(r\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(a[r]\)</span></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>−1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(p[r]\)</span></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>ищем <span class="arithmatex">\(p[r] - 3\)</span></td>
+<td></td>
+<td>−2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>встречалось раньше</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Итого <span class="arithmatex">\(0 + 1 + 1 + 1 + 0 + 2 = 5\)</span>. Например, при <span class="arithmatex">\(r = 6\)</span> ищем префикс 3 — он встречался дважды (<span class="arithmatex">\(p[2]\)</span> и <span class="arithmatex">\(p[4]\)</span>), это отрезки <span class="arithmatex">\([3, 6]\)</span> и <span class="arithmatex">\([5, 6]\)</span>.</p>
+<h4 id="_16">Решение<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что храним</strong></td>
+<td><code>cnt[v]</code> — сколько раз среди уже просмотренных префиксов встретилась сумма <span class="arithmatex">\(v\)</span>; <code>p</code> — текущая префиксная сумма</td>
+</tr>
+<tr>
+<td><strong>Начало</strong></td>
+<td><code>cnt[0] = 1</code>: пустой префикс <span class="arithmatex">\(p[0] = 0\)</span></td>
+</tr>
+<tr>
+<td><strong>Шаг для каждого <span class="arithmatex">\(r\)</span></strong></td>
+<td><code>p += a[r]</code>; к ответу прибавляем <code>cnt[p - k]</code>; затем <code>cnt[p] += 1</code></td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td>накопленная сумма</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Доказательство.</strong> Каждый отрезок <span class="arithmatex">\([l, r]\)</span> с суммой <span class="arithmatex">\(k\)</span> — это ровно одна пара префиксов <span class="arithmatex">\(p[l-1]\)</span> и <span class="arithmatex">\(p[r]\)</span>, где <span class="arithmatex">\(l - 1 &lt; r\)</span> и <span class="arithmatex">\(p[l-1] = p[r] - k\)</span>. Когда мы стоим на <span class="arithmatex">\(r\)</span>, в словаре лежат ровно <span class="arithmatex">\(p[0], \ldots, p[r-1]\)</span> — поэтому каждая подходящая пара посчитана ровно один раз. Порядок внутри шага важен: сначала прибавляем <code>cnt[p - k]</code>, потом добавляем текущий <span class="arithmatex">\(p\)</span>. Иначе при <span class="arithmatex">\(k = 0\)</span> текущий префикс нашёл бы сам себя, и мы посчитали бы несуществующий пустой отрезок.</p>
+<p><strong>Почему не два указателя.</strong> Метод <a href="../two-pointers/">двух указателей</a> двигает границы отрезка, рассчитывая, что сумма растёт вместе с отрезком. С отрицательными числами это не так, а префиксам знаки не важны.</p>
+<p><strong>Тип данных.</strong> Префиксные суммы — до <span class="arithmatex">\(2 \cdot 10^{14}\)</span> по модулю, ответ — до <span class="arithmatex">\(\frac{n(n+1)}{2} \approx 2 \cdot 10^{10}\)</span> (например, все числа и <span class="arithmatex">\(k\)</span> равны нулю). И то и другое — <code>long long</code>.</p>
+<p><strong>Сложность.</strong> <span class="arithmatex">\(n\)</span> шагов. В C++ <code>map</code> тратит <span class="arithmatex">\(O(\log n)\)</span> на операцию — итого <span class="arithmatex">\(O(n \log n)\)</span>; словарь в Python — в среднем <span class="arithmatex">\(O(1)\)</span>, итого <span class="arithmatex">\(O(n)\)</span>. Память <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C++</label><label for="__tabbed_2_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span><span class="w">  </span><span class="c1">// cnt[v] — сколько раз встречался префикс v</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">cnt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                     </span><span class="c1">// пустой префикс p[0] = 0</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">                </span><span class="c1">// теперь p = p[r]</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="n">answer</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="p">];</span><span class="w">  </span><span class="c1">// отрезки [l, r], у которых p[l-1] = p[r] - k</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">it</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">cnt</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>  <span class="c1"># cnt[v] — сколько раз встречался префикс v; p[0] = 0</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">p</span> <span class="o">=</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">p</span> <span class="o">+=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>                <span class="c1"># теперь p = p[r]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">answer</span> <span class="o">+=</span> <span class="n">cnt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># отрезки [l, r], у которых p[l-1] = p[r] - k</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>5</code>.</p>
+<h2 id="_17">Двумерная таблица<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>Та же идея в двух измерениях: префиксом становится прямоугольник от левого верхнего угла таблицы.</p>
+<h3 id="3">Задача 3. Сумма в прямоугольнике<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="_18">Условие<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>Дана таблица из <span class="arithmatex">\(n\)</span> строк и <span class="arithmatex">\(m\)</span> столбцов. Строки нумеруются с 1 сверху вниз, столбцы — с 1 слева направо; в клетке <span class="arithmatex">\((i, j)\)</span> записано целое число <span class="arithmatex">\(a[i][j]\)</span>.</p>
+<p>Дано <span class="arithmatex">\(q\)</span> запросов. Каждый запрос — четыре числа <span class="arithmatex">\(x_1, y_1, x_2, y_2\)</span> (<span class="arithmatex">\(1 \le x_1 \le x_2 \le n\)</span>, <span class="arithmatex">\(1 \le y_1 \le y_2 \le m\)</span>). Ответ на него — сумма чисел во всех клетках <span class="arithmatex">\((i, j)\)</span>, где <span class="arithmatex">\(x_1 \le i \le x_2\)</span> и <span class="arithmatex">\(y_1 \le j \le y_2\)</span>. Это прямоугольник с левым верхним углом <span class="arithmatex">\((x_1, y_1)\)</span> и правым нижним <span class="arithmatex">\((x_2, y_2)\)</span>.</p>
+<ul>
+<li><strong>Вход:</strong> в первой строке — числа <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(m\)</span> и <span class="arithmatex">\(q\)</span> (<span class="arithmatex">\(1 \le n, m \le 1000\)</span>, <span class="arithmatex">\(1 \le q \le 10^5\)</span>). Далее <span class="arithmatex">\(n\)</span> строк по <span class="arithmatex">\(m\)</span> целых чисел <span class="arithmatex">\(a[i][j]\)</span> (<span class="arithmatex">\(|a[i][j]| \le 10^9\)</span>). Далее <span class="arithmatex">\(q\)</span> строк по четыре числа <span class="arithmatex">\(x_1, y_1, x_2, y_2\)</span>.</li>
+<li><strong>Выход:</strong> <span class="arithmatex">\(q\)</span> строк — ответы на запросы.</li>
+</ul>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>3 4 3
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>1 2 3 4
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>5 6 7 8
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>9 10 11 12
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>2 2 3 3
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>1 1 3 4
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>2 4 2 4
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>34
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>78
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>8
+</code></pre></div>
+</div>
+<p>Пояснение: первый прямоугольник — клетки с числами 6, 7, 10 и 11.</p>
+<h4 id="_19">Идея<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>В лоб один запрос — до <span class="arithmatex">\(10^6\)</span> клеток, а запросов до <span class="arithmatex">\(10^5\)</span>: всего до <span class="arithmatex">\(10^{11}\)</span> сложений.</p>
+<p>Сделаем то же, что в одномерном случае. <strong>Двумерный префикс</strong> <span class="arithmatex">\(S[i][j]\)</span> — сумма прямоугольника от клетки <span class="arithmatex">\((1, 1)\)</span> до клетки <span class="arithmatex">\((i, j)\)</span>. Нужный прямоугольник получается из большого префикса <span class="arithmatex">\(S[x_2][y_2]\)</span>: вычитаем полосу сверху и полосу слева. Их общий угол оказался вычтен дважды — возвращаем его один раз.</p>
+<figure>
+  <img alt="Сумма в прямоугольнике = S[x2][y2] − S[x1−1][y2] − S[x2][y1−1] + S[x1−1][y1−1]" src="../img/prefix-sums/rect2d-light.svg#only-light" width="640" />
+  <img alt="Сумма в прямоугольнике = S[x2][y2] − S[x1−1][y2] − S[x2][y1−1] + S[x1−1][y1−1]" src="../img/prefix-sums/rect2d-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Зелёное прибавляем, красное вычитаем. Угол сначала вычли дважды, поэтому один раз прибавляем обратно.</figcaption>
+</figure>
+<h4 id="_20">Решение<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что храним</strong></td>
+<td><code>S[i][j]</code> — сумма прямоугольника от <span class="arithmatex">\((1, 1)\)</span> до <span class="arithmatex">\((i, j)\)</span>; нулевая строка и нулевой столбец — нули</td>
+</tr>
+<tr>
+<td><strong>Подготовка</strong></td>
+<td><code>S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]</code> — тот же приём: две полосы перекрываются в углу</td>
+</tr>
+<tr>
+<td><strong>Ответ на запрос</strong></td>
+<td><code>S[x2][y2] - S[x1-1][y2] - S[x2][y1-1] + S[x1-1][y1-1]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Доказательство.</strong> Посмотрим, сколько раз в формулу ответа входит каждая клетка <span class="arithmatex">\((i, j)\)</span> с <span class="arithmatex">\(i \le x_2\)</span> и <span class="arithmatex">\(j \le y_2\)</span>. «Выше» — значит в строке меньше <span class="arithmatex">\(x_1\)</span>, «левее» — в столбце меньше <span class="arithmatex">\(y_1\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Где клетка</th>
+<th style="text-align: center;"><code>S[x2][y2]</code></th>
+<th style="text-align: center;"><code>-S[x1-1][y2]</code></th>
+<th style="text-align: center;"><code>-S[x2][y1-1]</code></th>
+<th style="text-align: center;"><code>+S[x1-1][y1-1]</code></th>
+<th style="text-align: center;">Итого</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>внутри</td>
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>выше</td>
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;">−1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>левее</td>
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>выше и левее</td>
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;">−1</td>
+<td style="text-align: center;">−1</td>
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Каждая клетка прямоугольника посчитана один раз, остальные — ноль раз. Формула подготовки доказывается так же.</p>
+<p><strong>Тип данных.</strong> Сумма — до <span class="arithmatex">\(10^6 \cdot 10^9 = 10^{15}\)</span> по модулю, нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Подготовка <span class="arithmatex">\(O(nm)\)</span>, каждый запрос <span class="arithmatex">\(O(1)\)</span>: всего <span class="arithmatex">\(O(nm + q)\)</span>. Память <span class="arithmatex">\(O(nm)\)</span>.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C++</label><label for="__tabbed_3_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// S[i][j] — сумма от (1, 1) до (i, j); S[0][j] = S[i][0] = 0</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y2</span><span class="p">;</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">x2</span><span class="p">][</span><span class="n">y2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">y2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">x2</span><span class="p">][</span><span class="n">y1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">y1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">it</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># S[i][j] — сумма от (1, 1) до (i, j); S[0][j] = S[i][0] = 0</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">S</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">x2</span><span class="p">][</span><span class="n">y2</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">y2</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[</span><span class="n">x2</span><span class="p">][</span><span class="n">y1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">y1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">out</span><span class="p">)))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>34</code>, <code>78</code> и <code>8</code>.</p>
+<h2 id="_21">Разностный массив<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>Обратная операция: префиксные суммы быстро отвечают на вопросы про отрезки, а разностный массив быстро меняет отрезки.</p>
+<h3 id="4">Задача 4. Прибавление на отрезке<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="_22">Условие<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>Дан массив из <span class="arithmatex">\(n\)</span> чисел, изначально все они равны 0. Выполняется <span class="arithmatex">\(q\)</span> операций. Каждая операция задаётся тремя числами <span class="arithmatex">\(l\)</span>, <span class="arithmatex">\(r\)</span> и <span class="arithmatex">\(x\)</span> (<span class="arithmatex">\(1 \le l \le r \le n\)</span>) и означает «прибавить <span class="arithmatex">\(x\)</span> ко всем элементам с <span class="arithmatex">\(l\)</span>-го по <span class="arithmatex">\(r\)</span>-й». Выведите массив после всех операций.</p>
+<ul>
+<li><strong>Вход:</strong> в первой строке — числа <span class="arithmatex">\(n\)</span> и <span class="arithmatex">\(q\)</span> (<span class="arithmatex">\(1 \le n, q \le 2 \cdot 10^5\)</span>). Далее <span class="arithmatex">\(q\)</span> строк по три целых числа <span class="arithmatex">\(l\)</span>, <span class="arithmatex">\(r\)</span> и <span class="arithmatex">\(x\)</span> (<span class="arithmatex">\(|x| \le 10^9\)</span>).</li>
+<li><strong>Выход:</strong> <span class="arithmatex">\(n\)</span> чисел через пробел — массив после всех операций.</li>
+</ul>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>6 3
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>2 4 3
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>1 3 1
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>4 6 -2
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>1 4 4 1 -2 -2
+</code></pre></div>
+</div>
+<h4 id="_23">Идея<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>В лоб каждая операция — до <span class="arithmatex">\(n\)</span> прибавлений, всего до <span class="arithmatex">\(4 \cdot 10^{10}\)</span>.</p>
+<p>Префиксные суммы «накапливают» массив. Сделаем обратное — запишем <strong>разности соседей</strong>: <span class="arithmatex">\(d[i] = a[i] - a[i-1]\)</span>, где <span class="arithmatex">\(a[0] = 0\)</span>. Прибавление <span class="arithmatex">\(x\)</span> на отрезке <span class="arithmatex">\([l, r]\)</span> меняет всего две разности:</p>
+<ul>
+<li>на границе <span class="arithmatex">\(l\)</span> значение подскакивает на <span class="arithmatex">\(x\)</span> — <code>d[l] += x</code>;</li>
+<li>после <span class="arithmatex">\(r\)</span> значение опускается обратно — <code>d[r+1] -= x</code>;</li>
+<li>внутри отрезка соседи выросли одинаково, их разности не изменились.</li>
+</ul>
+<p>В конце восстанавливаем массив префиксными суммами: <span class="arithmatex">\(a[i] = d[1] + d[2] + \ldots + d[i]\)</span>.</p>
+<figure>
+  <img alt="Разностный массив: d[l] += x, d[r+1] −= x, затем префиксные суммы дают массив" src="../img/prefix-sums/diff-light.svg#only-light" width="640" />
+  <img alt="Разностный массив: d[l] += x, d[r+1] −= x, затем префиксные суммы дают массив" src="../img/prefix-sums/diff-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Три операции из примера меняют только по две ячейки d. Префиксные суммы d — это ответ.</figcaption>
+</figure>
+<h4 id="_24">Решение<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что храним</strong></td>
+<td><code>d[i] = a[i] - a[i-1]</code>; размер <span class="arithmatex">\(n + 2\)</span>: <code>d[n+1]</code> — запасная ячейка для операций с <span class="arithmatex">\(r = n\)</span></td>
+</tr>
+<tr>
+<td><strong>Операция</strong></td>
+<td><code>d[l] += x</code>, <code>d[r+1] -= x</code> — два действия вместо <span class="arithmatex">\(r - l + 1\)</span></td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td><code>a[i] = a[i-1] + d[i]</code> для <span class="arithmatex">\(i = 1, \ldots, n\)</span> — префиксные суммы <code>d</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Доказательство.</strong> Посмотрим, что одна операция <span class="arithmatex">\((l, r, x)\)</span> добавляет к <span class="arithmatex">\(a[i] = d[1] + \ldots + d[i]\)</span>:</p>
+<ul>
+<li>при <span class="arithmatex">\(i &lt; l\)</span> в сумму не входит ни <code>d[l]</code>, ни <code>d[r+1]</code> — добавка 0;</li>
+<li>при <span class="arithmatex">\(l \le i \le r\)</span> входит только <code>d[l]</code> — добавка <span class="arithmatex">\(x\)</span>;</li>
+<li>при <span class="arithmatex">\(i &gt; r\)</span> входят обе ячейки — добавка <span class="arithmatex">\(x - x = 0\)</span>.</li>
+</ul>
+<p>Ровно то, что нужно. Операции складываются независимо, поэтому верно и для всех вместе.</p>
+<p><strong>Тип данных.</strong> Элемент может стать <span class="arithmatex">\(2 \cdot 10^5 \cdot 10^9 = 2 \cdot 10^{14}\)</span> по модулю, нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Время <span class="arithmatex">\(O(n + q)\)</span> вместо <span class="arithmatex">\(O(nq)\)</span>, память <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C++</label><label for="__tabbed_4_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// d[i] = a[i] - a[i-1], d[n+1] нужен при r = n</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">      </span><span class="c1">// с позиции l всё больше на x</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// а с позиции r + 1 — снова как было</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w">  </span><span class="c1">// a[i] = d[1] + ... + d[i]</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">' '</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">);</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">it</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># d[i] = a[i] - a[i-1], d[n+1] нужен при r = n</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span>      <span class="c1"># с позиции l всё больше на x</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="n">d</span><span class="p">[</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x</span>  <span class="c1"># а с позиции r + 1 — снова как было</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">a</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="n">a</span> <span class="o">+=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># a[i] = d[1] + ... + d[i]</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">res</span><span class="p">)))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>1 4 4 1 -2 -2</code>.</p>
+<h2 id="_25">Типичные ошибки<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong><code>p[r] - p[l]</code> вместо <code>p[r] - p[l-1]</code>.</strong> Теряется первый элемент отрезка: для <span class="arithmatex">\([3, 6]\)</span> из примера получится <span class="arithmatex">\(23 - 8 = 15\)</span> вместо 19. Как заметить: проверь отрезок из одного элемента, <span class="arithmatex">\(l = r\)</span> — ответ должен быть <span class="arithmatex">\(a[l]\)</span>, а получится 0.</li>
+<li><strong>Переполнение <code>int</code>.</strong> Суммы доходят до <span class="arithmatex">\(10^{14}\)</span> и больше. Как заметить: у положительных чисел вдруг получилась отрицательная сумма.</li>
+<li><strong>Забытый угол в двумерном случае.</strong> Без <code>+ S[x1-1][y1-1]</code> угол вычтен дважды: в первом запросе задачи 3 получится 33 вместо 34. Как заметить: проверь прямоугольник, который не касается верхней и левой границы таблицы.</li>
+<li><strong>Размер массивов.</strong> <code>p</code> должен иметь размер <span class="arithmatex">\(n + 1\)</span> (есть <code>p[0]</code>), а <code>d</code> — <span class="arithmatex">\(n + 2\)</span> (есть <code>d[n+1]</code>). Иначе выход за границу при <span class="arithmatex">\(l = 1\)</span> или при <span class="arithmatex">\(r = n\)</span>. Как заметить: запросы, которые касаются первого и последнего элемента.</li>
+<li><strong>Медленный ввод и вывод.</strong> Алгоритм за <span class="arithmatex">\(O(n + q)\)</span> не успевает, потому что на каждой строке стоит <code>endl</code> или в Python вызывается <code>input()</code>. Как заметить: на большом тесте программа работает дольше, чем должна. Правила — в подразделе «Код: общие правила».</li>
+</ol>
+<h2 id="_26">Практика<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p>Три задачи по возрастанию сложности. Сначала попробуй сам.</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Задача</th>
+<th>Сложность</th>
+<th>Что тренирует</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://codeforces.com/problemset/problem/1807/D">1807D · Нечётные запросы</a></td>
+<td>900</td>
+<td>сумма на отрезке — задача 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://codeforces.com/problemset/problem/1690/D">1690D · Черно-белая полоса</a></td>
+<td>1000</td>
+<td>количество подходящих элементов на отрезке</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://codeforces.com/problemset/problem/1343/D">1343D · Одинаковая палиндромная сумма</a></td>
+<td>1700</td>
+<td>прибавление на отрезке — задача 4</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё пять задач и подсказки к каждой — в <a href="../../practice/prefix-sums/">подборке по теме</a>.</p>
+<h2 id="_27">Куда дальше<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://ru.algorithmica.org/cs/range-queries/prefix-sum/">Префиксные суммы</a> — Алгоритмика: какие ещё операции можно считать на префиксах (xor, сложение по модулю) и почему не минимум.</li>
+<li><a href="https://usaco.guide/silver/more-prefix-sums">More on Prefix Sums</a> — USACO Guide, на английском: двумерные префиксные суммы и разностные массивы с задачами для тренировки.</li>
+<li><a href="https://neerc.ifmo.ru/wiki/index.php?title=Дерево_Фенвика">Дерево Фенвика</a> — Викиконспекты ИТМО: сумма на отрезке, когда массив меняется, — и запрос, и изменение элемента за <span class="arithmatex">\(O(\log n)\)</span>.</li>
+<li><a href="https://cp-algorithms.com/data_structures/sparse-table.html">Sparse Table</a> — cp-algorithms, на английском: минимум на отрезке за <span class="arithmatex">\(O(1)\)</span> после подготовки за <span class="arithmatex">\(O(n \log n)\)</span>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Непонятно</p>
+<p>Читал Иван как новичок. Текст статьи пока не меняли — правки за Ярославом.</p>
+<ol>
+<li><strong>«Зачем это нужно».</strong> Не объяснено, что такое «сумма чисел с <span class="arithmatex">\(l\)</span>-го по <span class="arithmatex">\(r\)</span>-е» и что такое отрезок. Слово «отрезок» и запись <span class="arithmatex">\([l, r]\)</span> встречаются уже в «Что в статье» и в «Идее», но нигде не определены; сумма <span class="arithmatex">\(a[l] + a[l+1] + \ldots + a[r]\)</span> расписана только в условии задачи 1.</li>
+<li><strong>Вся статья.</strong> Важные теоретические моменты объяснить проще и понятнее — для человека, который раньше эту тему не знал.</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../js/progress.js"></script>
+      
+        <script src="../../js/generator.js"></script>
+      
+        <script src="../../js/mentor.js"></script>
+      
+    
+  </body>
+</html>

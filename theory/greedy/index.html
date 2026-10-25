@@ -1,0 +1,4335 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Открытая база теории и практики для подготовки к олимпиадам по программированию">
+      
+      
+      
+      
+        <link rel="prev" href="../prefix-sums/">
+      
+      
+        <link rel="next" href="../dp-intro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Жадные алгоритмы - Олимпиадная база</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Олимпиадная база" class="md-header__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Олимпиадная база
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Жадные алгоритмы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Теория
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practice/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Практика
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../me/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Статистика
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Олимпиадная база" class="md-nav__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Олимпиадная база
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefix-sums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как проверить идею
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обменный аргумент
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Жадный алгоритм не отстаёт: коровы и стойла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда можно брать самый дешёвый шаг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Жадность с откатом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как считать сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-set-multiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код: map, set и multiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор отрезков
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Выбор отрезков">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Непересекающиеся отрезки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Непересекающиеся отрезки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ускорение жадного алгоритма
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ускорение жадного алгоритма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Минимизация разности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Минимизация разности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пересмотр выбора
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пересмотр выбора">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Настойки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Настойки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../practice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Практика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../practice/olympiads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архив олимпиад
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Архив олимпиад
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vsosh-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · заключительный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vsosh-region/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · региональный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/open-olympiad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Открытая олимпиада
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vysshaya-proba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Высшая проба
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/innopolis-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Innopolis Open
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/olympiads/vorgcup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorg CUP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/prefix-sums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Статистика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как проверить идею
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обменный аргумент
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Жадный алгоритм не отстаёт: коровы и стойла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда можно брать самый дешёвый шаг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Жадность с откатом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как считать сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-set-multiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код: map, set и multiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор отрезков
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Выбор отрезков">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Непересекающиеся отрезки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Непересекающиеся отрезки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ускорение жадного алгоритма
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ускорение жадного алгоритма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Минимизация разности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Минимизация разности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пересмотр выбора
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пересмотр выбора">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Настойки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Настойки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">Жадные алгоритмы и как их доказывать<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>Уровень:</strong> новичок → средний · <strong>Время чтения:</strong> 30 минут · <strong>Теги:</strong> <code>greedy</code>, <code>sortings</code>, <code>data structures</code> · <strong>Проверил:</strong> —</p>
+<div class="admonition info">
+<p class="admonition-title">Что нужно знать заранее</p>
+<ul>
+<li>Массивы, циклы, функции и <a href="../sorting/">сортировка</a>.</li>
+<li>Для примера с коровами пригодится <a href="../binary-search/#cows">бинпоиск по ответу</a>.</li>
+<li><code>map</code> и <code>multiset</code> разберём здесь. Код есть на C++ и Python.</li>
+</ul>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Что в статье</p>
+<ol>
+<li>Как проверить жадную идею и доказать её обменом.</li>
+<li><strong>Задача 1. Непересекающиеся отрезки</strong> — выбираем то, что раньше заканчивается.</li>
+<li>Коровы и стойла — почему жадная проверка из бинпоиска работает.</li>
+<li><strong>Задача 2. Минимизация разности</strong> — двигаем меньшую группу, ускоряем шаги через <code>map</code>.</li>
+<li><strong>Задача 3. Настойки</strong> — отменяем неудачный выбор через <code>multiset</code>.</li>
+</ol>
+</div>
+<h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>У ресторана <span class="arithmatex">\(10^5\)</span> заявок: каждая занимает промежуток времени, одновременно принять две нельзя. Нужно обслужить как можно больше заявок. Для каждой заявки есть два варианта — взять или пропустить. Значит, перебор всех наборов даёт произведение из 100000 двоек, то есть <span class="arithmatex">\(2^{100000}\)</span> вариантов. А можно отсортировать заявки по времени окончания и один раз пройти по ним. Это задача 1.</p>
+<h2 id="_3">Идея<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>Жадный алгоритм</strong> строит ответ по шагам: каждый раз выбирает то, что кажется лучшим сейчас. Перебора всех продолжений нет. Поэтому главное — понять, почему этот выбор не испортит будущий ответ.</p>
+<p>Запись <span class="arithmatex">\([l,r]\)</span> означает промежуток времени от <span class="arithmatex">\(l\)</span> до <span class="arithmatex">\(r\)</span> <strong>включительно</strong>: например, <span class="arithmatex">\([2,5]\)</span> начинается в момент 2 и заканчивается в момент 5.</p>
+<p>Для заявок первое желание — взять ту, что раньше начинается. Но из <span class="arithmatex">\([1,10]\)</span>, <span class="arithmatex">\([2,3]\)</span>, <span class="arithmatex">\([4,5]\)</span> тогда возьмём только первую; две остальные вместе лучше.</p>
+<p>Второе желание — брать самые короткие. На <span class="arithmatex">\([1,4]\)</span>, <span class="arithmatex">\([4,5]\)</span>, <span class="arithmatex">\([5,8]\)</span> короткая заявка <span class="arithmatex">\([4,5]\)</span> мешает обеим остальным, хотя они совместимы. Здесь общая точка считается пересечением.</p>
+<figure>
+  <img alt="Два контрпримера: раннее начало и короткая длина оставляют одну заявку вместо двух" src="../img/greedy/intervals-light.svg#only-light" width="640" />
+  <img alt="Два контрпримера: раннее начало и короткая длина оставляют одну заявку вместо двух" src="../img/greedy/intervals-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Оранжевая заявка выглядит выгодной, но блокирует две зелёные. В обоих случаях выбор по раннему окончанию берёт две заявки.</figcaption>
+</figure>
+<p>Рабочее правило: <strong>бери совместимую заявку, которая раньше заканчивается</strong>. Она раньше освобождает ресторан для следующих. Ниже докажем это, а не ограничимся удачными примерами.</p>
+<h2 id="_4">Алгоритм<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">Как проверить идею<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Скажи точно, что выбираешь: например, «среди оставшихся совместимых заявок — с минимальным правым концом».</li>
+<li>Попробуй сломать правило на трёх-четырёх объектах. Особенно полезны равные значения и один большой объект против нескольких маленьких.</li>
+<li>Сравни алгоритм с полным перебором на маленьких входах. Совпадение помогает найти ошибки, но не заменяет доказательство.</li>
+<li>Докажи, что после выбора остаётся возможность получить оптимальный ответ.</li>
+</ol>
+<h3 id="_6">Обменный аргумент<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Берём какой-нибудь оптимальный ответ. Если его первый выбор отличается от жадного, <strong>заменяем</strong> этот выбор жадным. Доказываем, что ответ остаётся допустимым и не становится хуже.</p>
+<p>Теперь существует оптимальный ответ с нашим первым выбором. Фиксируем его и повторяем рассуждение для оставшейся задачи.</p>
+<p>Такое рассуждение называется <strong>индукцией</strong>: проверяем начало, затем доказываем, что один правильный шаг сохраняет возможность сделать следующий. Если начало верно и переход работает каждый раз, до ошибки дойти негде.</p>
+<p>Это удобно оформлять двумя пунктами:</p>
+<ul>
+<li><strong>База:</strong> пустой набор выборов можно продолжить до оптимального ответа.</li>
+<li><strong>Переход:</strong> очередной жадный выбор можно включить в такое продолжение, не ухудшив результат.</li>
+</ul>
+<p>Если доказать обмен не получается, это повод ещё раз поискать контрпример.</p>
+<h3 id="_7">Жадный алгоритм не отстаёт: коровы и стойла<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>В <a href="../binary-search/#cows">задаче про коров</a> бинпоиск спрашивает: «можно ли расставить <span class="arithmatex">\(k\)</span> коров с расстоянием хотя бы <span class="arithmatex">\(d\)</span>?». Проверка ставит первую корову в самое левое стойло, каждую следующую — в первое стойло не ближе <span class="arithmatex">\(d\)</span> к предыдущей.</p>
+<p>Для стойл <span class="arithmatex">\(1,2,4,8,9\)</span> и <span class="arithmatex">\(d=3\)</span> получаем <span class="arithmatex">\(1,4,8\)</span>. Для <span class="arithmatex">\(d=4\)</span> — только <span class="arithmatex">\(1,8\)</span>.</p>
+<p>Сравним с любой допустимой расстановкой <span class="arithmatex">\(p_1 &lt; p_2 &lt; \ldots\)</span>. Пусть жадные позиции — <span class="arithmatex">\(g_1,g_2,\ldots\)</span>.</p>
+<ul>
+<li><strong>База:</strong> <span class="arithmatex">\(g_1 \le p_1\)</span>, потому что берём самое левое стойло.</li>
+<li><strong>Переход:</strong> если <span class="arithmatex">\(g_j \le p_j\)</span>, то <span class="arithmatex">\(p_{j+1} \ge p_j+d \ge g_j+d\)</span>. Стойло <span class="arithmatex">\(p_{j+1}\)</span> подходит и жадному алгоритму, а он берёт первое подходящее. Значит, <span class="arithmatex">\(g_{j+1} \le p_{j+1}\)</span>.</li>
+</ul>
+<p>Жадная корова с тем же номером всегда стоит не правее. Если существует расстановка из <span class="arithmatex">\(k\)</span> коров, жадный алгоритм тоже их поставит. Само расстояние <span class="arithmatex">\(d\)</span> выбирает бинпоиск; жадность отвечает только на одну проверку.</p>
+<h3 id="_8">Когда можно брать самый дешёвый шаг<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>В задаче 2 ответ уменьшается на единицу одним из двух способов. Цена каждого способа со временем только растёт.</p>
+<p>Представь две очереди цен: <code>1, 2, 2, 5, …</code> и <code>1, 1, 3, 4, …</code>. Чтобы взять следующий шаг из очереди, надо сначала взять предыдущие. «Не убывают» значит, что каждая следующая цена не меньше предыдущей. Если обе очереди такие, можно каждый раз брать более дешёвую из двух первых цен: это обычное слияние отсортированных последовательностей.</p>
+<p>Так за любой фиксированный бюджет сделаем максимум шагов. В задаче 2 очереди не храним: следующую цену задаёт количество равных минимумов или максимумов.</p>
+<h3 id="_9">Жадность с откатом<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Иногда выбор разрешено пересмотреть. Тогда пробуем добавить очередной объект, а если условие нарушилось — убираем самый вредный из выбранных. Это может быть и новый объект, и более ранний.</p>
+<p>Нужно доказать две вещи: после отмены ответ снова допустим, а отменять именно этот объект выгоднее, чем любой другой. В задаче 3 роль «самого вредного» играет настойка с наименьшим значением.</p>
+<h3 id="_10">Как считать сложность<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Считаем действия, а не секунды: скорость компьютеров и языков разная.</p>
+<ul>
+<li><span class="arithmatex">\(O(n)\)</span> — один проход по <span class="arithmatex">\(n\)</span> объектам; если объектов вдвое больше, действий примерно вдвое больше.</li>
+<li><span class="arithmatex">\(O(n \log n)\)</span> — примерно <span class="arithmatex">\(\log_2 n\)</span> действий на объект. Здесь <span class="arithmatex">\(\log_2 n\)</span> показывает, сколько раз нужно делить <span class="arithmatex">\(n\)</span> пополам до единицы: для 8 это 3 раза, для <span class="arithmatex">\(10^5\)</span> — около 17.</li>
+<li><span class="arithmatex">\(O(n)\)</span> памяти — число хранимых значений растёт пропорционально <span class="arithmatex">\(n\)</span>.</li>
+</ul>
+<p>В первой задаче платим за сортировку и один проход. Во второй — за работу с группами, в третьей — за добавление и удаление настоек. Поэтому везде получим <span class="arithmatex">\(O(n \log n)\)</span> времени, но причины этой оценки разберём отдельно.</p>
+<h3 id="map-set-multiset">Код: map, set и multiset<a class="headerlink" href="#map-set-multiset" title="Permanent link">&para;</a></h3>
+<p><code>map</code> хранит пары <strong>ключ → значение</strong> по возрастанию ключа. Например, <code>{3 → 2, 5 → 1}</code> означает: число 3 встретилось дважды, число 5 — один раз.</p>
+<p><code>set</code> хранит различные значения. <code>multiset</code> хранит и повторы: после добавления двух троек в нём две тройки. Для настоек это обязательно: две одинаковые бутылки — два разных выбора.</p>
+<table>
+<thead>
+<tr>
+<th>Что нужно</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Посчитать число <code>x</code></td>
+<td><code>count[x]++</code>, где <code>count</code> — <code>map</code></td>
+</tr>
+<tr>
+<td>Минимальный ключ в <code>map</code></td>
+<td><code>count.begin()-&gt;first</code></td>
+</tr>
+<tr>
+<td>Максимальный ключ в <code>map</code></td>
+<td><code>count.rbegin()-&gt;first</code></td>
+</tr>
+<tr>
+<td>Добавить бутылку</td>
+<td><code>chosen.insert(x)</code>, где <code>chosen</code> — <code>multiset</code></td>
+</tr>
+<tr>
+<td>Минимальная выбранная бутылка</td>
+<td><code>*chosen.begin()</code></td>
+</tr>
+<tr>
+<td>Удалить одну минимальную бутылку</td>
+<td><code>chosen.erase(chosen.begin())</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>begin()</code> возвращает <strong>итератор</strong> — указатель на элемент контейнера; <code>*it</code> даёт сам элемент, <code>it-&gt;first</code> и <code>it-&gt;second</code> — части пары. <code>next(it)</code> и <code>prev(it)</code> сдвигают итератор на один элемент.</p>
+<p>Вставка и поиск в этих упорядоченных контейнерах занимают <span class="arithmatex">\(O(\log n)\)</span>: обычно ключи расположены в сбалансированном дереве поиска. В каждой его вершине сравниваем ключ с искомым и выбираем левую или правую часть; благодаря балансировке до нужного места порядка <span class="arithmatex">\(\log n\)</span> таких сравнений. Доступ к краям — <span class="arithmatex">\(O(1)\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Удалить одну копию</p>
+<p><code>chosen.erase(x)</code> удаляет <strong>все</strong> копии <code>x</code>. Чтобы удалить одну, передай итератор: <code>chosen.erase(chosen.find(x))</code>. Перед <code>find</code> надо знать, что элемент есть.</p>
+</div>
+<p>В Python обычные <code>dict</code> и <code>set</code> не поддерживают порядок по значению. В задаче 2 используем отсортированные группы и два индекса. Для задачи 3 хватит <code>heapq</code> — <strong>кучи</strong>: она добавляет число и удаляет минимальное за <span class="arithmatex">\(O(\log n)\)</span>. Весь список кучи не обязан быть отсортирован; минимум лежит в <code>heap[0]</code>.</p>
+<h2 id="_11">Выбор отрезков<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Здесь решение состоит из необратимых выборов. После принятой заявки все пересекающиеся с ней заявки отбрасываем.</p>
+<h3 id="1">Задача 1. Непересекающиеся отрезки<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="_12">Условие<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><a href="https://codeforces.com/problemset/problem/597/B">597B · Ресторан</a>.</p>
+<p>Даны <span class="arithmatex">\(n\)</span> заявок. Заявка <span class="arithmatex">\(i\)</span> занимает ресторан во все моменты от <span class="arithmatex">\(l_i\)</span> до <span class="arithmatex">\(r_i\)</span> включительно. Две заявки совместимы, если их отрезки не имеют общих точек. Выберите максимально возможное количество совместимых заявок.</p>
+<p><strong>Вход:</strong> число <span class="arithmatex">\(n\)</span> (<span class="arithmatex">\(1 \le n \le 5 \cdot 10^5\)</span>), затем <span class="arithmatex">\(n\)</span> строк с <span class="arithmatex">\(l_i,r_i\)</span> (<span class="arithmatex">\(1 \le l_i \le r_i \le 10^9\)</span>).</p>
+<p><strong>Выход:</strong> максимальное количество заявок.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>5
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1 2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2 3
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>3 4
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>4 5
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>5 6
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>3
+</code></pre></div>
+</div>
+<p>Пояснение: можно принять заявки <span class="arithmatex">\([1,2]\)</span>, <span class="arithmatex">\([3,4]\)</span>, <span class="arithmatex">\([5,6]\)</span>. Заявки <span class="arithmatex">\([1,2]\)</span> и <span class="arithmatex">\([2,3]\)</span> вместе принять нельзя.</p>
+<h4 id="_13">Идея<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>Перебор <span class="arithmatex">\(2^n\)</span> наборов не подходит даже для сотни заявок. Отсортируем их по правому концу. Каждую заявку принимаем, если она начинается строго после окончания последней принятой.</p>
+<h4 id="_14">Решение<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Порядок</strong></td>
+<td>правые концы <span class="arithmatex">\(r_i\)</span> по возрастанию</td>
+</tr>
+<tr>
+<td><strong>Что храним</strong></td>
+<td>конец последней принятой заявки <code>last</code> и количество <code>answer</code></td>
+</tr>
+<tr>
+<td><strong>Выбор</strong></td>
+<td>если <span class="arithmatex">\(l_i &gt; last\)</span>, принимаем заявку</td>
+</tr>
+<tr>
+<td><strong>Обновление</strong></td>
+<td><code>last = r_i</code>, количество увеличиваем на 1</td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td>количество принятых заявок</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> До первого выбора можно взять любой оптимальный набор.</li>
+<li><strong>Переход.</strong> Пусть <span class="arithmatex">\(G\)</span> — первая совместимая заявка с минимальным концом, а <span class="arithmatex">\(O\)</span> — первая заявка оптимального продолжения. Конец <span class="arithmatex">\(G\)</span> не позже конца <span class="arithmatex">\(O\)</span>. Заменим <span class="arithmatex">\(O\)</span> на <span class="arithmatex">\(G\)</span>: все следующие заявки начинаются после конца <span class="arithmatex">\(O\)</span>, значит, подходят и после <span class="arithmatex">\(G\)</span>. Количество сохранилось. Повторяем обмен после каждой принятой заявки.</li>
+</ul>
+<p><strong>Сложность.</strong> Сортировка — <span class="arithmatex">\(O(n \log n)\)</span>, проход — <span class="arithmatex">\(O(n)\)</span>. Память — <span class="arithmatex">\(O(n)\)</span> на заявки.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++</label><label for="__tabbed_1_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">;</span><span class="w">  </span><span class="c1">// храним (r, l)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">orders</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="n">answer</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">            </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">read</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">readline</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">orders</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">orders</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">orders</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">last</span> <span class="o">=</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="k">if</span> <span class="n">l</span> <span class="o">&gt;</span> <span class="n">last</span><span class="p">:</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="n">last</span> <span class="o">=</span> <span class="n">r</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>3</code>.</p>
+<h2 id="_15">Ускорение жадного алгоритма<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>Верное правило ещё не гарантирует, что программа успеет. Иногда нужно выполнять много одинаковых действий одним шагом.</p>
+<h3 id="2">Задача 2. Минимизация разности<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="_16">Условие<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><a href="https://codeforces.com/problemset/problem/1244/E">1244E · Минимизация разности</a>.</p>
+<p>Дан массив <span class="arithmatex">\(a_1,\ldots,a_n\)</span>. Одна операция увеличивает или уменьшает один элемент на 1. Разрешено не больше <span class="arithmatex">\(k\)</span> операций. Найдите наименьшую возможную разность между максимальным и минимальным элементами.</p>
+<p><strong>Вход:</strong> числа <span class="arithmatex">\(n,k\)</span> (<span class="arithmatex">\(2 \le n \le 10^5\)</span>, <span class="arithmatex">\(1 \le k \le 10^{14}\)</span>), затем <span class="arithmatex">\(n\)</span> чисел <span class="arithmatex">\(a_i\)</span> (<span class="arithmatex">\(1 \le a_i \le 10^9\)</span>).</p>
+<p><strong>Выход:</strong> минимальная разность.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>4 5
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>3 1 7 5
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>2
+</code></pre></div>
+</div>
+<p>Пояснение: две операции поднимают 1 до 3, ещё две опускают 7 до 5. Получаем <code>3 3 5 5</code>. Одной оставшейся операции не хватит, чтобы уменьшить разность ещё на 1.</p>
+<h4 id="_17">Идея<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>Чтобы поднять минимум на 1, надо увеличить <strong>все</strong> минимальные элементы. Если их <span class="arithmatex">\(c_L\)</span>, цена — <span class="arithmatex">\(c_L\)</span> операций. Опустить максимум на 1 стоит <span class="arithmatex">\(c_R\)</span>, где <span class="arithmatex">\(c_R\)</span> — количество максимумов. Выбираем меньшую цену.</p>
+<p>Например, в <code>1 1 5 8</code> поднимать минимум стоит 2, опускать максимум — 1. Сначала выгоднее двигать восьмёрку.</p>
+<p>Но <span class="arithmatex">\(k\)</span> бывает <span class="arithmatex">\(10^{14}\)</span>. Если выполнять отдельные операции и каждый раз искать край массива, верхняя оценка — <span class="arithmatex">\(O(nk)\)</span>. Даже уменьшение разности по единице может потребовать почти миллиард итераций. Нужно перескакивать сразу до следующей группы равных чисел.</p>
+<h4 id="_18">Решение<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>Храним в <code>map</code> <strong>значение → количество</strong>. Пусть минимум — <span class="arithmatex">\(L\)</span>, следующая группа — <span class="arithmatex">\(L'\)</span>, минимумов <span class="arithmatex">\(c_L\)</span>. До <span class="arithmatex">\(L'\)</span> их можно двигать по неизменной цене <span class="arithmatex">\(c_L\)</span> за единицу расстояния.</p>
+<p>За оставшийся бюджет хватит на <span class="arithmatex">\(\lfloor k/c_L \rfloor\)</span> таких шагов. Поэтому сдвиг:</p>
+<div class="arithmatex">\[
+d=\min\left(L'-L,\ \left\lfloor\frac{k}{c_L}\right\rfloor\right).
+\]</div>
+<p>Знак <span class="arithmatex">\(\lfloor k/c_L\rfloor\)</span> означает деление нацело с отбрасыванием остатка. Например, при <span class="arithmatex">\(k=7\)</span> и <span class="arithmatex">\(c_L=3\)</span> хватит на 2 шага: они стоят 6, а на третий бюджета нет.</p>
+<p>Платим <span class="arithmatex">\(d \cdot c_L\)</span>. Если дошли до следующей группы, объединяем количества. Если <span class="arithmatex">\(d=0\)</span>, бюджет уже не позволяет уменьшить разность. Для правого края всё симметрично.</p>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Что храним</strong></td>
+<td>группы равных значений и остаток <span class="arithmatex">\(k\)</span></td>
+</tr>
+<tr>
+<td><strong>Выбор</strong></td>
+<td>двигаем край с меньшим количеством элементов</td>
+</tr>
+<tr>
+<td><strong>Сколько двигаем</strong></td>
+<td>до соседней группы или до исчерпания целых шагов бюджета</td>
+</tr>
+<tr>
+<td><strong>Обновление</strong></td>
+<td>вычитаем стоимость, сливаем встретившиеся группы</td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td>максимальный ключ минус минимальный</td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img alt="Пример: группа 1 доходит до 3 за две операции, группа 7 доходит до 5 ещё за две; остаётся бюджет 1 и разность 2" src="../img/greedy/groups-light.svg#only-light" width="640" />
+  <img alt="Пример: группа 1 доходит до 3 за две операции, группа 7 доходит до 5 ещё за две; остаётся бюджет 1 и разность 2" src="../img/greedy/groups-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Число в маленькой метке — размер группы. После двух слияний оба края стоят по 2 операции за шаг; оставшейся одной не хватает.</figcaption>
+</figure>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> До изменений группы точно описывают исходный массив.</li>
+<li><strong>Переход.</strong> Уменьшение разности на 1 требует либо поднять все минимумы, либо опустить все максимумы. Их цены — <span class="arithmatex">\(c_L\)</span> и <span class="arithmatex">\(c_R\)</span>. При движении внутрь группы только растут: обе последовательности цен не убывают. Значит, применимо правило двух очередей из раздела «Алгоритм»: берём более дешёвый следующий шаг. Пока не дошли до соседней группы, его цена не меняется, поэтому пакет из <span class="arithmatex">\(d\)</span> шагов равносилен <span class="arithmatex">\(d\)</span> одиночным выборам. Если не хватает даже на более дешёвый шаг, улучшить ответ нельзя.</li>
+</ul>
+<p><strong>Тип данных.</strong> <span class="arithmatex">\(k\)</span> до <span class="arithmatex">\(10^{14}\)</span>, стоимость слияния до <span class="arithmatex">\(10^5 \cdot 10^9 = 10^{14}\)</span> — в C++ нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Построение <code>map</code> — <span class="arithmatex">\(O(n \log n)\)</span>. Каждое полное слияние уменьшает число групп, таких слияний не больше <span class="arithmatex">\(n-1\)</span>. Неполный сдвиг может быть только последним: после него на очередной шаг не хватит бюджета. Всего <span class="arithmatex">\(O(n \log n)\)</span> времени и <span class="arithmatex">\(O(n)\)</span> памяти. В Python сортировка групп даёт ту же оценку.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C++</label><label for="__tabbed_2_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iterator&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="n">count</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prev</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">hi</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">gap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="o">-&gt;</span><span class="n">first</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">                             </span><span class="o">:</span><span class="w"> </span><span class="n">hi</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prev</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">gap</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="p">);</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">        </span><span class="n">count</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">        </span><span class="n">count</span><span class="p">[</span><span class="n">value</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">.</span><span class="n">rbegin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">count</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">first</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">groups</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="k">if</span> <span class="n">count</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">count</span><span class="p">[</span><span class="n">r</span><span class="p">]:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="n">d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">value</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">k</span> <span class="o">//</span> <span class="n">count</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>            <span class="k">break</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="n">k</span> <span class="o">-=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">count</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="n">value</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+=</span> <span class="n">d</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>            <span class="n">count</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        <span class="n">d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-</span> <span class="n">value</span><span class="p">[</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">k</span> <span class="o">//</span> <span class="n">count</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>            <span class="k">break</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>        <span class="n">k</span> <span class="o">-=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">count</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>        <span class="n">value</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-=</span> <span class="n">d</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>        <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">[</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>            <span class="n">count</span><span class="p">[</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>            <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-</span> <span class="n">value</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>2</code>.</p>
+<h2 id="_19">Пересмотр выбора<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>Здесь храним весь текущий набор. Очередная настойка может заставить нас отменить более раннюю.</p>
+<h3 id="3">Задача 3. Настойки<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="_20">Условие<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p><a href="https://codeforces.com/problemset/problem/1526/C2">1526C2 · Настойки</a>.</p>
+<p>Даны <span class="arithmatex">\(n\)</span> настоек в порядке слева направо. Изначально здоровье равно 0. Проходя мимо настойки <span class="arithmatex">\(i\)</span>, можно выпить её или пропустить. Выпитая настойка меняет здоровье на <span class="arithmatex">\(a_i\)</span>, в том числе может его уменьшить. Возвращаться назад и менять порядок нельзя. После каждой выпитой настойки здоровье должно быть неотрицательным.</p>
+<p>Найдите максимальное число настоек, которые можно выпить.</p>
+<p><strong>Вход:</strong> число <span class="arithmatex">\(n\)</span> (<span class="arithmatex">\(1 \le n \le 2 \cdot 10^5\)</span>), затем <span class="arithmatex">\(n\)</span> чисел <span class="arithmatex">\(a_i\)</span> (<span class="arithmatex">\(-10^9 \le a_i \le 10^9\)</span>).</p>
+<p><strong>Выход:</strong> максимальное количество.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>6
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>4 -4 1 -3 1 -3
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>5
+</code></pre></div>
+</div>
+<p>Пояснение: выпиваем настойки с номерами 1, 3, 4, 5, 6. Здоровье после них: 4, 5, 2, 3, 0.</p>
+<h4 id="_21">Идея<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>Правило «пей, если прямо сейчас хватает здоровья» оставит нас с <code>4, -4, 1, 1</code> — всего 4 настойки. Вторая настойка израсходовала здоровье, которое пригодилось бы для двух следующих.</p>
+<p>Будем сначала включать каждую настойку в выбранный набор. Если здоровье стало отрицательным, уберём <strong>наименьшее значение среди всех выбранных</strong>. В примере на четвёртой настойке здоровье становится <span class="arithmatex">\(-2\)</span>. Отменяем <code>-4</code> и оставляем <code>-3</code>: новое здоровье <span class="arithmatex">\(-2-(-4)=2\)</span>.</p>
+<p>Отмена — пересмотр строящегося ответа. В итоговом ответе настойку <code>-4</code> мы с самого начала пропускаем; ходить назад по условию не нужно.</p>
+<h4 id="_22">Решение<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Порядок</strong></td>
+<td>исходный, слева направо</td>
+</tr>
+<tr>
+<td><strong>Что храним</strong></td>
+<td><code>multiset</code> выбранных значений и их сумму <code>health</code></td>
+</tr>
+<tr>
+<td><strong>Пробуем взять</strong></td>
+<td>добавляем <span class="arithmatex">\(a_i\)</span> в набор и сумму</td>
+</tr>
+<tr>
+<td><strong>Откат</strong></td>
+<td>если сумма отрицательна, удаляем минимальное значение и вычитаем его из суммы</td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td>размер набора</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Настойка</th>
+<th>Здоровье после добавления</th>
+<th>Что отменили</th>
+<th>Выбранные значения после шага</th>
+<th>Здоровье</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>—</td>
+<td><code>4</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td>−4</td>
+<td>0</td>
+<td>—</td>
+<td><code>−4, 4</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+<td><code>−4, 1, 4</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>−3</td>
+<td>−2</td>
+<td>−4</td>
+<td><code>−3, 1, 4</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>—</td>
+<td><code>−3, 1, 1, 4</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>−3</td>
+<td>0</td>
+<td>—</td>
+<td><code>−3, −3, 1, 1, 4</code></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><code>multiset</code> показывает значения по возрастанию, но пить настойки надо в исходном порядке.</p>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> Пустой набор допустим, здоровье равно 0.</li>
+<li><strong>Переход.</strong> Если после добавления здоровье неотрицательно, новый набор допустим. Иначе новое значение <span class="arithmatex">\(x\)</span> отрицательно. Минимум <span class="arithmatex">\(m \le x\)</span>, поэтому после его удаления здоровье станет <span class="arithmatex">\(H+x-m \ge H \ge 0\)</span>, где <span class="arithmatex">\(H\)</span> — здоровье до добавления. Если удалили более раннюю отрицательную настойку, все промежуточные значения здоровья только увеличились. Одного удаления достаточно. Выбор минимальной настойки сохраняет наиболее выгодные наборы каждого размера — точное утверждение и доказательство ниже.</li>
+</ul>
+<details class="note">
+<summary>Почему количество максимально</summary>
+<p>Префикс — первые несколько настоек в исходном порядке. Используем более сильное утверждение. После каждого шага:</p>
+<ol>
+<li>выбранный набор допустим;</li>
+<li>его размер <span class="arithmatex">\(c\)</span> максимален;</li>
+<li>для любого <span class="arithmatex">\(j \le c\)</span> сумма <span class="arithmatex">\(j\)</span> наибольших значений в нём не меньше суммы любого допустимого набора из <span class="arithmatex">\(j\)</span> настоек этого префикса.</li>
+</ol>
+<p>Эти <span class="arithmatex">\(j\)</span> наибольших тоже образуют допустимый набор: либо удалили только отрицательные значения, и здоровье на всех префиксах выросло; либо оставили только неотрицательные значения.</p>
+<p><strong>База:</strong> на пустом префиксе утверждения верны.</p>
+<p><strong>Переход:</strong> добавим значение <span class="arithmatex">\(x\)</span>. Любой допустимый набор из <span class="arithmatex">\(j\)</span> настоек либо не содержит <span class="arithmatex">\(x\)</span>, либо состоит из <span class="arithmatex">\(x\)</span> и допустимого старого набора размера <span class="arithmatex">\(j-1\)</span>. По предположению индукции обе суммы не больше суммы <span class="arithmatex">\(j\)</span> наибольших значений в старом выбранном наборе с добавленным <span class="arithmatex">\(x\)</span>. Если <span class="arithmatex">\(j=c+1\)</span>, возможен только второй случай: раньше набора такого размера не было.</p>
+<p>Если вся сумма неотрицательна, сохраняем <span class="arithmatex">\(c+1\)</span> настоек; больше получить нельзя. Если сумма отрицательна, получить <span class="arithmatex">\(c+1\)</span> нельзя: любой такой набор содержал бы <span class="arithmatex">\(x\)</span>, а сумма его старых <span class="arithmatex">\(c\)</span> элементов не больше нашего старого здоровья.</p>
+<p>Удаляем минимум. Для всех <span class="arithmatex">\(j \le c\)</span> набор <span class="arithmatex">\(j\)</span> наибольших не изменился, а полный оставшийся набор снова допустим. Значит, сохранились и максимальное количество, и утверждение о суммах. Индукция завершена.</p>
+</details>
+<p><strong>Тип данных.</strong> Сумма по модулю не больше <span class="arithmatex">\(2 \cdot 10^5 \cdot 10^9 = 2 \cdot 10^{14}\)</span> — нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Каждую настойку добавляем один раз и удаляем не больше одного раза. Время <span class="arithmatex">\(O(n \log n)\)</span>, память <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C++</label><label for="__tabbed_3_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="n">multiset</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">chosen</span><span class="p">;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="n">chosen</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="n">health</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">health</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chosen</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">            </span><span class="n">health</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">            </span><span class="n">chosen</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span><span class="w">  </span><span class="c1">// ровно одна бутылка</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">chosen</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">chosen</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">health</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">health</span> <span class="o">+=</span> <span class="n">x</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="k">if</span> <span class="n">health</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="n">health</span> <span class="o">-=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>5</code>.</p>
+<h2 id="_23">Типичные ошибки<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Убедиться на одном примере и не доказать правило.</strong> В задаче 1 раннее начало и короткая длина выглядят разумно, но ломаются на трёх заявках. Ищи контрпример, затем доказывай обмен.</li>
+<li><strong>Перепутать <code>&gt;</code> и <code>&gt;=</code>.</strong> В задаче 1 отрезки с общей точкой пересекаются: <code>l &gt; last</code>. Тест <code>[1,2], [2,3]</code> должен дать 1.</li>
+<li><strong>Ускорить поиск, но оставить миллиард шагов.</strong> В задаче 2 мало хранить края в <code>map</code>: двигать их надо сразу до следующей группы. Проверь <code>1 1000000000</code> при большом <span class="arithmatex">\(k\)</span>.</li>
+<li><strong>Потерять повторы или удалить все копии.</strong> В задаче 3 нужен <code>multiset</code>, а удалять надо по итератору. На <code>4 -2 -2 -2</code> правильный ответ 3.</li>
+<li><strong>Сортировать настойки или откатывать только последнюю.</strong> В задаче 3 порядок задан условием, а отменять иногда нужно более раннюю настойку. Пример из условия проверяет оба момента.</li>
+</ol>
+<h2 id="_24">Практика<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>Три задачи из <a href="../../practice/greedy/">подборки по теме</a>, по возрастанию сложности:</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Задача</th>
+<th>Сложность</th>
+<th>Что тренирует</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://codeforces.com/problemset/problem/1992/A">1992A · Одни плюсы</a></td>
+<td>800</td>
+<td>выбрать выгодное локальное действие</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://codeforces.com/problemset/problem/2245/B">2245B · Удалить и сконкатенировать</a></td>
+<td>1100</td>
+<td>жадный отбор после сортировки</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://codeforces.com/problemset/problem/2249/A">2249A · Ранговая подпоследовательность</a></td>
+<td>1300</td>
+<td>выбор первого подходящего элемента и обменный аргумент</td>
+</tr>
+</tbody>
+</table>
+<p>В подборке ещё пять задач и подсказки к каждой.</p>
+<h2 id="_25">Куда дальше<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://codeforces.com/blog/entry/70553">Официальный разбор 1244E</a> — сравни жадный подход с решением через бинпоиск.</li>
+<li><a href="https://codeforces.com/blog/entry/91195">Официальный разбор 1526C2</a> — другая подача выбора настоек с приоритетной очередью.</li>
+<li><a href="https://eel.is/c++draft/associative.reqmts">Ассоциативные контейнеры C++</a> — требования стандарта к <code>map</code>, <code>set</code>, <code>multiset</code>, их операциям и сложности.</li>
+<li><a href="https://docs.python.org/3/library/heapq.html">heapq</a> — документация Python: как добавлять значения и извлекать минимум.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../js/progress.js"></script>
+      
+        <script src="../../js/generator.js"></script>
+      
+        <script src="../../js/mentor.js"></script>
+      
+    
+  </body>
+</html>

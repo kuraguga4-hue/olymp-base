@@ -1,0 +1,3362 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Открытая база теории и практики для подготовки к олимпиадам по программированию">
+      
+      
+      
+      
+        <link rel="prev" href="../number-theory/">
+      
+      
+        <link rel="next" href="../implementation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Комбинаторика - Олимпиадная база</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Олимпиадная база" class="md-header__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Олимпиадная база
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Комбинаторика
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../theory/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Теория
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Практика
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../me/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Статистика
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Олимпиадная база" class="md-nav__button md-logo" aria-label="Олимпиадная база" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Олимпиадная база
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kuraguga4-hue/olymp-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    olymp-base
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/prefix-sums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Практика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../olympiads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архив олимпиад
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Архив олимпиад
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/vsosh-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · заключительный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/vsosh-region/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ВсОШ · региональный этап
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/open-olympiad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Открытая олимпиада
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/vysshaya-proba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Высшая проба
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/innopolis-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Innopolis Open
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../olympiads/vorgcup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorg CUP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарный поиск и поиск по ответу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefix-sums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Префиксные суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жадные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Динамическое программирование: начало
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shortest-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кратчайшие пути
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сортировки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бинарные подъёмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../segment-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дерево отрезков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../treap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Декартово дерево
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sparse-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подсказки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача с олимпиады
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хеширование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строковые алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../randomized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рандомизированные алгоритмы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centroid-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Центроидная декомпозиция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HLD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-optimizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Оптимизации ДП
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitmasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Битмаски
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brute-force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перебор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../divide-and-conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Разделяй и властвуй
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конструктивные задачи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два указателя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqrt-decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корневая оптимизация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sieve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Решето Эратосфена
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knapsack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Задача о рюкзаке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сжатие координат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scanline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сканлайн
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Геометрия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Свёртки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Статистика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подсказки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача с олимпиады
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">Комбинаторика: задачи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Задачи идут по возрастанию сложности. Сначала попробуй сам, подсказки открывай по одной: каждая следующая раскрывает больше. Теория — <a href="../../theory/combinatorics/">статья</a>.</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Задача</th>
+<th>Сложность</th>
+<th>Ещё темы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://codeforces.com/problemset/problem/2125/C">2125C · Подсчет хороших чисел</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2125">Educational Codeforces Round 181 (Rated for Div. 2)</a> · задача C</span></td>
+<td>1100</td>
+<td>теория чисел</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://codeforces.com/problemset/problem/2144/C">2144C · Неубывающие массивы</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача C</span></td>
+<td>1300</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://codeforces.com/problemset/problem/1288/C">1288C · Два массива</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1288">Educational Codeforces Round 80 (Rated for Div. 2)</a> · задача C</span></td>
+<td>1600</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://codeforces.com/problemset/problem/2184/D">2184D · Нечестная игра</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2184">Codeforces Round 1072 (Div. 3)</a> · задача D</span></td>
+<td>1600</td>
+<td>битмаски</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://codeforces.com/problemset/problem/2249/B">2249B · Разрезание перестановки</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2249">Codeforces Round 1112 (Div. 1)</a> · задача B</span></td>
+<td>1700</td>
+<td>сортировки</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://codeforces.com/problemset/problem/2200/G">2200G · Операция Перестановка</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2200">Codeforces Round 1084 (Div. 3)</a> · задача G</span></td>
+<td>2200</td>
+<td>динамическое программирование</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://codeforces.com/problemset/problem/1251/F">1251F · Красно-белый забор</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1251">Educational Codeforces Round 75 (Rated for Div. 2)</a> · задача F</span></td>
+<td>2500</td>
+<td>FFT</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://codeforces.com/problemset/problem/1667/E">1667E · Центроидные вероятности</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1667">Codeforces Round 783 (Div. 1)</a> · задача E</span></td>
+<td>3000</td>
+<td>FFT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">Подсказки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. 2125C · Подсчет хороших чисел</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Какие простые числа определяют, хорошее число или нет?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Число хорошее, если оно не делится на <span class="arithmatex">\(2,3,5,7\)</span>. Считай количество на префиксе и вычитай префиксы. Используй включения-исключения по четырём простым с <span class="arithmatex">\(\lfloor k/d\rfloor\)</span> для произведений, <span class="arithmatex">\(O(2^4)\)</span> на запрос; либо периодичность с периодом <span class="arithmatex">\(210\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/144998">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>2. 2144C · Неубывающие массивы</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Можно ли сначала привести пары к виду <span class="arithmatex">\(a_i\le b_i\)</span>, не изменив ответ?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Да: если хоть одно хорошее подмножество существует, то можно считать <span class="arithmatex">\(a_i\le b_i\)</span>, так что поменяй местами элементы в парах, где <span class="arithmatex">\(a_i&gt;b_i\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Для соседних индексов бывают два случая: <span class="arithmatex">\(b_i\le a_{i+1}\)</span> (никаких ограничений) или <span class="arithmatex">\(b_i&gt;a_{i+1}\)</span>, тогда <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(i+1\)</span> нужно менять местами вместе.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Индексы объединяются в группы, которые решаются независимо, ответ <span class="arithmatex">\(2^{n-k}\)</span>, где <span class="arithmatex">\(k\)</span> число индексов <span class="arithmatex">\(i\)</span> с <span class="arithmatex">\(b_i&gt;a_{i+1}\)</span> (после обмена) по модулю.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/146474">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>3. 1288C · Два массива</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Нельзя ли записать оба массива одной неубывающей последовательностью?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Рассмотри последовательность <span class="arithmatex">\(a_1,\ldots,a_m,b_m,\ldots,b_1\)</span>: она неубывающая длины <span class="arithmatex">\(2m\)</span> со значениями от <span class="arithmatex">\(1\)</span> до <span class="arithmatex">\(n\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Нужно посчитать число таких последовательностей. Какая это формула сочетаний?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Это сочетания с повторениями из <span class="arithmatex">\(n\)</span> по <span class="arithmatex">\(2m\)</span>, ответ <span class="arithmatex">\(C_{n+2m-1}^{2m}=\frac{(n+2m-1)!}{(2m)!(n-1)!}\)</span> по модулю.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/73105">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>4. 2184D · Нечестная игра</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Как оптимально ходит Алиса и что при этом происходит с двоичной записью?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Чётное число делит на <span class="arithmatex">\(2\)</span>, нечётному вычитает <span class="arithmatex">\(1\)</span>. Тогда число действий равно <span class="arithmatex">\(maxBit(a)+cntBit(a)\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Надо посчитать <span class="arithmatex">\(a\le n=2^d\)</span> с <span class="arithmatex">\(maxBit+cntBit&gt;k\)</span>: переберите <span class="arithmatex">\(maxBit\)</span> и <span class="arithmatex">\(cntBit\)</span>, при фиксированном старшем бите вариантов <span class="arithmatex">\(\binom{maxBit}{cntBit-1}\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Число <span class="arithmatex">\(n=2^d\)</span> проверь отдельно (<span class="arithmatex">\(maxBit=d\)</span>, <span class="arithmatex">\(cntBit=1\)</span>); биномиальные коэффициенты предпосчитай через <span class="arithmatex">\(\binom nk=\binom{n-1}{k-1}+\binom{n-1}k\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/150033">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>5. 2249B · Разрезание перестановки</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Каждое <span class="arithmatex">\(s_i\)</span> равно минимуму из двух максимумов — префиксного и суффиксного. А где в перестановке находится <span class="arithmatex">\(n\)</span> относительно разных <span class="arithmatex">\(i\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Раскрой минимум на два случая: <span class="arithmatex">\(s_i\)</span> равно максимуму префикса или максимуму суффикса. Позиции первого типа не могут стоять правее позиций второго типа, иначе <span class="arithmatex">\(n\)</span> должно быть и левее, и правее.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Поэтому позиции, где <span class="arithmatex">\(s_i\)</span> — максимум префикса, образуют префикс с возрастающими значениями, а где максимум суффикса — суффикс с убывающими значениями. Для каждой точки раздела проверь это.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Затем иди по отсортированным значениям слева направо: если <span class="arithmatex">\(s_i\)</span> встретилось впервые, пропусти его, иначе умножь ответ на <span class="arithmatex">\(s_i-i+1\)</span>. Сумма по всем допустимым разделам даёт ответ.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/155516">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>6. 2200G · Операция Перестановка</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Как свести вычитание и деление к сложению и умножению, и чей вклад в ответ считать?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Замени <span class="arithmatex">\(-\)</span> на <span class="arithmatex">\(+(-y)\)</span> и <span class="arithmatex">\(/y\)</span> на умножение на <span class="arithmatex">\(1/y\)</span> по модулю; считай вклад каждой операции <span class="arithmatex">\(+y\)</span> как <span class="arithmatex">\(y\)</span> на ожидаемое произведение операций <span class="arithmatex">\(x\)</span> после неё.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Если всего <span class="arithmatex">\(m\)</span> операций <span class="arithmatex">\(x\)</span>, то число <span class="arithmatex">\(x\)</span>-операций после данной равно любому <span class="arithmatex">\(k\)</span> от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(m\)</span> с вероятностью <span class="arithmatex">\(\frac1{m+1}\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Ожидание произведения случайных <span class="arithmatex">\(k\)</span> из <span class="arithmatex">\(m\)</span> множителей равно <span class="arithmatex">\(\frac{dp[m][k]}{\binom mk}\)</span>, где <span class="arithmatex">\(dp[i][j]=dp[i-1][j]+b_i\cdot dp[i-1][j-1]\)</span> — сумма произведений подмножеств размера <span class="arithmatex">\(j\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Итог: <span class="arithmatex">\(S=\frac1{m+1}\sum_k\frac{dp[m][k]}{\binom mk}\)</span>, вклад каждого <span class="arithmatex">\(+y\)</span> равен <span class="arithmatex">\(S\cdot y\)</span>, плюс вклад <span class="arithmatex">\(x\)</span> равен <span class="arithmatex">\(x\cdot dp[m][m]\)</span>; время <span class="arithmatex">\(O(n^2)\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/151625">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>7. 1251F · Красно-белый забор</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Чему равен периметр забора и от каких параметров он зависит?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Периметр равен <span class="arithmatex">\(2(m+l_j)\)</span>, где <span class="arithmatex">\(m\)</span> — число досок, <span class="arithmatex">\(l_j\)</span> — длина красной доски. Сколько белых досок нужно для заданного периметра <span class="arithmatex">\(P\)</span> и красной доски длины <span class="arithmatex">\(L\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Нужно ровно <span class="arithmatex">\(P/2-L-1\)</span> белых досок короче <span class="arithmatex">\(L\)</span>. Переберём красную доску и для каждого запроса посчитаем число способов. Как посчитать для одной длины, если все белые доски разной длины?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Для уникальной длины есть три варианта: не брать, поставить слева, поставить справа. А для длины, которая встречается хотя бы дважды, сколько вариантов?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Для повторяющихся длин (их <span class="arithmatex">\(m\)</span>) получается <span class="arithmatex">\(C(2m, k)\)</span> способов выбрать <span class="arithmatex">\(k\)</span> досок. Для <span class="arithmatex">\(n\)</span> уникальных получается <span class="arithmatex">\(C(n,k)*2^k\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Общее число способов с <span class="arithmatex">\(k\)</span> белыми досками — свёртка, сумма по <span class="arithmatex">\(i\)</span> от <span class="arithmatex">\(C(2m, k-i)*C(n,i)*2^i\)</span>. Перемножь два многочлена через NTT (модуль подходит).</p>
+</details>
+<details class="tip">
+<summary>Подсказка 7</summary>
+<p>Для каждой красной доски отвечай на запросы чтением нужного коэффициента; в расчёте участвуют только белые доски короче <span class="arithmatex">\(L\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/70860">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>8. 1667E · Центроидные вероятности</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Как формулируется условие «вершина — центроид» через размеры поддеревьев при корне в вершине 1?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Родитель вершины <span class="arithmatex">\(i\)</span> меньше <span class="arithmatex">\(i\)</span>. Центроид — наибольшая вершина, у которой размер поддерева хотя бы <span class="arithmatex">\(S=(n+1)/2\)</span>. Как найти <span class="arithmatex">\(dp_i\)</span> — число деревьев, где поддерево <span class="arithmatex">\(i\)</span> имеет размер хотя бы <span class="arithmatex">\(S\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Для <span class="arithmatex">\(2 &lt;= i &lt;= S\)</span> раскрась поддерево <span class="arithmatex">\(i\)</span> без неё самой в красный цвет, остальные вершины (кроме 1 и <span class="arithmatex">\(i\)</span>) в синий. Сколько существует таких раскрасок для размера <span class="arithmatex">\(j+1\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Раскрасок <span class="arithmatex">\(C(n-i, j)\)</span>. Для <span class="arithmatex">\(k\)</span>-й по счёту красной или синей вершины родитель выбирается <span class="arithmatex">\(k\)</span> способами, для <span class="arithmatex">\(i\)</span> — <span class="arithmatex">\(i-1\)</span> способами. Получается формула суммы по <span class="arithmatex">\(j\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Ответ для вершины <span class="arithmatex">\(i\)</span>: <span class="arithmatex">\(ans_i = dp_i - sum(ans_j / i)\)</span> по <span class="arithmatex">\(j&gt;i\)</span>, так как центроид <span class="arithmatex">\(j\)</span> внутри поддерева <span class="arithmatex">\(i\)</span> учитывается с вероятностью <span class="arithmatex">\(1/i\)</span>. Это даёт <span class="arithmatex">\(O(n^2)\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Формулу для <span class="arithmatex">\(dp_i\)</span> можно упростить до суммы <span class="arithmatex">\((n-j-2)!/(n-i-j)!\)</span> с постоянным множителем и постоянной разностью аргументов <span class="arithmatex">\(i-2\)</span>. Это свёртка с развёрнутым массивом, считается NTT.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 7</summary>
+<p>Сумму для <span class="arithmatex">\(ans_i\)</span> считай за линию через суффиксные суммы. Итого <span class="arithmatex">\(O(n log n)\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/102013">Официальный разбор</a></p>
+</details>
+<h2 id="_3">Задача с олимпиады<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p class="ob-note">«≈» — оценка ИИ по шкале Codeforces, не официальный рейтинг задачи.</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Задача</th>
+<th>Сложность</th>
+<th>Ещё темы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td><a href="https://codeforces.com/gym/106583/problem/8">Хорошие раскраски — 8</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/gym/106583">ВсОШ по информатике 2025–2026 · заключительный этап · тур 2</a> · задача 8</span></td>
+<td>≈ 3300</td>
+<td>DFS, разделяй и властвуй</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../olympiads/vsosh-final/2025-2026/106583-8/">Открыть разбор</a></p>
+<details class="question">
+<summary>Подсказки: Хорошие раскраски — 8</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Сколькими способами можно раскрасить в <span class="arithmatex">\(k\)</span> цветов <span class="arithmatex">\(m\)</span> граней, стоящих по циклу?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p><span class="arithmatex">\(\chi(m) = (k-1)^m + (-1)^m (k-1)\)</span>. Раскрашивай грани по вложенности сверху вниз: грани под одной вершиной <span class="arithmatex">\(v\)</span> вместе с уже раскрашенными образуют цикл длины <span class="arithmatex">\(\deg v\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Без изменений ответ равен <span class="arithmatex">\(k\)</span> (верхняя грань), умноженному на <span class="arithmatex">\(\chi(\deg v)/k\)</span> для корня и на <span class="arithmatex">\(\chi(\deg v)/(k(k-1))\)</span> для остальных нелистовых вершин.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Удаляй нелистовые вершины, у которых осталось не больше одного активного ребра. Сжатие дерева по постоянным рёбрам до <span class="arithmatex">\(O(q)\)</span> вершин даёт <span class="arithmatex">\(O(n+q^2)\)</span>. Для полного решения дели запросы пополам и повторяй сжатие рекурсивно, сохраняя постоянный множитель ответа.</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../js/progress.js"></script>
+      
+        <script src="../../js/generator.js"></script>
+      
+        <script src="../../js/mentor.js"></script>
+      
+    
+  </body>
+</html>
