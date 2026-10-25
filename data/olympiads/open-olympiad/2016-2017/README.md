@@ -1,0 +1,40 @@
+# Открытая олимпиада школьников по программированию, 2016-2017
+
+## Официальные материалы
+
+- [Страница олимпиады этого года: условия, разборы, результаты](https://olympiads.ru/zaoch/2016-17/index.shtml)
+
+## Задачи на Codeforces
+
+**[2016-2017 Открытая олимпиада школьников по программированию, заочный этап](https://codeforces.com/gym/101225)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/101225/problem/A) | Оплата парковки | не найден |
+| [B](https://codeforces.com/gym/101225/problem/B) | Деревни | не найден |
+| [C](https://codeforces.com/gym/101225/problem/C) | Дома в Берляндии | не найден |
+| [D](https://codeforces.com/gym/101225/problem/D) | НОД объединяет | не найден |
+| [E](https://codeforces.com/gym/101225/problem/E) | Вупсень и Пупсень | не найден |
+| [F](https://codeforces.com/gym/101225/problem/F) | Трудовые будни | не найден |
+| [G](https://codeforces.com/gym/101225/problem/G) | Включи свет, закрой двери! | не найден |
+| [H](https://codeforces.com/gym/101225/problem/H) | Бинарная игра | не найден |
+
+**[2016-2017 Открытая олимпиада школьников по программированию, заключительный этап, тур 1](https://codeforces.com/gym/101319)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/101319/problem/A) | Задача Cheesecake. Кукушки | не найден |
+| [B](https://codeforces.com/gym/101319/problem/B) | Задача Halva. Глеб и два числа | не найден |
+| [C](https://codeforces.com/gym/101319/problem/C) | Задача Strudel. Эффективное тестирование | не найден |
+| [D](https://codeforces.com/gym/101319/problem/D) | Задача Tiramisu. Ваня и куртки | не найден |
+
+**[2016-2017 Открытая олимпиада школьников по программированию, заключительный этап, тур 2](https://codeforces.com/gym/101320)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/101320/problem/A) | Задача Eclair. Открытая олимпиада по дизайну | не найден |
+| [B](https://codeforces.com/gym/101320/problem/B) | Задача Muffin. Робот в поле | не найден |
+| [C](https://codeforces.com/gym/101320/problem/C) | Задача Napoleon. Застройка мегаполиса | не найден |
+| [D](https://codeforces.com/gym/101320/problem/D) | Задача Panna Cotta. Поиграем? | не найден |
+
+Разборы, если они опубликованы, лежат на странице олимпиады этого года (ссылка выше).

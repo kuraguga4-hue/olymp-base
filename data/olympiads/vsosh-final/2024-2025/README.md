@@ -1,0 +1,28 @@
+# ВсОШ по информатике — заключительный этап, 2024-2025
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-roi-2025-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-roi-2025-day2.pdf)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-roi-2025-tutorial.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-roi-2025-archive.zip)
+
+## Задачи на Codeforces
+
+**[2024-2025 Всероссийская олимпиада школьников по информатике, первый тур](https://codeforces.com/gym/105842)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/105842/problem/1) | Лестница для участников олимпиады | официальный — см. выше |
+| [2](https://codeforces.com/gym/105842/problem/2) | Пересменка в Сириусе | официальный — см. выше |
+| [3](https://codeforces.com/gym/105842/problem/3) | Сочи Парк | официальный — см. выше |
+| [4](https://codeforces.com/gym/105842/problem/4) | Лягушки на дереве | официальный — см. выше |
+
+**[2024-2025 Всероссийская олимпиада школьников по информатике, второй тур](https://codeforces.com/gym/105843)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/105843/problem/5) | Качественный отдых | официальный — см. выше |
+| [6](https://codeforces.com/gym/105843/problem/6) | Лягушки на болоте | официальный — см. выше |
+| [7](https://codeforces.com/gym/105843/problem/7) | Минимизация инверсий | официальный — см. выше |
+| [8](https://codeforces.com/gym/105843/problem/8) | Жизнь программистов | официальный — см. выше |

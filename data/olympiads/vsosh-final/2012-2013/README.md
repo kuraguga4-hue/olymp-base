@@ -1,0 +1,28 @@
+# ВсОШ по информатике — заключительный этап, 2012-2013
+
+## Официальные материалы
+
+- [Условия задач](https://neerc.ifmo.ru/school/archive/2012-2013/ru-olymp-roi-2013-statements.rar)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2012-2013/ru-olymp-roi-2013-archive.rar)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2012-2013/ru-olymp-roi-2013-archive-small.rar)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2012-2013/ru-olymp-roi-2013-analysis.pdf)
+
+## Задачи на Codeforces
+
+**[2012-2013 Всероссийская олимпиада школьников по информатике, финальный этап, 1 тур](https://codeforces.com/gym/100179)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/100179/problem/1) | Хоккей на Урале | официальный — см. выше |
+| [2](https://codeforces.com/gym/100179/problem/2) | Робот-сборщик | официальный — см. выше |
+| [3](https://codeforces.com/gym/100179/problem/3) | Графический редактор "Хамелеон" | официальный — см. выше |
+| [4](https://codeforces.com/gym/100179/problem/4) | Древние династии | официальный — см. выше |
+
+**[2012-2013 Всероссийская олимпиада школьников по информатике, финальный этап, 2 тур](https://codeforces.com/gym/100180)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/100180/problem/5) | Звездный путь | официальный — см. выше |
+| [6](https://codeforces.com/gym/100180/problem/6) | Морской бой | официальный — см. выше |
+| [7](https://codeforces.com/gym/100180/problem/7) | Массовый прогноз | официальный — см. выше |
+| [8](https://codeforces.com/gym/100180/problem/8) | Флешмоб | официальный — см. выше |

@@ -1,0 +1,60 @@
+# Открытая олимпиада школьников по программированию, 2020-2021
+
+## Официальные материалы
+
+- [Страница олимпиады этого года: условия, разборы, результаты](https://olympiads.ru/zaoch/2020-21/index.shtml)
+
+## Задачи на Codeforces
+
+**[Codeforces Round 707 (Div. 1, по задачам Открытой олимпиады школьников по программированию)](https://codeforces.com/contest/1500)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/contest/1500/problem/A) | Going Home | не найден |
+| [B](https://codeforces.com/contest/1500/problem/B) | Two chandeliers | не найден |
+| [C](https://codeforces.com/contest/1500/problem/C) | Matrix Sorting | не найден |
+| [D](https://codeforces.com/contest/1500/problem/D) | Tiles for Bathroom | не найден |
+| [E](https://codeforces.com/contest/1500/problem/E) | Subset Trick | не найден |
+| [F](https://codeforces.com/contest/1500/problem/F) | Cupboards Jumps | не найден |
+
+**[Codeforces Round 707 (Div. 2, по задачам Открытой олимпиады школьников по программированию)](https://codeforces.com/contest/1501)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/contest/1501/problem/A) | Alexey and Train | не найден |
+| [B](https://codeforces.com/contest/1501/problem/B) | Napoleon Cake | не найден |
+
+**[2020-2021 Открытая олимпиада школьников по программированию, заключительный этап, тур 1](https://codeforces.com/gym/103194)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103194/problem/A) | Прыжки по шкафам | не найден |
+| [B](https://codeforces.com/gym/103194/problem/B) | Две люстры | не найден |
+| [C](https://codeforces.com/gym/103194/problem/C) | Игра на дереве | не найден |
+| [D](https://codeforces.com/gym/103194/problem/D) | Сортировка матрицы | не найден |
+
+**[2020-2021 Открытая олимпиада школьников по программированию, заключительный этап, тур 2](https://codeforces.com/gym/103195)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103195/problem/A) | Поеду домой | не найден |
+| [B](https://codeforces.com/gym/103195/problem/B) | Вставить текст | не найден |
+| [C](https://codeforces.com/gym/103195/problem/C) | Плитка для ванной | не найден |
+| [D](https://codeforces.com/gym/103195/problem/D) | Фокус с подмножествами | не найден |
+
+**[2020-2021 Открытая олимпиада школьников по программированию, заочный этап](https://codeforces.com/gym/103196)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103196/problem/A) | Re: Fwd: Про чайник | не найден |
+| [B](https://codeforces.com/gym/103196/problem/B) | Проверка олимпиады | не найден |
+| [C](https://codeforces.com/gym/103196/problem/C) | Дед и мопед | не найден |
+| [D](https://codeforces.com/gym/103196/problem/D) | Задача для разминки рук | не найден |
+| [E](https://codeforces.com/gym/103196/problem/E) | Проблема останова | не найден |
+| [F](https://codeforces.com/gym/103196/problem/F) | Футболки на олимпиаду | не найден |
+| [G](https://codeforces.com/gym/103196/problem/G) | Тир | не найден |
+| [H](https://codeforces.com/gym/103196/problem/H) | Украшение дома | не найден |
+| [I](https://codeforces.com/gym/103196/problem/I) | Доставка посылок | не найден |
+| [J](https://codeforces.com/gym/103196/problem/J) | Тараканы общежития | не найден |
+
+Разборы, если они опубликованы, лежат на странице олимпиады этого года (ссылка выше).

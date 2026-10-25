@@ -1,0 +1,28 @@
+# ВсОШ по информатике — региональный этап, 2017-2018
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2017-2018/ru-olymp-regional-2018-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2017-2018/ru-olymp-regional-2018-day2.pdf)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2017-2018/ru-olymp-regional-2018-solutions.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2017-2018/ru-olymp-regional-2018-archive.zip)
+
+## Задачи на Codeforces
+
+**[2017-2018 Всероссийская олимпиада школьников по информатике, региональный этап, 1 тур](https://codeforces.com/gym/101713)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/101713/problem/1) | Улучшение успеваемости | официальный — см. выше |
+| [2](https://codeforces.com/gym/101713/problem/2) | Квадраты и кубы | официальный — см. выше |
+| [3](https://codeforces.com/gym/101713/problem/3) | Лифт | официальный — см. выше |
+| [4](https://codeforces.com/gym/101713/problem/4) | Мониторинг труб | официальный — см. выше |
+
+**[2017-2018 Всероссийская олимпиада школьников по информатике, региональный этап, 2 тур](https://codeforces.com/gym/101714)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/101714/problem/5) | Удаление чисел | официальный — см. выше |
+| [6](https://codeforces.com/gym/101714/problem/6) | Старая книга | официальный — см. выше |
+| [7](https://codeforces.com/gym/101714/problem/7) | Красота фейерверка | официальный — см. выше |
+| [8](https://codeforces.com/gym/101714/problem/8) | Обработка больших данных | официальный — см. выше |

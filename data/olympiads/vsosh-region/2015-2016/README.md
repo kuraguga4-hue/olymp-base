@@ -1,0 +1,28 @@
+# ВсОШ по информатике — региональный этап, 2015-2016
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2015-2016/ru-olymp-regional-2016-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2015-2016/ru-olymp-regional-2016-day2.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2015-2016/ru-olymp-regional-2016-archive.rar)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2015-2016/ru-olymp-regional-2016-editorial.pdf)
+
+## Задачи на Codeforces
+
+**[2015-2016 Всероссийская олимпиада школьников по информатике, региональный этап, 1 тур](https://codeforces.com/gym/100881)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/100881/problem/1) | Призы | официальный — см. выше |
+| [2](https://codeforces.com/gym/100881/problem/2) | Космическое поселение | официальный — см. выше |
+| [3](https://codeforces.com/gym/100881/problem/3) | Странные строки | официальный — см. выше |
+| [4](https://codeforces.com/gym/100881/problem/4) | Поездка на каникулах | официальный — см. выше |
+
+**[2015-2016 Всероссийская олимпиада школьников по информатике, региональный этап, 2 тур](https://codeforces.com/gym/100882)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/100882/problem/5) | Три сына | официальный — см. выше |
+| [6](https://codeforces.com/gym/100882/problem/6) | Гипершашки | официальный — см. выше |
+| [7](https://codeforces.com/gym/100882/problem/7) | Интересные числа | официальный — см. выше |
+| [8](https://codeforces.com/gym/100882/problem/8) | Гармоничная последовательность | официальный — см. выше |

@@ -1,0 +1,57 @@
+# Innopolis Open, информатика, 2022-2023
+
+## Официальные материалы
+
+**Первый отборочный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/round1-statements-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/round1-statements-en.pdf)
+- [Разбор задач (en)](https://lk-dovuz.innopolis.university/public/files/round1-solutions-en.pdf)
+- [Разбор задач](https://lk-dovuz.innopolis.university/public/files/round1-solutions-ru.pdf)
+
+**Второй отборочный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/round2-statements-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/round2-statements-en.pdf)
+- [Разбор задач (en)](https://lk-dovuz.innopolis.university/public/files/round2-solutions-en.pdf)
+- [Разбор задач](https://lk-dovuz.innopolis.university/public/files/round2-solutions-ru.pdf)
+
+**Заключительный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/final-statements-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/final-statements-en.pdf)
+- [Разбор задач](https://lk-dovuz.innopolis.university/public/files/final-tutorial-ru.pdf)
+- [Разбор задач (en)](https://lk-dovuz.innopolis.university/public/files/final-tutorial-en.pdf)
+- [Решения и тесты жюри](https://lk-dovuz.innopolis.university/public/files/runs-final-main.zip)
+
+## Задачи на Codeforces
+
+**[Innopolis Open 2022-2023. Первый отборочный тур](https://codeforces.com/gym/104052)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/104052/problem/A) | Sheet Metal | официальный — см. выше |
+| [B](https://codeforces.com/gym/104052/problem/B) | Lunchtime Fruits | официальный — см. выше |
+| [C](https://codeforces.com/gym/104052/problem/C) | Sliding Dominoes | официальный — см. выше |
+| [D](https://codeforces.com/gym/104052/problem/D) | Lost in Translation | официальный — см. выше |
+| [E](https://codeforces.com/gym/104052/problem/E) | Summer School | официальный — см. выше |
+
+**[Innopolis Open 2022-2023. Второй отборочный тур](https://codeforces.com/gym/104103)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/104103/problem/A) | Homework | официальный — см. выше |
+| [B](https://codeforces.com/gym/104103/problem/B) | Matryoshka Inc | официальный — см. выше |
+| [C](https://codeforces.com/gym/104103/problem/C) | Password Lock | официальный — см. выше |
+| [D](https://codeforces.com/gym/104103/problem/D) | The Name of the Fourth Problem | официальный — см. выше |
+| [E](https://codeforces.com/gym/104103/problem/E) | Comparing Theories | официальный — см. выше |
+
+**[Innopolis Open 2022-2023. Финал](https://codeforces.com/gym/104182)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/104182/problem/A) | Universal Paperclips | официальный — см. выше |
+| [B](https://codeforces.com/gym/104182/problem/B) | Hanoi Chips | официальный — см. выше |
+| [C](https://codeforces.com/gym/104182/problem/C) | Sorting Subarrays | официальный — см. выше |
+| [D](https://codeforces.com/gym/104182/problem/D) | RestORe | официальный — см. выше |
+| [E](https://codeforces.com/gym/104182/problem/E) | Non-adjacent Swaps | официальный — см. выше |

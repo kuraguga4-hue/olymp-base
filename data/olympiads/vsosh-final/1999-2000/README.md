@@ -1,0 +1,7 @@
+# ВсОШ по информатике — заключительный этап, 1999-2000
+
+## Официальные материалы
+
+- [Условия задач](https://neerc.ifmo.ru/school/archive/1999-2000/ru-olymp-roi-2000-problems.html)
+- [Тесты](https://neerc.ifmo.ru/school/archive/1999-2000/ru-olymp-roi-2000-tests.rar)
+- [Решения жюри](https://neerc.ifmo.ru/school/archive/1999-2000/ru-olymp-roi-2000-jurysol.rar)

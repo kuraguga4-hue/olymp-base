@@ -1,0 +1,35 @@
+# Innopolis Open, информатика, 2015-2016
+
+## Задачи на Codeforces
+
+**[2015-2016 Открытая олимпиада Университета Иннополис, первый отборочный тур](https://codeforces.com/gym/100845)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/100845/problem/A) | Монотонность | не найден |
+| [B](https://codeforces.com/gym/100845/problem/B) | Билеты в театр | не найден |
+| [C](https://codeforces.com/gym/100845/problem/C) | Коды Грея | не найден |
+| [D](https://codeforces.com/gym/100845/problem/D) | Совсем другие штурмовики | не найден |
+| [E](https://codeforces.com/gym/100845/problem/E) | По крышам! | не найден |
+
+**[2015-2016 Открытая олимпиада Университета Иннополис, второй отборочный тур](https://codeforces.com/gym/100854)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/100854/problem/A) | Сенсор | не найден |
+| [B](https://codeforces.com/gym/100854/problem/B) | Приближенное значение | не найден |
+| [C](https://codeforces.com/gym/100854/problem/C) | Преподавательские причуды | не найден |
+| [D](https://codeforces.com/gym/100854/problem/D) | Ох, уж эти девушки... | не найден |
+| [E](https://codeforces.com/gym/100854/problem/E) | Подготовка к олимпиаде | не найден |
+
+**[Заключительный этап Открытой Олимпиады Университета Иннополис. 2015-2016](https://codeforces.com/gym/100905)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/100905/problem/A) | Зонд на Нибиру | не найден |
+| [B](https://codeforces.com/gym/100905/problem/B) | Забавные числа | не найден |
+| [C](https://codeforces.com/gym/100905/problem/C) | Гоша и праздники | не найден |
+| [D](https://codeforces.com/gym/100905/problem/D) | Д.Р.У.З.Ь.Я. | не найден |
+| [E](https://codeforces.com/gym/100905/problem/E) | Камень, ножницы, бумага --- 2 | не найден |
+
+Официального разбора этого года не нашлось.

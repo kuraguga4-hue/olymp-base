@@ -1,0 +1,51 @@
+# Innopolis Open, информатика, 2021-2022
+
+## Официальные материалы
+
+**Первый отборочный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/contest-25033-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/contest-25033-en.pdf)
+
+**Второй отборочный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/contest-25470-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/contest-25470-en.pdf)
+
+**Заключительный этап**
+
+- [Условия задач](https://lk-dovuz.innopolis.university/public/files/contest-26524-ru.pdf)
+- [Условия задач (en)](https://lk-dovuz.innopolis.university/public/files/contest-26524-en.pdf)
+- [Разбор задач](https://lk-dovuz.innopolis.university/public/files/editorial_ru.pdf)
+
+## Задачи на Codeforces
+
+**[Innopolis Open 2021-2022. Первый отборочный тур](https://codeforces.com/gym/103426)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103426/problem/A) | Bananas Packing | официальный — см. выше |
+| [B](https://codeforces.com/gym/103426/problem/B) | Permutations | официальный — см. выше |
+| [C](https://codeforces.com/gym/103426/problem/C) | Equation | официальный — см. выше |
+| [D](https://codeforces.com/gym/103426/problem/D) | Fantastic Three | официальный — см. выше |
+| [E](https://codeforces.com/gym/103426/problem/E) | Reconstructing Pairs | официальный — см. выше |
+
+**[Innopolis Open 2021-2022. Второй отборочный тур](https://codeforces.com/gym/103476)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103476/problem/A) | Missing Letters | официальный — см. выше |
+| [B](https://codeforces.com/gym/103476/problem/B) | Julia and Flower Beds | официальный — см. выше |
+| [C](https://codeforces.com/gym/103476/problem/C) | Divisor Circle | официальный — см. выше |
+| [D](https://codeforces.com/gym/103476/problem/D) | Planar Tree | официальный — см. выше |
+| [E](https://codeforces.com/gym/103476/problem/E) | Redundant Binary Representations | официальный — см. выше |
+
+**[Innopolis Open 2021-2022. Заключительный тур](https://codeforces.com/gym/103575)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103575/problem/A) | Designing a New Logo | официальный — см. выше |
+| [B](https://codeforces.com/gym/103575/problem/B) | Even Tree | официальный — см. выше |
+| [C](https://codeforces.com/gym/103575/problem/C) | Primle | официальный — см. выше |
+| [D](https://codeforces.com/gym/103575/problem/D) | Add and Multiply | официальный — см. выше |
+| [E](https://codeforces.com/gym/103575/problem/E) | Draft Laws | официальный — см. выше |

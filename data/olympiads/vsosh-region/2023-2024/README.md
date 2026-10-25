@@ -1,0 +1,28 @@
+# ВсОШ по информатике — региональный этап, 2023-2024
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2023-2024/ru-olymp-regional-2024-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2023-2024/ru-olymp-regional-2024-day2.pdf)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2023-2024/ru-olymp-regional-2024-solutions.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2023-2024/ru-olymp-regional-2024-archive.zip)
+
+## Задачи на Codeforces
+
+**[2023-2024 Всероссийская олимпиада школьников по информатике, региональный этап, 1 тур](https://codeforces.com/gym/104949)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/104949/problem/1) | Посадка в самолет | официальный — см. выше |
+| [2](https://codeforces.com/gym/104949/problem/2) | Битоническая последовательность | официальный — см. выше |
+| [3](https://codeforces.com/gym/104949/problem/3) | Игра с таблицей | официальный — см. выше |
+| [4](https://codeforces.com/gym/104949/problem/4) | Выбор столицы | официальный — см. выше |
+
+**[2023-2024 Всероссийская олимпиада школьников по информатике, региональный этап, 2 тур](https://codeforces.com/gym/104950)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/104950/problem/5) | Разбиение массива | официальный — см. выше |
+| [6](https://codeforces.com/gym/104950/problem/6) | Бактерии | официальный — см. выше |
+| [7](https://codeforces.com/gym/104950/problem/7) | Разбиение на тройки | официальный — см. выше |
+| [8](https://codeforces.com/gym/104950/problem/8) | Обходы бинарного дерева | официальный — см. выше |

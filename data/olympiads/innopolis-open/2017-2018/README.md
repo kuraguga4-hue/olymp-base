@@ -1,0 +1,25 @@
+# Innopolis Open, информатика, 2017-2018
+
+## Задачи на Codeforces
+
+**[Отборочный этап Олимпиады Университета Иннополис. Первый тур. 2017-2018](https://codeforces.com/gym/101627)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/101627/problem/A) | New Puzzle | не найден |
+| [B](https://codeforces.com/gym/101627/problem/B) | Countdown | не найден |
+| [C](https://codeforces.com/gym/101627/problem/C) | Railroad | не найден |
+| [D](https://codeforces.com/gym/101627/problem/D) | Math Candies | не найден |
+| [E](https://codeforces.com/gym/101627/problem/E) | K-th order statistic | не найден |
+
+**[Отборочный этап Олимпиады Университета Иннополис. Второй тур. 2017-2018](https://codeforces.com/gym/101640)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/101640/problem/A) | File names | не найден |
+| [B](https://codeforces.com/gym/101640/problem/B) | Neatness | не найден |
+| [C](https://codeforces.com/gym/101640/problem/C) | Tax Collection | не найден |
+| [D](https://codeforces.com/gym/101640/problem/D) | Road Building | не найден |
+| [E](https://codeforces.com/gym/101640/problem/E) | The Expert | не найден |
+
+Официального разбора этого года не нашлось.

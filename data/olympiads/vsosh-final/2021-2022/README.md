@@ -1,0 +1,28 @@
+# ВсОШ по информатике — заключительный этап, 2021-2022
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2021-2022/ru-olymp-roi-2022-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2021-2022/ru-olymp-roi-2022-day2.pdf)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2021-2022/ru-olymp-roi-2022-solutions.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2021-2022/ru-olymp-roi-2022-archive.zip)
+
+## Задачи на Codeforces
+
+**[Тридцать четвертая всероссийская олимпиада школьников по информатике, первый тур](https://codeforces.com/gym/103631)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/103631/problem/A) | Урок физкультуры | официальный — см. выше |
+| [B](https://codeforces.com/gym/103631/problem/B) | Оптимизация закупок | официальный — см. выше |
+| [C](https://codeforces.com/gym/103631/problem/C) | Интересные выходные | официальный — см. выше |
+| [D](https://codeforces.com/gym/103631/problem/D) | Прожекторы | официальный — см. выше |
+
+**[Тридцать четвертая всероссийская олимпиада школьников по информатике, второй тур](https://codeforces.com/gym/103632)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/103632/problem/5) | Максимизация выигрыша | официальный — см. выше |
+| [6](https://codeforces.com/gym/103632/problem/6) | Экспедиция на Сириус | официальный — см. выше |
+| [7](https://codeforces.com/gym/103632/problem/7) | Тяжелый груз | официальный — см. выше |
+| [8](https://codeforces.com/gym/103632/problem/8) | Большие вызовы | официальный — см. выше |

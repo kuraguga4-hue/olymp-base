@@ -1,0 +1,8 @@
+# ВсОШ по информатике — заключительный этап, 2009-2010
+
+## Официальные материалы
+
+- [Условия задач](https://neerc.ifmo.ru/school/archive/2009-2010/ru-olymp-roi-2010-statements.rar)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2009-2010/ru-olymp-roi-2010-analysis.rar)
+- [Разбор (презентация)](https://neerc.ifmo.ru/school/archive/2009-2010/ru-olymp-roi-2010-analysis-ppt.rar)
+- [Тесты](https://neerc.ifmo.ru/school/archive/2009-2010/ru-olymp-roi-2010-tests.rar)

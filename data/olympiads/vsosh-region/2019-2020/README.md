@@ -1,0 +1,28 @@
+# ВсОШ по информатике — региональный этап, 2019-2020
+
+## Официальные материалы
+
+- [Условия задач 1 тура](https://neerc.ifmo.ru/school/archive/2019-2020/ru-olymp-regional-2020-day1.pdf)
+- [Условия задач 2 тура](https://neerc.ifmo.ru/school/archive/2019-2020/ru-olymp-regional-2020-day2.pdf)
+- [Разбор задач](https://neerc.ifmo.ru/school/archive/2019-2020/ru-olymp-regional-2020-solutions.pdf)
+- [Архив жюри: условия, тесты, решения](https://neerc.ifmo.ru/school/archive/2019-2020/ru-olymp-regional-2020-archive.zip)
+
+## Задачи на Codeforces
+
+**[2019-2020 Всероссийская олимпиада школьников по информатике, региональный этап, 1 тур](https://codeforces.com/gym/102479)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [1](https://codeforces.com/gym/102479/problem/1) | Разность квадратов | официальный — см. выше |
+| [2](https://codeforces.com/gym/102479/problem/2) | Превышение скорости | официальный — см. выше |
+| [3](https://codeforces.com/gym/102479/problem/3) | Борьба с рутиной | официальный — см. выше |
+| [4](https://codeforces.com/gym/102479/problem/4) | Олимпиада для роботов | официальный — см. выше |
+
+**[2019-2020 Всероссийская олимпиада школьников по информатике, региональный этап, 2 тур](https://codeforces.com/gym/102480)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [5](https://codeforces.com/gym/102480/problem/5) | Максимальное произведение | официальный — см. выше |
+| [6](https://codeforces.com/gym/102480/problem/6) | Планировка участка | официальный — см. выше |
+| [7](https://codeforces.com/gym/102480/problem/7) | Банкомат | официальный — см. выше |
+| [8](https://codeforces.com/gym/102480/problem/8) | Плакаты | официальный — см. выше |

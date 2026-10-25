@@ -1,0 +1,22 @@
+# Высшая проба (НИУ ВШЭ), информатика, 2023-2024
+
+## Официальные материалы
+
+**Заключительный этап**
+
+- [Условия: 9-10 классы](https://olymp.hse.ru/mirror/pubs/share/898285657.pdf)
+- [Решения жюри / ответы](https://olymp.hse.ru/mirror/pubs/share/898552683.zip)
+- [Условия: 11 класс](https://olymp.hse.ru/mirror/pubs/share/898285807.pdf)
+- [Решения жюри / ответы](https://olymp.hse.ru/mirror/pubs/share/898552695.zip)
+
+## Задачи на Codeforces
+
+**[Высшая проба - 2024. Заключительный этап](https://codeforces.com/gym/106347)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/106347/problem/A) | Ремонт кладовки | официальный — см. выше |
+| [B](https://codeforces.com/gym/106347/problem/B) | Цветочный магазин | официальный — см. выше |
+| [C](https://codeforces.com/gym/106347/problem/C) | Операции с числом | официальный — см. выше |
+| [D](https://codeforces.com/gym/106347/problem/D) | Модульный граф | официальный — см. выше |
+| [E](https://codeforces.com/gym/106347/problem/E) | Караваны и провинции | официальный — см. выше |

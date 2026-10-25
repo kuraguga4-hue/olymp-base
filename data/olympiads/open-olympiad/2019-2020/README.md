@@ -1,0 +1,27 @@
+# Открытая олимпиада школьников по программированию, 2019-2020
+
+## Официальные материалы
+
+- [Страница олимпиады этого года: условия, разборы, результаты](https://olympiads.ru/zaoch/2019-20/index.shtml)
+
+## Задачи на Codeforces
+
+**[Codeforces Round 626 (Div. 1, по задачам Открытой олимпиады школьников по программированию)](https://codeforces.com/contest/1322)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/contest/1322/problem/A) | Unusual Competitions | не найден |
+| [B](https://codeforces.com/contest/1322/problem/B) | Present | не найден |
+| [C](https://codeforces.com/contest/1322/problem/C) | Instant Noodles | не найден |
+| [D](https://codeforces.com/contest/1322/problem/D) | Reality Show | не найден |
+| [E](https://codeforces.com/contest/1322/problem/E) | Median Mountain Range | не найден |
+| [F](https://codeforces.com/contest/1322/problem/F) | Assigning Fares | не найден |
+
+**[Codeforces Round 626 (Div. 2, по задачам Открытой олимпиады школьников по программированию)](https://codeforces.com/contest/1323)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/contest/1323/problem/A) | Even Subset Sum Problem | не найден |
+| [B](https://codeforces.com/contest/1323/problem/B) | Count Subrectangles | не найден |
+
+Разборы, если они опубликованы, лежат на странице олимпиады этого года (ссылка выше).

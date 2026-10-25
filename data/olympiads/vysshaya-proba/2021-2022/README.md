@@ -1,0 +1,22 @@
+# Высшая проба (НИУ ВШЭ), информатика, 2021-2022
+
+## Официальные материалы
+
+**Заключительный этап**
+
+- [Условия: 9-10 классы](https://olymp.hse.ru/mirror/pubs/share/566321018.pdf)
+- [Условия: 11 класс](https://olymp.hse.ru/mirror/pubs/share/566321031.pdf)
+
+## Задачи на Codeforces
+
+**[Высшая проба - 2022. Заключительный этап](https://codeforces.com/gym/104963)**
+
+| Задача | Название | Разбор |
+|---|---|---|
+| [A](https://codeforces.com/gym/104963/problem/A) | Набрать сумму денег | не найден |
+| [B](https://codeforces.com/gym/104963/problem/B) | Велодорожки | не найден |
+| [C](https://codeforces.com/gym/104963/problem/C) | Налог | не найден |
+| [D](https://codeforces.com/gym/104963/problem/D) | Близкие строки | не найден |
+| [E](https://codeforces.com/gym/104963/problem/E) | Очень странные операции | не найден |
+
+Официального разбора этого года не нашлось.
