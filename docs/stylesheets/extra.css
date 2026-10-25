@@ -724,6 +724,12 @@ body[data-md-color-scheme] {
   background-color: var(--ob-bg-3);
 }
 
+/* формулы и код в шапке таблицы не переводим в заглавные: l и L, dp и DP — разные обозначения */
+.md-typeset table:not([class]) th .arithmatex,
+.md-typeset table:not([class]) th code {
+  text-transform: none;
+}
+
 .md-typeset table:not([class]) th:first-child {
   border-top-left-radius: calc(var(--ob-radius) - 1px);
 }
