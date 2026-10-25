@@ -2379,42 +2379,48 @@
 <tbody>
 <tr>
 <td>1</td>
+<td><a href="https://atcoder.jp/contests/abc447/tasks/abc447_c">ABC447C · Insert and Erase A</a><br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc447">AtCoder Beginner Contest 447</a> · задача C</span></td>
+<td>≈ 1000</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
 <td><a href="https://codeforces.com/problemset/problem/1137/B">1137B · Расписание смены</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1137">Codeforces Round 545 (Div. 1)</a> · задача B</span></td>
 <td>1600</td>
 <td>жадные алгоритмы, хеши</td>
 </tr>
 <tr>
-<td>2</td>
+<td>3</td>
 <td><a href="https://codeforces.com/problemset/problem/1326/D2">1326D2 · Префиксно-суффиксный палиндром (усложненная версия)</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1326">Codeforces Global Round 7</a> · задача D2</span></td>
 <td>1800</td>
 <td>жадные алгоритмы</td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td><a href="https://codeforces.com/problemset/problem/1902/E">1902E · Коллапс строк</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1902">Educational Codeforces Round 159 (Rated for Div. 2)</a> · задача E</span></td>
 <td>1900</td>
 <td>—</td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td><a href="https://codeforces.com/problemset/problem/1200/E">1200E · Склеивание слов</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1200">Codeforces Round 578 (Div. 2)</a> · задача E</span></td>
 <td>2000</td>
 <td>—</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
 <td><a href="https://codeforces.com/problemset/problem/2209/E">2209E · Тривиальная задача на строки</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2209">Codeforces Round 1087 (Div. 2)</a> · задача E</span></td>
 <td>2200</td>
 <td>динамическое программирование</td>
 </tr>
 <tr>
-<td>6</td>
+<td>7</td>
 <td><a href="https://codeforces.com/problemset/problem/2023/C">2023C · Ч+К+С</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2023">Codeforces Round 980 (Div. 1)</a> · задача C</span></td>
 <td>2400</td>
 <td>DFS, конструктив</td>
 </tr>
 <tr>
-<td>7</td>
+<td>8</td>
 <td><a href="https://codeforces.com/problemset/problem/2144/F">2144F · Группы скобок</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача F</span></td>
 <td>2700</td>
 <td>динамическое программирование, конструктив</td>
@@ -2423,7 +2429,23 @@
 </table>
 <h2 id="_2">Подсказки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>1. 1137B · Расписание смены</summary>
+<summary>1. ABC447C · Insert and Erase A</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Посмотри на строку, из которой убраны все буквы A: меняется ли она от операций?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Строка без букв A не меняется, поэтому если у <span class="arithmatex">\(S\)</span> и <span class="arithmatex">\(T\)</span> она разная — ответ <span class="arithmatex">\(-1\)</span>. Иначе важны только количества A в промежутках между остальными буквами (и по краям).</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>В каждом из <span class="arithmatex">\(|S'| + 1\)</span> промежутков количество A меняется на 1 за операцию, поэтому ответ — <span class="arithmatex">\(\sum_i |A_S(i) - A_T(i)|\)</span>. Итого <span class="arithmatex">\(O(|S| + |T|)\)</span>.</p>
+</details>
+<p><a href="https://atcoder.jp/contests/abc447/editorial/16762">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>2. 1137B · Расписание смены</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Что делать, если ни одного вхождения <span class="arithmatex">\(t\)</span> в перестановку <span class="arithmatex">\(s\)</span> получить нельзя?</p>
@@ -2443,7 +2465,7 @@
 <p><a href="https://codeforces.com/blog/entry/65825">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>2. 1326D2 · Префиксно-суффиксный палиндром (усложненная версия)</summary>
+<summary>3. 1326D2 · Префиксно-суффиксный палиндром (усложненная версия)</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Какую часть ответа можно взять «бесплатно», сопоставляя символы с начала и с конца строки одновременно?</p>
@@ -2463,7 +2485,7 @@
 <p><a href="https://codeforces.com/blog/entry/74961">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>3. 1902E · Коллапс строк</summary>
+<summary>4. 1902E · Коллапс строк</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Если развернуть первую строку, как выразить длину коллапса через общий префикс двух строк?</p>
@@ -2483,7 +2505,7 @@
 <p><a href="https://codeforces.com/blog/entry/122951">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>4. 1200E · Склеивание слов</summary>
+<summary>5. 1200E · Склеивание слов</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Что нужно знать про текущую склеенную строку и следующее слово, чтобы присоединить его?</p>
@@ -2507,7 +2529,7 @@
 <p><a href="https://codeforces.com/blog/entry/69035">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>5. 2209E · Тривиальная задача на строки</summary>
+<summary>6. 2209E · Тривиальная задача на строки</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Что можно сказать о строке, которую нельзя разбить дальше, и как это связано с её границами (строка, которая одновременно префикс и суффикс)?</p>
@@ -2535,7 +2557,7 @@
 <p><a href="https://codeforces.com/blog/entry/152272">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>6. 2023C · Ч+К+С</summary>
+<summary>7. 2023C · Ч+К+С</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Что можно сказать о раскраске сильносвязного графа, в котором длины всех циклов кратны <span class="arithmatex">\(k\)</span>?</p>
@@ -2563,7 +2585,7 @@
 <p><a href="https://codeforces.com/blog/entry/135341">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>7. 2144F · Группы скобок</summary>
+<summary>8. 2144F · Группы скобок</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Какая короткая подстрока обязательно есть в любой правильной скобочной последовательности? Когда из-за этого ответ точно <span class="arithmatex">\(-1\)</span>?</p>

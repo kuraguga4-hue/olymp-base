@@ -2386,33 +2386,45 @@
 </tr>
 <tr>
 <td>2</td>
+<td><a href="https://atcoder.jp/contests/abc453/tasks/abc453_d">ABC453D · Go Straight</a><br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc453">AtCoder Beginner Contest 453</a> · задача D</span></td>
+<td>≈ 1500</td>
+<td>DFS</td>
+</tr>
+<tr>
+<td>3</td>
 <td><a href="https://codeforces.com/problemset/problem/1037/D">1037D · Корректный BFS?</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1037">Manthan, Codefest 18 (rated, Div. 1 + Div. 2)</a> · задача D</span></td>
 <td>1700</td>
 <td>сортировки</td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td><a href="https://codeforces.com/problemset/problem/1176/E">1176E · Покрывай!</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1176">Codeforces Round 565 (Div. 3)</a> · задача E</span></td>
 <td>1700</td>
 <td>—</td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td><a href="https://codeforces.com/problemset/problem/2059/D">2059D · Граф и граф</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2059">Codeforces Round 1002 (Div. 2)</a> · задача D</span></td>
 <td>1900</td>
 <td>—</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
 <td><a href="https://codeforces.com/problemset/problem/2117/G">2117G · ОМГраф</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2117">Codeforces Round 1029 (Div. 3)</a> · задача G</span></td>
 <td>1900</td>
 <td>—</td>
 </tr>
 <tr>
-<td>6</td>
+<td>7</td>
 <td><a href="https://codeforces.com/problemset/problem/2057/E1">2057E1 · Очередное упражнение на графы (простая версия)</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2057">Hello 2025</a> · задача E1</span></td>
 <td>2300</td>
 <td>бинарный поиск, динамическое программирование</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://codeforces.com/problemset/problem/1163/F">1163F · Цена поездки</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1163">Codeforces Round 558 (Div. 2)</a> · задача F</span></td>
+<td>3000</td>
+<td>дерево отрезков</td>
 </tr>
 </tbody>
 </table>
@@ -2434,7 +2446,23 @@
 <p><a href="https://atcoder.jp/contests/abc481/editorial/27926">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>2. 1037D · Корректный BFS?</summary>
+<summary>2. ABC453D · Go Straight</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Куда можно пойти из клетки, зависит от того, с какой стороны в неё пришли. Каким тогда должно быть состояние поиска?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Пара (клетка, направление последнего хода) — всего <span class="arithmatex">\(4HW\)</span> состояний. Переходы определяются типом клетки: из . S G — в любую сторону, из o — только прямо, из x — куда угодно, кроме прямо.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Запусти BFS или DFS по состояниям от старта (с любым направлением) до любой копии клетки G, запоминая, откуда пришли. Каждое состояние посещается один раз, поэтому восстановленный путь не длиннее <span class="arithmatex">\(4HW\)</span> ходов. Итого <span class="arithmatex">\(O(HW)\)</span>.</p>
+</details>
+<p><a href="https://atcoder.jp/contests/abc453/editorial/22151">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>3. 1037D · Корректный BFS?</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Что определяет порядок вершин в обходе BFS, если дерево задано?</p>
@@ -2450,7 +2478,7 @@
 <p><a href="https://codeforces.com/blog/entry/61606">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>3. 1176E · Покрывай!</summary>
+<summary>4. 1176E · Покрывай!</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Какую информацию о вершинах даёт BFS из одной вершины и как с её помощью разбить все вершины на две группы?</p>
@@ -2466,7 +2494,7 @@
 <p><a href="https://codeforces.com/blog/entry/67598">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>4. 2059D · Граф и граф</summary>
+<summary>5. 2059D · Граф и граф</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Когда ответ вообще конечен, то есть когда фишки могут двигаться дальше бесплатно?</p>
@@ -2486,7 +2514,7 @@
 <p><a href="https://codeforces.com/blog/entry/139094">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>5. 2117G · ОМГраф</summary>
+<summary>6. 2117G · ОМГраф</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Попробуй выбрать некоторое ребро и считать, что именно его вес участвует в стоимости вместо минимума. Как тогда изменится функция стоимости?</p>
@@ -2506,7 +2534,7 @@
 <p><a href="https://codeforces.com/blog/entry/143362">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>6. 2057E1 · Очередное упражнение на графы (простая версия)</summary>
+<summary>7. 2057E1 · Очередное упражнение на графы (простая версия)</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Как проверить для фиксированного <span class="arithmatex">\(x\)</span>, существует ли путь из <span class="arithmatex">\(a\)</span> в <span class="arithmatex">\(b\)</span> с <span class="arithmatex">\(k\)</span>-м максимумом не больше <span class="arithmatex">\(x\)</span>?</p>
@@ -2532,6 +2560,38 @@
 <p>Ответ на запрос — бинарный поиск по <span class="arithmatex">\(k\)</span> с проверкой <span class="arithmatex">\(dp[k][a][b] &lt; k\)</span>, за <span class="arithmatex">\(O(\log m)\)</span>. Циклы из пути можно выкинуть, поэтому достаточно простых путей.</p>
 </details>
 <p><a href="https://codeforces.com/blog/entry/138119">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>8. 1163F · Цена поездки</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Как изменится ответ, если изменённое ребро не лежит на одном фиксированном кратчайшем пути из 1 в <span class="arithmatex">\(n\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Найди один кратчайший путь (главный) и посчитай расстояния от вершины 1 и до вершины <span class="arithmatex">\(n\)</span> для всех вершин. Что ещё можно вычислить для каждого ребра?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Для каждой вершины <span class="arithmatex">\(u\)</span> кратчайший путь из 1 в <span class="arithmatex">\(u\)</span> использует какой-то префикс главного пути, а путь из <span class="arithmatex">\(u\)</span> в <span class="arithmatex">\(n\)</span> — суффикс. Как это записать через индексы <span class="arithmatex">\(l_u\)</span> и <span class="arithmatex">\(r_u\)</span>?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Для побочного ребра <span class="arithmatex">\((u,v)\)</span> кратчайший путь через него не опирается на рёбра главного пути с номерами от <span class="arithmatex">\(l_u+1\)</span> до <span class="arithmatex">\(r_v-1\)</span>. Аналогично для направления <span class="arithmatex">\(v \to u\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Разбери случаи для запроса. Побочное ребро: ответ — минимум из главного пути и пути через это ребро. Ребро главного пути уменьшается: ответ уменьшается на разность весов.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Ребро главного пути увеличивается: ответ — минимум из главного пути с поправкой и кратчайшего пути, не использующего это ребро.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 7</summary>
+<p>Последний путь использует побочное ребро, не зависящее от данного. Каждое побочное ребро даёт значение на отрезке главного пути, поэтому делай минимум на отрезках в дереве отрезков. Итого <span class="arithmatex">\(O((m+n)\log n)\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/66943">Официальный разбор</a></p>
 </details>
 
 

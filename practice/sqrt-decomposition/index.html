@@ -2385,9 +2385,39 @@
 </tr>
 <tr>
 <td>2</td>
+<td><a href="https://atcoder.jp/contests/abc477/tasks/abc477_g">ABC477G · Frequency Query on Tree</a><br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc477">UNICORNProgramming Contest2026(AtCoder Beginner Contest 477)</a> · задача G</span></td>
+<td>≈ 2400</td>
+<td>поиск LCA, DFS</td>
+</tr>
+<tr>
+<td>3</td>
 <td><a href="https://codeforces.com/problemset/problem/2196/E1">2196E1 · Нечеткая склейка (простая версия)</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2196">Codeforces Round 1079 (Div. 1)</a> · задача E1</span></td>
 <td>2900</td>
 <td>хеши, строковые алгоритмы, жадные алгоритмы</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://codeforces.com/problemset/problem/914/F">914F · Подстроки в строке</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/914">Codecraft-18 and Codeforces Round 458 (Div. 1 + Div. 2, combined)</a> · задача F</span></td>
+<td>3000</td>
+<td>строковые алгоритмы</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://codeforces.com/problemset/problem/997/E">997E · Хорошие подотрезки</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/997">Codeforces Round 493 (Div. 1)</a> · задача E</span></td>
+<td>3000</td>
+<td>сортировка событий (сканлайн), дерево отрезков, разделяй и властвуй</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://codeforces.com/problemset/problem/896/E">896E · Добро пожаловать домой, Ктолли</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/896">Codeforces Round 449 (Div. 1)</a> · задача E</span></td>
+<td>3100</td>
+<td>DSU</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://codeforces.com/problemset/problem/2159/E">2159E · Супер-Короткий-Полином-Сан</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2159">Codeforces Round 1058 (Div. 1)</a> · задача E</span></td>
+<td>3500</td>
+<td>префиксные суммы</td>
 </tr>
 </tbody>
 </table>
@@ -2413,7 +2443,31 @@
 <p><a href="https://codeforces.com/blog/entry/151052">Официальный разбор</a></p>
 </details>
 <details class="question">
-<summary>2. 2196E1 · Нечеткая склейка (простая версия)</summary>
+<summary>2. ABC477G · Frequency Query on Tree</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Запросы можно обработать офлайн в удобном порядке. Какой приём отвечает на запросы о частотах на отрезках массива, понемногу сдвигая границы окна?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Алгоритм Мо. Чтобы применить его к путям в дереве, выпиши эйлеров обход <span class="arithmatex">\(E\)</span> длины <span class="arithmatex">\(2N\)</span>: каждая вершина записывается при входе и при выходе.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>При <span class="arithmatex">\(t_{in}[S] \le t_{in}[T]\)</span> вершины пути <span class="arithmatex">\(S\)</span>–<span class="arithmatex">\(T\)</span> — это вершины, встречающиеся нечётное число раз на отрезке <span class="arithmatex">\(E[t_{in}[S] + 1 .. t_{in}[T]]\)</span>, плюс <span class="arithmatex">\(\mathrm{LCA}(S, T)\)</span>: её добавляй отдельно на время ответа.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Мо сдвигает границы; храни чётность вхождений каждой вершины и при её смене добавляй или убирай число <span class="arithmatex">\(x_v\)</span>. Остаётся задача: частоты <span class="arithmatex">\(f_y\)</span>, операции <span class="arithmatex">\(f_y \pm 1\)</span> и запрос «сколько <span class="arithmatex">\(y\)</span> с <span class="arithmatex">\(a \le f_y \le b\)</span>».</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Храни <span class="arithmatex">\(g_k\)</span> — сколько чисел имеют частоту ровно <span class="arithmatex">\(k\)</span> — и суммы <span class="arithmatex">\(g\)</span> по блокам длины <span class="arithmatex">\(\sqrt{N}\)</span>. Изменение частоты — <span class="arithmatex">\(O(1)\)</span>, запрос — <span class="arithmatex">\(O(\sqrt{N})\)</span>. Итого около <span class="arithmatex">\(O((N + Q)\sqrt{N})\)</span>.</p>
+</details>
+<p><a href="https://atcoder.jp/contests/abc477/editorial/26516">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>3. 2196E1 · Нечеткая склейка (простая версия)</summary>
 <details class="tip">
 <summary>Подсказка 1</summary>
 <p>Как нужно резать строку <span class="arithmatex">\(t\)</span> на куски жадно: какой префикс выгодно брать каждый раз и почему не меньший?</p>
@@ -2439,6 +2493,122 @@
 <p>Итоговая асимптотика <span class="arithmatex">\(O(n \cdot B^2 + \frac{n \cdot m}{B} + m \cdot B)\)</span>, при <span class="arithmatex">\(B = 50\)</span> решение проходит.</p>
 </details>
 <p><a href="https://codeforces.com/blog/entry/151052">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>4. 914F · Подстроки в строке</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Запросы — подсчёт вхождений строки на отрезке с заменами символов, а суммарная длина запросов ограничена. Как разбить строку, чтобы и замена, и запрос были недорогими?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Раздели строку на блоки размера <span class="arithmatex">\(K\)</span> и для каждого построй суффиксную структуру. Замена символа пересобирает структуру одного блока за <span class="arithmatex">\(O(K)\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Если запрос длиннее <span class="arithmatex">\(K\)</span>, таких запросов не больше <span class="arithmatex">\(y/K\)</span>, где <span class="arithmatex">\(y\)</span> — суммарная длина запросов. Каждый такой запрос просто обработай алгоритмом КМП по отрезку за <span class="arithmatex">\(O(N)\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Если запрос короче <span class="arithmatex">\(K\)</span>, вхождения внутри блока считай по суффиксной структуре блока за <span class="arithmatex">\(O(|y|)\)</span> на блок.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Вхождения на стыке соседних блоков лежат в строке длины <span class="arithmatex">\(2|y|\)</span> вокруг стыка: ищи их КМП, аккуратно выбрав окно, чтобы не посчитать дважды. Крайние неполные блоки тоже обработай КМП.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Итого <span class="arithmatex">\(O(NK + yN/K)\)</span>. При подходящем <span class="arithmatex">\(K\)</span> (по порядку несколько сотен) получается <span class="arithmatex">\(O(N\sqrt{N})\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/57250">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>5. 997E · Хорошие подотрезки</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Подотрезок хороший, если <span class="arithmatex">\(r-l=\max-\min\)</span> (для перестановки это значит, что в нём подряд идущие числа). Как задачу о хороших подотрезках массива переформулировать геометрически?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Каждый хороший отрезок — точка <span class="arithmatex">\((l,r)\)</span> на плоскости, запрос — сумма по прямоугольнику <span class="arithmatex">\([1..l]\times[r..n]\)</span>. Для всего массива считай сканлайном по правой границе: для каждого <span class="arithmatex">\(l\)</span> храни <span class="arithmatex">\(r-l-(\max-\min)\)</span> в дереве отрезков с монотонными стеками. Величина всегда <span class="arithmatex">\(\le0\)</span>, поэтому достаточно хранить количество максимумов.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Для запросов разбей плоскость <span class="arithmatex">\(N\times N\)</span> на квадраты <span class="arithmatex">\(K\times K\)</span> и храни структуру не в дереве отрезков, а в корневой декомпозиции: для каждого куска размера <span class="arithmatex">\(K\)</span> по <span class="arithmatex">\(y\)</span> хранится число уже встреченных точек.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Сканлайн слева направо отрезает от запроса нижнюю часть, оставляя горизонтальную полосу высотой не более <span class="arithmatex">\(K\)</span>; аналогичный проход сверху вниз отрезает левую часть. Остаётся прямоугольник со сторонами <span class="arithmatex">\(&lt;K\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>На оставшийся прямоугольник создай менее <span class="arithmatex">\(K\)</span> событий «прибавить к ответу сумму на вертикальном отрезке» и обработай их сканлайном с деревом отрезков.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Итог: <span class="arithmatex">\(O(n\cdot n/K+nK\log n)\)</span>, при <span class="arithmatex">\(K=\sqrt{n/\log n}\)</span> получается <span class="arithmatex">\(O(n\sqrt{n\log n})\)</span>. Запасной путь — разделяй и властвуй плюс алгоритм Мо, <span class="arithmatex">\(O(n\sqrt n\log n)\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/60357">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>6. 896E · Добро пожаловать домой, Ктолли</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Операция вычитает <span class="arithmatex">\(x\)</span> из всех чисел, больших <span class="arithmatex">\(x\)</span>, на отрезке, а запрос спрашивает, сколько раз встречается значение. Как поменяется множество значений в блоке после такой операции?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Раздели массив на блоки размера порядка <span class="arithmatex">\(\sqrt{n}\)</span>. В каждом блоке храни счётчик каждого значения и систему непересекающихся множеств, где значения с одинаковым текущим числом объединены; корень множества хранит значение.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Для блока ведём пометку <span class="arithmatex">\(tag\)</span>: все числа блока уменьшены на неё. Для блоков, частично задетых отрезком, пересобирай блок целиком за <span class="arithmatex">\(O(\sqrt{n})\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Для полностью покрытого блока: если <span class="arithmatex">\(2x\le\)</span> максимума, объединяй значения <span class="arithmatex">\([1,x]\)</span> с <span class="arithmatex">\([x+1,2x]\)</span> и прибавляй <span class="arithmatex">\(x\)</span> к пометке.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Если <span class="arithmatex">\(2x&gt;\)</span> максимума, объединяй значения <span class="arithmatex">\([x+1,\max]\)</span> со значениями <span class="arithmatex">\([1,\max-x]\)</span>. Так максимум уменьшается.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Запрос: для неполных блоков смотри элементы напрямую, для полных берётся количество чисел, равных <span class="arithmatex">\(x+tag\)</span>, из счётчика по корню множества.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 7</summary>
+<p>Оценка: разность максимума и минимума в блоке изначально до <span class="arithmatex">\(n\)</span>, а каждая операция уменьшает её на величину порядка <span class="arithmatex">\(x\)</span> или <span class="arithmatex">\(\max-x\)</span>, равную числу слияний. Суммарная работа <span class="arithmatex">\(O(n\sqrt{n})\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/56135">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>7. 2159E · Супер-Короткий-Полином-Сан</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Нужно получать коэффициенты (точнее, префиксные суммы коэффициентов) степени многочлена <span class="arithmatex">\(F(n)\)</span> для многих <span class="arithmatex">\(n\)</span>. Как можно получить один коэффициент произведения двух многочленов, не умножая их целиком?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Коэффициент произведения находится за <span class="arithmatex">\(\Theta(\min(n,m))\)</span>, а полное умножение стоит <span class="arithmatex">\(\Theta((n+m)\log(n+m))\)</span>. Это позволяет построить компромисс в духе «маленьких и больших шагов».</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Выбери <span class="arithmatex">\(B\)</span>. Заранее посчитай <span class="arithmatex">\(F(kB)\)</span> для всех <span class="arithmatex">\(kB\le N\)</span> и <span class="arithmatex">\(F(k)\)</span> для <span class="arithmatex">\(k\le B\)</span>. Тогда <span class="arithmatex">\(F(n)=F(\lfloor n/B\rfloor B)\cdot F(n\bmod B)\)</span>, и один коэффициент находится за <span class="arithmatex">\(O(B)\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Нужны префиксные суммы коэффициентов. Определи многочлен <span class="arithmatex">\(G(n)\)</span> с коэффициентами-префиксными суммами <span class="arithmatex">\(F(n)\)</span>. Тогда <span class="arithmatex">\(G(n+m)=G(n)F(m)\)</span>, и тот же приём работает; коэффициенты <span class="arithmatex">\(G(n)\)</span> при <span class="arithmatex">\(k&gt;2n\)</span> постоянны, хранить бесконечно много не нужно.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Чтобы обойтись без FFT по модулю <span class="arithmatex">\(10^9+7\)</span>, выведи <span class="arithmatex">\(nF(n)F(1)'=F(n)'F(1)\)</span> из двух способов вычислить <span class="arithmatex">\((F(n+1))'\)</span>. Сравнение коэффициентов даёт коэффициенты <span class="arithmatex">\(F(n)\)</span> за <span class="arithmatex">\(O(nk)\)</span>, где <span class="arithmatex">\(k=\deg F(1)\)</span> — константа.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Итог: предпосчёт <span class="arithmatex">\(O(N^2/B)\)</span> плюс <span class="arithmatex">\(O(B^2)\)</span> и <span class="arithmatex">\(O(B)\)</span> на запрос. При <span class="arithmatex">\(B\approx\sqrt N\)</span> получается <span class="arithmatex">\(O((N+Q)\sqrt N)\)</span> без FFT; если не хватает памяти, увеличь <span class="arithmatex">\(B\)</span>.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/147322">Официальный разбор</a></p>
 </details>
 
 

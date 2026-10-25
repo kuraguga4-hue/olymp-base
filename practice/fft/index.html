@@ -2413,6 +2413,18 @@
 <td>2900</td>
 <td>строковые алгоритмы, теория чисел, комбинаторика</td>
 </tr>
+<tr>
+<td>7</td>
+<td><a href="https://codeforces.com/problemset/problem/923/E">923E · Постоянное вычитание</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/923">VK Cup 2018 - Round 1</a> · задача E</span></td>
+<td>3100</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://codeforces.com/problemset/problem/1119/H">1119H · Тройки</a><br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1119">Codeforces Global Round 2</a> · задача H</span></td>
+<td>3200</td>
+<td>битмаски</td>
+</tr>
 </tbody>
 </table>
 <h2 id="_1">Подсказки<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -2579,6 +2591,62 @@
 <p>Для одного <span class="arithmatex">\(d\)</span> разверни вторую половину и посчитай циклическую свёртку с первой по FFT за <span class="arithmatex">\(d \log d\)</span>. Всего <span class="arithmatex">\(O(n \log n \log \log n)\)</span> плюс <span class="arithmatex">\(O(n)\)</span> на каждый делитель.</p>
 </details>
 <p><a href="https://codeforces.com/blog/entry/151515">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>7. 923E · Постоянное вычитание</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Каждый шаг процесса линейно преобразует вектор, поэтому ответ — <span class="arithmatex">\(A^M\cdot P\)</span> для матрицы <span class="arithmatex">\(A\)</span> размера <span class="arithmatex">\((N+1)\times(N+1)\)</span>. Почему прямое возведение матрицы в степень слишком медленно и какую особенность <span class="arithmatex">\(A\)</span> можно использовать?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Матрица треугольная, поэтому её собственные числа — элементы главной диагонали. Это позволяет привести её к диагональному виду <span class="arithmatex">\(A=Q\Lambda Q^{-1}\)</span>, и тогда <span class="arithmatex">\(A^M=Q\Lambda^M Q^{-1}\)</span>, где <span class="arithmatex">\(\Lambda^M\)</span> считается поэлементно.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Разбор показывает, что <span class="arithmatex">\(Q\)</span> и <span class="arithmatex">\(Q^{-1}\)</span> совпадают с точностью до знака <span class="arithmatex">\((-1)^{\alpha}\)</span> у членов. Но умножение на них в лоб всё ещё медленное. Подумай, нельзя ли записать произведение <span class="arithmatex">\(Q^{-1}x\)</span> в виде свёртки.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Действительно, <span class="arithmatex">\(y=Q^{-1}x\)</span> — свёртка двух функций с точностью до множителей, зависящих от одного индекса. То же верно для умножения на <span class="arithmatex">\(Q\)</span> (достаточно убрать члены с <span class="arithmatex">\((-1)^{\alpha}\)</span>).</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>Итог: <span class="arithmatex">\(R=Q\cdot(\Lambda^M\cdot(Q^{-1}P))\)</span>. Оба умножения на <span class="arithmatex">\(Q\)</span> и <span class="arithmatex">\(Q^{-1}\)</span> делаются быстрой свёрткой (FFT/NTT по модулю из условия), а <span class="arithmatex">\(\Lambda^M\)</span> — быстрым возведением в степень для каждого элемента.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/58286">Официальный разбор</a></p>
+</details>
+<details class="question">
+<summary>8. 1119H · Тройки</summary>
+<details class="tip">
+<summary>Подсказка 1</summary>
+<p>Какой объект нужно построить для каждого <span class="arithmatex">\(i\)</span>, чтобы ответ оказался XOR-свёрткой всех <span class="arithmatex">\(n\)</span> объектов?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 2</summary>
+<p>Для <span class="arithmatex">\(i\)</span>-го элемента возьми массив длины <span class="arithmatex">\(2^k\)</span>, в котором в позициях <span class="arithmatex">\(A_i\)</span>, <span class="arithmatex">\(B_i\)</span>, <span class="arithmatex">\(C_i\)</span> стоят значения <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(c\)</span>, остальные нули. Искомый ответ — XOR-свёртка всех таких массивов, но прямое FWHT каждого даёт <span class="arithmatex">\(O(n \cdot 2^k \cdot k)\)</span>, что слишком долго.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 3</summary>
+<p>Как можно упростить массивы, не меняя ответа, если сдвинуть все индексы одним и тем же XOR-ом?</p>
+</details>
+<details class="tip">
+<summary>Подсказка 4</summary>
+<p>Можно положить <span class="arithmatex">\(A_i = 0\)</span>, заменив <span class="arithmatex">\(B_i\)</span> на <span class="arithmatex">\(B_i \oplus A_i\)</span> и <span class="arithmatex">\(C_i\)</span> на <span class="arithmatex">\(C_i \oplus A_i\)</span>; ответ при этом сдвигается на XOR всех <span class="arithmatex">\(A_i\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 5</summary>
+<p>После FWHT каждого такого массива в любой позиции встречается только 4 значения: <span class="arithmatex">\(a+b+c\)</span>, <span class="arithmatex">\(a+b-c\)</span>, <span class="arithmatex">\(a-b+c\)</span>, <span class="arithmatex">\(a-b-c\)</span>. Пусть в данной позиции они встречаются <span class="arithmatex">\(x, y, z, w\)</span> раз, тогда <span class="arithmatex">\(x+y+z+w=n\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 6</summary>
+<p>Сумма всех массивов после одного FWHT даёт линейное уравнение на <span class="arithmatex">\(x, y, z, w\)</span>; ещё одно получается при другом наборе <span class="arithmatex">\((a, b, c)\)</span>. Для третьего уравнения построй массив, где в позицию <span class="arithmatex">\(B_i \oplus C_i\)</span> добавлено по единице, и его FWHT даёт <span class="arithmatex">\(x - y - z + w\)</span>.</p>
+</details>
+<details class="tip">
+<summary>Подсказка 7</summary>
+<p>Решай систему из 4 уравнений в каждой позиции, найди <span class="arithmatex">\(x, y, z, w\)</span>, получи значение FWHT итогового массива как произведение соответствующих степеней и сделай обратное FWHT.</p>
+</details>
+<p><a href="https://codeforces.com/blog/entry/66411">Официальный разбор</a></p>
 </details>
 
 
