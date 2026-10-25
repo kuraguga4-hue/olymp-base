@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2261B · Столица Франции?](https://codeforces.com/problemset/problem/2261/B) | 1100 | жадные алгоритмы |
-| 2 | [1601A · Уничтожение массива](https://codeforces.com/problemset/problem/1601/A) | 1300 | теория чисел |
-| 3 | [2239A · Игра в Ним это игра в XOR](https://codeforces.com/problemset/problem/2239/A) | 1300 | — |
-| 4 | [2020C · Битовый баланс](https://codeforces.com/problemset/problem/2020/C) | 1400 | — |
-| 5 | [2225D · Исключительные отрезки](https://codeforces.com/problemset/problem/2225/D) | 1500 | префиксные суммы |
-| 6 | [2267F1 · XOR трансформации (простая версия)](https://codeforces.com/problemset/problem/2267/F1) | 1700 | перебор |
-| 7 | [1624G · Дерево минимального ора](https://codeforces.com/problemset/problem/1624/G) | 1900 | жадные алгоритмы, DSU, DFS |
-| 8 | [2140E1 · Прайм Гейминг (простая версия)](https://codeforces.com/problemset/problem/2140/E1) | 2200 | динамическое программирование |
+| 1 | [2261B · Столица Франции?](https://codeforces.com/problemset/problem/2261/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2261">WorldQuant Round 1 (Codeforces Round 1128, Div. 1 + Div. 2)</a> · задача B</span> | 1100 | жадные алгоритмы |
+| 2 | [1601A · Уничтожение массива](https://codeforces.com/problemset/problem/1601/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1601">Codeforces Round 751 (Div. 1)</a> · задача A</span> | 1300 | теория чисел |
+| 3 | [2239A · Игра в Ним это игра в XOR](https://codeforces.com/problemset/problem/2239/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2239">Codeforces Round 1105 (Div. 1)</a> · задача A</span> | 1300 | — |
+| 4 | [2020C · Битовый баланс](https://codeforces.com/problemset/problem/2020/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2020">Codeforces Round 976 (Div. 2) and Divide By Zero 9.0</a> · задача C</span> | 1400 | — |
+| 5 | [2225D · Исключительные отрезки](https://codeforces.com/problemset/problem/2225/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2225">Educational Codeforces Round 189 (Rated for Div. 2)</a> · задача D</span> | 1500 | префиксные суммы |
+| 6 | [2267F1 · XOR трансформации (простая версия)](https://codeforces.com/problemset/problem/2267/F1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2267">Codeforces Round 1123 (Div. 2)</a> · задача F1</span> | 1700 | перебор |
+| 7 | [1624G · Дерево минимального ора](https://codeforces.com/problemset/problem/1624/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1624">Codeforces Round 764 (Div. 3)</a> · задача G</span> | 1900 | жадные алгоритмы, DSU, DFS |
+| 8 | [2140E1 · Прайм Гейминг (простая версия)](https://codeforces.com/problemset/problem/2140/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2140">Codeforces Round 1049 (Div. 2)</a> · задача E1</span> | 2200 | динамическое программирование |
 
 ## Подсказки
 

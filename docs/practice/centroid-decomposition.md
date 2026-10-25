@@ -4,7 +4,7 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [708C · Центроиды](https://codeforces.com/problemset/problem/708/C) | 2300 | DFS |
+| 1 | [708C · Центроиды](https://codeforces.com/problemset/problem/708/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/708">AIM Tech Round 3 (Div. 1)</a> · задача C</span> | 2300 | DFS |
 
 ## Подсказки
 

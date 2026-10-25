@@ -4,9 +4,9 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1792F2 · Покраска графа (сложная версия)](https://codeforces.com/problemset/problem/1792/F2) | 2900 | FFT, динамическое программирование, корневая оптимизация |
-| 2 | [2194F2 · Опять деревья... (сложная версия)](https://codeforces.com/problemset/problem/2194/F2) | 3000 | динамическое программирование, битмаски, DFS |
-| 3 | [2222G · Статистика на дереве](https://codeforces.com/problemset/problem/2222/G) | 3100 | центроиды, бинарный поиск, DFS |
+| 1 | [1792F2 · Покраска графа (сложная версия)](https://codeforces.com/problemset/problem/1792/F2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1792">Educational Codeforces Round 142 (Rated for Div. 2)</a> · задача F2</span> | 2900 | FFT, динамическое программирование, корневая оптимизация |
+| 2 | [2194F2 · Опять деревья... (сложная версия)](https://codeforces.com/problemset/problem/2194/F2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2194">Codeforces Round 1078 (Div. 2)</a> · задача F2</span> | 3000 | динамическое программирование, битмаски, DFS |
+| 3 | [2222G · Статистика на дереве](https://codeforces.com/problemset/problem/2222/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2222">Spectral::Cup 2026 Round 1 (Codeforces Round 1094, Div. 1 + Div. 2)</a> · задача G</span> | 3100 | центроиды, бинарный поиск, DFS |
 
 ## Подсказки
 

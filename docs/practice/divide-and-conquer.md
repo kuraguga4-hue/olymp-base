@@ -4,12 +4,12 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1461D · Разделяй и суммируй](https://codeforces.com/problemset/problem/1461/D) | 1600 | сортировки, бинарный поиск |
-| 2 | [888E · Максимальная подпоследовательность](https://codeforces.com/problemset/problem/888/E) | 1800 | битмаски, бинарный поиск, перебор |
-| 3 | [2234E · Влад, Миша, два массива](https://codeforces.com/problemset/problem/2234/E) | 2100 | комбинаторика |
-| 4 | [1601C · Оптимальная вставка](https://codeforces.com/problemset/problem/1601/C) | 2300 | сортировки, жадные алгоритмы |
-| 5 | [1982E · Количество k-хороших подотрезков](https://codeforces.com/problemset/problem/1982/E) | 2300 | динамическое программирование, битмаски |
-| 6 | [2176E · Удалите за наименьшую стоимость](https://codeforces.com/problemset/problem/2176/E) | 2400 | DFS, sparse table |
+| 1 | [1461D · Разделяй и суммируй](https://codeforces.com/problemset/problem/1461/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1461">Codeforces Round 689 (Div. 2, based on Zed Code Competition)</a> · задача D</span> | 1600 | сортировки, бинарный поиск |
+| 2 | [888E · Максимальная подпоследовательность](https://codeforces.com/problemset/problem/888/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/888">Educational Codeforces Round 32</a> · задача E</span> | 1800 | битмаски, бинарный поиск, перебор |
+| 3 | [2234E · Влад, Миша, два массива](https://codeforces.com/problemset/problem/2234/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2234">Codeforces Round 1102 (Div. 2)</a> · задача E</span> | 2100 | комбинаторика |
+| 4 | [1601C · Оптимальная вставка](https://codeforces.com/problemset/problem/1601/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1601">Codeforces Round 751 (Div. 1)</a> · задача C</span> | 2300 | сортировки, жадные алгоритмы |
+| 5 | [1982E · Количество k-хороших подотрезков](https://codeforces.com/problemset/problem/1982/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1982">Codeforces Round 955 (Div. 2, with prizes from NEAR!)</a> · задача E</span> | 2300 | динамическое программирование, битмаски |
+| 6 | [2176E · Удалите за наименьшую стоимость](https://codeforces.com/problemset/problem/2176/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2176">Codeforces Round 1070 (Div. 2)</a> · задача E</span> | 2400 | DFS, sparse table |
 
 ## Подсказки
 

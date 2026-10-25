@@ -4,7 +4,7 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [776B · Шерлок и его девушка](https://codeforces.com/problemset/problem/776/B) | 1200 | конструктив |
+| 1 | [776B · Шерлок и его девушка](https://codeforces.com/problemset/problem/776/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/776">ICM Technex 2017 and Codeforces Round 400 (Div. 1 + Div. 2, combined)</a> · задача B</span> | 1200 | конструктив |
 
 ## Подсказки
 

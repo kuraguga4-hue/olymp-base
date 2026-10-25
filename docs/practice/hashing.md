@@ -4,13 +4,13 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1225D · Произведения-степени](https://codeforces.com/problemset/problem/1225/D) | 1800 | теория чисел |
-| 2 | [2275F · Чайный купаж](https://codeforces.com/problemset/problem/2275/F) | 1800 | теория чисел |
-| 3 | [1800G · Симмеtreeя](https://codeforces.com/problemset/problem/1800/G) | 2200 | DFS |
-| 4 | [1977D · XORофикатор](https://codeforces.com/problemset/problem/1977/D) | 2300 | битмаски, перебор |
-| 5 | [1794E · Разметка дерева расстояниями](https://codeforces.com/problemset/problem/1794/E) | 2400 | динамическое программирование, DFS, два указателя |
-| 6 | [1771F · Хоссам и минимум на отрезке](https://codeforces.com/problemset/problem/1771/F) | 2500 | корневая оптимизация, битмаски |
-| 7 | [2225F · Нарезка строк](https://codeforces.com/problemset/problem/2225/F) | 2600 | строковые алгоритмы |
+| 1 | [1225D · Произведения-степени](https://codeforces.com/problemset/problem/1225/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1225">Technocup 2020 - Elimination Round 2</a> · задача D</span> | 1800 | теория чисел |
+| 2 | [2275F · Чайный купаж](https://codeforces.com/problemset/problem/2275/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2275">Codeforces Round 1125 (Div. 3)</a> · задача F</span> | 1800 | теория чисел |
+| 3 | [1800G · Симмеtreeя](https://codeforces.com/problemset/problem/1800/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1800">Codeforces Round 855 (Div. 3)</a> · задача G</span> | 2200 | DFS |
+| 4 | [1977D · XORофикатор](https://codeforces.com/problemset/problem/1977/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1977">Codeforces Round 948 (Div. 2)</a> · задача D</span> | 2300 | битмаски, перебор |
+| 5 | [1794E · Разметка дерева расстояниями](https://codeforces.com/problemset/problem/1794/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1794">Codeforces Round 856 (Div. 2)</a> · задача E</span> | 2400 | динамическое программирование, DFS, два указателя |
+| 6 | [1771F · Хоссам и минимум на отрезке](https://codeforces.com/problemset/problem/1771/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1771">Codeforces Round 837 (Div. 2)</a> · задача F</span> | 2500 | корневая оптимизация, битмаски |
+| 7 | [2225F · Нарезка строк](https://codeforces.com/problemset/problem/2225/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2225">Educational Codeforces Round 189 (Rated for Div. 2)</a> · задача F</span> | 2600 | строковые алгоритмы |
 
 ## Подсказки
 

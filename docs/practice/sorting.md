@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1360B · Честный тренер](https://codeforces.com/problemset/problem/1360/B) | 800 | — |
-| 2 | [1669B · Тройка](https://codeforces.com/problemset/problem/1669/B) | 800 | — |
-| 3 | [1760A · По середине](https://codeforces.com/problemset/problem/1760/A) | 800 | — |
-| 4 | [2220A · Заблокированные](https://codeforces.com/problemset/problem/2220/A) | 800 | — |
-| 5 | [1850D · Сбалансированный раунд](https://codeforces.com/problemset/problem/1850/D) | 900 | — |
-| 6 | [2195B · Heapify 1](https://codeforces.com/problemset/problem/2195/B) | 900 | реализация |
-| 7 | [1808B · Игра в казино](https://codeforces.com/problemset/problem/1808/B) | 1200 | префиксные суммы |
-| 8 | [1918E · ace5 и порядок задач](https://codeforces.com/problemset/problem/1918/E) | 2200 | разделяй и властвуй |
+| 1 | [1360B · Честный тренер](https://codeforces.com/problemset/problem/1360/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1360">Codeforces Round 644 (Div. 3)</a> · задача B</span> | 800 | — |
+| 2 | [1669B · Тройка](https://codeforces.com/problemset/problem/1669/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1669">Codeforces Round 784 (Div. 4)</a> · задача B</span> | 800 | — |
+| 3 | [1760A · По середине](https://codeforces.com/problemset/problem/1760/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1760">Codeforces Round 835 (Div. 4)</a> · задача A</span> | 800 | — |
+| 4 | [2220A · Заблокированные](https://codeforces.com/problemset/problem/2220/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2220">Codeforces Round 1093 (Div. 2)</a> · задача A</span> | 800 | — |
+| 5 | [1850D · Сбалансированный раунд](https://codeforces.com/problemset/problem/1850/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1850">Codeforces Round 886 (Div. 4)</a> · задача D</span> | 900 | — |
+| 6 | [2195B · Heapify 1](https://codeforces.com/problemset/problem/2195/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2195">Codeforces Round 1080 (Div. 3)</a> · задача B</span> | 900 | реализация |
+| 7 | [1808B · Игра в казино](https://codeforces.com/problemset/problem/1808/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1808">Codeforces Round 861 (Div. 2)</a> · задача B</span> | 1200 | префиксные суммы |
+| 8 | [1918E · ace5 и порядок задач](https://codeforces.com/problemset/problem/1918/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1918">Codeforces Round 922 (Div. 2)</a> · задача E</span> | 2200 | разделяй и властвуй |
 
 ## Подсказки
 

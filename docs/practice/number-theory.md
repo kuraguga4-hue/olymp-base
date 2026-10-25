@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2234A · Евклид, последовательность, два числа](https://codeforces.com/problemset/problem/2234/A) | 800 | сортировки |
-| 2 | [1916B · Два делителя](https://codeforces.com/problemset/problem/1916/B) | 1000 | конструктив |
-| 3 | [2131C · Уравняй](https://codeforces.com/problemset/problem/2131/C) | 1100 | — |
-| 4 | [2267C · GCD сокровищница](https://codeforces.com/problemset/problem/2267/C) | 1200 | жадные алгоритмы |
-| 5 | [2124C · Умножение подмножеств](https://codeforces.com/problemset/problem/2124/C) | 1300 | конструктив |
-| 6 | [2126E · Н-О-Д, не повезло!](https://codeforces.com/problemset/problem/2126/E) | 1400 | — |
-| 7 | [2236F1 · Выборы в Саранске (простая версия)](https://codeforces.com/problemset/problem/2236/F1) | 1700 | комбинаторика |
-| 8 | [1845F · Пловцы в бассейне](https://codeforces.com/problemset/problem/1845/F) | 2800 | FFT, решето Эратосфена |
+| 1 | [2234A · Евклид, последовательность, два числа](https://codeforces.com/problemset/problem/2234/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2234">Codeforces Round 1102 (Div. 2)</a> · задача A</span> | 800 | сортировки |
+| 2 | [1916B · Два делителя](https://codeforces.com/problemset/problem/1916/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1916">Good Bye 2023</a> · задача B</span> | 1000 | конструктив |
+| 3 | [2131C · Уравняй](https://codeforces.com/problemset/problem/2131/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2131">Codeforces Round 1042 (Div. 3)</a> · задача C</span> | 1100 | — |
+| 4 | [2267C · GCD сокровищница](https://codeforces.com/problemset/problem/2267/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2267">Codeforces Round 1123 (Div. 2)</a> · задача C</span> | 1200 | жадные алгоритмы |
+| 5 | [2124C · Умножение подмножеств](https://codeforces.com/problemset/problem/2124/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2124">EPIC Institute of Technology Round Summer 2025 (Codeforces Round 1036, Div. 1 + Div. 2)</a> · задача C</span> | 1300 | конструктив |
+| 6 | [2126E · Н-О-Д, не повезло!](https://codeforces.com/problemset/problem/2126/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2126">Codeforces Round 1037 (Div. 3)</a> · задача E</span> | 1400 | — |
+| 7 | [2236F1 · Выборы в Саранске (простая версия)](https://codeforces.com/problemset/problem/2236/F1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2236">Codeforces Round 1103 (Div. 3)</a> · задача F1</span> | 1700 | комбинаторика |
+| 8 | [1845F · Пловцы в бассейне](https://codeforces.com/problemset/problem/1845/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1845">Educational Codeforces Round 151 (Rated for Div. 2)</a> · задача F</span> | 2800 | FFT, решето Эратосфена |
 
 ## Подсказки
 

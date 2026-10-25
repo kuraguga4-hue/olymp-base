@@ -4,10 +4,10 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2195G · Поиск дурака и запросы](https://codeforces.com/problemset/problem/2195/G) | 2300 | DFS, динамическое программирование |
-| 2 | [2145F · Долгое путешествие](https://codeforces.com/problemset/problem/2145/F) | 2500 | динамическое программирование, теория чисел |
-| 3 | [2152F · Тройная атака](https://codeforces.com/problemset/problem/2152/F) | 2600 | поиск LCA, два указателя, жадные алгоритмы |
-| 4 | [2236G · Критерий в Бурляндии](https://codeforces.com/problemset/problem/2236/G) | 2600 | поиск LCA, два указателя, битмаски |
+| 1 | [2195G · Поиск дурака и запросы](https://codeforces.com/problemset/problem/2195/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2195">Codeforces Round 1080 (Div. 3)</a> · задача G</span> | 2300 | DFS, динамическое программирование |
+| 2 | [2145F · Долгое путешествие](https://codeforces.com/problemset/problem/2145/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2145">Educational Codeforces Round 183 (Rated for Div. 2)</a> · задача F</span> | 2500 | динамическое программирование, теория чисел |
+| 3 | [2152F · Тройная атака](https://codeforces.com/problemset/problem/2152/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2152">Squarepoint Challenge (Codeforces Round 1055, Div. 1 + Div. 2)</a> · задача F</span> | 2600 | поиск LCA, два указателя, жадные алгоритмы |
+| 4 | [2236G · Критерий в Бурляндии](https://codeforces.com/problemset/problem/2236/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2236">Codeforces Round 1103 (Div. 3)</a> · задача G</span> | 2600 | поиск LCA, два указателя, битмаски |
 
 ## Подсказки
 

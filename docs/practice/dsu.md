@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1167C · Распространение новостей](https://codeforces.com/problemset/problem/1167/C) | 1400 | DFS |
-| 2 | [1263D · Секретные пароли](https://codeforces.com/problemset/problem/1263/D) | 1500 | DFS |
-| 3 | [1213G · Запросы на пути](https://codeforces.com/problemset/problem/1213/G) | 1800 | сортировки, комбинаторика |
-| 4 | [2020D · Соедини точки](https://codeforces.com/problemset/problem/2020/D) | 1800 | динамическое программирование |
-| 5 | [1242B · 0-1 MST](https://codeforces.com/problemset/problem/1242/B) | 1900 | — |
-| 6 | [1927F · Микроцикл](https://codeforces.com/problemset/problem/1927/F) | 1900 | DFS |
-| 7 | [1851G · Влад и горы](https://codeforces.com/problemset/problem/1851/G) | 2000 | сортировки |
-| 8 | [1857G · Подсчет графов](https://codeforces.com/problemset/problem/1857/G) | 2000 | комбинаторика, сортировки |
+| 1 | [1167C · Распространение новостей](https://codeforces.com/problemset/problem/1167/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1167">Educational Codeforces Round 65 (Rated for Div. 2)</a> · задача C</span> | 1400 | DFS |
+| 2 | [1263D · Секретные пароли](https://codeforces.com/problemset/problem/1263/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1263">Codeforces Round 603 (Div. 2)</a> · задача D</span> | 1500 | DFS |
+| 3 | [1213G · Запросы на пути](https://codeforces.com/problemset/problem/1213/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1213">Codeforces Round 582 (Div. 3)</a> · задача G</span> | 1800 | сортировки, комбинаторика |
+| 4 | [2020D · Соедини точки](https://codeforces.com/problemset/problem/2020/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2020">Codeforces Round 976 (Div. 2) and Divide By Zero 9.0</a> · задача D</span> | 1800 | динамическое программирование |
+| 5 | [1242B · 0-1 MST](https://codeforces.com/problemset/problem/1242/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1242">Codeforces Round 599 (Div. 1)</a> · задача B</span> | 1900 | — |
+| 6 | [1927F · Микроцикл](https://codeforces.com/problemset/problem/1927/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1927">Codeforces Round 923 (Div. 3)</a> · задача F</span> | 1900 | DFS |
+| 7 | [1851G · Влад и горы](https://codeforces.com/problemset/problem/1851/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1851">Codeforces Round 888 (Div. 3)</a> · задача G</span> | 2000 | сортировки |
+| 8 | [1857G · Подсчет графов](https://codeforces.com/problemset/problem/1857/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1857">Codeforces Round 891 (Div. 3)</a> · задача G</span> | 2000 | комбинаторика, сортировки |
 
 ## Подсказки
 

@@ -4,7 +4,7 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2187C · Джерри и Том](https://codeforces.com/problemset/problem/2187/C) | 2300 | жадные алгоритмы, сортировки |
+| 1 | [2187C · Джерри и Том](https://codeforces.com/problemset/problem/2187/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2187">Codeforces Round 1077 (Div. 1)</a> · задача C</span> | 2300 | жадные алгоритмы, сортировки |
 
 ## Подсказки
 

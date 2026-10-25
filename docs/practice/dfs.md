@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1829E · Озера](https://codeforces.com/problemset/problem/1829/E) | 1100 | — |
-| 2 | [862B · Махмуд, Ехаб и двудольность](https://codeforces.com/problemset/problem/862/B) | 1300 | — |
-| 3 | [1143C · Queen](https://codeforces.com/problemset/problem/1143/C) | 1400 | — |
-| 4 | [771A · Мишка и условие дружбы](https://codeforces.com/problemset/problem/771/A) | 1500 | — |
-| 5 | [977E · Компоненты-циклы](https://codeforces.com/problemset/problem/977/E) | 1500 | — |
-| 6 | [2245D1 · Построение массива (простая версия)](https://codeforces.com/problemset/problem/2245/D1) | 1700 | конструктив, сортировки |
-| 7 | [2062E1 · Игра (простая версия)](https://codeforces.com/problemset/problem/2062/E1) | 2000 | жадные алгоритмы |
-| 8 | [2253E · Пересечение диаметров](https://codeforces.com/problemset/problem/2253/E) | 2200 | — |
+| 1 | [1829E · Озера](https://codeforces.com/problemset/problem/1829/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1829">Codeforces Round 871 (Div. 4)</a> · задача E</span> | 1100 | — |
+| 2 | [862B · Махмуд, Ехаб и двудольность](https://codeforces.com/problemset/problem/862/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/862">Codeforces Round 435 (Div. 2)</a> · задача B</span> | 1300 | — |
+| 3 | [1143C · Queen](https://codeforces.com/problemset/problem/1143/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1143">Codeforces Round 549 (Div. 2)</a> · задача C</span> | 1400 | — |
+| 4 | [771A · Мишка и условие дружбы](https://codeforces.com/problemset/problem/771/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/771">VK Cup 2017 - Round 1</a> · задача A</span> | 1500 | — |
+| 5 | [977E · Компоненты-циклы](https://codeforces.com/problemset/problem/977/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/977">Codeforces Round 479 (Div. 3)</a> · задача E</span> | 1500 | — |
+| 6 | [2245D1 · Построение массива (простая версия)](https://codeforces.com/problemset/problem/2245/D1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2245">Spectral::Cup 2026 Round 3 (Codeforces Round 1110, Div. 1 + Div. 2)</a> · задача D1</span> | 1700 | конструктив, сортировки |
+| 7 | [2062E1 · Игра (простая версия)](https://codeforces.com/problemset/problem/2062/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2062">Ethflow Round 1 (Codeforces Round 1001, Div. 1 + Div. 2)</a> · задача E1</span> | 2000 | жадные алгоритмы |
+| 8 | [2253E · Пересечение диаметров](https://codeforces.com/problemset/problem/2253/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2253">Educational Codeforces Round 193 (Rated for Div. 2)</a> · задача E</span> | 2200 | — |
 
 ## Подсказки
 

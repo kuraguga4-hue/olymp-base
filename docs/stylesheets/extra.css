@@ -1583,6 +1583,77 @@ body[data-md-color-scheme] {
   margin-top: .35rem;
 }
 
+.md-typeset .ob-training {
+  margin-bottom: 1rem;
+}
+
+.md-typeset .ob-training > p {
+  margin: .5rem 0;
+}
+
+.md-typeset .ob-training__range {
+  font-family: var(--ob-font-mono);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  color: var(--ob-accent);
+}
+
+.md-typeset .ob-training details {
+  margin: .8rem 0 0;
+}
+
+.md-typeset .ob-topics-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.md-typeset .ob-topics-scroll table {
+  width: 100%;
+}
+
+.md-typeset .ob-topics-scroll th,
+.md-typeset .ob-topics-scroll td {
+  white-space: normal;
+}
+
+.md-typeset .ob-topic-label {
+  display: inline-flex;
+  gap: .45rem;
+  align-items: center;
+  min-height: 2rem;
+  cursor: pointer;
+}
+
+.md-typeset .ob-topic-check {
+  appearance: auto;
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  accent-color: var(--ob-accent);
+}
+
+.md-typeset .ob-topic-check:focus-visible,
+.md-typeset .ob-topics-scroll:focus-visible {
+  outline: 2px solid var(--ob-accent);
+  outline-offset: 3px;
+}
+
+/* источник задачи: подпись под названием, на телефоне строка становится карточкой */
+.md-typeset .ob-source {
+  display: inline-block;
+  margin-top: .3rem;
+  line-height: 1.55;
+}
+
+.md-typeset .ob-source a {
+  color: var(--ob-muted);
+}
+
+.md-typeset .ob-source a:hover {
+  color: var(--ob-accent);
+}
+
 
 /* 6. Узкие экраны и «меньше движения»
    ------------------------------------------------------------------------- */
@@ -1600,6 +1671,59 @@ body[data-md-color-scheme] {
 }
 
 @media screen and (max-width: 44.984375em) {
+  .md-typeset table:not([class]):has(.ob-source) {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .md-typeset table:has(.ob-source) thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .md-typeset table:has(.ob-source) tbody {
+    display: block;
+  }
+
+  .md-typeset table:has(.ob-source) tr {
+    display: grid;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    gap: .4rem .55rem;
+    padding: .9rem .8rem;
+    border-bottom: 1px solid var(--ob-line);
+  }
+
+  .md-typeset table:not([class]):has(.ob-source) td {
+    padding: 0;
+    min-width: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .md-typeset table:has(.ob-source) td:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    color: var(--ob-muted);
+  }
+
+  .md-typeset table:has(.ob-source) td:not(:first-child) {
+    grid-column: 2;
+  }
+
+  .md-typeset table:has(.ob-source) td:nth-child(3)::before {
+    content: "Сложность: ";
+    color: var(--ob-muted);
+  }
+
+  .md-typeset table:has(.ob-source) td:nth-child(4)::before {
+    content: "Ещё темы: ";
+    color: var(--ob-muted);
+  }
+
   .md-typeset .ob-hero {
     padding: 1.7rem 1.1rem 1.2rem;
   }

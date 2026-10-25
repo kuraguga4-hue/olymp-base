@@ -2,16 +2,20 @@
 
 Задачи идут по возрастанию сложности. Сначала попробуй сам, подсказки открывай по одной: каждая следующая раскрывает больше. Теория — [статья](../theory/implementation.md).
 
+Сложность — по шкале Codeforces. «≈» у AtCoder — приблизительный пересчёт [AtCoder Problems](https://github.com/kenkoooo/AtCoderProblems); это ориентир, а не официальный рейтинг Codeforces.
+{: .ob-note }
+
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1030A · В поисках простой задачи](https://codeforces.com/problemset/problem/1030/A) | 800 | — |
-| 2 | [2204A · Передача мяча](https://codeforces.com/problemset/problem/2204/A) | 800 | — |
-| 3 | [2250A · Пороговое движение](https://codeforces.com/problemset/problem/2250/A) | 800 | — |
-| 4 | [2274A · Проекции Пако](https://codeforces.com/problemset/problem/2274/A) | 800 | — |
-| 5 | [977A · Неправильное вычитание](https://codeforces.com/problemset/problem/977/A) | 800 | — |
-| 6 | [2276B · Замена и сжатие](https://codeforces.com/problemset/problem/2276/B) | 1000 | — |
-| 7 | [1354B · Троичная строка](https://codeforces.com/problemset/problem/1354/B) | 1200 | — |
-| 8 | [2126F · 1-1-1, бесплатное дерево!](https://codeforces.com/problemset/problem/2126/F) | 2000 | DFS |
+| 1 | [1030A · В поисках простой задачи](https://codeforces.com/problemset/problem/1030/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1030">Technocup 2019 - Elimination Round 1</a> · задача A</span> | 800 | — |
+| 2 | [2204A · Передача мяча](https://codeforces.com/problemset/problem/2204/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2204">Educational Codeforces Round 188 (Rated for Div. 2)</a> · задача A</span> | 800 | — |
+| 3 | [2250A · Пороговое движение](https://codeforces.com/problemset/problem/2250/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2250">Codeforces Round 1112 (Div. 2)</a> · задача A</span> | 800 | — |
+| 4 | [2274A · Проекции Пако](https://codeforces.com/problemset/problem/2274/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2274">Codeforces Round 1127 (Div. 2, Based on Mexican Olympiad in Informatics 2026)</a> · задача A</span> | 800 | — |
+| 5 | [977A · Неправильное вычитание](https://codeforces.com/problemset/problem/977/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/977">Codeforces Round 479 (Div. 3)</a> · задача A</span> | 800 | — |
+| 6 | [ABC481B · Polyline](https://atcoder.jp/contests/abc481/tasks/abc481_b)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc481">SMBC Programming Contest #2 (AtCoder Beginner Contest 481）</a> · задача B</span> | ≈ 800 | геометрия |
+| 7 | [2276B · Замена и сжатие](https://codeforces.com/problemset/problem/2276/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2276">Educational Codeforces Round 195 (Rated for Div. 2)</a> · задача B</span> | 1000 | — |
+| 8 | [1354B · Троичная строка](https://codeforces.com/problemset/problem/1354/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1354">Educational Codeforces Round 87 (Rated for Div. 2)</a> · задача B</span> | 1200 | — |
+| 9 | [2126F · 1-1-1, бесплатное дерево!](https://codeforces.com/problemset/problem/2126/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2126">Codeforces Round 1037 (Div. 3)</a> · задача F</span> | 2000 | DFS |
 
 ## Подсказки
 
@@ -65,7 +69,17 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/59281)
 
-??? question "6. 2276B · Замена и сжатие"
+??? question "6. ABC481B · Polyline"
+
+    ??? tip "Подсказка 1"
+        Как не посчитать дважды точку, которая совпадает с вершиной ломаной — общим концом двух соседних отрезков?
+
+    ??? tip "Подсказка 2"
+        Считай отдельно вершины и внутренние точки отрезков. Вершин с $y = K$ столько, сколько чисел $K$ в массиве $A$. Внутри отрезка $i$ такая точка есть ровно тогда, когда $K$ строго между $A_i$ и $A_{i+1}$. Эти два случая не пересекаются — просто сложи.
+
+    [Официальный разбор](https://atcoder.jp/contests/abc481/editorial/27921)
+
+??? question "7. 2276B · Замена и сжатие"
 
     ??? tip "Подсказка 1"
         От чего зависит длина сжатой строки и на сколько её может изменить замена одного символа?
@@ -75,7 +89,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/157752)
 
-??? question "7. 1354B · Троичная строка"
+??? question "8. 1354B · Троичная строка"
 
     ??? tip "Подсказка 1"
         Какими могут быть первый и последний символы кратчайшей подходящей подстроки и что стоит между ними?
@@ -85,7 +99,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/77593)
 
-??? question "8. 2126F · 1-1-1, бесплатное дерево!"
+??? question "9. 2126F · 1-1-1, бесплатное дерево!"
 
     ??? tip "Подсказка 1"
         Какие рёбра цвета меняют свой статус при перекраске одной вершины?

@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1676E · Запросы на  поедание конфет](https://codeforces.com/problemset/problem/1676/E) | 1100 | жадные алгоритмы, префиксные суммы, сортировки |
-| 2 | [1742E · Scuza](https://codeforces.com/problemset/problem/1742/E) | 1200 | префиксные суммы |
-| 3 | [1862D · Шарики мороженого](https://codeforces.com/problemset/problem/1862/D) | 1300 | комбинаторика |
-| 4 | [1201C · Максимальная медиана](https://codeforces.com/problemset/problem/1201/C) | 1400 | сортировки |
-| 5 | [2226C · Ментально монументально (простая версия)](https://codeforces.com/problemset/problem/2226/C) | 1500 | жадные алгоритмы |
-| 6 | [2196C1 · Интерактивный граф (простая версия)](https://codeforces.com/problemset/problem/2196/C1) | 1800 | — |
-| 7 | [2259G · Убрали индекс](https://codeforces.com/problemset/problem/2259/G) | 1900 | префиксные суммы |
-| 8 | [2228F · Момойо и сеть](https://codeforces.com/problemset/problem/2228/F) | 2700 | динамическое программирование, два указателя, центроиды |
+| 1 | [1676E · Запросы на  поедание конфет](https://codeforces.com/problemset/problem/1676/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1676">Codeforces Round 790 (Div. 4)</a> · задача E</span> | 1100 | жадные алгоритмы, префиксные суммы, сортировки |
+| 2 | [1742E · Scuza](https://codeforces.com/problemset/problem/1742/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1742">Codeforces Round 827 (Div. 4)</a> · задача E</span> | 1200 | префиксные суммы |
+| 3 | [1862D · Шарики мороженого](https://codeforces.com/problemset/problem/1862/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1862">Codeforces Round 894 (Div. 3)</a> · задача D</span> | 1300 | комбинаторика |
+| 4 | [1201C · Максимальная медиана](https://codeforces.com/problemset/problem/1201/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1201">Codeforces Round 577 (Div. 2)</a> · задача C</span> | 1400 | сортировки |
+| 5 | [2226C · Ментально монументально (простая версия)](https://codeforces.com/problemset/problem/2226/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2226">Codeforces Round 1095 (Div. 2)</a> · задача C</span> | 1500 | жадные алгоритмы |
+| 6 | [2196C1 · Интерактивный граф (простая версия)](https://codeforces.com/problemset/problem/2196/C1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2196">Codeforces Round 1079 (Div. 1)</a> · задача C1</span> | 1800 | — |
+| 7 | [2259G · Убрали индекс](https://codeforces.com/problemset/problem/2259/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2259">Codeforces Round 1119 (Div. 3)</a> · задача G</span> | 1900 | префиксные суммы |
+| 8 | [2228F · Момойо и сеть](https://codeforces.com/problemset/problem/2228/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2228">Codeforces Round 1098 (Div. 2)</a> · задача F</span> | 2700 | динамическое программирование, два указателя, центроиды |
 
 ## Подсказки
 

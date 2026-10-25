@@ -4,8 +4,8 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2074E · Пустой треугольник](https://codeforces.com/problemset/problem/2074/E) | 1600 | геометрия |
-| 2 | [1970D2 · Arithmancy (Medium)](https://codeforces.com/problemset/problem/1970/D2) | 2600 | конструктив, строковые алгоритмы |
+| 1 | [2074E · Пустой треугольник](https://codeforces.com/problemset/problem/2074/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2074">Codeforces Round 1009 (Div. 3)</a> · задача E</span> | 1600 | геометрия |
+| 2 | [1970D2 · Arithmancy (Medium)](https://codeforces.com/problemset/problem/1970/D2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1970">Helvetic Coding Contest 2024 online mirror (teams allowed, unrated)</a> · задача D2</span> | 2600 | конструктив, строковые алгоритмы |
 
 ## Подсказки
 

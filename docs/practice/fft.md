@@ -4,12 +4,12 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [954I · И снова равные строки](https://codeforces.com/problemset/problem/954/I) | 2200 | DFS |
-| 2 | [993E · Никита и порядковая статистика](https://codeforces.com/problemset/problem/993/E) | 2300 | префиксные суммы |
-| 3 | [1096G · Счастливые билеты](https://codeforces.com/problemset/problem/1096/G) | 2400 | динамическое программирование |
-| 4 | [1398G · Соревнования по бегу](https://codeforces.com/problemset/problem/1398/G) | 2600 | теория чисел |
-| 5 | [827E · Ржавая строка](https://codeforces.com/problemset/problem/827/E) | 2700 | строковые алгоритмы |
-| 6 | [2201E · Счетчик ABBA](https://codeforces.com/problemset/problem/2201/E) | 2900 | строковые алгоритмы, теория чисел, комбинаторика |
+| 1 | [954I · И снова равные строки](https://codeforces.com/problemset/problem/954/I)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/954">Educational Codeforces Round 40 (Rated for Div. 2)</a> · задача I</span> | 2200 | DFS |
+| 2 | [993E · Никита и порядковая статистика](https://codeforces.com/problemset/problem/993/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/993">Codeforces Round 488 by NEAR (Div. 1)</a> · задача E</span> | 2300 | префиксные суммы |
+| 3 | [1096G · Счастливые билеты](https://codeforces.com/problemset/problem/1096/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1096">Educational Codeforces Round 57 (Rated for Div. 2)</a> · задача G</span> | 2400 | динамическое программирование |
+| 4 | [1398G · Соревнования по бегу](https://codeforces.com/problemset/problem/1398/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1398">Educational Codeforces Round 93 (Rated for Div. 2)</a> · задача G</span> | 2600 | теория чисел |
+| 5 | [827E · Ржавая строка](https://codeforces.com/problemset/problem/827/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/827">Codeforces Round 423 (Div. 1, rated, based on VK Cup Finals)</a> · задача E</span> | 2700 | строковые алгоритмы |
+| 6 | [2201E · Счетчик ABBA](https://codeforces.com/problemset/problem/2201/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2201">Codeforces Round 1082 (Div. 1)</a> · задача E</span> | 2900 | строковые алгоритмы, теория чисел, комбинаторика |
 
 ## Подсказки
 

@@ -2,17 +2,34 @@
 
 Задачи идут по возрастанию сложности. Сначала попробуй сам, подсказки открывай по одной: каждая следующая раскрывает больше. Теория — [статья](../theory/shortest-paths.md).
 
+Сложность — по шкале Codeforces. «≈» у AtCoder — приблизительный пересчёт [AtCoder Problems](https://github.com/kenkoooo/AtCoderProblems); это ориентир, а не официальный рейтинг Codeforces.
+{: .ob-note }
+
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1037D · Корректный BFS?](https://codeforces.com/problemset/problem/1037/D) | 1700 | сортировки |
-| 2 | [1176E · Покрывай!](https://codeforces.com/problemset/problem/1176/E) | 1700 | — |
-| 3 | [2059D · Граф и граф](https://codeforces.com/problemset/problem/2059/D) | 1900 | — |
-| 4 | [2117G · ОМГраф](https://codeforces.com/problemset/problem/2117/G) | 1900 | — |
-| 5 | [2057E1 · Очередное упражнение на графы (простая версия)](https://codeforces.com/problemset/problem/2057/E1) | 2300 | бинарный поиск, динамическое программирование |
+| 1 | [ABC481D · Autopilot](https://atcoder.jp/contests/abc481/tasks/abc481_d)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc481">SMBC Programming Contest #2 (AtCoder Beginner Contest 481）</a> · задача D</span> | ≈ 1200 | — |
+| 2 | [1037D · Корректный BFS?](https://codeforces.com/problemset/problem/1037/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1037">Manthan, Codefest 18 (rated, Div. 1 + Div. 2)</a> · задача D</span> | 1700 | сортировки |
+| 3 | [1176E · Покрывай!](https://codeforces.com/problemset/problem/1176/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1176">Codeforces Round 565 (Div. 3)</a> · задача E</span> | 1700 | — |
+| 4 | [2059D · Граф и граф](https://codeforces.com/problemset/problem/2059/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2059">Codeforces Round 1002 (Div. 2)</a> · задача D</span> | 1900 | — |
+| 5 | [2117G · ОМГраф](https://codeforces.com/problemset/problem/2117/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2117">Codeforces Round 1029 (Div. 3)</a> · задача G</span> | 1900 | — |
+| 6 | [2057E1 · Очередное упражнение на графы (простая версия)](https://codeforces.com/problemset/problem/2057/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2057">Hello 2025</a> · задача E1</span> | 2300 | бинарный поиск, динамическое программирование |
 
 ## Подсказки
 
-??? question "1. 1037D · Корректный BFS?"
+??? question "1. ABC481D · Autopilot"
+
+    ??? tip "Подсказка 1"
+        Если планеты — вершины графа, а маршруты — рёбра, какие переходы бесплатны, а какие стоят единицу топлива?
+
+    ??? tip "Подсказка 2"
+        Из каждой вершины ребро к соседу с наименьшим номером имеет вес 0, все остальные рёбра — вес 1. Осталось найти кратчайший путь от $S$ до $T$.
+
+    ??? tip "Подсказка 3"
+        В графе с весами 0 и 1 подойдёт 0-1 BFS: дек, вершину по ребру веса 0 кладём в начало, по ребру веса 1 — в конец; это $O(N + M)$. Дейкстра тоже проходит за $O(N + M \log N)$. Если $T$ недостижима — выведи $-1$.
+
+    [Официальный разбор](https://atcoder.jp/contests/abc481/editorial/27926)
+
+??? question "2. 1037D · Корректный BFS?"
 
     ??? tip "Подсказка 1"
         Что определяет порядок вершин в обходе BFS, если дерево задано?
@@ -25,7 +42,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/61606)
 
-??? question "2. 1176E · Покрывай!"
+??? question "3. 1176E · Покрывай!"
 
     ??? tip "Подсказка 1"
         Какую информацию о вершинах даёт BFS из одной вершины и как с её помощью разбить все вершины на две группы?
@@ -38,7 +55,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/67598)
 
-??? question "3. 2059D · Граф и граф"
+??? question "4. 2059D · Граф и граф"
 
     ??? tip "Подсказка 1"
         Когда ответ вообще конечен, то есть когда фишки могут двигаться дальше бесплатно?
@@ -54,7 +71,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/139094)
 
-??? question "4. 2117G · ОМГраф"
+??? question "5. 2117G · ОМГраф"
 
     ??? tip "Подсказка 1"
         Попробуй выбрать некоторое ребро и считать, что именно его вес участвует в стоимости вместо минимума. Как тогда изменится функция стоимости?
@@ -70,7 +87,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/143362)
 
-??? question "5. 2057E1 · Очередное упражнение на графы (простая версия)"
+??? question "6. 2057E1 · Очередное упражнение на графы (простая версия)"
 
     ??? tip "Подсказка 1"
         Как проверить для фиксированного $x$, существует ли путь из $a$ в $b$ с $k$-м максимумом не больше $x$?

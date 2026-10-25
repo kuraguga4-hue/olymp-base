@@ -4,11 +4,11 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [833B · Кондитерская](https://codeforces.com/problemset/problem/833/B) | 2200 | динамическое программирование, дерево отрезков, разделяй и властвуй |
-| 2 | [1083E · Орехус и прямоугольники](https://codeforces.com/problemset/problem/1083/E) | 2400 | сортировки |
-| 3 | [932F · Сбежать через лист](https://codeforces.com/problemset/problem/932/F) | 2700 | динамическое программирование, DFS |
-| 4 | [2107F2 · Велосипедный спорт (сложная версия)](https://codeforces.com/problemset/problem/2107/F2) | 2800 | жадные алгоритмы, динамическое программирование |
-| 5 | [2125F · Тимофей и докер](https://codeforces.com/problemset/problem/2125/F) | 3000 | динамическое программирование, бинарный поиск |
+| 1 | [833B · Кондитерская](https://codeforces.com/problemset/problem/833/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/833">Codeforces Round 426 (Div. 1)</a> · задача B</span> | 2200 | динамическое программирование, дерево отрезков, разделяй и властвуй |
+| 2 | [1083E · Орехус и прямоугольники](https://codeforces.com/problemset/problem/1083/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1083">Codeforces Round 526 (Div. 1)</a> · задача E</span> | 2400 | сортировки |
+| 3 | [932F · Сбежать через лист](https://codeforces.com/problemset/problem/932/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/932">ICM Technex 2018 and Codeforces Round 463 (Div. 1 + Div. 2, combined)</a> · задача F</span> | 2700 | динамическое программирование, DFS |
+| 4 | [2107F2 · Велосипедный спорт (сложная версия)](https://codeforces.com/problemset/problem/2107/F2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2107">Codeforces Round 1023 (Div. 2)</a> · задача F2</span> | 2800 | жадные алгоритмы, динамическое программирование |
+| 5 | [2125F · Тимофей и докер](https://codeforces.com/problemset/problem/2125/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2125">Educational Codeforces Round 181 (Rated for Div. 2)</a> · задача F</span> | 3000 | динамическое программирование, бинарный поиск |
 
 ## Подсказки
 

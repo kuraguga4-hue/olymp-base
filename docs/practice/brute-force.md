@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1873A · Короткая сортировка](https://codeforces.com/problemset/problem/1873/A) | 800 | реализация |
-| 2 | [732A · Куплю лопату](https://codeforces.com/problemset/problem/732/A) | 800 | теория чисел |
-| 3 | [2230B · Цифровая строка](https://codeforces.com/problemset/problem/2230/B) | 1000 | префиксные суммы |
-| 4 | [2184C · Огромная куча](https://codeforces.com/problemset/problem/2184/C) | 1100 | динамическое программирование, DFS |
-| 5 | [2194C · Шифровка](https://codeforces.com/problemset/problem/2194/C) | 1300 | теория чисел |
-| 6 | [1971F · Периметр круга](https://codeforces.com/problemset/problem/1971/F) | 1600 | геометрия, два указателя |
-| 7 | [1335E2 · Палиндром из трех блоков (сложная версия)](https://codeforces.com/problemset/problem/1335/E2) | 1800 | жадные алгоритмы |
-| 8 | [2091G · Глеб и гребля](https://codeforces.com/problemset/problem/2091/G) | 2300 | кратчайшие пути, теория чисел |
+| 1 | [1873A · Короткая сортировка](https://codeforces.com/problemset/problem/1873/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1873">Codeforces Round 898 (Div. 4)</a> · задача A</span> | 800 | реализация |
+| 2 | [732A · Куплю лопату](https://codeforces.com/problemset/problem/732/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/732">Codeforces Round 377 (Div. 2)</a> · задача A</span> | 800 | теория чисел |
+| 3 | [2230B · Цифровая строка](https://codeforces.com/problemset/problem/2230/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2230">Educational Codeforces Round 190 (Rated for Div. 2)</a> · задача B</span> | 1000 | префиксные суммы |
+| 4 | [2184C · Огромная куча](https://codeforces.com/problemset/problem/2184/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2184">Codeforces Round 1072 (Div. 3)</a> · задача C</span> | 1100 | динамическое программирование, DFS |
+| 5 | [2194C · Шифровка](https://codeforces.com/problemset/problem/2194/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2194">Codeforces Round 1078 (Div. 2)</a> · задача C</span> | 1300 | теория чисел |
+| 6 | [1971F · Периметр круга](https://codeforces.com/problemset/problem/1971/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1971">Codeforces Round 944 (Div. 4)</a> · задача F</span> | 1600 | геометрия, два указателя |
+| 7 | [1335E2 · Палиндром из трех блоков (сложная версия)](https://codeforces.com/problemset/problem/1335/E2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1335">Codeforces Round 634 (Div. 3)</a> · задача E2</span> | 1800 | жадные алгоритмы |
+| 8 | [2091G · Глеб и гребля](https://codeforces.com/problemset/problem/2091/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2091">Codeforces Round 1013 (Div. 3)</a> · задача G</span> | 2300 | кратчайшие пути, теория чисел |
 
 ## Подсказки
 

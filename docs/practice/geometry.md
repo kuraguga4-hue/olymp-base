@@ -4,12 +4,12 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1354C1 · Просто вписываем многоугольник](https://codeforces.com/problemset/problem/1354/C1) | 1400 | — |
-| 2 | [659D · Велосипедная гонка](https://codeforces.com/problemset/problem/659/D) | 1500 | реализация |
-| 3 | [908C · Новый год и керлинг](https://codeforces.com/problemset/problem/908/C) | 1500 | реализация |
-| 4 | [1096C · Многоугольник для угла](https://codeforces.com/problemset/problem/1096/C) | 1600 | теория чисел |
-| 5 | [1451D · Игра в круге](https://codeforces.com/problemset/problem/1451/D) | 1700 | конструктив |
-| 6 | [1354C2 · Не так просто вписываем многоугольник](https://codeforces.com/problemset/problem/1354/C2) | 2000 | бинарный поиск |
+| 1 | [1354C1 · Просто вписываем многоугольник](https://codeforces.com/problemset/problem/1354/C1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1354">Educational Codeforces Round 87 (Rated for Div. 2)</a> · задача C1</span> | 1400 | — |
+| 2 | [659D · Велосипедная гонка](https://codeforces.com/problemset/problem/659/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/659">Codeforces Round 346 (Div. 2)</a> · задача D</span> | 1500 | реализация |
+| 3 | [908C · Новый год и керлинг](https://codeforces.com/problemset/problem/908/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/908">Good Bye 2017</a> · задача C</span> | 1500 | реализация |
+| 4 | [1096C · Многоугольник для угла](https://codeforces.com/problemset/problem/1096/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1096">Educational Codeforces Round 57 (Rated for Div. 2)</a> · задача C</span> | 1600 | теория чисел |
+| 5 | [1451D · Игра в круге](https://codeforces.com/problemset/problem/1451/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1451">Codeforces Round 685 (Div. 2)</a> · задача D</span> | 1700 | конструктив |
+| 6 | [1354C2 · Не так просто вписываем многоугольник](https://codeforces.com/problemset/problem/1354/C2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1354">Educational Codeforces Round 87 (Rated for Div. 2)</a> · задача C2</span> | 2000 | бинарный поиск |
 
 ## Подсказки
 

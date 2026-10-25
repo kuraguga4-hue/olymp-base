@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2225C · Красно-чёрные пары](https://codeforces.com/problemset/problem/2225/C) | 1100 | жадные алгоритмы |
-| 2 | [2274B · Префикс](https://codeforces.com/problemset/problem/2274/B) | 1100 | жадные алгоритмы |
-| 3 | [1350B · Орак и модели](https://codeforces.com/problemset/problem/1350/B) | 1400 | теория чисел |
-| 4 | [698A · Каникулы](https://codeforces.com/problemset/problem/698/A) | 1400 | — |
-| 5 | [2070D · Прыжки по дереву](https://codeforces.com/problemset/problem/2070/D) | 1600 | DFS |
-| 6 | [2184F · Вишнёвое дерево](https://codeforces.com/problemset/problem/2184/F) | 1900 | DFS |
-| 7 | [2252E · Генерация троек](https://codeforces.com/problemset/problem/2252/E) | 2100 | битмаски, комбинаторика |
-| 8 | [2245F · Знакомо?](https://codeforces.com/problemset/problem/2245/F) | 2800 | комбинаторика |
+| 1 | [2225C · Красно-чёрные пары](https://codeforces.com/problemset/problem/2225/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2225">Educational Codeforces Round 189 (Rated for Div. 2)</a> · задача C</span> | 1100 | жадные алгоритмы |
+| 2 | [2274B · Префикс](https://codeforces.com/problemset/problem/2274/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2274">Codeforces Round 1127 (Div. 2, Based on Mexican Olympiad in Informatics 2026)</a> · задача B</span> | 1100 | жадные алгоритмы |
+| 3 | [1350B · Орак и модели](https://codeforces.com/problemset/problem/1350/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1350">Codeforces Round 641 (Div. 2)</a> · задача B</span> | 1400 | теория чисел |
+| 4 | [698A · Каникулы](https://codeforces.com/problemset/problem/698/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/698">Codeforces Round 363 (Div. 1)</a> · задача A</span> | 1400 | — |
+| 5 | [2070D · Прыжки по дереву](https://codeforces.com/problemset/problem/2070/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2070">Educational Codeforces Round 175 (Rated for Div. 2)</a> · задача D</span> | 1600 | DFS |
+| 6 | [2184F · Вишнёвое дерево](https://codeforces.com/problemset/problem/2184/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2184">Codeforces Round 1072 (Div. 3)</a> · задача F</span> | 1900 | DFS |
+| 7 | [2252E · Генерация троек](https://codeforces.com/problemset/problem/2252/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2252">Codeforces Round 1115 (Div. 2)</a> · задача E</span> | 2100 | битмаски, комбинаторика |
+| 8 | [2245F · Знакомо?](https://codeforces.com/problemset/problem/2245/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2245">Spectral::Cup 2026 Round 3 (Codeforces Round 1110, Div. 1 + Div. 2)</a> · задача F</span> | 2800 | комбинаторика |
 
 ## Подсказки
 

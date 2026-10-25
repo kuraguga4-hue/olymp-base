@@ -4,7 +4,7 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2242F · Летние каникулы](https://codeforces.com/problemset/problem/2242/F) | 2800 | динамическое программирование |
+| 1 | [2242F · Летние каникулы](https://codeforces.com/problemset/problem/2242/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2242">Educational Codeforces Round 192 (Rated for Div. 2)</a> · задача F</span> | 2800 | динамическое программирование |
 
 ## Подсказки
 

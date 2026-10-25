@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2125C · Подсчет хороших чисел](https://codeforces.com/problemset/problem/2125/C) | 1100 | теория чисел |
-| 2 | [2144C · Неубывающие массивы](https://codeforces.com/problemset/problem/2144/C) | 1300 | — |
-| 3 | [1288C · Два массива](https://codeforces.com/problemset/problem/1288/C) | 1600 | — |
-| 4 | [2184D · Нечестная игра](https://codeforces.com/problemset/problem/2184/D) | 1600 | битмаски |
-| 5 | [2249B · Разрезание перестановки](https://codeforces.com/problemset/problem/2249/B) | 1700 | сортировки |
-| 6 | [2200G · Операция Перестановка](https://codeforces.com/problemset/problem/2200/G) | 2200 | динамическое программирование |
-| 7 | [1251F · Красно-белый забор](https://codeforces.com/problemset/problem/1251/F) | 2500 | FFT |
-| 8 | [1667E · Центроидные вероятности](https://codeforces.com/problemset/problem/1667/E) | 3000 | FFT |
+| 1 | [2125C · Подсчет хороших чисел](https://codeforces.com/problemset/problem/2125/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2125">Educational Codeforces Round 181 (Rated for Div. 2)</a> · задача C</span> | 1100 | теория чисел |
+| 2 | [2144C · Неубывающие массивы](https://codeforces.com/problemset/problem/2144/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача C</span> | 1300 | — |
+| 3 | [1288C · Два массива](https://codeforces.com/problemset/problem/1288/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1288">Educational Codeforces Round 80 (Rated for Div. 2)</a> · задача C</span> | 1600 | — |
+| 4 | [2184D · Нечестная игра](https://codeforces.com/problemset/problem/2184/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2184">Codeforces Round 1072 (Div. 3)</a> · задача D</span> | 1600 | битмаски |
+| 5 | [2249B · Разрезание перестановки](https://codeforces.com/problemset/problem/2249/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2249">Codeforces Round 1112 (Div. 1)</a> · задача B</span> | 1700 | сортировки |
+| 6 | [2200G · Операция Перестановка](https://codeforces.com/problemset/problem/2200/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2200">Codeforces Round 1084 (Div. 3)</a> · задача G</span> | 2200 | динамическое программирование |
+| 7 | [1251F · Красно-белый забор](https://codeforces.com/problemset/problem/1251/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1251">Educational Codeforces Round 75 (Rated for Div. 2)</a> · задача F</span> | 2500 | FFT |
+| 8 | [1667E · Центроидные вероятности](https://codeforces.com/problemset/problem/1667/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1667">Codeforces Round 783 (Div. 1)</a> · задача E</span> | 3000 | FFT |
 
 ## Подсказки
 

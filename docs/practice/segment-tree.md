@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1676H2 · Максимизация пересечений (сложная версия)](https://codeforces.com/problemset/problem/1676/H2) | 1500 | — |
-| 2 | [2057D · Заказ мерча](https://codeforces.com/problemset/problem/2057/D) | 2000 | — |
-| 3 | [2249C · Блочный круг](https://codeforces.com/problemset/problem/2249/C) | 2000 | — |
-| 4 | [2262B · Игра на выбывание](https://codeforces.com/problemset/problem/2262/B) | 2000 | — |
-| 5 | [2145E · Прогнозирование популярности](https://codeforces.com/problemset/problem/2145/E) | 2100 | бинарный поиск |
-| 6 | [2149G · Buratsuta 3](https://codeforces.com/problemset/problem/2149/G) | 2100 | бинарный поиск |
-| 7 | [2146E · Ещё одна задача про MEX](https://codeforces.com/problemset/problem/2146/E) | 2300 | — |
-| 8 | [2126G2 · Большие выигрыши! (сложная версия)](https://codeforces.com/problemset/problem/2126/G2) | 2400 | два указателя |
+| 1 | [1676H2 · Максимизация пересечений (сложная версия)](https://codeforces.com/problemset/problem/1676/H2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1676">Codeforces Round 790 (Div. 4)</a> · задача H2</span> | 1500 | — |
+| 2 | [2057D · Заказ мерча](https://codeforces.com/problemset/problem/2057/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2057">Hello 2025</a> · задача D</span> | 2000 | — |
+| 3 | [2249C · Блочный круг](https://codeforces.com/problemset/problem/2249/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2249">Codeforces Round 1112 (Div. 1)</a> · задача C</span> | 2000 | — |
+| 4 | [2262B · Игра на выбывание](https://codeforces.com/problemset/problem/2262/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2262">Codeforces Round 1120 (Div. 1)</a> · задача B</span> | 2000 | — |
+| 5 | [2145E · Прогнозирование популярности](https://codeforces.com/problemset/problem/2145/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2145">Educational Codeforces Round 183 (Rated for Div. 2)</a> · задача E</span> | 2100 | бинарный поиск |
+| 6 | [2149G · Buratsuta 3](https://codeforces.com/problemset/problem/2149/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2149">Codeforces Round 1054 (Div. 3)</a> · задача G</span> | 2100 | бинарный поиск |
+| 7 | [2146E · Ещё одна задача про MEX](https://codeforces.com/problemset/problem/2146/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2146">Codeforces Round 1052 (Div. 2)</a> · задача E</span> | 2300 | — |
+| 8 | [2126G2 · Большие выигрыши! (сложная версия)](https://codeforces.com/problemset/problem/2126/G2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2126">Codeforces Round 1037 (Div. 3)</a> · задача G2</span> | 2400 | два указателя |
 
 ## Подсказки
 

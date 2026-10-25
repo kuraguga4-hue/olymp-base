@@ -2,16 +2,20 @@
 
 Задачи идут по возрастанию сложности. Сначала попробуй сам, подсказки открывай по одной: каждая следующая раскрывает больше. Теория — [статья](../theory/prefix-sums.md).
 
+Сложность — по шкале Codeforces. «≈» у AtCoder — приблизительный пересчёт [AtCoder Problems](https://github.com/kenkoooo/AtCoderProblems); это ориентир, а не официальный рейтинг Codeforces.
+{: .ob-note }
+
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1807D · Нечётные запросы](https://codeforces.com/problemset/problem/1807/D) | 900 | — |
-| 2 | [1469B · Красные и синие](https://codeforces.com/problemset/problem/1469/B) | 1000 | — |
-| 3 | [1690D · Черно-белая полоса](https://codeforces.com/problemset/problem/1690/D) | 1000 | — |
-| 4 | [2276C · Подотрезки](https://codeforces.com/problemset/problem/2276/C) | 1100 | два указателя |
-| 5 | [1915E · Романтические стаканы](https://codeforces.com/problemset/problem/1915/E) | 1300 | — |
-| 6 | [2258B2 · Нарезка моркови (сложная версия)](https://codeforces.com/problemset/problem/2258/B2) | 1600 | перебор, жадные алгоритмы |
-| 7 | [1343D · Одинаковая палиндромная сумма](https://codeforces.com/problemset/problem/1343/D) | 1700 | — |
-| 8 | [2230E · Минимальное влияние](https://codeforces.com/problemset/problem/2230/E) | 2200 | жадные алгоритмы |
+| 1 | [1807D · Нечётные запросы](https://codeforces.com/problemset/problem/1807/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1807">Codeforces Round 859 (Div. 4)</a> · задача D</span> | 900 | — |
+| 2 | [1469B · Красные и синие](https://codeforces.com/problemset/problem/1469/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1469">Educational Codeforces Round 101 (Rated for Div. 2)</a> · задача B</span> | 1000 | — |
+| 3 | [1690D · Черно-белая полоса](https://codeforces.com/problemset/problem/1690/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1690">Codeforces Round 797 (Div. 3)</a> · задача D</span> | 1000 | — |
+| 4 | [2276C · Подотрезки](https://codeforces.com/problemset/problem/2276/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2276">Educational Codeforces Round 195 (Rated for Div. 2)</a> · задача C</span> | 1100 | два указателя |
+| 5 | [1915E · Романтические стаканы](https://codeforces.com/problemset/problem/1915/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1915">Codeforces Round 918 (Div. 4)</a> · задача E</span> | 1300 | — |
+| 6 | [ABC480D · Concatenation of Prefixes](https://atcoder.jp/contests/abc480/tasks/abc480_d)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc480">AtCoder Beginner Contest 480</a> · задача D</span> | ≈ 1400 | бинарный поиск |
+| 7 | [2258B2 · Нарезка моркови (сложная версия)](https://codeforces.com/problemset/problem/2258/B2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2258">Codeforces Round 1118 (Div. 2)</a> · задача B2</span> | 1600 | перебор, жадные алгоритмы |
+| 8 | [1343D · Одинаковая палиндромная сумма](https://codeforces.com/problemset/problem/1343/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1343">Codeforces Round 636 (Div. 3)</a> · задача D</span> | 1700 | — |
+| 9 | [2230E · Минимальное влияние](https://codeforces.com/problemset/problem/2230/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2230">Educational Codeforces Round 190 (Rated for Div. 2)</a> · задача E</span> | 2200 | жадные алгоритмы |
 
 ## Подсказки
 
@@ -71,7 +75,20 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/123952)
 
-??? question "6. 2258B2 · Нарезка моркови (сложная версия)"
+??? question "6. ABC480D · Concatenation of Prefixes"
+
+    ??? tip "Подсказка 1"
+        Если научиться быстро считать сумму первых $i$ элементов $B$, как ответить на запрос $[L, R]$?
+
+    ??? tip "Подсказка 2"
+        Ответ — $T_R - T_{L-1}$, где $T_i$ — сумма первых $i$ элементов $B$. Первые $i$ элементов $B$ — это несколько целых блоков $(A_1, \dots, A_k)$ и начало следующего блока. Сумма целого блока $k$ — префиксная сумма $S_k$ массива $A$.
+
+    ??? tip "Подсказка 3"
+        Число целых блоков — наибольшее $k$ с $k(k+1)/2 \le i$, его найди бинпоиском. Тогда $T_i = (S_1 + \dots + S_k) + S_m$, где $m = i - k(k+1)/2$. Предподсчитай префиксные суммы $S$ и префиксные суммы от $S$. Итого $O(N + Q \log N)$.
+
+    [Официальный разбор](https://atcoder.jp/contests/abc480/editorial/27257)
+
+??? question "7. 2258B2 · Нарезка моркови (сложная версия)"
 
     ??? tip "Подсказка 1"
         В каком порядке выгодно делать разрезы для фиксированного целевого значения $x$?
@@ -87,7 +104,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/156316)
 
-??? question "7. 1343D · Одинаковая палиндромная сумма"
+??? question "8. 1343D · Одинаковая палиндромная сумма"
 
     ??? tip "Подсказка 1"
         Что будет, если зафиксировать итоговую сумму $x$ в каждой паре $a_i$ и $a_{n-i+1}$: сколько у пары может быть случаев?
@@ -103,7 +120,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/76352)
 
-??? question "8. 2230E · Минимальное влияние"
+??? question "9. 2230E · Минимальное влияние"
 
     ??? tip "Подсказка 1"
         Что можно сказать о вкладе новости, если она слабее порога пользователя по одному из параметров?

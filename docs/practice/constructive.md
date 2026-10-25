@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1343B · Сбалансированный массив](https://codeforces.com/problemset/problem/1343/B) | 800 | теория чисел |
-| 2 | [1862B · Игра в последовательность](https://codeforces.com/problemset/problem/1862/B) | 800 | — |
-| 3 | [2247A · Нулевая сумма](https://codeforces.com/problemset/problem/2247/A) | 800 | теория чисел |
-| 4 | [2247B · Еще один конструктив](https://codeforces.com/problemset/problem/2247/B) | 900 | префиксные суммы |
-| 5 | [2259D · MEX мультимножеств](https://codeforces.com/problemset/problem/2259/D) | 1200 | — |
-| 6 | [2219A · Таблица L](https://codeforces.com/problemset/problem/2219/A) | 1400 | перебор |
-| 7 | [1922E · Возрастающие подпоследовательности](https://codeforces.com/problemset/problem/1922/E) | 1800 | разделяй и властвуй |
-| 8 | [1583F · Защитник детских мечт](https://codeforces.com/problemset/problem/1583/F) | 2500 | разделяй и властвуй |
+| 1 | [1343B · Сбалансированный массив](https://codeforces.com/problemset/problem/1343/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1343">Codeforces Round 636 (Div. 3)</a> · задача B</span> | 800 | теория чисел |
+| 2 | [1862B · Игра в последовательность](https://codeforces.com/problemset/problem/1862/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1862">Codeforces Round 894 (Div. 3)</a> · задача B</span> | 800 | — |
+| 3 | [2247A · Нулевая сумма](https://codeforces.com/problemset/problem/2247/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2247">Codeforces Round 1111 (Div. 2)</a> · задача A</span> | 800 | теория чисел |
+| 4 | [2247B · Еще один конструктив](https://codeforces.com/problemset/problem/2247/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2247">Codeforces Round 1111 (Div. 2)</a> · задача B</span> | 900 | префиксные суммы |
+| 5 | [2259D · MEX мультимножеств](https://codeforces.com/problemset/problem/2259/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2259">Codeforces Round 1119 (Div. 3)</a> · задача D</span> | 1200 | — |
+| 6 | [2219A · Таблица L](https://codeforces.com/problemset/problem/2219/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2219">Codeforces Round 1093 (Div. 1)</a> · задача A</span> | 1400 | перебор |
+| 7 | [1922E · Возрастающие подпоследовательности](https://codeforces.com/problemset/problem/1922/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1922">Educational Codeforces Round 161 (Rated for Div. 2)</a> · задача E</span> | 1800 | разделяй и властвуй |
+| 8 | [1583F · Защитник детских мечт](https://codeforces.com/problemset/problem/1583/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1583">Technocup 2022 - Elimination Round 1</a> · задача F</span> | 2500 | разделяй и властвуй |
 
 ## Подсказки
 

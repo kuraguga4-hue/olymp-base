@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1992A · Одни плюсы](https://codeforces.com/problemset/problem/1992/A) | 800 | перебор |
-| 2 | [2267A · Превратить в палиндром](https://codeforces.com/problemset/problem/2267/A) | 800 | — |
-| 3 | [2245B · Удалить и сконкатенировать](https://codeforces.com/problemset/problem/2245/B) | 1100 | сортировки |
-| 4 | [2224B · Жили, Mex и Max](https://codeforces.com/problemset/problem/2224/B) | 1200 | конструктив, сортировки |
-| 5 | [2249A · Ранговая подпоследовательность](https://codeforces.com/problemset/problem/2249/A) | 1300 | перебор |
-| 6 | [2253C · Сумма различных в матрице](https://codeforces.com/problemset/problem/2253/C) | 1500 | сортировки, два указателя |
-| 7 | [1847D · Профессор Хигасиката](https://codeforces.com/problemset/problem/1847/D) | 1900 | DSU |
-| 8 | [2252F · Spectral Components](https://codeforces.com/problemset/problem/2252/F) | 2600 | поиск LCA, сортировки, DFS |
+| 1 | [1992A · Одни плюсы](https://codeforces.com/problemset/problem/1992/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1992">Codeforces Round 957 (Div. 3)</a> · задача A</span> | 800 | перебор |
+| 2 | [2267A · Превратить в палиндром](https://codeforces.com/problemset/problem/2267/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2267">Codeforces Round 1123 (Div. 2)</a> · задача A</span> | 800 | — |
+| 3 | [2245B · Удалить и сконкатенировать](https://codeforces.com/problemset/problem/2245/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2245">Spectral::Cup 2026 Round 3 (Codeforces Round 1110, Div. 1 + Div. 2)</a> · задача B</span> | 1100 | сортировки |
+| 4 | [2224B · Жили, Mex и Max](https://codeforces.com/problemset/problem/2224/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2224">Codeforces Round 1097 (Div. 2,  Based on Zhili Cup 2026)</a> · задача B</span> | 1200 | конструктив, сортировки |
+| 5 | [2249A · Ранговая подпоследовательность](https://codeforces.com/problemset/problem/2249/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2249">Codeforces Round 1112 (Div. 1)</a> · задача A</span> | 1300 | перебор |
+| 6 | [2253C · Сумма различных в матрице](https://codeforces.com/problemset/problem/2253/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2253">Educational Codeforces Round 193 (Rated for Div. 2)</a> · задача C</span> | 1500 | сортировки, два указателя |
+| 7 | [1847D · Профессор Хигасиката](https://codeforces.com/problemset/problem/1847/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1847">Codeforces Round 882 (Div. 2)</a> · задача D</span> | 1900 | DSU |
+| 8 | [2252F · Spectral Components](https://codeforces.com/problemset/problem/2252/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2252">Codeforces Round 1115 (Div. 2)</a> · задача F</span> | 2600 | поиск LCA, сортировки, DFS |
 
 ## Подсказки
 

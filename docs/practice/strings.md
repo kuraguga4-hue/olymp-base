@@ -4,13 +4,13 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1137B · Расписание смены](https://codeforces.com/problemset/problem/1137/B) | 1600 | жадные алгоритмы, хеши |
-| 2 | [1326D2 · Префиксно-суффиксный палиндром (усложненная версия)](https://codeforces.com/problemset/problem/1326/D2) | 1800 | жадные алгоритмы |
-| 3 | [1902E · Коллапс строк](https://codeforces.com/problemset/problem/1902/E) | 1900 | — |
-| 4 | [1200E · Склеивание слов](https://codeforces.com/problemset/problem/1200/E) | 2000 | — |
-| 5 | [2209E · Тривиальная задача на строки](https://codeforces.com/problemset/problem/2209/E) | 2200 | динамическое программирование |
-| 6 | [2023C · Ч+К+С](https://codeforces.com/problemset/problem/2023/C) | 2400 | DFS, конструктив |
-| 7 | [2144F · Группы скобок](https://codeforces.com/problemset/problem/2144/F) | 2700 | динамическое программирование, конструктив |
+| 1 | [1137B · Расписание смены](https://codeforces.com/problemset/problem/1137/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1137">Codeforces Round 545 (Div. 1)</a> · задача B</span> | 1600 | жадные алгоритмы, хеши |
+| 2 | [1326D2 · Префиксно-суффиксный палиндром (усложненная версия)](https://codeforces.com/problemset/problem/1326/D2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1326">Codeforces Global Round 7</a> · задача D2</span> | 1800 | жадные алгоритмы |
+| 3 | [1902E · Коллапс строк](https://codeforces.com/problemset/problem/1902/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1902">Educational Codeforces Round 159 (Rated for Div. 2)</a> · задача E</span> | 1900 | — |
+| 4 | [1200E · Склеивание слов](https://codeforces.com/problemset/problem/1200/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1200">Codeforces Round 578 (Div. 2)</a> · задача E</span> | 2000 | — |
+| 5 | [2209E · Тривиальная задача на строки](https://codeforces.com/problemset/problem/2209/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2209">Codeforces Round 1087 (Div. 2)</a> · задача E</span> | 2200 | динамическое программирование |
+| 6 | [2023C · Ч+К+С](https://codeforces.com/problemset/problem/2023/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2023">Codeforces Round 980 (Div. 1)</a> · задача C</span> | 2400 | DFS, конструктив |
+| 7 | [2144F · Группы скобок](https://codeforces.com/problemset/problem/2144/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача F</span> | 2700 | динамическое программирование, конструктив |
 
 ## Подсказки
 

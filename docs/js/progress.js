@@ -13,6 +13,7 @@
   const SITE_TIMEOUT_MS = 10000; // topics.json и страницы подборок
   const TAB = Math.random().toString(36).slice(2); // метка вкладки: две вкладки не займут один слот
   const HANDLE_KEY = "olymp-base:cf-handle";
+  const LEARNED_KEY = "olymp-base:learned:"; // отдельные отметки для каждого хендла
   const LAST_CALL_KEY = "olymp-base:cf-last-call";
   const HANDLE = /^[A-Za-z0-9_.-]{1,24}$/;
   const CF_PROBLEM_PATH = /^\/(?:problemset\/problem\/(\d+)\/([A-Za-z]\d?)|contest\/(\d+)\/problem\/([A-Za-z]\d?))\/?$/;
@@ -44,11 +45,12 @@
     ["средний", "mid"],
     ["продвинутый", "adv"],
   ]);
-  const STATUSES = [
-    { min: 5, order: 2, cls: "done", text: "уверенно" },
-    { min: 1, order: 1, cls: "progress", text: "в процессе" },
-    { min: 0, order: 0, cls: "none", text: "не начато" },
-  ];
+  // У этих техник нет отдельного точного тега CF. Задачу рекомендуем только из
+  // проверенной подборки: тег trees сам по себе не означает LCA, а dp — рюкзак.
+  const CURATED_TOPICS = new Set([
+    "binary-lifting", "lca", "segment-tree", "treap", "sparse-table", "sieve",
+    "knapsack", "dp-optimizations", "centroid-decomposition", "hld", "sqrt-decomposition",
+  ]);
   const ERRORS = {
     offline: ["Нет связи с Codeforces", "Проверь интернет и попробуй ещё раз."],
     network: ["Не получилось достучаться до Codeforces", "Проверь интернет. Если он в порядке — Codeforces сейчас недоступен, попробуй позже."],
@@ -154,6 +156,23 @@
   }
 
   let topicsPromise = null;
+  let catalogPromise = null;
+
+  function loadCatalog() {
+    if (!catalogPromise) {
+      catalogPromise = fetchSite(new URL("assets/progress-catalog.json", SITE), "json")
+        .then((data) => {
+          if (!data || !Array.isArray(data.problems) || !data.topics) throw new Error("catalog");
+          return {
+            topics: data.topics,
+            problems: data.problems.filter((p) => Number.isInteger(p.contestId) && /^[A-Za-z]\d?$/.test(p.index)
+              && isText(p.name) && Number.isInteger(p.rating) && Array.isArray(p.tags)),
+          };
+        })
+        .catch(() => { catalogPromise = null; return null; });
+    }
+    return catalogPromise;
+  }
 
   function loadTopics() {
     if (!topicsPromise) {
@@ -182,6 +201,7 @@
           for (const table of content.querySelectorAll("table")) {
             const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim().toLowerCase());
             const column = heads.findIndex((head) => head.startsWith("задача"));
+            const ratingColumn = heads.findIndex((head) => head.startsWith("сложность"));
             for (const row of table.querySelectorAll("tbody tr")) {
               const cell = column >= 0 ? row.cells[column] : row;
               const link = cell && [...cell.querySelectorAll("a[href]")].find((a) => {
@@ -190,7 +210,10 @@
               });
               if (!link) continue;
               const href = safeUrl(link.getAttribute("href"), url);
-              problems.push({ url: href.href, name: link.textContent.trim() || href.href, key: cfKey(href) });
+              const ratingText = ratingColumn >= 0 && row.cells[ratingColumn] ? row.cells[ratingColumn].textContent : "";
+              const ratingMatch = ratingText.match(/\d{3,4}/);
+              problems.push({ url: href.href, name: link.textContent.trim() || href.href, key: cfKey(href),
+                rating: ratingMatch ? Number(ratingMatch[0]) : null });
             }
           }
           return { problems };
@@ -234,7 +257,9 @@
       const problem = submission && submission.problem;
       if (!problem || submission.verdict !== "OK") continue;
       const key = problemKey(problem);
-      if (key && !solved.has(key)) solved.set(key, problem);
+      if (key && (!solved.has(key) || (submission.creationTimeSeconds || 0) > solved.get(key).solvedAt)) {
+        solved.set(key, { ...problem, solvedAt: submission.creationTimeSeconds || 0 });
+      }
     }
     return solved;
   }
@@ -251,25 +276,42 @@
     return counts;
   }
 
-  function statusOf(n) {
-    return STATUSES.find((s) => n >= s.min);
-  }
-
-  async function progressOf(topic, solved) {
+  async function progressOf(topic, solved, catalog, target) {
+    let matching;
     if (topic.cf_tags.length) {
-      const tags = new Set(topic.cf_tags);
-      const n = [...solved.values()].filter((p) => tagsOf(p).some((t) => tags.has(t))).length;
-      return { n, status: statusOf(n) };
+      matching = [...solved.values()].filter((p) => topic.cf_tags.every((tag) => tagsOf(p).includes(tag)));
+      return { n: matching.length, near: matching.filter((p) => p.rating >= target - 200).length };
     }
     // У темы нет тега на Codeforces — считаем решённые задачи Codeforces из её подборки.
-    const selection = await loadSelection(topic.slug);
-    const keys = new Set(selection.problems.map((p) => p.key).filter(Boolean));
+    const meta = catalog && catalog.topics[topic.slug];
+    const selection = meta ? null : await loadSelection(topic.slug);
+    const keys = new Set(meta ? meta.keys : selection.problems.map((p) => p.key).filter(Boolean));
     if (!keys.size) {
-      const reason = selection.failed ? "failed" : selection.problems.length ? "no-cf" : "empty";
-      return { n: null, status: null, selection, reason };
+      return { n: null, near: 0, total: 0, selection };
     }
-    const n = [...keys].filter((key) => solved.has(key)).length;
-    return { n, total: keys.size, status: n === keys.size ? STATUSES[0] : statusOf(n), selection };
+    matching = [...keys].filter((key) => solved.has(key)).map((key) => solved.get(key));
+    return { n: matching.length, near: matching.filter((p) => p.rating >= target - 200).length, total: keys.size, selection };
+  }
+
+  function trainingLevel(user, solved) {
+    const recent = [...solved.values()].filter((p) => Number.isInteger(p.rating))
+      .sort((a, b) => b.solvedAt - a.solvedAt).slice(0, 30);
+    const ratings = recent.map((p) => p.rating).sort((a, b) => a - b);
+    const median = ratings.length ? ratings[Math.floor((ratings.length - 1) / 2)] : null;
+    const rating = Number.isInteger(user.rating) && user.rating > 0 ? user.rating : null;
+    // Рейтинг — основной ориентир; недавняя практика сдвигает его не более чем на 100.
+    const base = rating == null ? (median == null ? 700 : median)
+      : rating + (median == null ? 0 : Math.max(-200, Math.min(200, median - rating)) / 2);
+    const target = Math.max(800, Math.min(3500, Math.round((base + 100) / 100) * 100));
+    return { target, low: Math.max(800, target - 200), high: Math.min(3500, target + 200), rating, recent: recent.length };
+  }
+
+  function learnedTopics(handle, topics) {
+    try {
+      const value = JSON.parse(load(LEARNED_KEY + handle.toLowerCase()) || "[]");
+      const valid = new Set(topics.map((topic) => topic.slug));
+      return new Set(Array.isArray(value) ? value.filter((slug) => valid.has(slug)) : []);
+    } catch { return new Set(); }
   }
 
   // ---------- Страница ----------
@@ -299,8 +341,10 @@
   function save(key, value) {
     try {
       localStorage.setItem(key, value);
+      return true;
     } catch {
       // хранилище недоступно (приватный режим) — просто не запоминаем
+      return false;
     }
   }
 
@@ -362,6 +406,7 @@
     ui.result.setAttribute("aria-busy", "true"); // не на всём блоке: иначе экранный диктор не прочтёт сообщения
     ui.result.replaceChildren();
     const topicsReady = loadTopics();
+    const catalogReady = loadCatalog();
     try {
       note(ui, "Загружаем профиль…");
       const users = await cfApi("user.info", { handles: handle });
@@ -376,7 +421,7 @@
       const submissions = await cfApi("user.status", { handle: user.handle });
       if (!Array.isArray(submissions)) throw new CfError("unavailable");
       const solved = solvedProblems(submissions);
-      ui.result.append(...(await renderTopics(await topicsReady, solved)), renderStats(solved));
+      ui.result.append(...(await renderTopics(await topicsReady, solved, user, await catalogReady)), renderStats(solved));
       note(ui, "");
     } catch (error) {
       if (!(error instanceof CfError)) console.error(error); // ошибка в этом скрипте — пусть будет видна
@@ -470,10 +515,6 @@
     );
   }
 
-  function statusBadge(status) {
-    return el("span", { class: `ob-lvl ob-status--${status.cls}` }, status.text);
-  }
-
   function levelBadge(topic) {
     const level = LEVELS.get(topic.level);
     return isText(topic.level) && el("span", { class: level ? `ob-lvl ob-lvl--${level}` : "ob-lvl" }, topic.level);
@@ -484,7 +525,7 @@
     return el("div", { class: "ob-bar", style: `--p: ${percent.toFixed(1)}%` });
   }
 
-  async function renderTopics(topics, solved) {
+  async function renderTopics(topics, solved, user, catalog) {
     if (!topics) {
       return [
         el(
@@ -495,71 +536,103 @@
         ),
       ];
     }
-    const rows = await Promise.all(
-      topics.map(async (topic, order) => ({ topic, order, ...(await progressOf(topic, solved)) })),
-    );
-    return [renderNext(rows), renderTopicTable(rows)];
+    const training = trainingLevel(user, solved);
+    const learned = learnedTopics(user.handle, topics);
+    const solvedNames = new Set([...solved.values()].map((p) => p.name));
+    const rows = await Promise.all(topics.map(async (topic, order) => {
+      const meta = catalog && catalog.topics[topic.slug];
+      const progress = await progressOf(topic, solved, catalog, training.target);
+      let candidates;
+      if (catalog) {
+        const keys = new Set(meta && Array.isArray(meta.keys) ? meta.keys : []);
+        const curated = !topic.cf_tags.length || CURATED_TOPICS.has(topic.slug);
+        candidates = catalog.problems.filter((p) => curated ? keys.has(problemKey(p))
+          : topic.cf_tags.every((tag) => tagsOf(p).includes(tag)))
+          .map((p) => ({ ...p, key: problemKey(p), url: `https://codeforces.com/problemset/problem/${p.contestId}/${p.index}` }));
+      } else {
+        // Каталог не загрузился: доступны задачи из существующих подборок.
+        candidates = (progress.selection || await loadSelection(topic.slug)).problems;
+      }
+      candidates = candidates.filter((p) => p.key && !solved.has(p.key) && !solvedNames.has(p.name)
+        && Number.isInteger(p.rating) && p.rating >= training.low && p.rating <= training.high)
+        .sort((a, b) => Math.abs(a.rating - training.target) - Math.abs(b.rating - training.target)
+          || (b.contestId || 0) - (a.contestId || 0) || a.key.localeCompare(b.key));
+      return { topic, order, ...progress, candidates, ready: !!(meta && meta.ready) };
+    }));
+    const recommendations = el("div", { class: "ob-recommendations", "aria-live": "polite" });
+    const refresh = () => recommendations.replaceChildren(renderNext(rows, training, learned, !!catalog));
+    refresh();
+    return [recommendations, renderTopicTable(rows, training, learned, user.handle, refresh)];
   }
 
-  // «Что дальше»: две темы с наименьшим прогрессом; при равенстве — сначала уровень проще, потом порядок topics.json.
-  function renderNext(rows) {
-    const levels = [...LEVELS.keys()];
-    const level = (topic) => (levels.includes(topic.level) ? levels.indexOf(topic.level) : levels.length);
-    const next = rows
-      .filter((row) => row.status)
-      .sort((a, b) => a.status.order - b.status.order || a.n - b.n || level(a.topic) - level(b.topic) || a.order - b.order)
-      .slice(0, 2);
+  function renderNext(rows, training, learned, hasCatalog) {
+    const accessible = (row) => row.topic.level !== "продвинутый" || training.target >= 1800;
+    const available = rows.filter((row) => row.candidates.length && accessible(row)
+      && (row.topic.level !== "средний" || training.target >= 1100));
+    const unknown = available.filter((row) => !learned.has(row.topic.slug));
+    const pool = (unknown.length ? unknown : available).slice()
+      .sort((a, b) => a.near - b.near || (a.n || 0) - (b.n || 0) || a.order - b.order);
+    const next = [];
+    const usedKeys = new Set();
+    const usedNames = new Set();
+    for (const row of pool) {
+      const problem = row.candidates.find((p) => !usedKeys.has(p.key) && !usedNames.has(p.name));
+      if (!problem) continue;
+      next.push(renderNextCard(row, problem, learned.has(row.topic.slug), training));
+      usedKeys.add(problem.key);
+      usedNames.add(problem.name);
+      if (next.length === 2) break;
+    }
+    const basis = [training.rating != null ? `рейтинг ${training.rating}` : "рейтинга пока нет",
+      training.recent ? `последние ${training.recent} решённых задач с рейтингом` : "решений с рейтингом пока нет"];
     return el(
       "section",
       {},
       el("h2", {}, "Что дальше"),
-      el("p", { class: "ob-note" }, "Две темы с наименьшим прогрессом; при равенстве — сначала та, что проще."),
+      el("div", { class: "ob-card ob-training" },
+        el("p", { class: "ob-kicker" }, "Твой ориентир для тренировки"),
+        el("p", { class: "ob-training__range" }, `${training.low}–${training.high}`),
+        el("p", { class: "ob-note" }, `Учтены: ${basis.join("; ")}. Это ориентир, а не оценка твоих знаний.`),
+        el("details", {}, el("summary", {}, "Как подбираются задачи"),
+          el("p", {}, "Берём текущий рейтинг и сложность последних 30 уникальных решённых задач. Недавняя практика может сдвинуть ориентир на 100 пунктов; без рейтинга опираемся на решения. Для первого старта — 800–1000."),
+          el("p", {}, "Предлагаем нерешённые задачи в этом диапазоне, отдавая приоритет темам с меньшей практикой на твоём уровне. Отмеченные темы пропускаем, пока есть подходящие неизученные. Если таких нет — предлагаем закрепить знакомые."))),
+      !hasCatalog && el("p", { class: "ob-note" }, "Общий каталог сейчас недоступен. Подбираем задачи из подборок сайта; статистика и отметки работают."),
       next.length
-        ? el("div", { class: "grid" }, next.map(renderNextCard))
-        : el("p", {}, "Пока не из чего выбрать: прогресс по темам не считается."),
+        ? el("div", { class: "grid" }, next)
+        : el("p", {}, "Подходящих нерешённых задач в этом диапазоне пока нет. Открой подборку нужной темы ниже."),
     );
   }
 
-  function renderNextCard({ topic, n, total, status, selection }) {
-    const first = el("p", {}, "Первая задача: ", el("span", { class: "ob-note" }, "смотрим подборку…"));
-    Promise.resolve(selection || loadSelection(topic.slug)).then(({ problems, failed }) => {
-      const practice = el("a", { href: pageUrl("practice", topic.slug) }, "открыть подборку");
-      if (problems.length) first.replaceChildren("Первая задача: ", el("a", { href: problems[0].url }, problems[0].name));
-      else first.replaceChildren(failed ? "Подборку не удалось загрузить — " : "Подборка ещё в работе — ", practice);
-    });
+  function renderNextCard({ topic, n, near, total, ready }, problem, learned, training) {
     return el(
       "div",
       { class: "ob-card ob-next" },
+      el("p", { class: "ob-kicker" }, learned ? "Закрепить знакомую тему" : "Следующий шаг"),
       el("p", {}, el("strong", {}, topic.title), " ", levelBadge(topic)),
-      el("p", {}, total == null ? `Решено задач: ${n}` : `Решено из подборки: ${n} из ${total}`, " ", statusBadge(status)),
-      progressBar(n, total == null ? STATUSES[0].min : total),
-      el(
-        "p",
-        {},
-        el("a", { class: "ob-btn", href: pageUrl("theory", topic.slug) }, "Читать статью ", el("span", { class: "ob-btn__arrow" }, "→")),
-      ),
-      first,
+      el("p", { class: "ob-note" }, `${total == null ? "По тегам CF" : "Из подборки"}: ${n || 0} решений, ${near} сложностью от ${training.low}.`),
+      el("p", {}, el("a", { href: problem.url, class: "ob-recommended-problem" }, problem.name), " ",
+        el("span", { class: "ob-chip" }, `CF ${problem.rating}`)),
+      el("p", {}, el("a", { class: "ob-btn ob-btn--primary", href: problem.url }, "Решать задачу →")),
+      el("p", { class: "ob-note" }, ready ? el("a", { href: pageUrl("theory", topic.slug) }, "Читать статью")
+        : "Статья готовится", " · ", el("a", { href: pageUrl("practice", topic.slug) }, "Вся подборка")),
     );
   }
 
-  function topicNote(titles, one, many) {
-    return titles.length > 0 && el("p", { class: "ob-note" }, titles.length === 1 ? `${titles[0]} ${one}` : `${titles.join(", ")} ${many}`);
-  }
-
-  function renderTopicTable(rows) {
-    const bySelection = [];
-    const uncounted = { empty: [], "no-cf": [], failed: [] };
-    const body = rows.map(({ topic, n, total, status, reason }) => {
-      let solvedCell = String(n);
-      let statusCell = status && statusBadge(status);
-      if (!status) {
-        solvedCell = "—";
-        statusCell = el("span", { class: "ob-lvl ob-status--skip" }, "не считается");
-        uncounted[reason].push(`«${topic.title}»`);
-      } else if (total != null) {
-        solvedCell = `${n} из ${total} в подборке`;
-        bySelection.push(`«${topic.title}»`);
-      }
+  function renderTopicTable(rows, training, learned, handle, refresh) {
+    const savedMessage = el("p", { class: "ob-note", "aria-live": "polite" }, "Отметки сохраняются в этом браузере отдельно для каждого хендла.");
+    const count = el("span", { class: "ob-chip" }, `Изучено: ${learned.size} / ${rows.length}`);
+    const body = rows.map(({ topic, n, near, total, ready }) => {
+      const checkbox = el("input", { type: "checkbox", class: "ob-topic-check", "data-topic": topic.slug,
+        "aria-label": `Теория изучена: ${topic.title}`, checked: learned.has(topic.slug) });
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) learned.add(topic.slug);
+        else learned.delete(topic.slug);
+        const saved = save(LEARNED_KEY + handle.toLowerCase(), JSON.stringify([...learned]));
+        savedMessage.textContent = saved ? "Отметка сохранена. Рекомендации обновлены."
+          : "Браузер не разрешает сохранять отметки. Они действуют до перезагрузки страницы.";
+        count.textContent = `Изучено: ${learned.size} / ${rows.length}`;
+        refresh();
+      });
       return el(
         "tr",
         {},
@@ -569,14 +642,15 @@
           topic.title,
           el("br"),
           levelBadge(topic),
-          topic.cf_tags.map((tag) => [" ", el("span", { class: "ob-chip" }, tag)]),
         ),
-        el("td", {}, solvedCell),
-        el("td", {}, statusCell),
+        el("td", {}, n == null ? "Нет данных" : `${n}${total != null ? ` из ${total}` : ""}`,
+          el("br"), el("span", { class: "ob-note" }, n == null ? "Нет CF-тега или задач для подсчёта"
+            : `${near} от ${training.low}${total != null ? " · по подборке" : " · по тегам"}`)),
+        el("td", {}, el("label", { class: "ob-topic-label" }, checkbox, "Изучена")),
         el(
           "td",
           {},
-          el("a", { href: pageUrl("theory", topic.slug) }, "статья"),
+          ready ? el("a", { href: pageUrl("theory", topic.slug) }, "статья") : el("span", { class: "ob-note" }, "статья готовится"),
           " · ",
           el("a", { href: pageUrl("practice", topic.slug) }, "подборка"),
         ),
@@ -586,33 +660,18 @@
       "section",
       {},
       el("h2", {}, "Темы"),
+      el("p", {}, count),
       el(
         "p",
         { class: "ob-note" },
-        "Задача засчитывается теме, если у неё на Codeforces есть хотя бы один тег темы. Статус: 0 задач — не начато, 1–4 — в процессе, 5 и больше — уверенно.",
+        "Отметь темы, теорию которых уже прошёл. Это твоя отметка: она не добавляет решённых задач. Практика считается по всей истории Codeforces, а для тем без CF-тега — по подборке. Общие теги дают только приблизительное соответствие: например, задача с тегом trees не обязательно требует LCA.",
       ),
-      el(
-        "table",
-        {},
-        el("thead", {}, el("tr", {}, ["Тема", "Решено", "Статус", "Материалы"].map((h) => el("th", {}, h)))),
+      savedMessage,
+      el("div", { class: "ob-topics-scroll", tabindex: "0", role: "region", "aria-label": "Прогресс по темам" }, el(
+        "table", {},
+        el("thead", {}, el("tr", {}, ["Тема", "Решено", "Теория", "Материалы"].map((h) => el("th", {}, h)))),
         el("tbody", {}, body),
-      ),
-      topicNote(
-        bySelection,
-        "считается по задачам своей подборки с Codeforces: у темы нет тега на Codeforces. Решены все такие задачи — «уверенно».",
-        "считаются по задачам своих подборок с Codeforces: у этих тем нет тега на Codeforces. Решены все такие задачи — «уверенно».",
-      ),
-      topicNote(
-        uncounted.empty,
-        "пока не считается: у темы нет тега на Codeforces, а подборка ещё в работе.",
-        "пока не считаются: у этих тем нет тега на Codeforces, а подборки ещё в работе.",
-      ),
-      topicNote(
-        uncounted["no-cf"],
-        "не считается: у темы нет тега на Codeforces, а в подборке нет задач с Codeforces.",
-        "не считаются: у этих тем нет тега на Codeforces, а в подборках нет задач с Codeforces.",
-      ),
-      topicNote(uncounted.failed, "— подборку не удалось загрузить, обнови страницу.", "— подборки не удалось загрузить, обнови страницу."),
+      )),
     );
   }
 

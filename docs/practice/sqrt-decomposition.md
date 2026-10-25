@@ -4,8 +4,8 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2196B · Очередная задача про красивые пары](https://codeforces.com/problemset/problem/2196/B) | 1600 | перебор |
-| 2 | [2196E1 · Нечеткая склейка (простая версия)](https://codeforces.com/problemset/problem/2196/E1) | 2900 | хеши, строковые алгоритмы, жадные алгоритмы |
+| 1 | [2196B · Очередная задача про красивые пары](https://codeforces.com/problemset/problem/2196/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2196">Codeforces Round 1079 (Div. 1)</a> · задача B</span> | 1600 | перебор |
+| 2 | [2196E1 · Нечеткая склейка (простая версия)](https://codeforces.com/problemset/problem/2196/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2196">Codeforces Round 1079 (Div. 1)</a> · задача E1</span> | 2900 | хеши, строковые алгоритмы, жадные алгоритмы |
 
 ## Подсказки
 

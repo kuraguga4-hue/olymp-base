@@ -4,8 +4,8 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1633D · Сделай равными](https://codeforces.com/problemset/problem/1633/D) | 1600 | динамическое программирование |
-| 2 | [2138C2 · Мейпл и красота дерева (сложная версия)](https://codeforces.com/problemset/problem/2138/C2) | 2000 | DFS |
+| 1 | [1633D · Сделай равными](https://codeforces.com/problemset/problem/1633/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1633">Educational Codeforces Round 122 (Rated for Div. 2)</a> · задача D</span> | 1600 | динамическое программирование |
+| 2 | [2138C2 · Мейпл и красота дерева (сложная версия)](https://codeforces.com/problemset/problem/2138/C2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2138">Codeforces Round 1048 (Div. 1)</a> · задача C2</span> | 2000 | DFS |
 
 ## Подсказки
 

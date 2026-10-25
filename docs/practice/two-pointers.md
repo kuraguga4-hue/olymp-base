@@ -4,14 +4,14 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2264A · Рамбу нужна рука](https://codeforces.com/problemset/problem/2264/A) | 800 | реализация |
-| 2 | [2193D · Игра с монстрами](https://codeforces.com/problemset/problem/2193/D) | 1100 | сортировки |
-| 3 | [1133C · Сбалансированная команда](https://codeforces.com/problemset/problem/1133/C) | 1200 | сортировки |
-| 4 | [1982C · Скучный день](https://codeforces.com/problemset/problem/1982/C) | 1200 | жадные алгоритмы |
-| 5 | [2149E · Скрытые знания древних](https://codeforces.com/problemset/problem/2149/E) | 1500 | сжатие координат |
-| 6 | [580B · Кефа и компания](https://codeforces.com/problemset/problem/580/B) | 1500 | сортировки |
-| 7 | [2223B · Жилм и Баркнайтс](https://codeforces.com/problemset/problem/2223/B) | 1600 | сортировки, комбинаторика |
-| 8 | [2226E · Ментально монументально (сложная версия)](https://codeforces.com/problemset/problem/2226/E) | 2300 | дерево отрезков, жадные алгоритмы |
+| 1 | [2264A · Рамбу нужна рука](https://codeforces.com/problemset/problem/2264/A)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2264">Codeforces Round 1121 (Div. 2)</a> · задача A</span> | 800 | реализация |
+| 2 | [2193D · Игра с монстрами](https://codeforces.com/problemset/problem/2193/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2193">Codeforces Round 1076 (Div. 3)</a> · задача D</span> | 1100 | сортировки |
+| 3 | [1133C · Сбалансированная команда](https://codeforces.com/problemset/problem/1133/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1133">Codeforces Round 544 (Div. 3)</a> · задача C</span> | 1200 | сортировки |
+| 4 | [1982C · Скучный день](https://codeforces.com/problemset/problem/1982/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1982">Codeforces Round 955 (Div. 2, with prizes from NEAR!)</a> · задача C</span> | 1200 | жадные алгоритмы |
+| 5 | [2149E · Скрытые знания древних](https://codeforces.com/problemset/problem/2149/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2149">Codeforces Round 1054 (Div. 3)</a> · задача E</span> | 1500 | сжатие координат |
+| 6 | [580B · Кефа и компания](https://codeforces.com/problemset/problem/580/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/580">Codeforces Round 321 (Div. 2)</a> · задача B</span> | 1500 | сортировки |
+| 7 | [2223B · Жилм и Баркнайтс](https://codeforces.com/problemset/problem/2223/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2223">Codeforces Round 1097 (Div. 1,  Based on Zhili Cup 2026)</a> · задача B</span> | 1600 | сортировки, комбинаторика |
+| 8 | [2226E · Ментально монументально (сложная версия)](https://codeforces.com/problemset/problem/2226/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2226">Codeforces Round 1095 (Div. 2)</a> · задача E</span> | 2300 | дерево отрезков, жадные алгоритмы |
 
 ## Подсказки
 
