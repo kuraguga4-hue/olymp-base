@@ -147,21 +147,12 @@ hide:
 
 </div>
 
-<div class="ob-gen">
+<div class="ob-gen" id="task-generator">
   <div class="ob-gen__head">
     <span class="ob-gen__icon">&gt;_</span>
     <span class="ob-gen__title">Генератор задач на тему</span>
-    <span class="ob-soon">скоро</span>
+    <span class="ob-chip">6 тем</span>
   </div>
-  <p class="ob-gen__text">Выбираешь тему — ИИ-агент составляет новую задачу: условие, примеры и тесты для самопроверки. Пока в разработке.</p>
-  <div class="ob-gen__topics" aria-hidden="true">
-    <span class="ob-chip ob-chip--on">бинарный поиск</span>
-    <span class="ob-chip">префиксные суммы</span>
-    <span class="ob-chip">жадные</span>
-    <span class="ob-chip">ДП</span>
-    <span class="ob-chip">DFS</span>
-    <span class="ob-chip">кратчайшие пути</span>
-    <span class="ob-chip">…и ещё 29</span>
-  </div>
-  <button class="ob-btn ob-btn--primary" type="button" disabled>Сгенерировать задачу</button>
+  <p class="ob-gen__text">Выбери тему и получи тренировочную задачу с новым сюжетом, примерами и тестами. ИИ придумывает сюжет по одной из шести проверенных схем; ответы в примерах и тестах рассчитываются программой.</p>
+  <div class="ob-gen__content"><p class="ob-note">Загружаем форму…</p><noscript>Для генератора нужен JavaScript.</noscript></div>
 </div>

@@ -1407,7 +1407,7 @@ body[data-md-color-scheme] {
   color: var(--ob-accent);
 }
 
-/* заготовка: генератор задач на тему */
+/* генератор задач на тему */
 .md-typeset .ob-gen {
   position: relative;
   display: grid;
@@ -1637,6 +1637,44 @@ body[data-md-color-scheme] {
 .md-typeset .ob-topics-scroll:focus-visible {
   outline: 2px solid var(--ob-accent);
   outline-offset: 3px;
+}
+
+.md-typeset .ob-gen__content,
+.md-typeset .ob-gen__result,
+.md-typeset .ob-generated-task {
+  min-width: 0;
+}
+
+.md-typeset .ob-gen__select {
+  flex-basis: 18rem;
+  max-width: 100%;
+}
+
+.md-typeset .ob-generated-task {
+  margin-top: 1rem;
+  scroll-margin-top: 5rem;
+}
+
+.md-typeset .ob-gen__multiline {
+  white-space: pre-line;
+}
+
+.md-typeset .ob-gen__sample {
+  margin: 1.2rem 0;
+}
+
+.md-typeset .ob-generated-task pre {
+  max-width: 100%;
+  padding: .7rem;
+  overflow-x: auto;
+  border-radius: .4rem;
+  background: var(--ob-code-bg);
+}
+
+.md-typeset .ob-generated-task pre code {
+  color: var(--ob-fg);
+  background: transparent;
+  box-shadow: none;
 }
 
 /* источник задачи: подпись под названием, на телефоне строка становится карточкой */
