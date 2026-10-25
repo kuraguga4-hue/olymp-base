@@ -13,7 +13,8 @@
   const SITE_TIMEOUT_MS = 10000; // topics.json и страницы подборок
   const TAB = Math.random().toString(36).slice(2); // метка вкладки: две вкладки не займут один слот
   const HANDLE_KEY = "olymp-base:cf-handle";
-  const LEARNED_KEY = "olymp-base:learned:"; // отдельные отметки для каждого хендла
+  const LEARNED_KEY = "olymp-base:learned:"; // прежние отметки «Изучена»: читаем только для переноса в звёзды
+  const STARS_KEY = "olymp-base:stars:"; // самооценка тем 1–5 ★, отдельно для каждого хендла
   const LAST_CALL_KEY = "olymp-base:cf-last-call";
   const HANDLE = /^[A-Za-z0-9_.-]{1,24}$/;
   const CF_PROBLEM_PATH = /^\/(?:problemset\/problem\/(\d+)\/([A-Za-z0-9]+)|(?:contest|gym)\/(\d+)\/problem\/([A-Za-z0-9]+))\/?$/;
@@ -45,6 +46,12 @@
     ["средний", "mid"],
     ["продвинутый", "adv"],
   ]);
+  // самооценка: число звёзд → что оно значит
+  const STAR_WORDS = ["не оценена", "не понял", "понял смутно", "понял основное", "понял, решаю задачи", "могу объяснить другому"];
+  // практика по задачам Codeforces (см. cfGrade): подпись и модификатор .ob-status--*
+  const CF_GRADES = [["нет практики", "none"], ["начал", "progress"], ["в процессе", "progress"], ["уверенно", "done"]];
+  // почему тема попала в «Что дальше» (см. tierOf)
+  const TIER_KICKERS = ["Закрыть пробел", "Новая тема", "Закрепить практикой", "Следующий шаг", "Закрепить знакомую тему"];
   // У этих техник нет отдельного точного тега CF. Задачу рекомендуем только из
   // проверенной подборки: тег trees сам по себе не означает LCA, а dp — рюкзак.
   const CURATED_TOPICS = new Set([
@@ -307,12 +314,42 @@
     return { target, low: Math.max(800, target - 200), high: Math.min(3500, target + 200), rating, recent: recent.length };
   }
 
-  function learnedTopics(handle, topics) {
+  // Самооценка { slug → 1…5 }. Прежние отметки «Изучена» переносим как 3 ★ — «понял основное».
+  function selfRatings(handle, topics) {
+    const valid = new Set(topics.map((topic) => topic.slug));
+    const ratings = new Map();
     try {
-      const value = JSON.parse(load(LEARNED_KEY + handle.toLowerCase()) || "[]");
-      const valid = new Set(topics.map((topic) => topic.slug));
-      return new Set(Array.isArray(value) ? value.filter((slug) => valid.has(slug)) : []);
-    } catch { return new Set(); }
+      const stored = JSON.parse(load(STARS_KEY + handle.toLowerCase()) || "null");
+      if (stored && typeof stored === "object" && !Array.isArray(stored)) {
+        for (const [slug, stars] of Object.entries(stored)) {
+          if (valid.has(slug) && Number.isInteger(stars) && stars >= 1 && stars <= 5) ratings.set(slug, stars);
+        }
+        return ratings;
+      }
+      const learned = JSON.parse(load(LEARNED_KEY + handle.toLowerCase()) || "[]");
+      if (Array.isArray(learned)) learned.filter((slug) => valid.has(slug)).forEach((slug) => ratings.set(slug, 3));
+    } catch { /* испорченная запись — начинаем без оценок */ }
+    return ratings;
+  }
+
+  // Практика по задачам CF: 0 — нет, 1 — начал (1–2 задачи), 2 — в процессе (3–4 или почти все ниже ориентира),
+  // 3 — уверенно (5+, из них хотя бы 2 от нижней границы ориентира); null — по теме нечего считать.
+  function cfGrade(n, near) {
+    if (n == null) return null;
+    if (n === 0) return 0;
+    if (n <= 2) return 1;
+    return n >= 5 && near >= 2 ? 3 : 2;
+  }
+
+  // Очередь «Что дальше», меньше — раньше: пробел по самооценке, новая тема, понятая тема без практики,
+  // тема в процессе, тема, уверенная и по звёздам, и по задачам.
+  function tierOf(stars, grade) {
+    const practice = grade ?? 0;
+    if (stars && stars <= 2) return 0;
+    if (!stars && practice <= 1) return 1;
+    if (stars && practice <= 1) return 2;
+    if (stars >= 4 && practice === 3) return 4;
+    return 3;
   }
 
   // ---------- Страница ----------
@@ -538,7 +575,7 @@
       ];
     }
     const training = trainingLevel(user, solved);
-    const learned = learnedTopics(user.handle, topics);
+    const ratings = selfRatings(user.handle, topics);
     const solvedNames = new Set([...solved.values()].map((p) => p.name));
     const rows = await Promise.all(topics.map(async (topic, order) => {
       const meta = catalog && catalog.topics[topic.slug];
@@ -560,28 +597,31 @@
         && Number.isInteger(p.rating) && p.rating >= training.low && p.rating <= training.high)
         .sort((a, b) => Math.abs(a.rating - training.target) - Math.abs(b.rating - training.target)
           || (b.contestId || 0) - (a.contestId || 0) || a.key.localeCompare(b.key));
-      return { topic, order, ...progress, candidates, ready: !!(meta && meta.ready) };
+      return { topic, order, ...progress, grade: cfGrade(progress.n, progress.near), candidates, ready: !!(meta && meta.ready) };
     }));
     const recommendations = el("div", { class: "ob-recommendations", "aria-live": "polite" });
-    const refresh = () => recommendations.replaceChildren(renderNext(rows, training, learned, !!catalog));
+    const refresh = () => recommendations.replaceChildren(renderNext(rows, training, ratings, !!catalog));
     refresh();
-    return [recommendations, renderTopicTable(rows, training, learned, user.handle, refresh)];
+    return [recommendations, renderTopicTable(rows, training, ratings, user.handle, refresh)];
   }
 
-  function renderNext(rows, training, learned, hasCatalog) {
+  function renderNext(rows, training, ratings, hasCatalog) {
     const accessible = (row) => row.topic.level !== "продвинутый" || training.target >= 1800;
     const available = rows.filter((row) => row.candidates.length && accessible(row)
       && (row.topic.level !== "средний" || training.target >= 1100));
-    const unknown = available.filter((row) => !learned.has(row.topic.slug));
-    const pool = (unknown.length ? unknown : available).slice()
-      .sort((a, b) => a.near - b.near || (a.n || 0) - (b.n || 0) || a.order - b.order);
+    const pool = available.map((row) => {
+      const stars = ratings.get(row.topic.slug);
+      return { row, stars, tier: tierOf(stars, row.grade) };
+    }).sort((a, b) => a.tier - b.tier || a.row.near - b.row.near || (a.row.n || 0) - (b.row.n || 0) || a.row.order - b.row.order);
     const next = [];
     const usedKeys = new Set();
     const usedNames = new Set();
-    for (const row of pool) {
-      const problem = row.candidates.find((p) => !usedKeys.has(p.key) && !usedNames.has(p.name));
+    for (const { row, stars, tier } of pool) {
+      // Тему с пробелом начинаем с самой простой задачи диапазона.
+      const candidates = tier === 0 ? [...row.candidates].sort((a, b) => a.rating - b.rating) : row.candidates;
+      const problem = candidates.find((p) => !usedKeys.has(p.key) && !usedNames.has(p.name));
       if (!problem) continue;
-      next.push(renderNextCard(row, problem, learned.has(row.topic.slug), training));
+      next.push(renderNextCard(row, problem, stars, tier, training));
       usedKeys.add(problem.key);
       usedNames.add(problem.name);
       if (next.length === 2) break;
@@ -598,7 +638,7 @@
         el("p", { class: "ob-note" }, `Учтены: ${basis.join("; ")}. Это ориентир, а не оценка твоих знаний.`),
         el("details", {}, el("summary", {}, "Как подбираются задачи"),
           el("p", {}, "Берём текущий рейтинг и сложность последних 30 уникальных решённых задач. Недавняя практика может сдвинуть ориентир на 100 пунктов; без рейтинга опираемся на решения. Для первого старта — 800–1000."),
-          el("p", {}, "Предлагаем нерешённые задачи в этом диапазоне, отдавая приоритет темам с меньшей практикой на твоём уровне. Отмеченные темы пропускаем, пока есть подходящие неизученные. Если таких нет — предлагаем закрепить знакомые."))),
+          el("p", {}, "Предлагаем нерешённые задачи в этом диапазоне. Темы идут по очереди: сначала те, что ты оценил на 1–2 ★ (для них — самая простая задача диапазона), потом новые темы без практики, потом понятые темы, где мало решённых задач. Темы на 4–5 ★, где и по задачам CF «уверенно», — в последнюю очередь. Внутри очереди раньше идут темы с меньшей практикой на твоём уровне."))),
       !hasCatalog && el("p", { class: "ob-note" }, "Общий каталог сейчас недоступен. Подбираем задачи из подборок сайта; статистика и отметки работают."),
       next.length
         ? el("div", { class: "grid" }, next)
@@ -606,12 +646,13 @@
     );
   }
 
-  function renderNextCard({ topic, n, near, total, ready }, problem, learned, training) {
+  function renderNextCard({ topic, n, near, total, ready, grade }, problem, stars, tier, training) {
     return el(
       "div",
       { class: "ob-card ob-next" },
-      el("p", { class: "ob-kicker" }, learned ? "Закрепить знакомую тему" : "Следующий шаг"),
+      el("p", { class: "ob-kicker" }, TIER_KICKERS[tier]),
       el("p", {}, el("strong", {}, topic.title), " ", levelBadge(topic)),
+      el("p", { class: "ob-note" }, `Самооценка: ${stars ? `${"★".repeat(stars)}${"☆".repeat(5 - stars)} ${STAR_WORDS[stars]}` : STAR_WORDS[0]}. Практика на CF: ${grade == null ? "нет данных" : CF_GRADES[grade][0]}.`),
       el("p", { class: "ob-note" }, `${total == null ? "По тегам и подборке" : "Из подборки"}: ${n || 0} решений, ${near} сложностью от ${training.low}.`),
       el("p", {}, el("a", { href: problem.url, class: "ob-recommended-problem" }, problem.name), " ",
         el("span", { class: "ob-chip" }, problem.estimated ? `≈ ${problem.rating}` : `CF ${problem.rating}`)),
@@ -622,21 +663,34 @@
     );
   }
 
-  function renderTopicTable(rows, training, learned, handle, refresh) {
-    const savedMessage = el("p", { class: "ob-note", "aria-live": "polite" }, "Отметки сохраняются в этом браузере отдельно для каждого хендла.");
-    const count = el("span", { class: "ob-chip" }, `Изучено: ${learned.size} / ${rows.length}`);
-    const body = rows.map(({ topic, n, near, total, ready }) => {
-      const checkbox = el("input", { type: "checkbox", class: "ob-topic-check", "data-topic": topic.slug,
-        "aria-label": `Теория изучена: ${topic.title}`, checked: learned.has(topic.slug) });
-      checkbox.addEventListener("change", () => {
-        if (checkbox.checked) learned.add(topic.slug);
-        else learned.delete(topic.slug);
-        const saved = save(LEARNED_KEY + handle.toLowerCase(), JSON.stringify([...learned]));
-        savedMessage.textContent = saved ? "Отметка сохранена. Рекомендации обновлены."
-          : "Браузер не разрешает сохранять отметки. Они действуют до перезагрузки страницы.";
-        count.textContent = `Изучено: ${learned.size} / ${rows.length}`;
+  function renderTopicTable(rows, training, ratings, handle, refresh) {
+    const savedMessage = el("p", { class: "ob-note", "aria-live": "polite" }, "Самооценка сохраняется в этом браузере отдельно для каждого хендла.");
+    const count = el("span", { class: "ob-chip" }, `Оценено: ${ratings.size} / ${rows.length}`);
+    const body = rows.map(({ topic, n, near, total, ready, grade }) => {
+      const word = el("span", { class: "ob-note" });
+      const hint = el("span", { class: "ob-note" });
+      const stars = [1, 2, 3, 4, 5].map((value) => el("button", { type: "button", class: "ob-star", "data-topic": topic.slug,
+        "data-value": value, title: STAR_WORDS[value], "aria-label": `${topic.title}: ${value} из 5 — ${STAR_WORDS[value]}` }, "★"));
+      const paint = () => {
+        const value = ratings.get(topic.slug) || 0;
+        stars.forEach((star, i) => star.setAttribute("aria-pressed", String(i < value)));
+        word.textContent = STAR_WORDS[value];
+        hint.textContent = value && value <= 2 && grade >= 2 ? "Задач решено немало — возможно, хватит перечитать статью."
+          : value >= 4 && grade === 0 ? "Задач по теме пока нет — проверь себя на подборке." : "";
+      };
+      stars.forEach((star, i) => star.addEventListener("click", () => {
+        // Повторное нажатие на ту же звезду снимает оценку.
+        if (ratings.get(topic.slug) === i + 1) ratings.delete(topic.slug);
+        else ratings.set(topic.slug, i + 1);
+        const saved = save(STARS_KEY + handle.toLowerCase(), JSON.stringify(Object.fromEntries(ratings)));
+        savedMessage.textContent = saved ? "Самооценка сохранена. Рекомендации обновлены."
+          : "Браузер не разрешает сохранять самооценку. Она действует до перезагрузки страницы.";
+        count.textContent = `Оценено: ${ratings.size} / ${rows.length}`;
+        paint();
         refresh();
-      });
+      }));
+      paint();
+      const [label, status] = grade == null ? ["нет данных", "skip"] : CF_GRADES[grade];
       return el(
         "tr",
         {},
@@ -647,10 +701,11 @@
           el("br"),
           levelBadge(topic),
         ),
-        el("td", {}, n == null ? "Нет данных" : `${n}${total != null ? ` из ${total}` : ""}`,
+        // Самооценка — сразу после темы: на телефоне таблица прокручивается вбок, звёзды должны быть видны.
+        el("td", {}, el("div", { class: "ob-stars", role: "group", "aria-label": `Самооценка: ${topic.title}` }, stars), word, el("br"), hint),
+        el("td", {}, el("span", { class: `ob-lvl ob-status--${status}` }, grade == null ? label : `${"●".repeat(grade)}${"○".repeat(3 - grade)} ${label}`),
           el("br"), el("span", { class: "ob-note" }, n == null ? "Нет CF-тега или задач для подсчёта"
-            : `${near} от ${training.low}${total != null ? " · по подборке" : " · по тегам и подборке"}`)),
-        el("td", {}, el("label", { class: "ob-topic-label" }, checkbox, "Изучена")),
+            : `${n}${total != null ? ` из ${total}` : ""} решено · ${near} от ${training.low}${total != null ? " · по подборке" : " · по тегам и подборке"}`)),
         el(
           "td",
           {},
@@ -668,12 +723,12 @@
       el(
         "p",
         { class: "ob-note" },
-        "Отметь темы, теорию которых уже прошёл. Это твоя отметка: она не добавляет решённых задач. Практика считается по всей полученной истории Codeforces: по тегам и задачам подборки, включая Gym. Для тем без CF-тега считаем только подборку. Решения Gym засчитываются, если Codeforces вернул их в истории; оценки ИИ не заменяют официальный рейтинг решений. Общие теги дают приблизительное соответствие: например, задача с тегом trees не обязательно требует LCA.",
+        `Оцени, как понял каждую тему: 1 ★ — не понял, 3 ★ — понял основное, 5 ★ — могу объяснить другому. Повторное нажатие на ту же звезду снимает оценку. Самооценка не добавляет решённых задач, но меняет «Что дальше». Практика на CF: «начал» — 1–2 задачи, «в процессе» — 3–4 или почти все ниже ориентира, «уверенно» — 5 и больше, из них хотя бы 2 сложностью от ${training.low}. Практика считается по всей полученной истории Codeforces: по тегам и задачам подборки, включая Gym. Для тем без CF-тега считаем только подборку. Решения Gym засчитываются, если Codeforces вернул их в истории; оценки ИИ не заменяют официальный рейтинг решений. Общие теги дают приблизительное соответствие: например, задача с тегом trees не обязательно требует LCA.`,
       ),
       savedMessage,
       el("div", { class: "ob-topics-scroll", tabindex: "0", role: "region", "aria-label": "Прогресс по темам" }, el(
         "table", {},
-        el("thead", {}, el("tr", {}, ["Тема", "Решено", "Теория", "Материалы"].map((h) => el("th", {}, h)))),
+        el("thead", {}, el("tr", {}, ["Тема", "Самооценка", "Практика на CF", "Материалы"].map((h) => el("th", {}, h)))),
         el("tbody", {}, body),
       )),
     );
