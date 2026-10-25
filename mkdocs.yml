@@ -69,23 +69,77 @@ nav:
   - Главная: index.md
   - Теория:
       - theory/index.md
-      - "Префиксные суммы": theory/prefix-sums.md
       - "Бинарный поиск и поиск по ответу": theory/binary-search.md
-      - "Два указателя": theory/two-pointers.md
+      - "Префиксные суммы": theory/prefix-sums.md
       - "Жадные алгоритмы": theory/greedy.md
       - "Динамическое программирование: начало": theory/dp-intro.md
-      - "Графы: BFS и DFS": theory/bfs-dfs.md
+      - "DFS": theory/dfs.md
+      - "Кратчайшие пути": theory/shortest-paths.md
+      - "Сортировки": theory/sorting.md
+      - "Бинарные подъёмы": theory/binary-lifting.md
+      - "LCA": theory/lca.md
+      - "Дерево отрезков": theory/segment-tree.md
+      - "Декартово дерево": theory/treap.md
+      - "Sparse table": theory/sparse-table.md
       - "Теория чисел": theory/number-theory.md
+      - "Комбинаторика": theory/combinatorics.md
+      - "Реализация": theory/implementation.md
+      - "Хеширование": theory/hashing.md
+      - "Строковые алгоритмы": theory/strings.md
+      - "Рандомизированные алгоритмы": theory/randomized.md
+      - "Центроидная декомпозиция": theory/centroid-decomposition.md
+      - "HLD": theory/hld.md
+      - "FFT": theory/fft.md
+      - "Оптимизации ДП": theory/dp-optimizations.md
+      - "Битмаски": theory/bitmasks.md
+      - "Перебор": theory/brute-force.md
+      - "Разделяй и властвуй": theory/divide-and-conquer.md
+      - "Конструктивные задачи": theory/constructive.md
+      - "Два указателя": theory/two-pointers.md
+      - "Корневая оптимизация": theory/sqrt-decomposition.md
+      - "Решето Эратосфена": theory/sieve.md
+      - "Задача о рюкзаке": theory/knapsack.md
+      - "Сжатие координат": theory/coordinate-compression.md
+      - "Сканлайн": theory/scanline.md
+      - "Геометрия": theory/geometry.md
       - "DSU": theory/dsu.md
+      - "Свёртки": theory/convolutions.md
   - Практика:
       - practice/index.md
-      - "Префиксные суммы": practice/prefix-sums.md
       - "Бинарный поиск и поиск по ответу": practice/binary-search.md
-      - "Два указателя": practice/two-pointers.md
+      - "Префиксные суммы": practice/prefix-sums.md
       - "Жадные алгоритмы": practice/greedy.md
       - "Динамическое программирование: начало": practice/dp-intro.md
-      - "Графы: BFS и DFS": practice/bfs-dfs.md
+      - "DFS": practice/dfs.md
+      - "Кратчайшие пути": practice/shortest-paths.md
+      - "Сортировки": practice/sorting.md
+      - "Бинарные подъёмы": practice/binary-lifting.md
+      - "LCA": practice/lca.md
+      - "Дерево отрезков": practice/segment-tree.md
+      - "Декартово дерево": practice/treap.md
+      - "Sparse table": practice/sparse-table.md
       - "Теория чисел": practice/number-theory.md
+      - "Комбинаторика": practice/combinatorics.md
+      - "Реализация": practice/implementation.md
+      - "Хеширование": practice/hashing.md
+      - "Строковые алгоритмы": practice/strings.md
+      - "Рандомизированные алгоритмы": practice/randomized.md
+      - "Центроидная декомпозиция": practice/centroid-decomposition.md
+      - "HLD": practice/hld.md
+      - "FFT": practice/fft.md
+      - "Оптимизации ДП": practice/dp-optimizations.md
+      - "Битмаски": practice/bitmasks.md
+      - "Перебор": practice/brute-force.md
+      - "Разделяй и властвуй": practice/divide-and-conquer.md
+      - "Конструктивные задачи": practice/constructive.md
+      - "Два указателя": practice/two-pointers.md
+      - "Корневая оптимизация": practice/sqrt-decomposition.md
+      - "Решето Эратосфена": practice/sieve.md
+      - "Задача о рюкзаке": practice/knapsack.md
+      - "Сжатие координат": practice/coordinate-compression.md
+      - "Сканлайн": practice/scanline.md
+      - "Геометрия": practice/geometry.md
       - "DSU": practice/dsu.md
+      - "Свёртки": practice/convolutions.md
   - Мой прогресс: me.md
   - Журнал ошибок ИИ: INCIDENTS.md
