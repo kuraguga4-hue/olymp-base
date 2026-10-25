@@ -2,10 +2,15 @@
 (() => {
   const script = document.currentScript || document.querySelector('script[src*="js/generator.js"]');
   const site = new URL("../", script.src);
+  // Все 15 тем базы; генерировать можно те, у которых есть проверенная схема на сервере (true).
   const topics = [
-    ["binary-search", "Бинарный поиск"], ["prefix-sums", "Префиксные суммы"],
-    ["two-pointers", "Два указателя"], ["greedy", "Жадные алгоритмы"],
-    ["dp-intro", "Динамическое программирование"], ["shortest-paths", "Кратчайшие пути"],
+    ["sorting", "Сортировки"], ["binary-search", "Бинарный поиск", true], ["prefix-sums", "Префиксные суммы", true],
+    ["two-pointers", "Два указателя", true], ["greedy", "Жадные алгоритмы", true],
+    ["dp-intro", "Динамическое программирование", true], ["dfs", "Обход в глубину (DFS)"],
+    ["shortest-paths", "Кратчайшие пути", true], ["dsu", "Система непересекающихся множеств (DSU)"],
+    ["strings", "Строки и хеширование"], ["number-theory", "Теория чисел"],
+    ["sqrt-decomposition", "Корневая декомпозиция"], ["segment-tree", "Дерево отрезков"],
+    ["treap", "Декартово дерево"], ["fft", "FFT и свёртки"],
   ];
 
   function el(tag, attrs, ...children) {
@@ -84,12 +89,19 @@
     root.dataset.ready = "true";
     const content = root.querySelector(".ob-gen__content");
     const select = el("select", { id: "generator-topic", class: "ob-input ob-gen__select", name: "topic" },
-      topics.map(([value, title]) => el("option", { value }, title)));
+      topics.map(([value, title]) => el("option", value === "binary-search" ? { value, selected: "" } : { value }, title)));
     const button = el("button", { type: "submit", class: "ob-btn ob-btn--primary" }, "Сгенерировать задачу");
     const form = el("form", { class: "ob-form" }, el("label", { for: "generator-topic" }, "Тема"), select, button);
     const message = el("p", { class: "ob-note", role: "status", "aria-live": "polite" });
     const result = el("div", { class: "ob-gen__result" });
     content.replaceChildren(form, message, result);
+    // Тема без схемы: честно говорим об этом при выборе и не даём отправить.
+    select.addEventListener("change", () => {
+      const [slug, title, ready] = topics.find(([value]) => value === select.value) || [];
+      button.disabled = !ready;
+      message.replaceChildren(...(ready ? [] : [`Для темы «${title}» генератор ещё готовится. Задачи по теме — в `,
+        el("a", { href: new URL(`practice/${slug}/`, site).href }, "подборке"), "."]));
+    });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (button.disabled) return;
