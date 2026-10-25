@@ -24,6 +24,11 @@
      .ob-hero, .ob-term, .ob-steps,
      .ob-meta                             блоки главной страницы
      .ob-gen, .ob-soon                    заготовка «Генератор задач»
+     .ob-form, .ob-input                  форма: подпись, поле и кнопка
+     .ob-profile, .ob-stats               профиль Codeforces и ряд плиток .ob-stat
+     .ob-status--done | --progress |
+       --none | --skip                    статус темы (вместе с .ob-lvl)
+     .ob-next                             карточка «Что дальше»
    ========================================================================= */
 
 
@@ -1485,6 +1490,97 @@ body[data-md-color-scheme] {
 
 @keyframes ob-blink {
   50% { opacity: 0; }
+}
+
+
+/* страница «Статистика» (docs/me.md, разметку строит docs/js/progress.js) */
+.md-typeset .ob-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+  margin: 0 0 1.6rem;
+}
+
+.md-typeset .ob-form label {
+  font-family: var(--ob-font-mono);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ob-muted);
+}
+
+.md-typeset .ob-input {
+  flex: 0 1 15rem;
+  min-width: 0;
+  padding: .6rem .8rem;
+  font-family: var(--ob-font-mono);
+  font-size: .72rem;
+  color: var(--ob-fg);
+  background-color: var(--ob-bg-2);
+  border: 1px solid var(--ob-line-2);
+  border-radius: .55rem;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+.md-typeset .ob-input:focus {
+  border-color: var(--ob-accent-line);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--ob-accent-line);
+}
+
+.md-typeset .ob-profile {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin: 0 0 2rem;
+}
+
+.md-typeset .ob-profile img {
+  flex: none;
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: var(--ob-radius);
+}
+
+.md-typeset .ob-profile__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.md-typeset .ob-profile__handle {
+  margin: 0 0 .5rem;
+  font-size: 1.3rem;
+}
+
+.md-typeset .ob-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: .6rem;
+  margin: 1rem 0;
+}
+
+/* статус темы: цвета вердиктов, на светлой теме темнее — для читаемости */
+.md-typeset .ob-status--done { --c: var(--ob-verdict-ac); }
+.md-typeset .ob-status--progress { --c: var(--ob-verdict-wa); }
+.md-typeset .ob-status--none { --c: var(--ob-muted); }
+.md-typeset .ob-status--skip { --c: var(--ob-faint); }
+[data-md-color-scheme="default"] .md-typeset .ob-status--done { --c: color-mix(in srgb, var(--ob-verdict-ac) 70%, #000); }
+[data-md-color-scheme="default"] .md-typeset .ob-status--progress { --c: color-mix(in srgb, var(--ob-verdict-wa) 62%, #000); }
+
+.md-typeset .ob-next > * {
+  margin: 0;
+}
+
+.md-typeset .ob-next > * + * {
+  margin-top: .75rem;
+}
+
+.md-typeset td .ob-bar {
+  min-width: 5rem;
+  margin-top: .35rem;
 }
 
 
