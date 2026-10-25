@@ -9,7 +9,7 @@ hide:
 
 # Практика
 
-Те же 35 тем — теперь задачи. В каждой подборке задачи идут по возрастанию сложности: Codeforces, AtCoder, informatics и авторские, к каждой — подсказка без спойлера.
+15 основных тем — те же маршруты, теперь с задачами по возрастанию сложности и подсказками. Дополнительные подборки сохранены в конце страницы.
 {: .ob-lead }
 
 <div class="ob-gen" id="task-generator">
@@ -32,137 +32,110 @@ hide:
 
 </div>
 
-## Div. 3 · новичок
-
-9 тем — для старта
-{: .ob-note }
+## Сложные идеи простым языком
 
 <div class="ob-set" markdown>
 
-1. [Бинарный поиск и поиск по ответу](binary-search.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/binary-search.md) <span class="ob-chip">binary search</span></span>
-1. [Префиксные суммы](prefix-sums.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/prefix-sums.md)</span>
-1. [Жадные алгоритмы и как их доказывать](greedy.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/greedy.md) <span class="ob-chip">greedy</span></span>
-1. [Сортировки](sorting.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/sorting.md) <span class="ob-chip">sortings</span></span>
-1. [Реализация](implementation.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/implementation.md) <span class="ob-chip">implementation</span></span>
-1. [Перебор](brute-force.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/brute-force.md) <span class="ob-chip">brute force</span></span>
-1. [Два указателя](two-pointers.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/two-pointers.md) <span class="ob-chip">two pointers</span></span>
-1. [Решето Эратосфена](sieve.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/sieve.md) <span class="ob-chip">number theory</span></span>
-1. [Сжатие координат](coordinate-compression.md)
-   <span class="ob-lvl ob-lvl--novice">новичок</span>
-   <span class="ob-links">[теория](../theory/coordinate-compression.md)</span>
-
-</div>
-
-## Div. 2 · средний
-
-19 тем — основа олимпиадной программы
-{: .ob-note }
-
-<div class="ob-set" markdown>
-
-1. [Динамическое программирование: начало](dp-intro.md)
+1. [Корневая декомпозиция](sqrt-decomposition.md)
    <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/dp-intro.md) <span class="ob-chip">dp</span></span>
-1. [Обход в глубину (DFS)](dfs.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/dfs.md) <span class="ob-chip">dfs and similar</span> <span class="ob-chip">graphs</span></span>
-1. [Кратчайшие пути](shortest-paths.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/shortest-paths.md) <span class="ob-chip">shortest paths</span> <span class="ob-chip">graphs</span></span>
-1. [Бинарные подъёмы](binary-lifting.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/binary-lifting.md) <span class="ob-chip">trees</span></span>
-1. [Наименьший общий предок (LCA)](lca.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/lca.md) <span class="ob-chip">trees</span></span>
+   <span class="ob-hook">Суммы отрезков с изменениями: целые блоки считаем сразу, края — обычным проходом.</span>
+   <span class="ob-links">[теория](../theory/sqrt-decomposition.md)</span>
 1. [Дерево отрезков](segment-tree.md)
    <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/segment-tree.md) <span class="ob-chip">data structures</span></span>
-1. [Разреженная таблица (Sparse table)](sparse-table.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/sparse-table.md) <span class="ob-chip">data structures</span></span>
-1. [Теория чисел: НОД, решето, быстрое возведение в степень](number-theory.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/number-theory.md) <span class="ob-chip">number theory</span></span>
-1. [Комбинаторика](combinatorics.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/combinatorics.md) <span class="ob-chip">combinatorics</span></span>
-1. [Хеширование](hashing.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/hashing.md) <span class="ob-chip">hashing</span></span>
-1. [Строковые алгоритмы](strings.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/strings.md) <span class="ob-chip">strings</span></span>
-1. [Битмаски](bitmasks.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/bitmasks.md) <span class="ob-chip">bitmasks</span></span>
-1. [Разделяй и властвуй](divide-and-conquer.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/divide-and-conquer.md) <span class="ob-chip">divide and conquer</span></span>
-1. [Конструктивные задачи](constructive.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/constructive.md) <span class="ob-chip">constructive algorithms</span></span>
-1. [Корневая оптимизация](sqrt-decomposition.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/sqrt-decomposition.md) <span class="ob-chip">data structures</span></span>
-1. [Задача о рюкзаке](knapsack.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/knapsack.md) <span class="ob-chip">dp</span></span>
-1. [Сортировка событий (сканлайн)](scanline.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/scanline.md)</span>
-1. [Геометрия](geometry.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/geometry.md) <span class="ob-chip">geometry</span></span>
-1. [Система непересекающихся множеств (DSU)](dsu.md)
-   <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-links">[теория](../theory/dsu.md) <span class="ob-chip">dsu</span></span>
+   <span class="ob-hook">Разделить массив пополам и собирать ответ из готовых частей; менять значение за путь от листа к корню.</span>
+   <span class="ob-links">[теория](../theory/segment-tree.md)</span>
+1. [Декартово дерево](treap.md)
+   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
+   <span class="ob-hook">Разрезать последовательность, перевернуть отрезок и склеить обратно — через split, merge и случайные приоритеты.</span>
+   <span class="ob-links">[теория](../theory/treap.md)</span>
+1. [FFT и свёртки](fft.md)
+   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
+   <span class="ob-hook">От подсчёта пар с каждой суммой — к свёртке и быстрому умножению многочленов.</span>
+   <span class="ob-links">[теория](../theory/fft.md)</span>
 
 </div>
 
-## Div. 1 · продвинутый
-
-7 тем — продвинутые структуры и техники
-{: .ob-note }
+## Основные приёмы
 
 <div class="ob-set" markdown>
 
-1. [Декартово дерево](treap.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/treap.md) <span class="ob-chip">data structures</span></span>
-1. [Рандомизированные и эвристические алгоритмы](randomized.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/randomized.md)</span>
-1. [Центроидная декомпозиция](centroid-decomposition.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/centroid-decomposition.md) <span class="ob-chip">divide and conquer</span> <span class="ob-chip">trees</span></span>
-1. [Heavy-light декомпозиция (HLD)](hld.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/hld.md) <span class="ob-chip">trees</span> <span class="ob-chip">data structures</span></span>
-1. [Быстрое преобразование Фурье (FFT)](fft.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/fft.md) <span class="ob-chip">fft</span></span>
-1. [Оптимизации ДП](dp-optimizations.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/dp-optimizations.md) <span class="ob-chip">dp</span></span>
-1. [Свёртки](convolutions.md)
-   <span class="ob-lvl ob-lvl--adv">продвинутый</span>
-   <span class="ob-links">[теория](../theory/convolutions.md)</span>
+1. [Сортировки](sorting.md)
+   <span class="ob-lvl ob-lvl--novice">новичок</span>
+   <span class="ob-hook">Упорядочить данные, чтобы вместо всех пар сравнивать соседей. Слияние даёт первый пример «разделяй и властвуй».</span>
+   <span class="ob-links">[теория](../theory/sorting.md)</span>
+1. [Бинарный поиск и поиск по ответу](binary-search.md)
+   <span class="ob-lvl ob-lvl--novice">новичок</span>
+   <span class="ob-hook">Заменить перебор миллиардов ответов несколькими десятками проверок «подходит ли этот ответ».</span>
+   <span class="ob-links">[теория](../theory/binary-search.md)</span>
+1. [Префиксные суммы](prefix-sums.md)
+   <span class="ob-lvl ob-lvl--novice">новичок</span>
+   <span class="ob-hook">Одна подготовка массива — и сумма любого отрезка находится одним вычитанием.</span>
+   <span class="ob-links">[теория](../theory/prefix-sums.md)</span>
+1. [Два указателя](two-pointers.md)
+   <span class="ob-lvl ob-lvl--novice">новичок</span>
+   <span class="ob-hook">Двигать границы окна, не возвращаясь назад: длиннейший подходящий отрезок за один проход.</span>
+   <span class="ob-links">[теория](../theory/two-pointers.md)</span>
+1. [Жадные алгоритмы и как их доказывать](greedy.md)
+   <span class="ob-lvl ob-lvl--novice">новичок</span>
+   <span class="ob-hook">Сделать локальный выбор и доказать, что он не испортит лучший ответ.</span>
+   <span class="ob-links">[теория](../theory/greedy.md)</span>
+1. [Динамическое программирование: начало](dp-intro.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">Заменить повторный перебор таблицей ответов на подзадачи: состояние, база, переход и порядок.</span>
+   <span class="ob-links">[теория](../theory/dp-intro.md)</span>
 
 </div>
+
+## Графы, строки и числа
+
+<div class="ob-set" markdown>
+
+1. [Обход в глубину (DFS)](dfs.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">Пройти граф и найти компоненты связности: один обход вместо нового поиска на каждый вопрос.</span>
+   <span class="ob-links">[теория](../theory/dfs.md)</span>
+1. [Кратчайшие пути](shortest-paths.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">Найти путь с минимумом ходов или минимальной суммой весов; понять, когда нужны BFS и Дейкстра.</span>
+   <span class="ob-links">[теория](../theory/shortest-paths.md)</span>
+1. [Система непересекающихся множеств (DSU)](dsu.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">Объединять компоненты после добавления дорог и быстро проверять, связаны ли две вершины.</span>
+   <span class="ob-links">[теория](../theory/dsu.md)</span>
+1. [Строки и хеширование](strings.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">Искать образец и сравнивать подстроки: различать точный алгоритм и хеш с риском коллизии.</span>
+   <span class="ob-links">[теория](../theory/strings.md)</span>
+1. [Теория чисел: НОД, решето, быстрое возведение в степень](number-theory.md)
+   <span class="ob-lvl ob-lvl--mid">средний</span>
+   <span class="ob-hook">НОД, простые числа, решето и быстрое возведение в степень — компактный набор для задач с числами.</span>
+   <span class="ob-links">[теория](../theory/number-theory.md)</span>
+
+</div>
+
+## Дополнительные подборки {#extra-practice}
+
+Эти материалы сохранены для отдельной тренировки и продолжения основных тем. Они не увеличивают основной маршрут из 15 тем; некоторые подборки ещё готовятся.
+
+??? note "Открыть дополнительные темы"
+
+    - [Бинарные подъёмы](binary-lifting.md)
+    - [Наименьший общий предок (LCA)](lca.md)
+    - [Разреженная таблица (Sparse table)](sparse-table.md)
+    - [Комбинаторика](combinatorics.md)
+    - [Реализация](implementation.md)
+    - [Хеширование](hashing.md)
+    - [Рандомизированные и эвристические алгоритмы](randomized.md)
+    - [Центроидная декомпозиция](centroid-decomposition.md)
+    - [Heavy-light декомпозиция (HLD)](hld.md)
+    - [Оптимизации ДП](dp-optimizations.md)
+    - [Битмаски](bitmasks.md)
+    - [Перебор](brute-force.md)
+    - [Разделяй и властвуй](divide-and-conquer.md)
+    - [Конструктивные задачи](constructive.md)
+    - [Решето Эратосфена](sieve.md)
+    - [Задача о рюкзаке](knapsack.md)
+    - [Сжатие координат](coordinate-compression.md)
+    - [Сортировка событий (сканлайн)](scanline.md)
+    - [Геометрия](geometry.md)
+    - [Свёртки](convolutions.md)

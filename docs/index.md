@@ -9,7 +9,7 @@ hide:
   <div class="ob-hero__text">
     <p class="ob-kicker">открытая база для олимпиадников</p>
     <h1>От «не понимаю»<br>до <span class="ob-ac">Accepted</span></h1>
-    <p class="ob-hero__lead">Теория и практика для подготовки к олимпиадам по программированию. Каждая статья начинается с задачи, которую тема делает простой, и проверена олимпиадником.</p>
+    <p class="ob-hero__lead">Сложные алгоритмы простым языком: от префиксных сумм до FFT и декартова дерева. Теория, практика и прогресс по Codeforces.</p>
     <div class="ob-hero__actions">
       <a class="ob-btn ob-btn--primary" href="theory/">Начать с теории <span class="ob-btn__arrow">→</span></a>
       <a class="ob-btn" href="me/">Статистика по хендлу CF</a>
@@ -33,7 +33,7 @@ hide:
     <span class="ob-step__n">01</span>
     <span class="ob-step__t">Теория</span>
     <span class="ob-step__d">Статья начинается с задачи, которую тема делает простой: идея на числах, код на C++ и Python, типичные ошибки.</span>
-    <span class="ob-step__go">35 тем →</span>
+    <span class="ob-step__go">15 тем →</span>
   </a>
   <a class="ob-step ob-step--practice" href="practice/">
     <span class="ob-step__n">02</span>
