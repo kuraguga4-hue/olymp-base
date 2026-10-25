@@ -1,4 +1,4 @@
 {
-  "endpoint": "/api/generate",
-  "mentor_endpoint": "/api/mentor"
+  "endpoint": "https://1c476b8e9c39cf.lhr.life/api/generate",
+  "mentor_endpoint": "https://1c476b8e9c39cf.lhr.life/api/mentor"
 }

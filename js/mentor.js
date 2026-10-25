@@ -62,7 +62,8 @@
       const data = await response.json();
       const raw = data.mentor_endpoint || new URL("mentor", new URL(data.endpoint, site)).href;
       const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-      if (local && raw === "/api/mentor" && location.port !== "8002") return "http://127.0.0.1:8002/api/mentor";
+      // На ноутбуке — всегда свой сервер: демо не зависит от публичного адреса API.
+      if (local) return location.port === "8002" ? new URL("/api/mentor", location.href).href : "http://127.0.0.1:8002/api/mentor";
       const url = new URL(raw, site);
       if (url.protocol !== "https:" && !(local && url.protocol === "http:")) throw new Error("Наставник сейчас недоступен.");
       return url.href;

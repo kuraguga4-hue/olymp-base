@@ -23,9 +23,8 @@
       if (!response.ok) throw new Error("config");
       const config = await response.json();
       const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-      if (local && config.endpoint === "/api/generate" && location.port !== "8002") {
-        return new URL("http://127.0.0.1:8002/api/generate");
-      }
+      // На ноутбуке — всегда свой сервер: демо не зависит от публичного адреса API.
+      if (local) return new URL(location.port === "8002" ? "/api/generate" : "http://127.0.0.1:8002/api/generate", location.href);
       const url = new URL(config.endpoint, site);
       if (url.protocol !== "https:" && !(local && url.protocol === "http:")) throw new Error("config");
       return url;
