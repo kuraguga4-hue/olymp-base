@@ -29,6 +29,7 @@
      .ob-status--done | --progress |
        --none | --skip                    статус темы (вместе с .ob-lvl)
      .ob-next                             карточка «Что дальше»
+     .ob-stars, .ob-star                  самооценка темы: пять кнопок-звёзд
    ========================================================================= */
 
 
@@ -1623,23 +1624,34 @@ body[data-md-color-scheme] {
   white-space: normal;
 }
 
-.md-typeset .ob-topic-label {
-  display: inline-flex;
-  gap: .45rem;
-  align-items: center;
-  min-height: 2rem;
+/* самооценка темы: пять кнопок-звёзд, выбранные — цветом акцента */
+.md-typeset .ob-stars {
+  display: flex;
+  gap: .1rem;
+}
+
+.md-typeset .ob-star {
+  min-width: 1.5rem;
+  min-height: 1.6rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ob-faint);
+  font-size: 1rem;
+  line-height: 1;
   cursor: pointer;
+  transition: color .18s;
 }
 
-.md-typeset .ob-topic-check {
-  appearance: auto;
-  width: 1rem;
-  height: 1rem;
-  flex: none;
-  accent-color: var(--ob-accent);
+.md-typeset .ob-star[aria-pressed="true"] {
+  color: var(--ob-accent);
 }
 
-.md-typeset .ob-topic-check:focus-visible,
+.md-typeset .ob-star:hover {
+  color: var(--ob-accent-hover);
+}
+
+.md-typeset .ob-star:focus-visible,
 .md-typeset .ob-topics-scroll:focus-visible {
   outline: 2px solid var(--ob-accent);
   outline-offset: 3px;
