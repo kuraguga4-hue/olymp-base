@@ -48,6 +48,13 @@
   }
 
   function renderTask(data) {
+    const discuss = el("button", { type: "button", class: "ob-btn ob-btn--primary" }, "Обсудить задачу с ИИ");
+    discuss.addEventListener("click", () => window.dispatchEvent(new CustomEvent("ob:ask-mentor", { detail: {
+      title: data.title,
+      text: [data.title, data.story, data.statement, data.input_format, data.output_format,
+        Array.isArray(data.constraints) ? data.constraints.join("\n") : data.constraints,
+        ...data.examples.map((sample) => `Ввод:\n${sample.input}\nВывод:\n${sample.output}`)].join("\n\n"),
+    } })));
     const download = el("button", { type: "button", class: "ob-btn" }, `Скачать тесты (${data.tests.length})`);
     download.addEventListener("click", () => {
       const blob = new Blob([JSON.stringify({ topic: data.topic, id: data.id, tests: data.tests }, null, 2)], { type: "application/json" });
@@ -69,7 +76,7 @@
       ...data.examples.map(sample),
       el("details", {}, el("summary", {}, "Подсказка"), el("p", {}, data.hint)),
       el("p", { class: "ob-note" }, "Тесты содержат входные данные и ожидаемые ответы для проверки твоего решения. Решение в браузере не запускается."),
-      download);
+      el("div", { class: "ob-mentor-task-actions" }, discuss, download));
   }
 
   function init() {

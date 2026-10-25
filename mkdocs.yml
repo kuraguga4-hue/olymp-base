@@ -61,6 +61,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
   - js/progress.js
   - js/generator.js
+  - js/mentor.js
 
 extra_css:
   - stylesheets/extra.css

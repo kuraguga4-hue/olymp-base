@@ -9,6 +9,7 @@ import time
 from urllib.parse import unquote, urlsplit
 
 from generator_core import GeneratorError, ROOT, TOPICS, generate, load_settings
+from mentor_core import mentor, validate_payload
 
 
 class Limits:
@@ -71,7 +72,7 @@ class Handler(SimpleHTTPRequestHandler):
         self.json_response(status, {"error": message, "code": code})
 
     def do_OPTIONS(self):
-        if urlsplit(self.path).path != "/api/generate":
+        if urlsplit(self.path).path not in {"/api/generate", "/api/mentor"}:
             return self.error(404, "not_found", "Такого адреса нет.")
         if not self.origin_allowed():
             return self.error(403, "origin_denied", "Этот сайт не подключён к генератору.")
@@ -111,7 +112,8 @@ class Handler(SimpleHTTPRequestHandler):
         return None
 
     def do_POST(self):
-        if urlsplit(self.path).path != "/api/generate":
+        path = urlsplit(self.path).path
+        if path not in {"/api/generate", "/api/mentor"}:
             return self.error(404, "not_found", "Такого адреса нет.")
         if not self.origin_allowed():
             return self.error(403, "origin_denied", "Этот сайт не подключён к генератору.")
@@ -121,31 +123,37 @@ class Handler(SimpleHTTPRequestHandler):
             size = int(self.headers.get("Content-Length", "0"))
         except ValueError:
             size = -1
-        if not 0 < size <= 4096:
+        if not 0 < size <= (40000 if path == "/api/mentor" else 4096):
             return self.error(413, "invalid_size", "Запрос слишком большой или пустой.")
         self.connection.settimeout(10)
         try:
             payload = json.loads(self.rfile.read(size))
         except (ValueError, UnicodeError, OSError):
             return self.error(400, "invalid_json", "Не удалось прочитать запрос.")
-        if not isinstance(payload, dict) or not isinstance(payload.get("topic"), str) or payload["topic"] not in TOPICS:
-            return self.error(400, "invalid_topic", "Выбери одну из доступных тем.")
-        if set(payload) != {"topic"}:
-            return self.error(400, "invalid_request", "Запрос должен содержать только выбранную тему.")
+        if path == "/api/mentor":
+            try:
+                validate_payload(payload)
+            except GeneratorError as error:
+                return self.error(error.status, error.code, str(error))
+        else:
+            if not isinstance(payload, dict) or not isinstance(payload.get("topic"), str) or payload["topic"] not in TOPICS:
+                return self.error(400, "invalid_topic", "Выбери одну из доступных тем.")
+            if set(payload) != {"topic"}:
+                return self.error(400, "invalid_request", "Запрос должен содержать только выбранную тему.")
         settings = load_settings()
         if not settings.api_key:
-            return self.error(503, "not_configured", "Генератор ещё не подключён: организатору нужно настроить API-ключ.")
+            return self.error(503, "not_configured", "ИИ ещё не подключён: организатору нужно настроить API-ключ.")
         if not self.server.limits.active.acquire(blocking=False):
-            return self.error(429, "busy", "Сейчас создаются другие задачи. Попробуй через минуту.")
+            return self.error(429, "busy", "ИИ сейчас обрабатывает другие запросы. Попробуй через минуту.")
         try:
             if not self.server.limits.allow(self.client_address[0]):
-                return self.error(429, "rate_limit", "Лимит генераций исчерпан. Попробуй позже.")
-            result = generate(payload["topic"], settings)
+                return self.error(429, "rate_limit", "Лимит обращений к ИИ исчерпан. Попробуй позже.")
+            result = mentor(payload, settings) if path == "/api/mentor" else generate(payload["topic"], settings)
             self.json_response(200, result)
         except GeneratorError as error:
             self.error(error.status, error.code, str(error))
         except Exception:
-            self.error(500, "internal_error", "Не получилось создать задачу. Попробуй позже.")
+            self.error(500, "internal_error", "Не получилось получить ответ ИИ. Попробуй позже.")
         finally:
             self.server.limits.active.release()
 

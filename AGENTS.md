@@ -6,6 +6,7 @@
 - Сайт: MkDocs Material, весь контент — Markdown в `docs/`.
 - Статистика: `docs/me.md` + `docs/js/progress.js` — браузер ходит в Codeforces API напрямую (user.info, user.status). Без бэкенда, без паролей.
 - Генератор (добавлен по просьбе Ярослава): `scripts/serve_generator.py` + `scripts/generator_core.py` — отдельный Python API для AITUNNEL. Ключ только в игнорируемом `.env`/переменных окружения, никогда в браузере. ИИ меняет сюжет шести проверенных схем; ответы считает код. Фронтенд — `docs/js/generator.js`, адрес API — `docs/assets/generator.json`.
+- Наставник: `docs/js/mentor.js` + `scripts/mentor_core.py`, маршрут `/api/mentor` в том же сервере. Вопросы по статье/задаче, подсказки и логическая проверка кода; код пользователя не выполняется. Не добавлять чтение произвольных файлов/URL или секретов в контекст модели.
 - Запуск: `python -m mkdocs serve`. Проверка: `python scripts/check.py`.
 - Зависимости — `requirements.txt`. Если системный Python не даёт ставить пакеты (externally-managed-environment), работай через `.venv` в корне репозитория (на Windows — `.venv\Scripts\python`).
 
