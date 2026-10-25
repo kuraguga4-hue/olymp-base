@@ -1092,6 +1092,18 @@ body[data-md-color-scheme] {
   font-size: .6rem;
 }
 
+/* описание и ссылки в одной строке списка: ссылки — отдельной строкой под описанием, а не поверх него */
+.md-typeset div.ob-set > ol > li:has(> .ob-hook ~ .ob-links) {
+  grid-template-areas:
+    "id title lvl go"
+    "id hook  lvl go"
+    "id links lvl go";
+}
+
+.md-typeset div.ob-set > ol > li > .ob-hook ~ .ob-links {
+  grid-area: links;
+}
+
 .md-typeset div.ob-set .ob-links a {
   position: relative;
   z-index: 1;
@@ -1955,6 +1967,14 @@ body[data-md-color-scheme] {
     grid-template-columns: 2.1rem minmax(0, 1fr);
     column-gap: .85rem;
     padding: .9rem .95rem;
+  }
+
+  .md-typeset div.ob-set > ol > li:has(> .ob-hook ~ .ob-links) {
+    grid-template-areas:
+      "id title"
+      "id hook"
+      "id links"
+      "id lvl";
   }
 
   .md-typeset div.ob-set > ol > li::before {
