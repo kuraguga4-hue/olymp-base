@@ -568,6 +568,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT и свёртки
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -584,6 +602,491 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сколько коэффициентов и точек нужно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Комплексные числа: достаточно поворотов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корни из единицы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Делим коэффициенты на чётные и нечётные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fft_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему подзадачи тоже FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Склейка: одна пара — два ответа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратное преобразование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем дописывать нули
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Где искать свёртку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Точность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Код">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fft_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прямое и обратное FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Умножение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Умножение многочленов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Умножение многочленов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Умножение многочленов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Умножение многочленов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Применения свёртки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Применения свёртки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Яблоки и бананы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Яблоки и бананы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Пары единиц
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Пары единиц">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 4. Подотрезки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 4. Подотрезки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2085,6 +2588,480 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Алгоритм
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Алгоритм">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сколько коэффициентов и точек нужно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Комплексные числа: достаточно поворотов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корни из единицы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Делим коэффициенты на чётные и нечётные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fft_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему подзадачи тоже FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Склейка: одна пара — два ответа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратное преобразование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем дописывать нули
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сложность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Где искать свёртку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Точность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Код
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Код">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fft_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прямое и обратное FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Умножение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Умножение многочленов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Умножение многочленов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 1. Умножение многочленов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 1. Умножение многочленов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Применения свёртки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Применения свёртки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 2. Яблоки и бананы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 2. Яблоки и бананы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 3. Пары единиц
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 3. Пары единиц">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задача 4. Подотрезки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задача 4. Подотрезки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Куда дальше
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2104,12 +3081,976 @@
 
 
 <h1 id="fft">Быстрое преобразование Фурье (FFT)<a class="headerlink" href="#fft" title="Permanent link">&para;</a></h1>
-<!-- ЗАГОТОВКА: агент заменяет весь файл статьёй по docs/STYLE.md -->
-
+<p><strong>Уровень:</strong> продвинутый · <strong>Время чтения:</strong> 40 минут · <strong>Теги:</strong> <code>fft</code>, <code>math</code> · <strong>Проверил:</strong> —</p>
 <div class="admonition info">
-<p class="admonition-title">Статья в работе</p>
-<p>Скоро здесь будет статья. А пока — <a href="../../practice/fft/">подборка задач</a>.</p>
+<p class="admonition-title">Что нужно знать заранее</p>
+<ul>
+<li>Массивы, функции, рекурсия и смысл <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(n\log n)\)</span>.</li>
+<li>Как раскрывать скобки: <span class="arithmatex">\((1+2x)(3+4x)=3+10x+8x^2\)</span>.</li>
+<li>Комплексные числа и корни из единицы объясним здесь. Матрицы и математический анализ не понадобятся.</li>
+<li>Для последнего упражнения пригодятся <a href="../prefix-sums/">префиксные суммы</a>.</li>
+</ul>
 </div>
+<div class="admonition abstract">
+<p class="admonition-title">Что в статье</p>
+<ol>
+<li>Почему многочлены удобно умножать через значения в точках.</li>
+<li>Откуда берутся комплексные корни из единицы и как FFT считает все значения сразу.</li>
+<li>Как вернуться к коэффициентам и написать прямое и обратное преобразование.</li>
+<li><strong>Задача 1. Умножение многочленов</strong> — весь алгоритм на одном примере.</li>
+<li><strong>Задача 2. Яблоки и бананы</strong> — сколько пар дают каждую возможную сумму.</li>
+<li><strong>Задача 3. Пары единиц</strong> — простое условие, за которым прячется свёртка.</li>
+<li><strong>Задача 4. Подотрезки</strong> — упражнение: соединяем свёртку с префиксными суммами.</li>
+</ol>
+</div>
+<h2 id="_1">Зачем это нужно<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>В олимпиадных задачах часто нужно перемножать многочлены: их коэффициенты могут хранить количество способов набрать сумму или значения динамики. При обычном раскрытии скобок каждый коэффициент первого многочлена умножается на каждый коэффициент второго.</p>
+<p>Для двух массивов по <span class="arithmatex">\(65\,536\)</span> коэффициентов это <span class="arithmatex">\(65\,536^2=4\,294\,967\,296\)</span> произведений. FFT заменяет их тремя преобразованиями длины <span class="arithmatex">\(131\,072\)</span>, по 17 уровней каждое, и одним проходом для поэлементного умножения. Это задача 1. Затем увидим, как к тому же действию сводятся задачи про фрукты и бинарные строки.</p>
+<h2 id="_2">Идея<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Многочлен — сумма чисел, умноженных на степени <span class="arithmatex">\(x\)</span>. Например, <span class="arithmatex">\(A(x)=1+2x\)</span> хранится как массив <code>[1, 2]</code>: сначала коэффициент при <span class="arithmatex">\(x^0=1\)</span>, затем при <span class="arithmatex">\(x^1\)</span>.</p>
+<p>Перемножим <span class="arithmatex">\(A(x)=1+2x\)</span> и <span class="arithmatex">\(B(x)=3+4x\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\times\)</span></th>
+<th><span class="arithmatex">\(3\)</span></th>
+<th><span class="arithmatex">\(4x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(4x\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2x\)</span></td>
+<td><span class="arithmatex">\(6x\)</span></td>
+<td><span class="arithmatex">\(8x^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Складываем слагаемые с одинаковой степенью. Получается <span class="arithmatex">\(C(x)=3+10x+8x^2\)</span>, то есть массив <code>[3, 10, 8]</code>. Такая операция над массивами называется <strong>свёрткой</strong>.</p>
+<figure>
+  <img alt="В умножении каждый элемент первого массива сочетается с каждым элементом второго; произведения собираются по сумме индексов" src="../img/fft/convolution-light.svg#only-light" width="640" />
+  <img alt="В умножении каждый элемент первого массива сочетается с каждым элементом второго; произведения собираются по сумме индексов" src="../img/fft/convolution-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>В средний коэффициент попадают две пары: 1 · 4 и 2 · 3. Индексы складываются, потому что xʲ · xᵏ = xʲ⁺ᵏ.</figcaption>
+</figure>
+<p>Теперь посмотрим на тот же многочлен иначе: не на его коэффициенты, а на <strong>значения в выбранных точках</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Точка <span class="arithmatex">\(z\)</span></th>
+<th><span class="arithmatex">\(A(z)\)</span></th>
+<th><span class="arithmatex">\(B(z)\)</span></th>
+<th><span class="arithmatex">\(C(z)=A(z)B(z)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>7</td>
+<td>21</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>11</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+<p>В каждой строке ответ получается <strong>одним умножением</strong>: значение произведения равно произведению значений. Смешивать коэффициенты уже не надо.</p>
+<p>План: перейти от коэффициентов к значениям, перемножить значения попарно, восстановить коэффициенты. Если каждый переход быстрый, всё умножение тоже быстрое.</p>
+<figure>
+  <img alt="Два массива коэффициентов проходят через FFT, значения перемножаются по одинаковым точкам, обратное FFT возвращает коэффициенты ответа" src="../img/fft/pipeline-light.svg#only-light" width="640" />
+  <img alt="Два массива коэффициентов проходят через FFT, значения перемножаются по одинаковым точкам, обратное FFT возвращает коэффициенты ответа" src="../img/fft/pipeline-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Значения удобно умножать. FFT быстро переводит коэффициенты в значения, обратное FFT возвращает их обратно.</figcaption>
+</figure>
+<p>Но обычная подстановка во все точки снова потребовала бы квадратного времени. Весь секрет — выбрать точки так, чтобы вычисления можно было переиспользовать.</p>
+<h2 id="_3">Алгоритм<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">Сколько коэффициентов и точек нужно<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Если в <span class="arithmatex">\(A\)</span> лежит <span class="arithmatex">\(n\)</span> коэффициентов, его степень не больше <span class="arithmatex">\(n-1\)</span>. Если в <span class="arithmatex">\(B\)</span> — <span class="arithmatex">\(m\)</span>, степень произведения не больше <span class="arithmatex">\(n+m-2\)</span>. Значит, ответ содержит <strong><span class="arithmatex">\(n+m-1\)</span> коэффициентов</strong>.</p>
+<p>В нашем примере <span class="arithmatex">\(n=m=2\)</span>, поэтому нужно три коэффициента. Четвёртый можно считать нулём: <code>[3, 10, 8, 0]</code> — тот же многочлен.</p>
+<p>Многочлен степени меньше <span class="arithmatex">\(N\)</span> однозначно задаётся значениями в <span class="arithmatex">\(N\)</span> различных точках. С коэффициентами получаем одно описание, со значениями — другое описание того же объекта.</p>
+<details class="note">
+<summary>Почему значения определяют многочлен</summary>
+<p>Допустим, два разных многочлена степени меньше <span class="arithmatex">\(N\)</span> совпали в <span class="arithmatex">\(N\)</span> различных точках. Их разность — ненулевой многочлен степени меньше <span class="arithmatex">\(N\)</span> с <span class="arithmatex">\(N\)</span> корнями. Такого быть не может: ненулевой многочлен степени <span class="arithmatex">\(d\)</span> имеет не больше <span class="arithmatex">\(d\)</span> различных корней. Значит, эти два многочлена на самом деле одинаковые.</p>
+</details>
+<p>Выбираем <strong><span class="arithmatex">\(N\)</span> — степень двойки, не меньшую <span class="arithmatex">\(n+m-1\)</span></strong>, и дописываем в оба массива нули до длины <span class="arithmatex">\(N\)</span>. Почему степень двойки — скоро увидим: FFT будет делить задачу пополам.</p>
+<p>Здесь <span class="arithmatex">\(n+m-1=3\)</span>, ближайшая подходящая степень двойки — 4. Работаем с <code>[1, 2, 0, 0]</code> и <code>[3, 4, 0, 0]</code>.</p>
+<h3 id="_5">Комплексные числа: достаточно поворотов<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>У обычных чисел квадрат не бывает отрицательным. В комплексных числах есть число <span class="arithmatex">\(i\)</span>, для которого <span class="arithmatex">\(i^2=-1\)</span>.</p>
+<p>Число <span class="arithmatex">\(a+bi\)</span> можно представить точкой: <span class="arithmatex">\(a\)</span> — координата по горизонтали, <span class="arithmatex">\(b\)</span> — по вертикали. Например, <span class="arithmatex">\(1+2i\)</span> — точка <span class="arithmatex">\((1,2)\)</span>.</p>
+<p>Складываем отдельно обычные части и части с <span class="arithmatex">\(i\)</span>. Умножаем как скобки, заменяя <span class="arithmatex">\(i^2\)</span> на <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[
+(1+2i)(3+4i)=3+4i+6i+8i^2=-5+10i.
+\]</div>
+<p>Умножение на <span class="arithmatex">\(i\)</span> поворачивает точку на четверть оборота против часовой стрелки:</p>
+<div class="arithmatex">\[
+1\ \longrightarrow\ i\ \longrightarrow\ -1\ \longrightarrow\ -i\ \longrightarrow\ 1.
+\]</div>
+<p>Умножение на число <span class="arithmatex">\(\cos\alpha+i\sin\alpha\)</span> так же поворачивает точку на угол <span class="arithmatex">\(\alpha\)</span>, не меняя её расстояния до нуля. Только это свойство комплексного умножения нам и потребуется.</p>
+<h3 id="_6">Корни из единицы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Числа <span class="arithmatex">\(1,i,-1,-i\)</span> после возведения в четвёртую степень дают 1. Их называют <strong>корнями четвёртой степени из единицы</strong>: это решения уравнения <span class="arithmatex">\(z^4=1\)</span>.</p>
+<p>Для общего <span class="arithmatex">\(N\)</span> берём поворот на <span class="arithmatex">\(1/N\)</span> полного круга:</p>
+<div class="arithmatex">\[
+\omega=\cos\frac{2\pi}{N}+i\sin\frac{2\pi}{N}.
+\]</div>
+<p>Полный круг — <span class="arithmatex">\(360^\circ\)</span>, или <span class="arithmatex">\(2\pi\)</span> радиан. При <span class="arithmatex">\(N=4\)</span> угол равен <span class="arithmatex">\(90^\circ\)</span>, поэтому <span class="arithmatex">\(\omega=i\)</span>.</p>
+<p>Точки <span class="arithmatex">\(1,\omega,\omega^2,\ldots,\omega^{N-1}\)</span> равномерно стоят на окружности радиуса 1. Каждый новый множитель <span class="arithmatex">\(\omega\)</span> делает ещё один шаг по кругу, а после <span class="arithmatex">\(N\)</span> шагов возвращает нас в 1: <span class="arithmatex">\(\omega^N=1\)</span>.</p>
+<figure>
+  <img alt="Корни четвёртой степени из единицы: четыре равноотстоящие точки 1, i, минус 1 и минус i на окружности" src="../img/fft/roots-light.svg#only-light" width="640" />
+  <img alt="Корни четвёртой степени из единицы: четыре равноотстоящие точки 1, i, минус 1 и минус i на окружности" src="../img/fft/roots-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Каждый шаг — умножение на i. Четыре шага дают полный оборот, поэтому четвёртая степень каждой отмеченной точки равна 1.</figcaption>
+</figure>
+<p><strong>DFT</strong>, дискретное преобразование Фурье, — массив значений многочлена в этих точках:</p>
+<div class="arithmatex">\[
+y_k=A(\omega^k),\qquad k=0,1,\ldots,N-1.
+\]</div>
+<p><strong>FFT</strong>, быстрое преобразование Фурье, — алгоритм, который вычисляет DFT за <span class="arithmatex">\(O(N\log N)\)</span>. DFT обозначает, <strong>что</strong> вычисляем, FFT — <strong>как</strong> это делаем.</p>
+<h3 id="_7">Делим коэффициенты на чётные и нечётные<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Разделим многочлен по <strong>индексам коэффициентов</strong>. Например,</p>
+<div class="arithmatex">\[
+A(x)=1+2x+3x^2+4x^3
+=\underbrace{(1+3x^2)}_{\text{чётные степени}}
++x\underbrace{(2+4x^2)}_{\text{нечётные степени}}.
+\]</div>
+<p>Введём два многочлена вдвое короче: <span class="arithmatex">\(E(t)=1+3t\)</span> и <span class="arithmatex">\(O(t)=2+4t\)</span>. Тогда</p>
+<div class="arithmatex">\[
+A(x)=E(x^2)+xO(x^2).
+\]</div>
+<p>В общем случае <span class="arithmatex">\(E\)</span> хранит <code>[a₀, a₂, a₄, …]</code>, а <span class="arithmatex">\(O\)</span> — <code>[a₁, a₃, a₅, …]</code>. Делим не массив на левую и правую половины, а берём элементы <strong>через один</strong>.</p>
+<p>Подставим две противоположные точки <span class="arithmatex">\(z\)</span> и <span class="arithmatex">\(-z\)</span>:</p>
+<div class="arithmatex">\[
+A(z)=E(z^2)+zO(z^2),\qquad
+A(-z)=E(z^2)-zO(z^2).
+\]</div>
+<p>Квадрат у них одинаковый. Поэтому одни и те же значения <span class="arithmatex">\(E(z^2)\)</span> и <span class="arithmatex">\(O(z^2)\)</span> дают <strong>сразу два ответа</strong>.</p>
+<h3 id="fft_1">Почему подзадачи тоже FFT<a class="headerlink" href="#fft_1" title="Permanent link">&para;</a></h3>
+<p>Для четырёх точек это видно руками:</p>
+<table>
+<thead>
+<tr>
+<th>Исходная точка</th>
+<th><span class="arithmatex">\(1\)</span></th>
+<th><span class="arithmatex">\(i\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(-i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Её квадрат</td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Четыре точки после возведения в квадрат превратились в две различные точки. Причём это корни уже <strong>второй</strong> степени из единицы.</p>
+<p>Для любого чётного <span class="arithmatex">\(N\)</span> происходит то же самое: противоположные точки сливаются, и остаются <span class="arithmatex">\(N/2\)</span> корней степени <span class="arithmatex">\(N/2\)</span>.</p>
+<figure>
+  <img alt="При возведении в квадрат точки 1 и минус 1 переходят в 1, а i и минус i — в минус 1; число различных точек уменьшается вдвое" src="../img/fft/squaring-light.svg#only-light" width="640" />
+  <img alt="При возведении в квадрат точки 1 и минус 1 переходят в 1, а i и минус i — в минус 1; число различных точек уменьшается вдвое" src="../img/fft/squaring-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Уменьшается и число коэффициентов, и число точек. Поэтому рекурсия решает две задачи вдвое меньшего размера.</figcaption>
+</figure>
+<p>Значит, можем рекурсивно вычислить FFT для <span class="arithmatex">\(E\)</span> и <span class="arithmatex">\(O\)</span>, а потом склеить результаты. Если бы мы подставляли произвольные точки, такого уменьшения их количества могло бы не быть.</p>
+<h3 id="_8">Склейка: одна пара — два ответа<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Пусть рекурсия вернула:</p>
+<ul>
+<li><span class="arithmatex">\(u_k=E(\omega^{2k})\)</span>;</li>
+<li><span class="arithmatex">\(v_k=O(\omega^{2k})\)</span>.</li>
+</ul>
+<p>Для <span class="arithmatex">\(k=0,\ldots,N/2-1\)</span> положим <span class="arithmatex">\(t=\omega^k v_k\)</span>. Тогда:</p>
+<div class="arithmatex">\[
+\boxed{y_k=u_k+t,\qquad y_{k+N/2}=u_k-t.}
+\]</div>
+<p>Вторая точка — противоположная первой: <span class="arithmatex">\(\omega^{k+N/2}=-\omega^k\)</span>. Такую склейку часто называют <strong>бабочкой</strong>: два входа расходятся в два выхода.</p>
+<p>На <span class="arithmatex">\(A=[1,2,0,0]\)</span> получаем <span class="arithmatex">\(E=[1,0]\)</span>, <span class="arithmatex">\(O=[2,0]\)</span>. Их FFT — <code>[1, 1]</code> и <code>[2, 2]</code>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(k\)</span></th>
+<th><span class="arithmatex">\(\omega^k\)</span></th>
+<th><span class="arithmatex">\(u_k\)</span></th>
+<th><span class="arithmatex">\(v_k\)</span></th>
+<th><span class="arithmatex">\(y_k=u_k+\omega^kv_k\)</span></th>
+<th><span class="arithmatex">\(y_{k+2}=u_k-\omega^kv_k\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+</tr>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(i\)</span></td>
+<td>1</td>
+<td>2</td>
+<td><span class="arithmatex">\(1+2i\)</span></td>
+<td><span class="arithmatex">\(1-2i\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Итак, FFT от <code>[1, 2, 0, 0]</code> — <code>[3, 1+2i, -1, 1-2i]</code>.</p>
+<figure>
+  <img alt="Склейка для точки i: из u равно 1 и v равно 2 получаем значения 1 плюс 2i и 1 минус 2i" src="../img/fft/butterfly-light.svg#only-light" width="640" />
+  <img alt="Склейка для точки i: из u равно 1 и v равно 2 получаем значения 1 плюс 2i и 1 минус 2i" src="../img/fft/butterfly-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Сначала умножаем v на нужный корень, затем один раз прибавляем результат к u, другой — вычитаем.</figcaption>
+</figure>
+<p><strong>Почему FFT верно.</strong></p>
+<ul>
+<li><strong>База.</strong> При <span class="arithmatex">\(N=1\)</span> многочлен постоянный. Его единственное значение равно единственному коэффициенту.</li>
+<li><strong>Переход.</strong> Предположим, что рекурсивные вызовы верно нашли значения <span class="arithmatex">\(E\)</span> и <span class="arithmatex">\(O\)</span>. Формулы <span class="arithmatex">\(A(z)\)</span> и <span class="arithmatex">\(A(-z)\)</span> дают правильные значения для каждой пары противоположных точек. Всего пар <span class="arithmatex">\(N/2\)</span>, поэтому получаем все <span class="arithmatex">\(N\)</span> нужных значений.</li>
+</ul>
+<h3 id="_9">Обратное преобразование<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Теперь у нас есть значения <span class="arithmatex">\(y_0,\ldots,y_{N-1}\)</span>. Нужно вернуть коэффициенты <span class="arithmatex">\(a_0,\ldots,a_{N-1}\)</span>.</p>
+<p>Прямая формула подставляет точку в многочлен:</p>
+<div class="arithmatex">\[
+y_r=\sum_{j=0}^{N-1}a_j\omega^{rj}.
+\]</div>
+<p>Знак <span class="arithmatex">\(\sum\)</span> означает «сложить»: для каждого <span class="arithmatex">\(j\)</span> берём коэффициент <span class="arithmatex">\(a_j\)</span> и умножаем на нужную степень точки <span class="arithmatex">\(\omega^r\)</span>.</p>
+<p>Обратная формула очень похожа:</p>
+<div class="arithmatex">\[
+\boxed{a_j=\frac1N\sum_{r=0}^{N-1}y_r\omega^{-rj}.}
+\]</div>
+<p>Меняются только две вещи:</p>
+<ol>
+<li>Вместо поворота на <span class="arithmatex">\(2\pi/N\)</span> идём в обратную сторону: угол <span class="arithmatex">\(-2\pi/N\)</span>.</li>
+<li>Делим результат на <span class="arithmatex">\(N\)</span>.</li>
+</ol>
+<p>Поэтому обратное преобразование вычисляет <strong>та же FFT</strong> с другим знаком угла. Дальше в коде будем делить на 2 при каждой рекурсивной склейке: за <span class="arithmatex">\(\log_2N\)</span> уровней получится деление на <span class="arithmatex">\(N\)</span>. Дополнительно делить на <span class="arithmatex">\(N\)</span> уже не надо.</p>
+<details class="note">
+<summary>Почему обратная формула восстанавливает коэффициенты</summary>
+<p>Подставим в неё прямую формулу. Для каждого исходного коэффициента <span class="arithmatex">\(a_\ell\)</span> появится множитель</p>
+<div class="arithmatex">\[
+\frac1N\sum_{r=0}^{N-1}\omega^{r(\ell-j)}.
+\]</div>
+<p>При <span class="arithmatex">\(\ell=j\)</span> все <span class="arithmatex">\(N\)</span> слагаемых равны 1: множитель равен 1.</p>
+<p>При <span class="arithmatex">\(\ell\ne j\)</span> обозначим <span class="arithmatex">\(q=\omega^{\ell-j}\)</span>. Тогда <span class="arithmatex">\(q\ne1\)</span>, но <span class="arithmatex">\(q^N=1\)</span>. Для суммы <span class="arithmatex">\(S=1+q+\ldots+q^{N-1}\)</span> имеем <span class="arithmatex">\((q-1)S=q^N-1=0\)</span>, значит, <span class="arithmatex">\(S=0\)</span>.</p>
+<p>Нужный коэффициент остаётся, все остальные сокращаются. Это называют <strong>фильтром корней из единицы</strong>.</p>
+</details>
+<p>Вернёмся к <span class="arithmatex">\((1+2x)(3+4x)\)</span>. Уже умеем получить все значения:</p>
+<table>
+<thead>
+<tr>
+<th>Точка <span class="arithmatex">\(z\)</span></th>
+<th><span class="arithmatex">\(A(z)\)</span></th>
+<th><span class="arithmatex">\(B(z)\)</span></th>
+<th><span class="arithmatex">\(C(z)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(7\)</span></td>
+<td><span class="arithmatex">\(21\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td><span class="arithmatex">\(1+2i\)</span></td>
+<td><span class="arithmatex">\(3+4i\)</span></td>
+<td><span class="arithmatex">\(-5+10i\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(-i\)</span></td>
+<td><span class="arithmatex">\(1-2i\)</span></td>
+<td><span class="arithmatex">\(3-4i\)</span></td>
+<td><span class="arithmatex">\(-5-10i\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Обратное FFT переводит последний столбец в <strong><code>[3, 10, 8, 0]</code></strong>. Например, коэффициент при <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[
+c_1=\frac{21+(-5+10i)(-i)-1+(-5-10i)i}{4}=10.
+\]</div>
+<p>Это тот же ответ, который получили раскрытием скобок.</p>
+<h3 id="_10">Зачем дописывать нули<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Если в нашем примере взять <span class="arithmatex">\(N=2\)</span>, останутся только точки <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(-1\)</span>. В обеих точках <span class="arithmatex">\(z^2=1\)</span>, поэтому слагаемые <span class="arithmatex">\(3\)</span> и <span class="arithmatex">\(8z^2\)</span> станут неразличимы.</p>
+<p>Обратное преобразование вернёт <code>[11, 10]</code>: старший коэффициент «завернулся» в начало. Это <strong>циклическая</strong> свёртка длины 2, а нужна обычная.</p>
+<p>Дополнение до <span class="arithmatex">\(N\ge n+m-1\)</span> оставляет место всем коэффициентам ответа. Тогда заворачиваться нечему. После обратного FFT отбрасываем только добавленный хвост нулей.</p>
+<h3 id="_11">Сложность<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>На одном уровне рекурсии суммарно обрабатываем <span class="arithmatex">\(N\)</span> элементов. Каждый вызов делится на два вдвое меньших. Например, при <span class="arithmatex">\(N=8\)</span> размеры идут так:</p>
+<table>
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Вызовы</th>
+<th>Всего элементов в склейках</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>один по 8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>1</td>
+<td>два по 4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>четыре по 2</td>
+<td>8</td>
+</tr>
+<tr>
+<td>База</td>
+<td>восемь по 1</td>
+<td>склейки не нужны</td>
+</tr>
+</tbody>
+</table>
+<p>Уровней со склейками — <span class="arithmatex">\(\log_2N\)</span>. Одно FFT работает за <span class="arithmatex">\(O(N\log N)\)</span>. Два прямых, одно обратное и <span class="arithmatex">\(N\)</span> поэлементных умножений дают ту же оценку.</p>
+<p>Для <span class="arithmatex">\(N=131\,072\)</span> в одном FFT <span class="arithmatex">\(17\)</span> уровней, на каждом <span class="arithmatex">\(N/2\)</span> бабочек. Три преобразования — <strong><span class="arithmatex">\(3\,342\,336\)</span> бабочек</strong> и ещё <span class="arithmatex">\(131\,072\)</span> умножений значений. Бабочка сложнее одного обычного умножения, но разница с четырьмя миллиардами пар всё равно огромна.</p>
+<p>Память — <span class="arithmatex">\(O(N)\)</span> одновременно: размеры подзадач вдоль ветки рекурсии складываются как <span class="arithmatex">\(N+N/2+N/4+\ldots&lt;2N\)</span>, а на каждом уровне нужно лишь постоянное число массивов такого размера. Глубина стека — <span class="arithmatex">\(O(\log N)\)</span>.</p>
+<h3 id="_12">Где искать свёртку<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Общая формула для коэффициента произведения:</p>
+<div class="arithmatex">\[
+c_s=\sum_{j+k=s}a_jb_k.
+\]</div>
+<p>Она означает: <strong>для каждой суммы индексов собери произведения всех пар</strong>. За индексом может стоять вес, набранная сумма или позиция в строке.</p>
+<table>
+<thead>
+<tr>
+<th>Что хранит коэффициент</th>
+<th>Что считает произведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Число объектов каждого веса</td>
+<td>число пар с каждой суммой весов — задача 2</td>
+</tr>
+<tr>
+<td>0 или 1: стоит ли единица в позиции</td>
+<td>число пар позиций; после разворота — для каждого расстояния, задача 3</td>
+</tr>
+<tr>
+<td>Число способов получить каждую сумму в двух независимых группах</td>
+<td>число способов получить общую сумму — объединение двух ДП</td>
+</tr>
+<tr>
+<td>Цифры длинных чисел</td>
+<td>суммы произведений цифр; после свёртки остаётся выполнить переносы разрядов</td>
+</tr>
+</tbody>
+</table>
+<p>Например, один выбор из чисел 0, 1, 2 кодируется многочленом <span class="arithmatex">\(F(x)=1+x+x^2\)</span>. В <span class="arithmatex">\(F(x)^2\)</span> коэффициент при <span class="arithmatex">\(x^2\)</span> равен 3: пары <span class="arithmatex">\((0,2)\)</span>, <span class="arithmatex">\((1,1)\)</span>, <span class="arithmatex">\((2,0)\)</span>. В <span class="arithmatex">\(F(x)^3\)</span> коэффициент при <span class="arithmatex">\(x^3\)</span> равен 7: шесть перестановок <span class="arithmatex">\((0,1,2)\)</span> и тройка <span class="arithmatex">\((1,1,1)\)</span>.</p>
+<p>Это и есть динамика по сумме, записанная многочленами. При независимом объединении групп складываются их суммы и перемножаются количества способов. FFT ускоряет <strong>такой переход</strong>; произвольную ДП одним преобразованием ускорить нельзя.</p>
+<h3 id="_13">Точность<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>В математике преобразования точные. <code>double</code> хранит числа приближённо, поэтому после обратного FFT вместо 10 может получиться <code>9.9999999998</code>, а вместо нулевой мнимой части — маленький остаток.</p>
+<p>Если ответ должен быть целым, берём действительную часть и округляем до ближайшего целого: <code>llround</code> в C++, <code>round</code> в Python. Это исправляет погрешность <strong>меньше <span class="arithmatex">\(0.5\)</span></strong>, но не любую ошибку.</p>
+<p>Даже ответ, помещающийся в <code>long long</code>, не гарантирует точности <code>double</code>. Например, <span class="arithmatex">\(1\,000\,000\,001^2=1\,000\,000\,002\,000\,000\,001\)</span>, а вычисление через <code>double</code> с последующим округлением может потерять последнюю единицу.</p>
+<p>Для небольших целых коэффициентов обычную FFT используют с округлением и проверкой на граничных тестах. Для больших коэффициентов или точного ответа по модулю нужны дополнительные приёмы: разбиение коэффициентов либо <strong>NTT</strong>, аналог FFT с вычислениями по подходящему простому модулю. Взять остаток от уже неточного ответа недостаточно.</p>
+<h2 id="_14">Код<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>Реализация повторяет разобранную рекурсию. Функция <code>fft</code> получает массив длины <strong>степень двойки</strong>; <code>convolve</code> сама выбирает такую длину и дописывает нули. Оба входных массива <code>convolve</code> непустые.</p>
+<h3 id="fft_2">Прямое и обратное FFT<a class="headerlink" href="#fft_2" title="Permanent link">&para;</a></h3>
+<p>В C++ функция меняет массив на месте. В Python возвращает новый. При прямом преобразовании результат — значения в порядке точек <span class="arithmatex">\(1,\omega,\omega^2,\ldots\)</span>; при обратном — коэффициенты <span class="arithmatex">\(a_0,a_1,\ldots\)</span>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++</label><label for="__tabbed_1_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;complex&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">using</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">fft</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cd</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">inverse</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cd</span><span class="o">&gt;</span><span class="w"> </span><span class="n">even</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">odd</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">even</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">];</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="n">odd</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">fft</span><span class="p">(</span><span class="n">even</span><span class="p">,</span><span class="w"> </span><span class="n">inverse</span><span class="p">);</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">fft</span><span class="p">(</span><span class="n">odd</span><span class="p">,</span><span class="w"> </span><span class="n">inverse</span><span class="p">);</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">acos</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">inverse</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="n">root</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)),</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">cd</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">odd</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">even</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">even</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inverse</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">            </span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">            </span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="n">w</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">fft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="k">return</span> <span class="n">a</span><span class="p">[:]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">even</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">inverse</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">odd</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">inverse</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">angle</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">inverse</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">root</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">t</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">odd</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">even</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="n">result</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">even</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="k">if</span> <span class="n">inverse</span><span class="p">:</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>            <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            <span class="n">result</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="n">w</span> <span class="o">*=</span> <span class="n">root</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_15">Умножение<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>Здесь вся схема целиком: два прямых FFT → умножение значений в одинаковых точках → обратное FFT → округление. Функции выше должны стоять перед этим кодом.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C++</label><label for="__tabbed_2_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">convolve</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">                          </span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">need</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cd</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fa</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span><span class="w"> </span><span class="n">fb</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">fa</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">fb</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">fft</span><span class="p">(</span><span class="n">fa</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">fft</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">fb</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">fft</span><span class="p">(</span><span class="n">fa</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">(</span><span class="n">need</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">need</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">llround</span><span class="p">(</span><span class="n">fa</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">real</span><span class="p">());</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">need</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">need</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">fa</span> <span class="o">=</span> <span class="n">fft</span><span class="p">([</span><span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">fb</span> <span class="o">=</span> <span class="n">fft</span><span class="p">([</span><span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">)]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[:</span><span class="n">need</span><span class="p">]]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Для проверки: <code>convolve([1, 2], [3, 4])</code> возвращает <code>[3, 10, 8]</code>. Ни деление на <span class="arithmatex">\(n\)</span>, ни повторное округление снаружи не нужны.</p>
+<div class="admonition info">
+<p class="admonition-title">Про скорость Python</p>
+<p>Версия на Python показывает тот же алгоритм и подходит для изучения и локальных проверок. У задач CSES ниже лимит 1 секунда, у Codeforces 993E — 2 секунды. На максимальных входах эта учебная Python-реализация выходит за такие лимиты. Для отправки в эти задачи используй C++.</p>
+</div>
+<h2 id="_16">Умножение многочленов<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>Сначала соберём все части алгоритма в решение исходной задачи. Здесь индексы массива — степени <span class="arithmatex">\(x\)</span>.</p>
+<h3 id="1">Задача 1. Умножение многочленов<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="_17">Условие<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>Даны коэффициенты двух многочленов: <span class="arithmatex">\(A(x)=a_0+a_1x+\ldots+a_{n-1}x^{n-1}\)</span> и <span class="arithmatex">\(B(x)=b_0+b_1x+\ldots+b_{m-1}x^{m-1}\)</span>. Найдите коэффициенты <span class="arithmatex">\(C(x)=A(x)B(x)\)</span>.</p>
+<p><strong>Вход:</strong> в первой строке <span class="arithmatex">\(n,m\)</span> (<span class="arithmatex">\(1\le n,m\le10^5\)</span>). Во второй — <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a_0,\ldots,a_{n-1}\)</span>, в третьей — <span class="arithmatex">\(m\)</span> целых чисел <span class="arithmatex">\(b_0,\ldots,b_{m-1}\)</span>; все коэффициенты по модулю не больше 10.</p>
+<p><strong>Выход:</strong> <span class="arithmatex">\(n+m-1\)</span> коэффициентов <span class="arithmatex">\(c_0,\ldots,c_{n+m-2}\)</span> через пробел. Нули в конце тоже выводятся.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>2 2
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1 2
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>3 4
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>3 10 8
+</code></pre></div>
+</div>
+<h4 id="_18">Идея<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>Обычное раскрытие скобок перебирает <span class="arithmatex">\(nm\)</span> пар — до <span class="arithmatex">\(10^{10}\)</span>. Вместо этого применим схему из раздела «Алгоритм»: значения в одинаковых корнях из единицы можно умножить попарно, а обратное FFT восстановит коэффициенты.</p>
+<h4 id="_19">Решение<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Длина ответа</strong></td>
+<td><span class="arithmatex">\(n+m-1\)</span></td>
+</tr>
+<tr>
+<td><strong>Подготовка</strong></td>
+<td>выбираем степень двойки <span class="arithmatex">\(N\ge n+m-1\)</span>, дописываем нули</td>
+</tr>
+<tr>
+<td><strong>Прямые преобразования</strong></td>
+<td>считаем значения <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> в одних и тех же <span class="arithmatex">\(N\)</span> точках</td>
+</tr>
+<tr>
+<td><strong>Умножение</strong></td>
+<td>для каждого <span class="arithmatex">\(k\)</span> получаем <span class="arithmatex">\(A(\omega^k)B(\omega^k)\)</span></td>
+</tr>
+<tr>
+<td><strong>Обратное преобразование</strong></td>
+<td>возвращаем коэффициенты, округляем</td>
+</tr>
+<tr>
+<td><strong>Ответ</strong></td>
+<td>первые <span class="arithmatex">\(n+m-1\)</span> коэффициентов</td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img alt="Полный пример: коэффициенты 1,2 и 3,4 дополняются до длины 4; значения произведения 21, минус 5 плюс 10i, 1, минус 5 минус 10i превращаются обратно в 3,10,8,0" src="../img/fft/roundtrip-light.svg#only-light" width="640" />
+  <img alt="Полный пример: коэффициенты 1,2 и 3,4 дополняются до длины 4; значения произведения 21, минус 5 плюс 10i, 1, минус 5 минус 10i превращаются обратно в 3,10,8,0" src="../img/fft/roundtrip-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Все этапы на одном примере. Последний ноль нужен внутри преобразования, но длина ответа здесь равна 3.</figcaption>
+</figure>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> После дополнения нулями массивы задают прежние многочлены. Степень <span class="arithmatex">\(C\)</span> меньше <span class="arithmatex">\(N\)</span>, значит, выбранных точек достаточно.</li>
+<li><strong>Переход.</strong> Два прямых FFT дают правильные значения <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span>. По тождеству <span class="arithmatex">\(C(z)=A(z)B(z)\)</span> их попарные произведения — значения <span class="arithmatex">\(C\)</span>. Обратное преобразование восстанавливает его коэффициенты. Корректность обоих преобразований доказана в разделе «Алгоритм»; реализация использует округление с оговорками из подраздела «Точность».</li>
+</ul>
+<p><strong>Сложность.</strong> <span class="arithmatex">\(O(N\log N)\)</span> времени, <span class="arithmatex">\(O(N)\)</span> памяти, где <span class="arithmatex">\(N\)</span> — выбранная степень двойки. Поскольку <span class="arithmatex">\(N&lt;2(n+m)\)</span>, можно записать и <span class="arithmatex">\(O((n+m)\log(n+m))\)</span> времени, <span class="arithmatex">\(O(n+m)\)</span> памяти.</p>
+<p><strong>Код.</strong> Во всех задачах ниже добавь перед программой <strong>обе общие функции</strong> из раздела «Код». Заново писать FFT для каждой задачи не нужно.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C++</label><label for="__tabbed_3_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">' '</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">a</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">b</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">:</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">c</span> <span class="o">=</span> <span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>3 10 8</code>.</p>
+<h2 id="_20">Применения свёртки<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>В следующих задачах многочлены в условии не упоминаются. Мы сами решим, что хранить в коэффициентах, чтобы нужные пары собрались в произведении.</p>
+<h3 id="2">Задача 2. Яблоки и бананы<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="_21">Условие<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p><a href="https://cses.fi/problemset/task/2111/">CSES · Apples and Bananas</a>.</p>
+<p>Есть <span class="arithmatex">\(n\)</span> яблок и <span class="arithmatex">\(m\)</span> бананов. Вес каждого — целое число от 1 до <span class="arithmatex">\(k\)</span>. Для каждого <span class="arithmatex">\(w\)</span> от 2 до <span class="arithmatex">\(2k\)</span> найдите количество способов выбрать одно яблоко и один банан с суммарным весом <span class="arithmatex">\(w\)</span>. Разные фрукты одного веса считаются разными вариантами.</p>
+<p><strong>Вход:</strong> числа <span class="arithmatex">\(k,n,m\)</span> (<span class="arithmatex">\(1\le k,n,m\le2\cdot10^5\)</span>), затем <span class="arithmatex">\(n\)</span> весов яблок и <span class="arithmatex">\(m\)</span> весов бананов.</p>
+<p><strong>Выход:</strong> <span class="arithmatex">\(2k-1\)</span> чисел — ответы для <span class="arithmatex">\(w=2,3,\ldots,2k\)</span>.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>5 3 4
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>5 2 5
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>4 3 2 3
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>0 0 1 2 1 2 4 2 0
+</code></pre></div>
+</div>
+<p>Пояснение: сумму 8 дают два яблока веса 5 и два банана веса 3 — <span class="arithmatex">\(2\cdot2=4\)</span> пары.</p>
+<h4 id="_22">Идея<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>Перебирать пары нельзя: их бывает <span class="arithmatex">\(4\cdot10^{10}\)</span>. Но сами веса ограничены <span class="arithmatex">\(k\)</span>.</p>
+<p>Пусть <span class="arithmatex">\(a_u\)</span> — количество яблок веса <span class="arithmatex">\(u\)</span>, а <span class="arithmatex">\(b_v\)</span> — количество бананов веса <span class="arithmatex">\(v\)</span>. Пара весов <span class="arithmatex">\(u,v\)</span> даёт <span class="arithmatex">\(a_ub_v\)</span> способов. Для суммарного веса <span class="arithmatex">\(w\)</span> надо сложить эти произведения по всем <span class="arithmatex">\(u+v=w\)</span>. Это ровно коэффициент свёртки.</p>
+<h4 id="_23">Решение<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Коэффициенты</strong></td>
+<td>частоты весов: <code>a[вес]</code> и <code>b[вес]</code></td>
+</tr>
+<tr>
+<td><strong>Нулевой индекс</strong></td>
+<td><code>a[0] = b[0] = 0</code>: фруктов веса 0 нет</td>
+</tr>
+<tr>
+<td><strong>Умножение</strong></td>
+<td><code>c = convolve(a, b)</code></td>
+</tr>
+<tr>
+<td><strong>Ответ для веса <span class="arithmatex">\(w\)</span></strong></td>
+<td><code>c[w]</code></td>
+</tr>
+<tr>
+<td><strong>Что выводим</strong></td>
+<td><code>c[2]</code>, …, <code>c[2*k]</code></td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img alt="Для веса 8 сочетаются два яблока веса 5 с двумя бананами веса 3, поэтому коэффициент равен 4" src="../img/fft/fruits-light.svg#only-light" width="640" />
+  <img alt="Для веса 8 сочетаются два яблока веса 5 с двумя бананами веса 3, поэтому коэффициент равен 4" src="../img/fft/fruits-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>В коэффициенте хранится количество фруктов такого веса. Это не массив их весов и не отметка «такой вес существует».</figcaption>
+</figure>
+<p>На примере <span class="arithmatex">\(A(x)=x^2+2x^5\)</span>, <span class="arithmatex">\(B(x)=x^2+2x^3+x^4\)</span>. Коэффициент при <span class="arithmatex">\(x^8\)</span> равен <span class="arithmatex">\(2\cdot2=4\)</span>.</p>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> Массивы частот учитывают каждый фрукт ровно один раз в коэффициенте его веса.</li>
+<li><strong>Переход.</strong> Произведение <span class="arithmatex">\(a_ub_v\)</span> учитывает все пары этих весов. В <code>c[w]</code> попадают ровно группы с <span class="arithmatex">\(u+v=w\)</span>; разные группы не пересекаются, поэтому ни одна пара не пропущена и не посчитана дважды.</li>
+</ul>
+<p><strong>Тип данных.</strong> Один ответ может быть <span class="arithmatex">\(nm=4\cdot10^{10}\)</span> — нужен <code>long long</code>.</p>
+<p><strong>Сложность.</strong> Чтение и заполнение частот — <span class="arithmatex">\(O(n+m+k)\)</span>, свёртка — <span class="arithmatex">\(O(k\log(k+1))\)</span>. Всего <span class="arithmatex">\(O(n+m+k\log(k+1))\)</span> времени и <span class="arithmatex">\(O(k)\)</span> памяти в C++; показанный Python-код дополнительно хранит вход, поэтому использует <span class="arithmatex">\(O(n+m+k)\)</span> памяти.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C++</label><label for="__tabbed_4_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="n">b</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">w</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">' '</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">);</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">a</span><span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">b</span><span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">c</span> <span class="o">=</span> <span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>0 0 1 2 1 2 4 2 0</code>.</p>
+<h3 id="3">Задача 3. Пары единиц<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="_24">Условие<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p><a href="https://cses.fi/problemset/task/2112/">CSES · One Bit Positions</a>.</p>
+<p>Дана строка <span class="arithmatex">\(s\)</span> из нулей и единиц, позиции нумеруются от 0 до <span class="arithmatex">\(n-1\)</span>. Для каждого расстояния <span class="arithmatex">\(d=1,\ldots,n-1\)</span> найдите количество пар позиций <span class="arithmatex">\(j&lt;r\)</span>, для которых <span class="arithmatex">\(r-j=d\)</span> и оба символа равны <code>1</code>.</p>
+<p><strong>Вход:</strong> одна бинарная строка длины <span class="arithmatex">\(2\le n\le2\cdot10^5\)</span>.</p>
+<p><strong>Выход:</strong> <span class="arithmatex">\(n-1\)</span> чисел — количество пар для каждого расстояния по возрастанию.</p>
+<div class="grid">
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>1001011010
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>1 2 3 0 2 1 0 1 0
+</code></pre></div>
+</div>
+<h4 id="_25">Идея<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>Для одного расстояния можно пройти по строке. Но для всех расстояний суммарно получится порядка <span class="arithmatex">\(n^2\)</span> проверок.</p>
+<p>Запишем биты в массив <span class="arithmatex">\(a\)</span>: <code>1</code> означает, что в позиции есть единица, <code>0</code> — что нет. Хотим складывать произведения <span class="arithmatex">\(a_ra_j\)</span> по одинаковой <strong>разности</strong> <span class="arithmatex">\(r-j\)</span>. А свёртка группирует по <strong>сумме</strong> индексов. Как превратить разность в сумму?</p>
+<p><strong>Развернём второй массив:</strong> <span class="arithmatex">\(b_{n-1-j}=a_j\)</span>. Тогда пара исходных позиций <span class="arithmatex">\(r,j\)</span> попадёт в коэффициент с индексом</p>
+<div class="arithmatex">\[
+r+(n-1-j)=n-1+(r-j)=n-1+d.
+\]</div>
+<p>Значит, одно умножение сразу даст ответы для всех расстояний.</p>
+<h4 id="_26">Решение<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Первый массив</strong></td>
+<td>биты строки <span class="arithmatex">\(a_0,\ldots,a_{n-1}\)</span></td>
+</tr>
+<tr>
+<td><strong>Второй массив</strong></td>
+<td>те же биты в обратном порядке</td>
+</tr>
+<tr>
+<td><strong>Умножение</strong></td>
+<td><code>c = convolve(a, reversed_a)</code></td>
+</tr>
+<tr>
+<td><strong>Ответ для расстояния <span class="arithmatex">\(d\)</span></strong></td>
+<td><code>c[n-1+d]</code></td>
+</tr>
+<tr>
+<td><strong>Что выводим</strong></td>
+<td><code>c[n]</code>, …, <code>c[2*n-2]</code></td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img alt="В строке 1011 пара позиций 0 и 2 после разворота второго массива попадает в коэффициент 2 плюс 3 равно 5; это n минус 1 плюс расстояние 2" src="../img/fft/distance-light.svg#only-light" width="640" />
+  <img alt="В строке 1011 пара позиций 0 и 2 после разворота второго массива попадает в коэффициент 2 плюс 3 равно 5; это n минус 1 плюс расстояние 2" src="../img/fft/distance-dark.svg#only-dark" width="640" />
+<br />
+<figcaption>Разворот отражает индекс j в n−1−j. Разность исходных позиций превращается в сумму двух новых индексов.</figcaption>
+</figure>
+<p>На маленьком примере <code>1011</code>:</p>
+<ul>
+<li><span class="arithmatex">\(a=\)</span> <code>[1, 0, 1, 1]</code>, <span class="arithmatex">\(b=\)</span> <code>[1, 1, 0, 1]</code>;</li>
+<li>свёртка <span class="arithmatex">\(c=\)</span> <code>[1, 1, 1, 3, 1, 1, 1]</code>;</li>
+<li>ответы для расстояний 1, 2, 3 — <code>c[4], c[5], c[6]</code>, то есть <code>1 1 1</code>.</li>
+</ul>
+<p>Центральный коэффициент <code>c[n-1]</code> равен числу единиц: там каждая позиция сочетается с самой собой. В ответ его не включаем. Для <span class="arithmatex">\(d&gt;0\)</span> порядок позиций уже задан, поэтому делить на 2 не надо.</p>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> Произведение <span class="arithmatex">\(a_ra_j\)</span> равно 1 ровно тогда, когда обе исходные позиции содержат единицы.</li>
+<li><strong>Переход.</strong> После разворота эта пара попадает ровно в <code>c[n-1+(r-j)]</code>. Поэтому коэффициент для фиксированного <span class="arithmatex">\(d&gt;0\)</span> считает все и только пары с <span class="arithmatex">\(r-j=d\)</span>, каждую один раз.</li>
+</ul>
+<p><strong>Сложность.</strong> <span class="arithmatex">\(O(n\log n)\)</span> времени, <span class="arithmatex">\(O(n)\)</span> памяти.</p>
+<p><strong>Код.</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">C++</label><label for="__tabbed_5_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="n">reverse</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">d</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">' '</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">);</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">s</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"0"</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">c</span> <span class="o">=</span> <span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="n">n</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>1 2 3 0 2 1 0 1 0</code>.</p>
+<h3 id="4">Задача 4. Подотрезки<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="_27">Условие<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<div class="admonition question">
+<p class="admonition-title">Упражнение</p>
+<p><a href="https://codeforces.com/problemset/problem/993/E">993E · Никита и порядковая статистика</a>.</p>
+<p>Дан массив <span class="arithmatex">\(a_1,\ldots,a_n\)</span> и число <span class="arithmatex">\(x\)</span>. Для каждого <span class="arithmatex">\(k=0,1,\ldots,n\)</span> найдите количество непустых <strong>подотрезков</strong> с ровно <span class="arithmatex">\(k\)</span> элементами меньше <span class="arithmatex">\(x\)</span>. Подотрезок — все элементы с некоторого индекса <span class="arithmatex">\(l\)</span> до некоторого <span class="arithmatex">\(r\)</span> включительно.</p>
+<p><strong>Вход:</strong> числа <span class="arithmatex">\(n,x\)</span> (<span class="arithmatex">\(1\le n\le2\cdot10^5\)</span>, <span class="arithmatex">\(|x|\le10^9\)</span>), затем <span class="arithmatex">\(n\)</span> целых чисел <span class="arithmatex">\(a_i\)</span> (<span class="arithmatex">\(|a_i|\le10^9\)</span>).</p>
+<p><strong>Выход:</strong> <span class="arithmatex">\(n+1\)</span> чисел — ответы для <span class="arithmatex">\(k=0,1,\ldots,n\)</span>.</p>
+<div class="grid" markdown>
+<div class="highlight"><span class="filename">Ввод</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>5 3
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>1 2 3 4 5
+</code></pre></div>
+<div class="highlight"><span class="filename">Вывод</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>6 5 4 0 0 0
+</code></pre></div>
+</div>
+<p>Попробуй соединить идею предыдущей задачи с префиксными суммами. Случай <span class="arithmatex">\(k=0\)</span> потребует отдельного внимания.</p>
+</div>
+<h4 id="_28">Идея<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Подсказка</summary>
+<p>Замени каждый элемент на 1, если он меньше <span class="arithmatex">\(x\)</span>, и на 0 иначе. Пусть <span class="arithmatex">\(p_r\)</span> — сумма первых <span class="arithmatex">\(r\)</span> полученных чисел, включая <span class="arithmatex">\(p_0=0\)</span>. Тогда нужное количество на подотрезке <span class="arithmatex">\([l,r]\)</span> равно <span class="arithmatex">\(p_r-p_{l-1}\)</span>. Надо посчитать пары значений префиксов с каждой возможной разностью.</p>
+</details>
+<h4 id="_29">Решение<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Решение за O(n log n)</summary>
+<p>Соберём частоты: <span class="arithmatex">\(f_v\)</span> — сколько из <span class="arithmatex">\(n+1\)</span> префиксов имеют значение <span class="arithmatex">\(v\)</span>. Развернём массив <span class="arithmatex">\(f\)</span> длины <span class="arithmatex">\(n+1\)</span> и посчитаем свёртку.</p>
+<table>
+<thead>
+<tr>
+<th>Шаг рецепта</th>
+<th>В этой задаче</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Подготовка</strong></td>
+<td><span class="arithmatex">\(p_0=0\)</span>; далее прибавляем 1 за элемент меньше <span class="arithmatex">\(x\)</span></td>
+</tr>
+<tr>
+<td><strong>Коэффициенты</strong></td>
+<td><span class="arithmatex">\(f_v\)</span> — количество префиксов со значением <span class="arithmatex">\(v\)</span></td>
+</tr>
+<tr>
+<td><strong>Умножение</strong></td>
+<td><span class="arithmatex">\(c=f*\operatorname{reverse}(f)\)</span></td>
+</tr>
+<tr>
+<td><strong>Ответ для <span class="arithmatex">\(k&gt;0\)</span></strong></td>
+<td><span class="arithmatex">\(c_{n+k}\)</span>: середина теперь имеет индекс <span class="arithmatex">\(n\)</span></td>
+</tr>
+<tr>
+<td><strong>Ответ для <span class="arithmatex">\(k=0\)</span></strong></td>
+<td>сумма <span class="arithmatex">\(f_v(f_v-1)/2\)</span> по всем <span class="arithmatex">\(v\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Для примера <span class="arithmatex">\(p=\)</span> <code>[0, 1, 2, 2, 2, 2]</code>, поэтому <span class="arithmatex">\(f=\)</span> <code>[1, 1, 4, 0, 0, 0]</code>. Для <span class="arithmatex">\(k=1\)</span> получаем <span class="arithmatex">\(1\cdot1+4\cdot1=5\)</span>, для <span class="arithmatex">\(k=2\)</span> — <span class="arithmatex">\(4\cdot1=4\)</span>. Равных префиксов со значением 2 четыре: они дают <span class="arithmatex">\(4\cdot3/2=6\)</span> подотрезков с <span class="arithmatex">\(k=0\)</span>.</p>
+<p><strong>Доказательство.</strong></p>
+<ul>
+<li><strong>База.</strong> Каждому непустому подотрезку соответствует ровно одна пара префиксов: перед его началом и на его конце.</li>
+<li><strong>Переход.</strong> При <span class="arithmatex">\(k&gt;0\)</span> частоты и разворот считают все пары значений с разностью <span class="arithmatex">\(k\)</span>, как в задаче 3. Порядок концов не теряется: префиксные суммы не убывают, поэтому префикс с большей суммой обязательно стоит позже префикса с меньшей. При <span class="arithmatex">\(k=0\)</span> из <span class="arithmatex">\(f_v\)</span> равных префиксов выбираем два различных. Неупорядоченная пара уже однозначно задаёт более ранний и более поздний конец, поэтому вариантов <span class="arithmatex">\(f_v(f_v-1)/2\)</span>.</li>
+</ul>
+<p><strong>Тип данных.</strong> Подотрезков бывает <span class="arithmatex">\(n(n+1)/2\)</span>, до <span class="arithmatex">\(20\,000\,100\,000\)</span>, нужен <code>long long</code>. Центральный коэффициент свёртки для <span class="arithmatex">\(k=0\)</span> напрямую не подходит: он включает пары префикса с собой и оба порядка разных префиксов.</p>
+<p><strong>Сложность.</strong> Частоты собираем за <span class="arithmatex">\(O(n)\)</span>, свёртка занимает <span class="arithmatex">\(O(n\log n)\)</span> времени и <span class="arithmatex">\(O(n)\)</span> памяти.</p>
+<p><strong>Код.</strong> Добавь общие <code>fft</code> и <code>convolve</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">C++</label><label for="__tabbed_6_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// пустой префикс тоже нужен</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">rev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="n">reverse</span><span class="p">(</span><span class="n">rev</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">rev</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">rev</span><span class="p">);</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">zero</span><span class="p">;</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">];</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">n</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    <span class="n">p</span> <span class="o">+=</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">x</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="n">f</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">c</span> <span class="o">=</span> <span class="n">convolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="n">zero</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">count</span> <span class="o">*</span> <span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">zero</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>На примере из условия программа печатает <code>6 5 4 0 0 0</code>.</p>
+</details>
+<h2 id="_30">Типичные ошибки<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Слишком короткое преобразование.</strong> Нужно <span class="arithmatex">\(N\ge n+m-1\)</span>, а не только <span class="arithmatex">\(N\ge\max(n,m)\)</span>. В задаче 1 ошибочный размер 2 превращает <code>3 10 8</code> в <code>11 10</code>.</li>
+<li><strong>Знак угла и нормировка не согласованы.</strong> В этом коде прямое FFT использует плюс, обратное — минус и деление на 2 на каждом уровне. Если дополнительно поделить на <span class="arithmatex">\(N\)</span>, ответ задачи 1 станет в <span class="arithmatex">\(N\)</span> раз меньше. Проверь, что обратное FFT после прямого возвращает исходный массив.</li>
+<li><strong>Округление и типы данных.</strong> <code>int(real + 0.5)</code> неправильно округляет отрицательные числа; в задаче 1 используй <code>llround</code> или <code>round</code>. А задачи 2 и 4 требуют 64-битных целых. Точность <code>double</code> — отдельное ограничение: остаток по модулю после неточного вычисления её не исправит.</li>
+<li><strong>Потеря повторов.</strong> В задаче 2 коэффициент — количество фруктов, а не просто 0 или 1. Иначе ответ для веса 8 в примере станет 1 вместо 4.</li>
+<li><strong>Неверный индекс после разворота.</strong> Для массива длины <span class="arithmatex">\(n\)</span> в задаче 3 ответ лежит в <code>c[n-1+d]</code>, для частот длины <span class="arithmatex">\(n+1\)</span> в задаче 4 — в <code>c[n+k]</code>. Проверь <code>1011</code>: ответы <code>1 1 1</code>. Центральный коэффициент не является ответом для положительного расстояния.</li>
+</ol>
+<h2 id="_31">Практика<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<p>В задачах ниже сначала найди, что означают коэффициенты и какой индекс ответа нужен. Само умножение уже умеет делать общая функция.</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Задача</th>
+<th>Сложность</th>
+<th>Что тренирует</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://codeforces.com/problemset/problem/954/I">954I · И снова равные строки</a></td>
+<td>2200</td>
+<td>индикаторы букв и свёртки для всех сдвигов</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://codeforces.com/problemset/problem/1096/G">1096G · Счастливые билеты</a></td>
+<td>2400</td>
+<td>коэффициенты степени многочлена как значения ДП; для точного ответа по модулю пригодится NTT</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://codeforces.com/problemset/problem/1398/G">1398G · Соревнования по бегу</a></td>
+<td>2600</td>
+<td>все возможные разности через отражение одного массива</td>
+</tr>
+</tbody>
+</table>
+<p>Полная <a href="../../practice/fft/">подборка задач</a> содержит подсказки по шагам. Задачу 993E из неё разобрали в упражнении.</p>
+<h2 id="_32">Куда дальше<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cp-algorithms.com/algebra/fft.html">Fast Fourier Transform</a> — итеративная реализация, контроль точности, NTT и другие применения.</li>
+<li><a href="https://live.ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/3dc84e78914f226665357234d6f4e25c_MIT6_046JS15_lec03.pdf">MIT: FFT, IFFT, and Polynomial Multiplication</a> — более формальный взгляд на прямое и обратное преобразования через матрицы.</li>
+<li><a href="https://codeforces.com/blog/entry/60047">Официальный разбор 993E</a> — сравни своё сведение подотрезков к разностям префиксов с разбором.</li>
+</ul>
 
 
 
