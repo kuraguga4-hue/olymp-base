@@ -27,7 +27,7 @@ hide:
 
 ВсОШ, Открытая олимпиада, Высшая проба, Innopolis Open и Vorg CUP: выбирай сезон, открывай условия и задачи. Разборы команды доступны прямо на сайте; статус проверки указан у каждого.
 
-[Открыть архив олимпиад](olympiads/index.md){ .ob-btn .ob-btn--primary }
+[Открыть архив олимпиад](olympiads/index.md){ .ob-btn .ob-btn--primary } [Все задачи](all.md){ .ob-btn .ob-btn--primary }
 
 </div>
 
