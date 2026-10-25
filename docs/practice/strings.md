@@ -4,17 +4,32 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [1137B · Расписание смены](https://codeforces.com/problemset/problem/1137/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1137">Codeforces Round 545 (Div. 1)</a> · задача B</span> | 1600 | жадные алгоритмы, хеши |
-| 2 | [1326D2 · Префиксно-суффиксный палиндром (усложненная версия)](https://codeforces.com/problemset/problem/1326/D2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1326">Codeforces Global Round 7</a> · задача D2</span> | 1800 | жадные алгоритмы |
-| 3 | [1902E · Коллапс строк](https://codeforces.com/problemset/problem/1902/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1902">Educational Codeforces Round 159 (Rated for Div. 2)</a> · задача E</span> | 1900 | — |
-| 4 | [1200E · Склеивание слов](https://codeforces.com/problemset/problem/1200/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1200">Codeforces Round 578 (Div. 2)</a> · задача E</span> | 2000 | — |
-| 5 | [2209E · Тривиальная задача на строки](https://codeforces.com/problemset/problem/2209/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2209">Codeforces Round 1087 (Div. 2)</a> · задача E</span> | 2200 | динамическое программирование |
-| 6 | [2023C · Ч+К+С](https://codeforces.com/problemset/problem/2023/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2023">Codeforces Round 980 (Div. 1)</a> · задача C</span> | 2400 | DFS, конструктив |
-| 7 | [2144F · Группы скобок](https://codeforces.com/problemset/problem/2144/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача F</span> | 2700 | динамическое программирование, конструктив |
+| 1 | [ABC447C · Insert and Erase A](https://atcoder.jp/contests/abc447/tasks/abc447_c)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc447">AtCoder Beginner Contest 447</a> · задача C</span> | ≈ 1000 | — |
+| 2 | [1137B · Расписание смены](https://codeforces.com/problemset/problem/1137/B)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1137">Codeforces Round 545 (Div. 1)</a> · задача B</span> | 1600 | жадные алгоритмы, хеши |
+| 3 | [1326D2 · Префиксно-суффиксный палиндром (усложненная версия)](https://codeforces.com/problemset/problem/1326/D2)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1326">Codeforces Global Round 7</a> · задача D2</span> | 1800 | жадные алгоритмы |
+| 4 | [1902E · Коллапс строк](https://codeforces.com/problemset/problem/1902/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1902">Educational Codeforces Round 159 (Rated for Div. 2)</a> · задача E</span> | 1900 | — |
+| 5 | [1200E · Склеивание слов](https://codeforces.com/problemset/problem/1200/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1200">Codeforces Round 578 (Div. 2)</a> · задача E</span> | 2000 | — |
+| 6 | [2209E · Тривиальная задача на строки](https://codeforces.com/problemset/problem/2209/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2209">Codeforces Round 1087 (Div. 2)</a> · задача E</span> | 2200 | динамическое программирование |
+| 7 | [2023C · Ч+К+С](https://codeforces.com/problemset/problem/2023/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2023">Codeforces Round 980 (Div. 1)</a> · задача C</span> | 2400 | DFS, конструктив |
+| 8 | [2144F · Группы скобок](https://codeforces.com/problemset/problem/2144/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2144">Educational Codeforces Round 182 (Rated for Div. 2)</a> · задача F</span> | 2700 | динамическое программирование, конструктив |
 
 ## Подсказки
 
-??? question "1. 1137B · Расписание смены"
+??? question "1. ABC447C · Insert and Erase A"
+
+    ??? tip "Подсказка 1"
+        Посмотри на строку, из которой убраны все буквы A: меняется ли она от операций?
+
+    ??? tip "Подсказка 2"
+        Строка без букв A не меняется, поэтому если у $S$ и $T$ она разная — ответ $-1$. Иначе важны только количества A в промежутках между остальными буквами (и по краям).
+
+    ??? tip "Подсказка 3"
+        В каждом из $|S'| + 1$ промежутков количество A меняется на 1 за операцию, поэтому ответ — $\sum_i |A_S(i) - A_T(i)|$. Итого $O(|S| + |T|)$.
+
+    [Официальный разбор](https://atcoder.jp/contests/abc447/editorial/16762)
+
+
+??? question "2. 1137B · Расписание смены"
 
     ??? tip "Подсказка 1"
         Что делать, если ни одного вхождения $t$ в перестановку $s$ получить нельзя?
@@ -30,7 +45,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/65825)
 
-??? question "2. 1326D2 · Префиксно-суффиксный палиндром (усложненная версия)"
+??? question "3. 1326D2 · Префиксно-суффиксный палиндром (усложненная версия)"
 
     ??? tip "Подсказка 1"
         Какую часть ответа можно взять «бесплатно», сопоставляя символы с начала и с конца строки одновременно?
@@ -46,7 +61,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/74961)
 
-??? question "3. 1902E · Коллапс строк"
+??? question "4. 1902E · Коллапс строк"
 
     ??? tip "Подсказка 1"
         Если развернуть первую строку, как выразить длину коллапса через общий префикс двух строк?
@@ -62,7 +77,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/122951)
 
-??? question "4. 1200E · Склеивание слов"
+??? question "5. 1200E · Склеивание слов"
 
     ??? tip "Подсказка 1"
         Что нужно знать про текущую склеенную строку и следующее слово, чтобы присоединить его?
@@ -81,7 +96,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/69035)
 
-??? question "5. 2209E · Тривиальная задача на строки"
+??? question "6. 2209E · Тривиальная задача на строки"
 
     ??? tip "Подсказка 1"
         Что можно сказать о строке, которую нельзя разбить дальше, и как это связано с её границами (строка, которая одновременно префикс и суффикс)?
@@ -103,7 +118,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/152272)
 
-??? question "6. 2023C · Ч+К+С"
+??? question "7. 2023C · Ч+К+С"
 
     ??? tip "Подсказка 1"
         Что можно сказать о раскраске сильносвязного графа, в котором длины всех циклов кратны $k$?
@@ -125,7 +140,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/135341)
 
-??? question "7. 2144F · Группы скобок"
+??? question "8. 2144F · Группы скобок"
 
     ??? tip "Подсказка 1"
         Какая короткая подстрока обязательно есть в любой правильной скобочной последовательности? Когда из-за этого ответ точно $-1$?

@@ -8,11 +8,13 @@
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
 | 1 | [ABC481D · Autopilot](https://atcoder.jp/contests/abc481/tasks/abc481_d)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc481">SMBC Programming Contest #2 (AtCoder Beginner Contest 481）</a> · задача D</span> | ≈ 1200 | — |
-| 2 | [1037D · Корректный BFS?](https://codeforces.com/problemset/problem/1037/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1037">Manthan, Codefest 18 (rated, Div. 1 + Div. 2)</a> · задача D</span> | 1700 | сортировки |
-| 3 | [1176E · Покрывай!](https://codeforces.com/problemset/problem/1176/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1176">Codeforces Round 565 (Div. 3)</a> · задача E</span> | 1700 | — |
-| 4 | [2059D · Граф и граф](https://codeforces.com/problemset/problem/2059/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2059">Codeforces Round 1002 (Div. 2)</a> · задача D</span> | 1900 | — |
-| 5 | [2117G · ОМГраф](https://codeforces.com/problemset/problem/2117/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2117">Codeforces Round 1029 (Div. 3)</a> · задача G</span> | 1900 | — |
-| 6 | [2057E1 · Очередное упражнение на графы (простая версия)](https://codeforces.com/problemset/problem/2057/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2057">Hello 2025</a> · задача E1</span> | 2300 | бинарный поиск, динамическое программирование |
+| 2 | [ABC453D · Go Straight](https://atcoder.jp/contests/abc453/tasks/abc453_d)<br><span class="ob-note ob-source"><a href="https://atcoder.jp/contests/abc453">AtCoder Beginner Contest 453</a> · задача D</span> | ≈ 1500 | DFS |
+| 3 | [1037D · Корректный BFS?](https://codeforces.com/problemset/problem/1037/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1037">Manthan, Codefest 18 (rated, Div. 1 + Div. 2)</a> · задача D</span> | 1700 | сортировки |
+| 4 | [1176E · Покрывай!](https://codeforces.com/problemset/problem/1176/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1176">Codeforces Round 565 (Div. 3)</a> · задача E</span> | 1700 | — |
+| 5 | [2059D · Граф и граф](https://codeforces.com/problemset/problem/2059/D)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2059">Codeforces Round 1002 (Div. 2)</a> · задача D</span> | 1900 | — |
+| 6 | [2117G · ОМГраф](https://codeforces.com/problemset/problem/2117/G)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2117">Codeforces Round 1029 (Div. 3)</a> · задача G</span> | 1900 | — |
+| 7 | [2057E1 · Очередное упражнение на графы (простая версия)](https://codeforces.com/problemset/problem/2057/E1)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2057">Hello 2025</a> · задача E1</span> | 2300 | бинарный поиск, динамическое программирование |
+| 8 | [1163F · Цена поездки](https://codeforces.com/problemset/problem/1163/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/1163">Codeforces Round 558 (Div. 2)</a> · задача F</span> | 3000 | дерево отрезков |
 
 ## Подсказки
 
@@ -29,7 +31,21 @@
 
     [Официальный разбор](https://atcoder.jp/contests/abc481/editorial/27926)
 
-??? question "2. 1037D · Корректный BFS?"
+??? question "2. ABC453D · Go Straight"
+
+    ??? tip "Подсказка 1"
+        Куда можно пойти из клетки, зависит от того, с какой стороны в неё пришли. Каким тогда должно быть состояние поиска?
+
+    ??? tip "Подсказка 2"
+        Пара (клетка, направление последнего хода) — всего $4HW$ состояний. Переходы определяются типом клетки: из . S G — в любую сторону, из o — только прямо, из x — куда угодно, кроме прямо.
+
+    ??? tip "Подсказка 3"
+        Запусти BFS или DFS по состояниям от старта (с любым направлением) до любой копии клетки G, запоминая, откуда пришли. Каждое состояние посещается один раз, поэтому восстановленный путь не длиннее $4HW$ ходов. Итого $O(HW)$.
+
+    [Официальный разбор](https://atcoder.jp/contests/abc453/editorial/22151)
+
+
+??? question "3. 1037D · Корректный BFS?"
 
     ??? tip "Подсказка 1"
         Что определяет порядок вершин в обходе BFS, если дерево задано?
@@ -42,7 +58,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/61606)
 
-??? question "3. 1176E · Покрывай!"
+??? question "4. 1176E · Покрывай!"
 
     ??? tip "Подсказка 1"
         Какую информацию о вершинах даёт BFS из одной вершины и как с её помощью разбить все вершины на две группы?
@@ -55,7 +71,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/67598)
 
-??? question "4. 2059D · Граф и граф"
+??? question "5. 2059D · Граф и граф"
 
     ??? tip "Подсказка 1"
         Когда ответ вообще конечен, то есть когда фишки могут двигаться дальше бесплатно?
@@ -71,7 +87,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/139094)
 
-??? question "5. 2117G · ОМГраф"
+??? question "6. 2117G · ОМГраф"
 
     ??? tip "Подсказка 1"
         Попробуй выбрать некоторое ребро и считать, что именно его вес участвует в стоимости вместо минимума. Как тогда изменится функция стоимости?
@@ -87,7 +103,7 @@
 
     [Официальный разбор](https://codeforces.com/blog/entry/143362)
 
-??? question "6. 2057E1 · Очередное упражнение на графы (простая версия)"
+??? question "7. 2057E1 · Очередное упражнение на графы (простая версия)"
 
     ??? tip "Подсказка 1"
         Как проверить для фиксированного $x$, существует ли путь из $a$ в $b$ с $k$-м максимумом не больше $x$?
@@ -108,3 +124,28 @@
         Ответ на запрос — бинарный поиск по $k$ с проверкой $dp[k][a][b] < k$, за $O(\log m)$. Циклы из пути можно выкинуть, поэтому достаточно простых путей.
 
     [Официальный разбор](https://codeforces.com/blog/entry/138119)
+
+??? question "8. 1163F · Цена поездки"
+
+    ??? tip "Подсказка 1"
+        Как изменится ответ, если изменённое ребро не лежит на одном фиксированном кратчайшем пути из 1 в $n$?
+
+    ??? tip "Подсказка 2"
+        Найди один кратчайший путь (главный) и посчитай расстояния от вершины 1 и до вершины $n$ для всех вершин. Что ещё можно вычислить для каждого ребра?
+
+    ??? tip "Подсказка 3"
+        Для каждой вершины $u$ кратчайший путь из 1 в $u$ использует какой-то префикс главного пути, а путь из $u$ в $n$ — суффикс. Как это записать через индексы $l_u$ и $r_u$?
+
+    ??? tip "Подсказка 4"
+        Для побочного ребра $(u,v)$ кратчайший путь через него не опирается на рёбра главного пути с номерами от $l_u+1$ до $r_v-1$. Аналогично для направления $v \to u$.
+
+    ??? tip "Подсказка 5"
+        Разбери случаи для запроса. Побочное ребро: ответ — минимум из главного пути и пути через это ребро. Ребро главного пути уменьшается: ответ уменьшается на разность весов.
+
+    ??? tip "Подсказка 6"
+        Ребро главного пути увеличивается: ответ — минимум из главного пути с поправкой и кратчайшего пути, не использующего это ребро.
+
+    ??? tip "Подсказка 7"
+        Последний путь использует побочное ребро, не зависящее от данного. Каждое побочное ребро даёт значение на отрезке главного пути, поэтому делай минимум на отрезках в дереве отрезков. Итого $O((m+n)\log n)$.
+
+    [Официальный разбор](https://codeforces.com/blog/entry/66943)

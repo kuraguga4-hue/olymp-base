@@ -4,11 +4,23 @@
 
 | № | Задача | Сложность | Ещё темы |
 |---|---|---|---|
-| 1 | [2242F · Летние каникулы](https://codeforces.com/problemset/problem/2242/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2242">Educational Codeforces Round 192 (Rated for Div. 2)</a> · задача F</span> | 2800 | динамическое программирование |
+| 1 | [Кислотные дожди](https://codeforces.com/gym/105674/problem/C)<br><span class="ob-note ob-source"><a href="https://codeforces.com/gym/105674">ВсОШ по информатике 2024–2025 · региональный этап · тур 1</a> · задача C</span> | ≈ 2100 | бинарный поиск |
+| 2 | [Прятки на дереве](https://codeforces.com/gym/106180/problem/E)<br><span class="ob-note ob-source"><a href="https://codeforces.com/gym/106180">Высшая проба 2024–2025 · заключительный этап</a> · задача E</span> | ≈ 2500 | — |
+| 3 | [2242F · Летние каникулы](https://codeforces.com/problemset/problem/2242/F)<br><span class="ob-note ob-source"><a href="https://codeforces.com/contest/2242">Educational Codeforces Round 192 (Rated for Div. 2)</a> · задача F</span> | 2800 | динамическое программирование |
 
 ## Подсказки
 
-??? question "1. 2242F · Летние каникулы"
+??? question "1. Кислотные дожди"
+
+    Подсказок к этой задаче пока нет. [Официальный разбор](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=3)
+
+
+??? question "2. Прятки на дереве"
+
+    Подсказок к этой задаче пока нет. [Архив решений жюри](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip)
+
+
+??? question "3. 2242F · Летние каникулы"
 
     ??? tip "Подсказка 1"
         Как зависит итоговое количество долларов от значения перед началом суффикса, и можно ли хранить эту зависимость целиком?

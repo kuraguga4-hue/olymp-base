@@ -1,6 +1,18 @@
 {
   "codeforces_source": "https://codeforces.com/api/contest.list?gym=false",
   "contests": {
+    "atcoder:abc447": {
+      "name": "AtCoder Beginner Contest 447",
+      "url": "https://atcoder.jp/contests/abc447"
+    },
+    "atcoder:abc453": {
+      "name": "AtCoder Beginner Contest 453",
+      "url": "https://atcoder.jp/contests/abc453"
+    },
+    "atcoder:abc477": {
+      "name": "UNICORNProgramming Contest2026(AtCoder Beginner Contest 477)",
+      "url": "https://atcoder.jp/contests/abc477"
+    },
     "atcoder:abc480": {
       "name": "AtCoder Beginner Contest 480",
       "url": "https://atcoder.jp/contests/abc480"
@@ -25,6 +37,10 @@
       "name": "Educational Codeforces Round 57 (Rated for Div. 2)",
       "url": "https://codeforces.com/contest/1096"
     },
+    "cf:1119": {
+      "name": "Codeforces Global Round 2",
+      "url": "https://codeforces.com/contest/1119"
+    },
     "cf:1133": {
       "name": "Codeforces Round 544 (Div. 3)",
       "url": "https://codeforces.com/contest/1133"
@@ -36,6 +52,10 @@
     "cf:1143": {
       "name": "Codeforces Round 549 (Div. 2)",
       "url": "https://codeforces.com/contest/1143"
+    },
+    "cf:1163": {
+      "name": "Codeforces Round 558 (Div. 2)",
+      "url": "https://codeforces.com/contest/1163"
     },
     "cf:1167": {
       "name": "Educational Codeforces Round 65 (Rated for Div. 2)",
@@ -341,6 +361,10 @@
       "name": "Squarepoint Challenge (Codeforces Round 1055, Div. 1 + Div. 2)",
       "url": "https://codeforces.com/contest/2152"
     },
+    "cf:2159": {
+      "name": "Codeforces Round 1058 (Div. 1)",
+      "url": "https://codeforces.com/contest/2159"
+    },
     "cf:2176": {
       "name": "Codeforces Round 1070 (Div. 2)",
       "url": "https://codeforces.com/contest/2176"
@@ -541,9 +565,21 @@
       "name": "Educational Codeforces Round 32",
       "url": "https://codeforces.com/contest/888"
     },
+    "cf:896": {
+      "name": "Codeforces Round 449 (Div. 1)",
+      "url": "https://codeforces.com/contest/896"
+    },
     "cf:908": {
       "name": "Good Bye 2017",
       "url": "https://codeforces.com/contest/908"
+    },
+    "cf:914": {
+      "name": "Codecraft-18 and Codeforces Round 458 (Div. 1 + Div. 2, combined)",
+      "url": "https://codeforces.com/contest/914"
+    },
+    "cf:923": {
+      "name": "VK Cup 2018 - Round 1",
+      "url": "https://codeforces.com/contest/923"
     },
     "cf:932": {
       "name": "ICM Technex 2018 and Codeforces Round 463 (Div. 1 + Div. 2, combined)",
@@ -560,6 +596,22 @@
     "cf:993": {
       "name": "Codeforces Round 488 by NEAR (Div. 1)",
       "url": "https://codeforces.com/contest/993"
+    },
+    "cf:997": {
+      "name": "Codeforces Round 493 (Div. 1)",
+      "url": "https://codeforces.com/contest/997"
+    },
+    "gym:105674": {
+      "name": "ВсОШ по информатике 2024–2025 · региональный этап · тур 1",
+      "url": "https://codeforces.com/gym/105674",
+      "verified_from": "data/olympiads/vsosh-region/2024-2025/README.md",
+      "rating_kind": "ai_estimate"
+    },
+    "gym:106180": {
+      "name": "Высшая проба 2024–2025 · заключительный этап",
+      "url": "https://codeforces.com/gym/106180",
+      "verified_from": "data/olympiads/vysshaya-proba/2024-2025/README.md",
+      "rating_kind": "ai_estimate"
     },
     "gym:106582": {
       "name": "ВсОШ по информатике 2025–2026 · заключительный этап · тур 1",
