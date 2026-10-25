@@ -6,6 +6,10 @@ repo_name: olymp-base
 theme:
   name: material
   language: ru
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  # шрифты Inter и JetBrains Mono подключает stylesheets/extra.css
+  font: false
   features:
     - navigation.tabs
     - navigation.sections
@@ -15,21 +19,20 @@ theme:
     - search.highlight
     - content.code.copy
     - content.tabs.link
+  # дизайн «Judge Night»: по умолчанию тёмная тема, цвета — в stylesheets/extra.css
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Тёмная тема
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
+    - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Светлая тема
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Тёмная тема
 
 plugins:
   - search:
@@ -58,6 +61,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
 
 extra_css:
+  - stylesheets/extra.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
 
 # Внутренние файлы команды — не публикуем на сайте
@@ -65,8 +69,9 @@ exclude_docs: |
   STYLE.md
   CONTEXT.md
 
+# Ровно три раздела. Главная (index.md) — обложка, на неё ведёт логотип;
+# журнал ошибок ИИ (INCIDENTS.md) открывается по ссылке с главной.
 nav:
-  - Главная: index.md
   - Теория:
       - theory/index.md
       - "Бинарный поиск и поиск по ответу": theory/binary-search.md
@@ -141,5 +146,4 @@ nav:
       - "Геометрия": practice/geometry.md
       - "DSU": practice/dsu.md
       - "Свёртки": practice/convolutions.md
-  - Мой прогресс: me.md
-  - Журнал ошибок ИИ: INCIDENTS.md
+  - Статистика: me.md

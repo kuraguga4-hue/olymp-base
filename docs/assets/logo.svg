@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Олимпиадная база">
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="8" fill="#0b0f17" stroke="#283142" stroke-width="1.5"/>
+  <!-- лесенка рейтинга: звания Codeforces от newbie до grandmaster -->
+  <rect x="4.6" y="20.5" width="2.6" height="5" rx="1.1" fill="#8f99ab"/>
+  <rect x="7.95" y="18.4" width="2.6" height="7.1" rx="1.1" fill="#3fcf5e"/>
+  <rect x="11.3" y="16.3" width="2.6" height="9.2" rx="1.1" fill="#2fd8c4"/>
+  <rect x="14.65" y="14.2" width="2.6" height="11.3" rx="1.1" fill="#5b7cff"/>
+  <rect x="18" y="12.1" width="2.6" height="13.4" rx="1.1" fill="#c36cf0"/>
+  <rect x="21.35" y="9.3" width="2.6" height="16.2" rx="1.1" fill="#ffa133"/>
+  <rect x="24.7" y="6.5" width="2.6" height="19" rx="1.1" fill="#ff4f4f"/>
+</svg>
