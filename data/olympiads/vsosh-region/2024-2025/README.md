@@ -9,20 +9,22 @@
 
 ## Задачи на Codeforces
 
+Темы задач заполнены по официальным решениям и независимо сверены вторым агентом. Для этих новых строк в общей таблице подсказки и сложность оставлены пустыми; ссылки ведут на официальные материалы.
+
 **[2024-2025 Всероссийская олимпиада школьников по информатике, региональный этап, 1 тур](https://codeforces.com/gym/105674)**
 
-| Задача | Название | Разбор |
-|---|---|---|
-| [A](https://codeforces.com/gym/105674/problem/A) | Кузнечик 2D | официальный — см. выше |
-| [B](https://codeforces.com/gym/105674/problem/B) | Простоватые числа | официальный — см. выше |
-| [C](https://codeforces.com/gym/105674/problem/C) | Кислотные дожди | официальный — см. выше |
-| [D](https://codeforces.com/gym/105674/problem/D) | Поиск сокровищ | официальный — см. выше |
+| Задача | Название | Основная тема | Доп. темы | Разбор |
+|---|---|---|---|---|
+| [A](https://codeforces.com/gym/105674/problem/A) | Кузнечик 2D | жадные алгоритмы | реализация | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=2) |
+| [B](https://codeforces.com/gym/105674/problem/B) | Простоватые числа | комбинаторика | теория чисел; реализация | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=2) |
+| [C](https://codeforces.com/gym/105674/problem/C) | Кислотные дожди | декартово дерево | бинарный поиск | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=3) |
+| [D](https://codeforces.com/gym/105674/problem/D) | Поиск сокровищ | динамическое программирование | битмаски | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=4) |
 
 **[2024-2025 Всероссийская олимпиада школьников по информатике, региональный этап, 2 тур](https://codeforces.com/gym/105675)**
 
-| Задача | Название | Разбор |
-|---|---|---|
-| [5](https://codeforces.com/gym/105675/problem/5) | Разность квадратов | официальный — см. выше |
-| [6](https://codeforces.com/gym/105675/problem/6) | Перекошенное разбиение | официальный — см. выше |
-| [7](https://codeforces.com/gym/105675/problem/7) | Главное правило личных олимпиад | официальный — см. выше |
-| [8](https://codeforces.com/gym/105675/problem/8) | Туристический маршрут | официальный — см. выше |
+| Задача | Название | Основная тема | Доп. темы | Разбор |
+|---|---|---|---|---|
+| [5](https://codeforces.com/gym/105675/problem/5) | Разность квадратов | теория чисел | перебор | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=5) |
+| [6](https://codeforces.com/gym/105675/problem/6) | Перекошенное разбиение | префиксные суммы | жадные алгоритмы | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=6) |
+| [7](https://codeforces.com/gym/105675/problem/7) | Главное правило личных олимпиад | задача о рюкзаке | динамическое программирование | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=7) |
+| [8](https://codeforces.com/gym/105675/problem/8) | Туристический маршрут | комбинаторика | динамическое программирование; сортировки | [официальное решение](https://neerc.ifmo.ru/school/archive/2024-2025/ru-olymp-regional-2025-tutorial.pdf#page=12) |

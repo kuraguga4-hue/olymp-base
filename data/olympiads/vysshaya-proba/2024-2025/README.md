@@ -11,12 +11,14 @@
 
 ## Задачи на Codeforces
 
+Темы задач заполнены по официальным решениям и независимо сверены вторым агентом. Для этих новых строк в общей таблице подсказки и сложность оставлены пустыми; ссылки ведут на официальные материалы.
+
 **[Высшая проба - 2025. Заключительный этап](https://codeforces.com/gym/106180)**
 
-| Задача | Название | Разбор |
-|---|---|---|
-| [A](https://codeforces.com/gym/106180/problem/A) | Игра с шариками | официальный — см. выше |
-| [B](https://codeforces.com/gym/106180/problem/B) | Flappy Bird | официальный — см. выше |
-| [C](https://codeforces.com/gym/106180/problem/C) | Иван и дома | официальный — см. выше |
-| [D](https://codeforces.com/gym/106180/problem/D) | Обмены рекордов | официальный — см. выше |
-| [E](https://codeforces.com/gym/106180/problem/E) | Прятки на дереве | официальный — см. выше |
+| Задача | Название | Основная тема | Доп. темы | Разбор |
+|---|---|---|---|---|
+| [A](https://codeforces.com/gym/106180/problem/A) | Игра с шариками | жадные алгоритмы | — | [официальное решение](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip) |
+| [B](https://codeforces.com/gym/106180/problem/B) | Flappy Bird | динамическое программирование | — | [официальное решение](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip) |
+| [C](https://codeforces.com/gym/106180/problem/C) | Иван и дома | хеши | теория чисел; жадные алгоритмы; решето Эратосфена | [официальное решение](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip) |
+| [D](https://codeforces.com/gym/106180/problem/D) | Обмены рекордов | динамическое программирование | комбинаторика | [официальное решение](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip) |
+| [E](https://codeforces.com/gym/106180/problem/E) | Прятки на дереве | декартово дерево | — | [официальное решение](https://olymp.hse.ru/mirror/pubs/share/1019913019.zip) |
