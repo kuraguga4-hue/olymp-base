@@ -62,7 +62,7 @@ hide:
    <span class="ob-hook"><span class="ob-chip">подробно</span> Суммы отрезков с изменениями: целые блоки считаем сразу, края — обычным проходом. <span class="ob-note">Статья готовится — пока есть [задачи](../practice/sqrt-decomposition.md).</span></span>
 1. [Дерево отрезков](segment-tree.md)
    <span class="ob-lvl ob-lvl--mid">средний</span>
-   <span class="ob-hook"><span class="ob-chip">подробно</span> Разделить массив пополам и собирать ответ из готовых частей; менять значение за путь от листа к корню. <span class="ob-note">Статья готовится — пока есть [задачи](../practice/segment-tree.md).</span></span>
+   <span class="ob-hook"><span class="ob-chip">подробно</span> Разделить массив пополам и собирать ответ из готовых частей; менять значение за путь от листа к корню. <span class="ob-note">Текст для чтения.</span></span>
 1. [Декартово дерево](treap.md)
    <span class="ob-lvl ob-lvl--adv">продвинутый</span>
    <span class="ob-hook"><span class="ob-chip">подробно</span> Разрезать последовательность, перевернуть отрезок и склеить обратно — через split, merge и случайные приоритеты. <span class="ob-note">Статья готовится — пока есть [задачи](../practice/treap.md).</span></span>
